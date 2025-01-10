@@ -1,0 +1,8 @@
+layout:
+  - hero:
+      variant: high-impact
+  - featureBox
+  - featureGrid
+  - featureList
+  - testimonial:
+      variant: vertical
