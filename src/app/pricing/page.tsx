@@ -3,10 +3,10 @@ import { FooterSchema } from '@/components/footers/footer-schema'
 import { Header } from '@/components/headers/header'
 import { HeaderSchema } from '@/components/headers/header-schema'
 import globalData from '@/content/global.yaml'
-import layoutData from '@/content/home.yaml'
+import layoutData from '@/content/pricing.yaml'
 import { parseLayout } from '@/utils/parse-layout'
 
-export default async function Home() {
+export default async function Page() {
 	const layoutComponents = await parseLayout(layoutData)
 
 	const headerData = HeaderSchema.parse(globalData.header || {})
