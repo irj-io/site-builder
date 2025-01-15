@@ -1,9 +1,14 @@
 import React from 'react'
 
-interface SectionProps extends React.ComponentProps {
+export interface SectionProps {
+	className: string
 	color: string
 }
 
-export function Section({ children, color }: SectionProps) {
-	return <section>{children}</section>
+export function Section({
+	className,
+	children,
+	color,
+}: SectionProps & { children: React.ReactNode }) {
+	return <section className={className}>{children}</section>
 }

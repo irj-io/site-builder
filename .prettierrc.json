@@ -6,7 +6,7 @@
   "useTabs": true,
   "bracketSameLine": false,
   "plugins": ["@ianvs/prettier-plugin-sort-imports"],
-  "importOrder": ["<THIRD_PARTY_MODULES>", "", "^[./]"],
+  "importOrder": ["<THIRD_PARTY_MODULES>", "", "@\/.*", "^[./]"],
   "overrides": [
     {
       "files": ["*.json", "*.yml"],

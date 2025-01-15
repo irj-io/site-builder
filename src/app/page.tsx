@@ -1,24 +1,20 @@
-import { FeatureBoxBlock } from '@/blocks/feature-box/feature-box-block'
-import { FeatureGridBlock } from '@/blocks/feature-grid/feature-grid-block'
-import { FeatureListBlock } from '@/blocks/feature-list/feature-list-block'
-import { HeroHighImpactBlock } from '@/blocks/hero/hero-high-impact-block'
-import { TestimonialVertical } from '@/blocks/testimonial/testimonial-vertical'
+import { Footer } from '@/components/footers/footer'
+import { Header } from '@/components/headers/header'
+import globalData from '@/content/global.yaml'
+import layoutData from '@/content/home.yaml'
+import { parseLayout } from '@/utils/parse-layout'
 
-export default function Home() {
+export default async function Home() {
+	const layoutComponents = await parseLayout(layoutData)
+
+	const headerData = globalData.header || {}
+	const footerData = globalData.footer || {}
+
 	return (
-		<div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-			<header className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></header>
-			<main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-				<HeroHighImpactBlock />
-				<FeatureBoxBlock />
-				<FeatureGridBlock />
-				<FeatureListBlock />
-
-				<TestimonialVertical />
-				<TestimonialVertical />
-				<TestimonialVertical />
-			</main>
-			<footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
+		<div className="grid grid-rows-[0fr_1fr_0fr] min-h-screen font-[family-name:var(--font-geist-sans)]">
+			<Header {...headerData} />
+			<main className="row-start-2 items-center sm:items-start">{layoutComponents}</main>
+			<Footer {...footerData} />
 		</div>
 	)
 }

@@ -1,0 +1,17 @@
+header:
+  navLinks:
+    - label: Features
+    - label: Pricing
+    - label: Login
+    - label: Try It For Free!
+
+footer:
+  topSection:
+    content: FOOTER
+  columns:
+    - content: Column 1
+    - content: Column 2
+    - content: Column 3
+    - content: Column 4
+  bottomSection:
+    content: copyright
