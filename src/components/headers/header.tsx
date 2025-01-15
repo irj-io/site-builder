@@ -1,8 +1,10 @@
 import Image from 'next/image'
 
 import logo from '@/assets/tyto-logo.png'
+import { Action } from '../actions/action'
+import type { Header } from './header-schema'
 
-export function Header(props) {
+export function Header(props: Header) {
 	const { navLinks = [] } = props
 
 	return (
@@ -13,8 +15,10 @@ export function Header(props) {
 			</div>
 			<nav className="text-end">
 				<ul className="flex justify-end gap-4 font-semibold text-base">
-					{navLinks.map((link, index) => (
-						<li key={`navLink-${index}`}>{link.label}</li>
+					{navLinks.map((action, index) => (
+						<li key={`navLink-${index}`}>
+							<Action {...action} />
+						</li>
 					))}
 				</ul>
 			</nav>

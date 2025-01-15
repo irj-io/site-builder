@@ -58,7 +58,7 @@ layout:
       content: Working from home doesn't have to mean an end to collaboration. We believe collaboration thrives through transparency. That's why we baked it in from the start, allowing teams to be anywhere, yet feel more connected than ever.
       action:
         type: button
-        variant: contained
+        variant: filled
         data:
           label: See It In Action
       reverse: true
@@ -72,7 +72,7 @@ layout:
       content: Set your team up for success by setting organized, weekly, clear objectives— then leaving your team to get on with it, instead of pacing around the office, annoying everyone— like some kind of wild animal.
       action:
         type: button
-        variant: contained
+        variant: filled
         data:
           label: See It In Action
 
@@ -85,7 +85,7 @@ layout:
       content: With Tyto, your team will be working more efficiently than ever before. Get through tasks, capture ideas and deploy them in an organized, fun and efficient manner.
       action:
         type: button
-        variant: contained
+        variant: filled
         data:
           label: See It In Action
       reverse: true

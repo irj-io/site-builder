@@ -1,6 +1,6 @@
 layout:
   - type: hero
-    variant: high-impact
+    variant: highImpact
     data:
       media:
         src: /assets/images/hero-background.png
@@ -16,6 +16,6 @@ layout:
       content: Some content can go here
       action:
         type: button
-        variant: contained
+        variant: filled
         data:
           label: Button

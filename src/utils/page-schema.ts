@@ -8,17 +8,27 @@ const MediaSchema = z.object({
 	src: z.string(),
 })
 
-const ButtonActionDataSchema = z.object({
-	label: z.string(),
-})
-const ButtonActionSchema = z.object({
+export type ButtonAction = z.infer<typeof ButtonActionSchema>
+export const ButtonActionSchema = z.object({
 	type: z.literal('button'),
-	variant: z.enum(['contained']),
-	data: ButtonActionDataSchema,
+	variant: z.enum(['filled', 'outlined', 'text']).optional(),
+	data: z.object({
+		href: z.string().optional(),
+		label: z.string(),
+	}),
+})
+
+export type LinkAction = z.infer<typeof LinkActionSchema>
+export const LinkActionSchema = z.object({
+	type: z.literal('link'),
+	data: z.object({
+		href: z.string(),
+		label: z.string(),
+	}),
 })
 
 export type Action = z.infer<typeof ActionSchema>
-const ActionSchema = z.discriminatedUnion('type', [ButtonActionSchema])
+export const ActionSchema = z.discriminatedUnion('type', [ButtonActionSchema, LinkActionSchema])
 
 export type Hero = z.infer<typeof HeroSchema>
 const HeroSchema = z.object({
