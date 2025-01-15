@@ -1,6 +1,6 @@
 # site-builder
 
-# yaml-based website generator
+yaml-based website generator
 
 ## Getting Started
 
