@@ -23,7 +23,7 @@ header:
 footer:
   columns:
     - content: []
-    - title: Test
+    - title: Tyto
       content:
         - type: link
           data:

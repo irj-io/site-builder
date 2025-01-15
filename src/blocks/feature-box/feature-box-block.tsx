@@ -14,7 +14,10 @@ export function FeatureBoxBlock(props: BlockProps<FeatureBox>) {
 	const direction = reverse ? 'flex-row-reverse' : 'flex-row'
 
 	return (
-		<Section className={cn('flex min-h-64', direction, _sectionProps?.className)} {...sectionProps}>
+		<Section
+			className={cn('container mx-auto flex min-h-64', direction, _sectionProps?.className)}
+			{...sectionProps}
+		>
 			<div className="grow w-3/6">
 				{media && typeof media === 'object' ? (
 					<div
