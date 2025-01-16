@@ -2,23 +2,19 @@ header:
   navLinks:
     - type: button
       variant: text
-      data:
-        label: Features
-        href: /features
+      label: Features
+      href: /features
     - type: button
       variant: text
-      data:
-        label: Pricing
-        href: /pricing
+      label: Pricing
+      href: /pricing
     - type: button
       variant: text
-      data:
-        label: Login
-        href: https://tyto.me/login
+      label: Login
+      href: https://tyto.me/login
     - type: button
-      data:
-        label: Try It For Free!
-        href: /signup
+      label: Try It For Free!
+      href: /signup
 
 footer:
   columns:
@@ -26,35 +22,28 @@ footer:
     - title: Tyto
       content:
         - type: link
-          data:
-            label: Features
-            href: /features
+          label: Features
+          href: /features
         - type: link
-          data:
-            label: Pricing
-            href: /pricing
+          label: Pricing
+          href: /pricing
         - type: link
-          data:
-            label: Signup
-            href: /signup
+          label: Signup
+          href: /signup
         - type: link
-          data:
-            label: Help
-            href: /help
+          label: Help
+          href: /help
     - title: Add-ons
       content:
         - type: link
-          data:
-            label: Tyto for Mobile
-            href: /mobile
+          label: Tyto for Mobile
+          href: /mobile
         - type: link
-          data:
-            label: Tyto for Gmail
-            href: /gmail
+          label: Tyto for Gmail
+          href: /gmail
         - type: link
-          data:
-            label: Tyto for Enterprise
-            href: /enterprise
+          label: Tyto for Enterprise
+          href: /enterprise
     - content: []
   bottomSection:
     content: © Copyright 2016 Tyto - All Rights Reserved · An IRJ.io site. · Privacy Policy

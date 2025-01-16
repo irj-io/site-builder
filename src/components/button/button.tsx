@@ -6,7 +6,7 @@ import { ButtonAction } from '@/utils/page-schema'
 export type ButtonProps = ButtonAction
 
 export function Button(props: ButtonProps) {
-	const { data, variant } = props
+	const { href, label, variant } = props
 
 	const stateLayer = 'before:block before:absolute before:-inset-1'
 	let classes = cn(
@@ -17,7 +17,7 @@ export function Button(props: ButtonProps) {
 		default:
 		case 'filled': {
 			const style =
-				'href' in data
+				'href' in props
 					? 'active:ring-2 active:ring-primary active:ring-offset-2 active:before:bg-on-primary/30 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:before:bg-on-primary/30 hover:before:bg-on-primary/10'
 					: 'data-[active]:ring-2 data-[active]:ring-primary data-[active]:ring-offset-2 data-[active]:before:bg-on-primary/30 data-[focus]:ring-2 data-[focus]:ring-primary data-[focus]:ring-offset-2 data-[focus]:before:bg-on-primary/30 data-[hover]:before:bg-on-primary/10'
 			classes = cn(classes, style, 'bg-primary text-on-primary')
@@ -25,7 +25,7 @@ export function Button(props: ButtonProps) {
 		}
 		case 'outlined': {
 			const style =
-				'href' in data
+				'href' in props
 					? 'active:before:bg-primary/20 focus:before:bg-primary/10 hover:before:bg-primary/[0.08]'
 					: 'data-[active]:before:bg-primary/20 data-[focus]:before:bg-primary/10 data-[hover]:before:bg-primary/[0.08]'
 			classes = cn(classes, style, 'border border-outline')
@@ -33,7 +33,7 @@ export function Button(props: ButtonProps) {
 		}
 		case 'text': {
 			const style =
-				'href' in data
+				'href' in props
 					? 'active:before:bg-primary/20 focus:before:bg-primary/10 hover:before:bg-primary/[0.08]'
 					: 'data-[active]:before:bg-primary/20 data-[focus]:before:bg-primary/10 data-[hover]:before:bg-primary/[0.08]'
 			classes = cn(classes, style)
@@ -41,11 +41,11 @@ export function Button(props: ButtonProps) {
 		}
 	}
 
-	return 'href' in data ? (
-		<a className={classes} href={data.href}>
-			{data.label}
+	return 'href' in props ? (
+		<a className={classes} href={href}>
+			{label}
 		</a>
 	) : (
-		<HeadlessButton className={classes}>{data.label}</HeadlessButton>
+		<HeadlessButton className={classes}>{label}</HeadlessButton>
 	)
 }

@@ -6,8 +6,7 @@ import { BlockProps } from '../block-types'
 import { FeatureGridItem } from './feature-grid-item'
 
 export function FeatureGridBlock(props: BlockProps<FeatureGrid>) {
-	const { data } = props
-	const { title, subtitle, features = [], sectionProps: _sectionProps } = data
+	const { title, subtitle, features = [], sectionProps: _sectionProps } = props
 
 	const sectionProps = _sectionProps ? omit(_sectionProps, ['className']) : {}
 

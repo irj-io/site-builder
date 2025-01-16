@@ -4,8 +4,7 @@ import { BlockProps } from '../block-types'
 import { FeatureListItem } from './feature-list-item'
 
 export function FeatureListBlock(props: BlockProps<FeatureList>) {
-	const { data } = props
-	const { title, subtitle, features, _secionProps: sectionProps } = data
+	const { title, subtitle, features, _secionProps: sectionProps } = props
 
 	return (
 		<Section className="p-16" {...sectionProps}>

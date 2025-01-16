@@ -1,77 +1,70 @@
 layout:
   - type: hero
     variant: productScreenshot
-    data:
-      media:
-        src: /assets/images/tyto-my-tasks-screenshot.png
-      title: A new way to connect to your remote team.
-      subtitle: Tyto is an all-in-one remote work tool for teams, with tasks, projects, video and chat.
-      actions: []
+    media:
+      src: /assets/images/tyto-my-tasks-screenshot.png
+    title: A new way to connect to your remote team.
+    subtitle: Tyto is an all-in-one remote work tool for teams, with tasks, projects, video and chat.
+    actions: []
 
   - type: featureGrid
-    data:
-      title: Everything you need, all in one space.
-      features:
-        - icon: videocam
-          title: Video
-          content: Call teammates directly or host group chat, without leaving the app.
-        - icon: chat_bubble
-          title: Chat
-          content: Message teammates either one-to-one, or against projects or even directly at task level.
-        - icon: task
-          title: Tasks
-          content: Get yourself and your team more productive.
-        - icon: folder_copy
-          title: Projects
-          content: Plan, delegate, prioritize and review multiple projects— all with fewer meetings.
-        - icon: bolt
-          title: Real-time
-          content: See task progress in real-time, to improve focus and reduce interruptions.
-        - icon: mood
-          title: Fun!
-          content: With weekly challenges, multiple themes and scoring, getting to work never was this fun!
+    title: Everything you need, all in one space.
+    features:
+      - icon: videocam
+        title: Video
+        content: Call teammates directly or host group chat, without leaving the app.
+      - icon: chat_bubble
+        title: Chat
+        content: Message teammates either one-to-one, or against projects or even directly at task level.
+      - icon: task
+        title: Tasks
+        content: Get yourself and your team more productive.
+      - icon: folder_copy
+        title: Projects
+        content: Plan, delegate, prioritize and review multiple projects— all with fewer meetings.
+      - icon: bolt
+        title: Real-time
+        content: See task progress in real-time, to improve focus and reduce interruptions.
+      - icon: mood
+        title: Fun!
+        content: With weekly challenges, multiple themes and scoring, getting to work never was this fun!
 
   - type: featureList
-    data:
-      title: Bring your team closer
-      features:
-        - icon: check_circle
-          content: Built in (group) chat
-        - icon: check_circle
-          content: Map deadlines & timeline
-        - icon: check_circle
-          content: Real-time updates
-        - icon: check_circle
-          content: File & document sharing
-        - icon: check_circle
-          content: Video conferencing & screen sharing
-        - icon: check_circle
-          content: Any 3rd party app integration & much more
+    title: Bring your team closer
+    features:
+      - icon: check_circle
+        content: Built in (group) chat
+      - icon: check_circle
+        content: Map deadlines & timeline
+      - icon: check_circle
+        content: Real-time updates
+      - icon: check_circle
+        content: File & document sharing
+      - icon: check_circle
+        content: Video conferencing & screen sharing
+      - icon: check_circle
+        content: Any 3rd party app integration & much more
 
   - type: featureBox
-    data:
-      media:
-        src: /assets/images/home-feature-box-image-1.png
-      title: Collaborate more than ever before
-      content: Working from home doesn't have to mean an end to collaboration. We believe collaboration thrives through transparency. That's why we baked it in from the start, allowing teams to be anywhere, yet feel more connected than ever.
-      action:
-        type: button
-        variant: filled
-        data:
-          label: See It In Action
-      reverse: true
+    media:
+      src: /assets/images/home-feature-box-image-1.png
+    title: Collaborate more than ever before
+    content: Working from home doesn't have to mean an end to collaboration. We believe collaboration thrives through transparency. That's why we baked it in from the start, allowing teams to be anywhere, yet feel more connected than ever.
+    action:
+      type: button
+      variant: filled
+      label: See It In Action
+    reverse: true
 
   - type: featureBox
-    data:
-      media:
-        src: /assets/images/home-feature-box-image-2.png
-      title: Set clear priorities
-      content: Set your team up for success by setting organized, weekly, clear objectives— then leaving your team to get on with it, instead of pacing around the office, annoying everyone— like some kind of wild animal.
-      action:
-        type: button
-        variant: filled
-        data:
-          label: See It In Action
+    media:
+      src: /assets/images/home-feature-box-image-2.png
+    title: Set clear priorities
+    content: Set your team up for success by setting organized, weekly, clear objectives— then leaving your team to get on with it, instead of pacing around the office, annoying everyone— like some kind of wild animal.
+    action:
+      type: button
+      variant: filled
+      label: See It In Action
 
   - type: featureBox
     data:
@@ -82,6 +75,5 @@ layout:
       action:
         type: button
         variant: filled
-        data:
-          label: See It In Action
+        label: See It In Action
       reverse: true

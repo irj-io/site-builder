@@ -1,14 +1,13 @@
 import Image from 'next/image'
 
-import { ActionProps } from '@/components/action'
+import { ActionProps } from '@/components/actions/action'
 import { Hero } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
 
-const Action = (props: ActionProps) => <div>{props.data.label}</div>
+const Action = (props: ActionProps) => <div>{props.label}</div>
 
 export function HeroProductScreenshotBlock(props: BlockProps<Hero>) {
-	const { data } = props
-	const { media, title, subtitle, actions = [] } = data
+	const { media, title, subtitle, actions = [] } = props
 
 	return (
 		<div className="flex flex-col">

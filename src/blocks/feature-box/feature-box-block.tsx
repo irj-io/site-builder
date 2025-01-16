@@ -7,8 +7,7 @@ import { FeatureBox } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
 
 export function FeatureBoxBlock(props: BlockProps<FeatureBox>) {
-	const { data } = props
-	const { media, title, overline, content, action, reverse, sectionProps: _sectionProps } = data
+	const { media, title, overline, content, action, reverse, sectionProps: _sectionProps } = props
 
 	const sectionProps = _sectionProps ? omit(_sectionProps, ['className']) : {}
 	const direction = reverse ? 'flex-row-reverse' : 'flex-row'

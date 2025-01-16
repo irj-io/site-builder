@@ -1,21 +1,18 @@
 layout:
   - type: hero
     variant: highImpact
-    data:
-      media:
-        src: /assets/images/hero-background.png
-      title: Hero high impact 222
-      actions: []
+    media:
+      src: /assets/images/hero-background.png
+    title: Hero high impact 222
+    actions: []
 
   - type: featureBox
-    data:
-      media:
-        src: /assets/images/hero-background.png
-      title: Title
-      overline: Overline
-      content: Some content can go here
-      action:
-        type: button
-        variant: filled
-        data:
-          label: Button
+    media:
+      src: /assets/images/hero-background.png
+    title: Title
+    overline: Overline
+    content: Some content can go here
+    action:
+      type: button
+      variant: filled
+      label: Button
