@@ -9,10 +9,10 @@ export function Header(props: Header) {
 
 	return (
 		<header className="container mx-auto grid grid-cols-[auto_1fr_auto] items-center h-20 px-6 py-4">
-			<div className="flex items-center">
+			<a className="flex items-center" href="/">
 				<Image className="inline-block mr-4" src={logo} alt="product logo" height={48} width={48} />
 				<span className="text-2xl font-medium">tyto</span>
-			</div>
+			</a>
 			<nav className="text-end">
 				<ul className="flex justify-end gap-4 font-semibold text-base">
 					{navLinks.map((action, index) => (
