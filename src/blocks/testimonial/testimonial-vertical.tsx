@@ -1,6 +1,8 @@
-export function TestimonialVertical(props) {
-	const { data } = props
-	const { media, title, subtitle, content } = data
+import { Testimonial } from '@/utils/page-schema'
+import { BlockProps } from '../block-types'
+
+export function TestimonialVertical(props: BlockProps<Testimonial>) {
+	const { media, title, subtitle, content } = props
 
 	return (
 		<div className="flex flex-col px-4 py-6">
