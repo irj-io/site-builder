@@ -19,6 +19,8 @@ export const ButtonActionSchema = z.object({
 	variant: z.enum(['filled', 'outlined', 'text']).optional(),
 	href: z.string().optional(),
 	label: z.string(),
+	color: z.enum(['primary', 'secondary', 'inherit']).default('inherit'),
+	startIcon: z.string().optional(),
 })
 
 export type LinkAction = z.infer<typeof LinkActionSchema>
@@ -115,8 +117,10 @@ const CollapsibleContentSchema = z.object({
 })
 
 const ContentColumnSchema = z.object({
-	content: z.string().optional(),
-	size: z.enum(['full', 'half', 'oneThird', 'twoThirds']).default('full'),
+	content: TestimonialSchema.optional(),
+	size: z
+		.enum(['full', 'half', 'oneThird', 'twoThirds', 'oneQuarter', 'twoQuarters', 'threeQuarters'])
+		.default('full'),
 })
 export type Content = z.infer<typeof ContentSchema>
 const ContentSchema = z.object({

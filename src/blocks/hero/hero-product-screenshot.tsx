@@ -14,13 +14,13 @@ export function HeroProductScreenshotBlock(props: BlockProps<Hero>) {
 			<div className="container mx-auto mt-16 mb-16 z-10 relative px-16">
 				<div className="text-center">
 					{title ? (
-						<div className="mb-6 max-w-none mx-auto prose dark:prose-invert">
+						<div className="mb-6 max-w-none mx-auto">
 							<h1 className="text-5xl font-bold">{title}</h1>
 						</div>
 					) : null}
 					{subtitle ? (
-						<div className="mb-2 max-w-none mx-auto prose dark:prose-invert">
-							<h1 className="text-2xl font-bold">{subtitle}</h1>
+						<div className="mb-2 max-w-none mx-auto">
+							<h2 className="text-2xl font-bold">{subtitle}</h2>
 						</div>
 					) : null}
 					{Array.isArray(actions) && actions.length > 0 ? (

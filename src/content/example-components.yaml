@@ -1,0 +1,133 @@
+layout:
+  - type: hero
+    variant: highImpact
+    media:
+      src: /assets/images/hero-background.png
+    title: Example Components
+    subtitle: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    actions:
+      - type: button
+        variant: outlined
+        color: inherit
+        label: Start Free
+      - type: button
+        variant: filled
+        color: primary
+        label: View Video
+        startIcon: play_arrow
+
+  - type: featureGrid
+    title: The FeatureGrid block
+    subtitle: Displays features in a grid layout
+    features:
+      - icon: home
+        title: Lorem
+        content: Contrary to popular belief, Lorem Ipsum is not simply random text.
+      - icon: bolt
+        title: Ipsum
+        content: It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+      - icon: autorenew
+        title: Dolor
+        content: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+
+  - type: featureGrid
+    subtitle: Titles and content are optional
+    features:
+      - icon: star
+        title: Feature 1
+      - icon: shopping_cart
+        title: Feature 2
+      - icon: key_vertical
+        title: Feature 3
+    section:
+      className: bg-tertiary-container/30
+
+  - type: featureList
+    title: The FeatureList block
+    subtitle: Displays features similar to a bulleted list with icons as bullets
+    features:
+      - icon: star
+        content: Feature 1
+      - icon: star
+        content: Feature 2
+      - icon: star
+        content: Feature 3
+      - icon: star
+        content: Feature 4
+      - icon: star
+        content: Feature 5
+      - icon: star
+        content: Feature 6
+
+  - type: featureBox
+    media:
+      src: /assets/images/home-feature-box-image-1.png
+    title: Collaborate more than ever before
+    content: Working from home doesn't have to mean an end to collaboration. We believe collaboration thrives through transparency. That's why we baked it in from the start, allowing teams to be anywhere, yet feel more connected than ever.
+    action:
+      type: button
+      variant: filled
+      color: primary
+      label: See It In Action
+    reverse: true
+    section:
+      className: bg-surface
+
+  - type: featureBox
+    media:
+      src: /assets/images/home-feature-box-image-2.png
+    title: Set clear priorities
+    content: Set your team up for success by setting organized, weekly, clear objectives— then leaving your team to get on with it, instead of pacing around the office, annoying everyone— like some kind of wild animal.
+    action:
+      type: button
+      variant: filled
+      color: primary
+      label: See It In Action
+    section:
+      className: bg-surface
+
+  - type: contactForm
+    title: The ContactForm block
+
+  - type: collapsibleContent
+    title: The CollapsibleContent block
+    items:
+      - title: Collapsible Item 1
+        content: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      - title: Collapsible Item 2
+        content: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      - title: Collapsible Item 3
+        content: Ex id ipsum sed maecenas tempor. Maximus enim massa primis dapibus; diam bibendum blandit sem. Parturient mus convallis donec vestibulum feugiat maecenas.
+      - title: Collapsible Item 4
+        content: Gravida platea dapibus molestie potenti amet magna. In netus sem habitant in habitant felis per finibus. Proin varius torquent arcu eleifend himenaeos justo. Mollis consectetur erat ac molestie quam. Pulvinar non et volutpat vitae non per ante.
+      - title: Collapsible Item 5
+        content: Praesent neque ligula conubia quam adipiscing, habitasse bibendum molestie ad. Dictum massa litora malesuada himenaeos risus faucibus pellentesque ex. Vulputate magnis facilisi purus facilisis, hac eros?
+    section:
+      className: bg-tertiary-container/30
+
+  - type: content
+    columns:
+      - size: oneThird
+        content:
+          type: testimonial
+          media:
+            src: https://placehold.co/192x192
+          title: Alex Nguyen
+          subtitle: Marketing Specialist
+          content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.
+      - size: oneThird
+        content:
+          type: testimonial
+          media:
+            src: https://placehold.co/192x192
+          title: Alex Nguyen
+          subtitle: Marketing Specialist
+          content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.
+      - size: oneThird
+        content:
+          type: testimonial
+          media:
+            src: https://placehold.co/192x192
+          title: Alex Nguyen
+          subtitle: Marketing Specialist
+          content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.

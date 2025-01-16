@@ -1,17 +1,24 @@
 import Image from 'next/image'
 
-const Action = ({ label }: { label: string }) => <div>{label}</div>
+import { Action } from '@/components/actions/action'
+import { Hero } from '@/utils/page-schema'
+import { BlockProps } from '../block-types'
 
-export function HeroHighImpactBlock(props) {
-	const { media, title, actions = [] } = props
+export function HeroHighImpactBlock(props: BlockProps<Hero>) {
+	const { media, title, subtitle, actions = [] } = props
 
 	return (
 		<div className="relative -mt-[10.4rem] flex items-end text-white">
 			<div className="container mx-auto mb-8 z-10 relative px-16">
-				<div className="max-w-[34rem]">
+				<div className="max-w-[60vw] pb-[88px]">
 					{title ? (
-						<div className="mb-6 max-w-none mx-auto prose dark:prose-invert">
-							<h1 className="text-7xl">{title}</h1>
+						<div className="mb-8 max-w-none mx-auto">
+							<h1 className="text-8xl leading-tight font-extrabold">{title}</h1>
+						</div>
+					) : null}
+					{subtitle ? (
+						<div className="mb-16 max-w-none mx-auto">
+							<h2 className="text-xl">{subtitle}</h2>
 						</div>
 					) : null}
 					{Array.isArray(actions) && actions.length > 0 ? (
@@ -38,7 +45,7 @@ export function HeroHighImpactBlock(props) {
 							quality={90}
 							priority
 						/>
-						<div className="absolute pointer-events-none left-0 bottom-0 w-full h-1/2 bg-gradient-to-t from-black to-transparent" />
+						<div className="absolute pointer-events-none left-0 bottom-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent" />
 					</>
 				) : null}
 			</div>

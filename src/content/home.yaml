@@ -55,6 +55,7 @@ layout:
     action:
       type: button
       variant: filled
+      color: primary
       label: See It In Action
     reverse: true
 
@@ -66,16 +67,17 @@ layout:
     action:
       type: button
       variant: filled
+      color: primary
       label: See It In Action
 
   - type: featureBox
-    data:
-      media:
-        src: /assets/images/home-feature-box-image-3.png
-      title: Let your team fly
-      content: With Tyto, your team will be working more efficiently than ever before. Get through tasks, capture ideas and deploy them in an organized, fun and efficient manner.
-      action:
-        type: button
-        variant: filled
-        label: See It In Action
-      reverse: true
+    media:
+      src: /assets/images/home-feature-box-image-3.png
+    title: Let your team fly
+    content: With Tyto, your team will be working more efficiently than ever before. Get through tasks, capture ideas and deploy them in an organized, fun and efficient manner.
+    action:
+      type: button
+      variant: filled
+      color: primary
+      label: See It In Action
+    reverse: true

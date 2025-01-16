@@ -15,6 +15,7 @@ header:
     - type: button
       label: Try It For Free!
       href: /signup
+      color: primary
 
 footer:
   columns:
