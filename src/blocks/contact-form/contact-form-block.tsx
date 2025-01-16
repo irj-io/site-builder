@@ -1,12 +1,13 @@
-import { Description, Field, Input, Label, Textarea } from '@headlessui/react'
+import { Field, Input, Label, Textarea } from '@headlessui/react'
 import { omit } from 'remeda'
 
 import { Section } from '@/components/section'
 import { cn } from '@/utils/cn'
+import { ContactForm } from '@/utils/page-schema'
+import { BlockProps } from '../block-types'
 
-export function ContactFormBlock(props) {
-	const { data } = props
-	const { title, sectionProps: _sectionProps } = data
+export function ContactFormBlock(props: BlockProps<ContactForm>) {
+	const { title, sectionProps: _sectionProps } = props
 
 	const sectionProps = _sectionProps ? omit(_sectionProps, ['className']) : {}
 

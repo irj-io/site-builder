@@ -3,8 +3,7 @@ import Image from 'next/image'
 const Action = ({ label }: { label: string }) => <div>{label}</div>
 
 export function HeroHighImpactBlock(props) {
-	const { data } = props
-	const { media, title, actions = [] } = data
+	const { media, title, actions = [] } = props
 
 	return (
 		<div className="relative -mt-[10.4rem] flex items-end text-white">

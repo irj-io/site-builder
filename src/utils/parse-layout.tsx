@@ -5,6 +5,7 @@ import { toCamelCase } from 'remeda'
 import { BlockProps } from '@/blocks/block-types'
 import { CollapsibleContentBlock } from '@/blocks/collapsible-content/collapsible-content-block'
 import { ContactFormBlock } from '@/blocks/contact-form/contact-form-block'
+import { ContentBlock } from '@/blocks/content/content-block'
 import { FeatureBoxBlock } from '@/blocks/feature-box/feature-box-block'
 import { FeatureGridBlock } from '@/blocks/feature-grid/feature-grid-block'
 import { FeatureListBlock } from '@/blocks/feature-list/feature-list-block'
@@ -24,6 +25,7 @@ const componentMap = {
 	testimonial: TestimonialVertical,
 	contactForm: ContactFormBlock,
 	collapsibleContent: CollapsibleContentBlock,
+	content: ContentBlock,
 }
 
 export async function parseLayout(yaml: string) {

@@ -86,8 +86,8 @@ const TestimonialSchema = z.object({
 	content: z.string().optional(),
 })
 
-export type ContactFormBlock = z.infer<typeof ContactFormBlockSchema>
-const ContactFormBlockSchema = z.object({
+export type ContactForm = z.infer<typeof ContactFormSchema>
+const ContactFormSchema = z.object({
 	type: z.literal('contactForm'),
 	title: z.string().optional(),
 })
@@ -104,6 +104,16 @@ const CollapsibleContentSchema = z.object({
 	items: z.array(CollapsibleContentItemSchema),
 })
 
+const ContentColumnSchema = z.object({
+	content: z.string().optional(),
+	size: z.enum(['full', 'half', 'oneThird', 'twoThirds']).default('full'),
+})
+export type Content = z.infer<typeof ContentSchema>
+const ContentSchema = z.object({
+	type: z.literal('content'),
+	columns: z.array(ContentColumnSchema),
+})
+
 export const BlocksSchema = z.discriminatedUnion('type', [
 	HeroSchema,
 	FeatureBoxSchema,
@@ -111,7 +121,8 @@ export const BlocksSchema = z.discriminatedUnion('type', [
 	FeatureListSchema,
 	TestimonialSchema,
 	CollapsibleContentSchema,
-	ContactFormBlockSchema,
+	ContactFormSchema,
+	ContentSchema,
 ])
 export type Blocks = z.infer<typeof BlocksSchema>
 
