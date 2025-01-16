@@ -5,15 +5,17 @@ import { omit } from 'remeda'
 
 import { Section } from '@/components/section'
 import { cn } from '@/utils/cn'
+import { CollapsibleContent } from '@/utils/page-schema'
+import { BlockProps } from '../block-types'
 
-export function CollapsibleContentBlock(props) {
-	const { data } = props
-	const { title, items = [], sectionProps: _sectionProps } = data
+export function CollapsibleContentBlock(props: BlockProps<CollapsibleContent>) {
+	const { title, items = [], section: _sectionProps } = props
 
-	const sectionProps = _sectionProps ? omit(_sectionProps, ['className']) : {}
+	const sectionProps = _sectionProps ? omit(_sectionProps, ['className']) : null
+	const sectionClassName = _sectionProps?.className
 
 	return (
-		<Section className={cn('flex flex-col px-8 py-6', _sectionProps?.className)} {...sectionProps}>
+		<Section className={cn('flex flex-col px-8 py-6', sectionClassName)} {...sectionProps}>
 			{title ? <div className="text-2xl">{title}</div> : null}
 			{items.map((item, index) => (
 				<Disclosure

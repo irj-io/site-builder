@@ -3,7 +3,7 @@ layout:
     variant: highImpact
     media:
       src: /assets/images/hero-background.png
-    title: Hero high impact 222
+    title: Features
     actions: []
 
   - type: content

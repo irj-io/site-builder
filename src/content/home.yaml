@@ -28,6 +28,8 @@ layout:
       - icon: mood
         title: Fun!
         content: With weekly challenges, multiple themes and scoring, getting to work never was this fun!
+    section:
+      className: bg-background
 
   - type: featureList
     title: Bring your team closer

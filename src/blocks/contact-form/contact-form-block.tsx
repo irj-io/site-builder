@@ -7,12 +7,13 @@ import { ContactForm } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
 
 export function ContactFormBlock(props: BlockProps<ContactForm>) {
-	const { title, sectionProps: _sectionProps } = props
+	const { title, section: _sectionProps } = props
 
-	const sectionProps = _sectionProps ? omit(_sectionProps, ['className']) : {}
+	const sectionProps = _sectionProps ? omit(_sectionProps, ['className']) : null
+	const sectionClassName = _sectionProps?.className
 
 	return (
-		<Section className={cn('flex flex-col px-8 py-6', _sectionProps?.className)} {...sectionProps}>
+		<Section className={cn('flex flex-col px-8 py-6', sectionClassName)} {...sectionProps}>
 			{title ? <div className="text-4xl text-center mb-16">{title}</div> : null}
 			<div className="container mx-auto flex flex-col gap-8">
 				<div className="flex gap-8">

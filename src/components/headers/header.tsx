@@ -8,7 +8,7 @@ export function Header(props: Header) {
 	const { navLinks = [] } = props
 
 	return (
-		<header className="container mx-auto grid grid-cols-[auto_1fr_auto] items-center h-20 px-6 py-4">
+		<header className="container mx-auto grid grid-cols-[auto_1fr_auto] items-center h-20 px-6 py-4 z-10">
 			<a className="flex items-center" href="/">
 				<Image className="inline-block mr-4" src={logo} alt="product logo" height={48} width={48} />
 				<span className="text-2xl font-medium">tyto</span>

@@ -1,20 +1,21 @@
 import { omit } from 'remeda'
 
 import { Action } from '@/components/actions/action'
-import { Section, type SectionProps } from '@/components/section'
+import { Section } from '@/components/section'
 import { cn } from '@/utils/cn'
 import { FeatureBox } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
 
 export function FeatureBoxBlock(props: BlockProps<FeatureBox>) {
-	const { media, title, overline, content, action, reverse, sectionProps: _sectionProps } = props
+	const { media, title, overline, content, action, reverse, section: _sectionProps } = props
 
-	const sectionProps = _sectionProps ? omit(_sectionProps, ['className']) : {}
+	const sectionProps = _sectionProps ? omit(_sectionProps, ['className']) : null
+	const sectionClassName = _sectionProps?.className
 	const direction = reverse ? 'flex-row-reverse' : 'flex-row'
 
 	return (
 		<Section
-			className={cn('container mx-auto flex min-h-64', direction, _sectionProps?.className)}
+			className={cn('container mx-auto flex min-h-64', direction, sectionClassName)}
 			{...sectionProps}
 		>
 			<div className="grow w-3/6">

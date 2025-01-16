@@ -8,6 +8,11 @@ const MediaSchema = z.object({
 	src: z.string(),
 })
 
+export type Section = z.infer<typeof SectionSchema>
+const SectionSchema = z.object({
+	className: z.string().optional(),
+})
+
 export type ButtonAction = z.infer<typeof ButtonActionSchema>
 export const ButtonActionSchema = z.object({
 	type: z.literal('button'),
@@ -45,6 +50,7 @@ const FeatureBoxSchema = z.object({
 	content: z.string().optional(),
 	action: ActionSchema.optional(),
 	reverse: z.boolean().default(false),
+	section: SectionSchema.optional(),
 })
 
 export type FeatureGridItem = z.infer<typeof FeatureGridItemSchema>
@@ -60,6 +66,7 @@ const FeatureGridSchema = z.object({
 	title: z.string().optional(),
 	subtitle: z.string().optional(),
 	features: z.array(FeatureGridItemSchema),
+	section: SectionSchema.optional(),
 })
 
 export type FeatureListItem = z.infer<typeof FeatureListItemSchema>
@@ -74,6 +81,7 @@ const FeatureListSchema = z.object({
 	title: z.string().optional(),
 	subtitle: z.string().optional(),
 	features: z.array(FeatureListItemSchema),
+	section: SectionSchema.optional(),
 })
 
 export type Testimonial = z.infer<typeof TestimonialSchema>
@@ -90,6 +98,7 @@ export type ContactForm = z.infer<typeof ContactFormSchema>
 const ContactFormSchema = z.object({
 	type: z.literal('contactForm'),
 	title: z.string().optional(),
+	section: SectionSchema.optional(),
 })
 
 export type CollapsibleContentItem = z.infer<typeof CollapsibleContentItemSchema>
@@ -102,6 +111,7 @@ const CollapsibleContentSchema = z.object({
 	type: z.literal('collapsibleContent'),
 	title: z.string().optional(),
 	items: z.array(CollapsibleContentItemSchema),
+	section: SectionSchema.optional(),
 })
 
 const ContentColumnSchema = z.object({
@@ -112,6 +122,7 @@ export type Content = z.infer<typeof ContentSchema>
 const ContentSchema = z.object({
 	type: z.literal('content'),
 	columns: z.array(ContentColumnSchema),
+	section: SectionSchema.optional(),
 })
 
 export const BlocksSchema = z.discriminatedUnion('type', [
