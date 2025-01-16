@@ -87,7 +87,7 @@ const FeatureListSchema = z.object({
 export type Testimonial = z.infer<typeof TestimonialSchema>
 const TestimonialSchema = z.object({
 	type: z.literal('testimonial'),
-	variant: z.enum(['vertical']),
+	variant: z.enum(['vertical']).default('vertical'),
 	media: MediaSchema.optional(),
 	title: z.string().optional(),
 	subtitle: z.string().optional(),
