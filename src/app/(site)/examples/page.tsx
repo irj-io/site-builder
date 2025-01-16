@@ -1,4 +1,4 @@
-import layoutData from '@/content/example-components.yaml'
+import layoutData from '@/content/examples.yaml'
 import { parseLayout } from '@/utils/parse-layout'
 
 export default async function Examples() {
