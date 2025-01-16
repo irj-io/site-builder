@@ -3,30 +3,31 @@ layout:
     variant: productScreenshot
     media:
       src: /assets/images/tyto-my-tasks-screenshot.png
-    title: A new way to connect to your remote team.
-    subtitle: Tyto is an all-in-one remote work tool for teams, with tasks, projects, video and chat.
+    title: Make 2025 the year your small business takes off
+    subtitle: Tyto helps small teams *get more work done*, *drop fewer balls* and *something else here*.
     actions: []
 
   - type: featureGrid
-    title: Everything you need, all in one space.
+    title: Designed for small teams
+    subtitle: Tyto is built from the ground up with to help small businesses get through more work, communicate better — all with fewer meetings and emails than ever before.
     features:
-      - icon: videocam
-        title: Video
-        content: Call teammates directly or host group chat, without leaving the app.
-      - icon: chat_bubble
-        title: Chat
-        content: Message teammates either one-to-one, or against projects or even directly at task level.
-      - icon: task
-        title: Tasks
-        content: Get yourself and your team more productive.
-      - icon: folder_copy
-        title: Projects
+      - icon: rocket_launch
+        title: Small and light
         content: Plan, delegate, prioritize and review multiple projects— all with fewer meetings.
+      - icon: sync
+        title: Maximum Transparency
+        content: Being able to see what other team members are busy with, when they'll be done, and what's next on their list means.
+      - icon: voice_selection_off
+        title: Minimum interruptions.
+        content: As Joel Spolsky wisely said, 'When someone is in the zone, leave them alone'. See how Tyto makes this possible.
+      - icon: family_star
+        title: Maximum Friendliness
+        content: Message teammates either one-to-one, or against projects or even directly at task level.
       - icon: bolt
-        title: Real-time
+        title: Super Easy
         content: See task progress in real-time, to improve focus and reduce interruptions.
       - icon: mood
-        title: Fun!
+        title: It's fun!
         content: With weekly challenges, multiple themes and scoring, getting to work never was this fun!
     section:
       className: bg-background
@@ -81,3 +82,30 @@ layout:
       color: primary
       label: See It In Action
     reverse: true
+
+  - type: content
+    columns:
+      - size: oneThird
+        content:
+          type: testimonial
+          media:
+            src: https://placehold.co/192x192
+          title: Pavel Popovichenko
+          subtitle: Early Adopter
+          content: I've been through a ton of productivity apps for my team, never getting the results I was looking for. After just 2 days with Tyto, I find myself eager to start my workday.
+      - size: oneThird
+        content:
+          type: testimonial
+          media:
+            src: https://placehold.co/192x192
+          title: Gregg Richardson
+          subtitle: Early Adopter
+          content: The score feature is awesome. Everyone here at our office has really had fun with it so far and each day feels like a race to see who can grind through the most tasks.
+      - size: oneThird
+        content:
+          type: testimonial
+          media:
+            src: https://placehold.co/192x192
+          title: Adré Micha Hassen
+          subtitle: Liberty Life
+          content: With Tyto, we never drop the ball.
