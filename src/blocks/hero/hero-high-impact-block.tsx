@@ -10,7 +10,7 @@ export function HeroHighImpactBlock(props: BlockProps<Hero>) {
 	return (
 		<div className="relative -mt-[10.4rem] flex items-end text-white">
 			<div className="container mx-auto mb-8 z-10 relative px-16">
-				<div className="max-w-[60vw] pb-[88px]">
+				<div className="max-w-[60vw] pb-16">
 					{title ? (
 						<div className="mb-8 max-w-none mx-auto">
 							<h1 className="text-8xl leading-tight font-extrabold">{title}</h1>

@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { cn } from '@/utils/cn'
 import type { Section } from '@/utils/page-schema'
 
 export interface SectionProps extends Section {
