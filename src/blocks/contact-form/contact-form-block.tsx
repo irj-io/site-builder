@@ -13,9 +13,9 @@ export function ContactFormBlock(props: BlockProps<ContactForm>) {
 	const sectionClassName = _sectionProps?.className
 
 	return (
-		<Section className={cn('flex flex-col px-8 py-6', sectionClassName)} {...sectionProps}>
-			{title ? <div className="text-4xl text-center mb-16">{title}</div> : null}
-			<div className="container mx-auto flex flex-col gap-8">
+		<Section className={cn('px-8 py-24', sectionClassName)} {...sectionProps}>
+			<div className="container mx-auto max-w-4xl flex flex-col gap-8">
+				{title ? <div className="text-4xl text-center mb-16">{title}</div> : null}
 				<div className="flex gap-8">
 					<div className="grow">
 						<Field>

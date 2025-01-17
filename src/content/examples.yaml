@@ -131,3 +131,18 @@ layout:
           title: Alex Nguyen
           subtitle: Marketing Specialist
           content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.
+    section:
+      className: bg-slate-50
+
+  - type: content
+    columns:
+      - size: full
+        content:
+          type: contentBox
+          title: Content Box Component
+          subtitle: Example of some text
+          content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.
+          align: center
+          className: max-w-3xl text-white
+    section:
+      className: bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500

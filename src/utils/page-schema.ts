@@ -116,8 +116,18 @@ const CollapsibleContentSchema = z.object({
 	section: SectionSchema.optional(),
 })
 
+export type ContentBox = z.infer<typeof ContentBoxSchema>
+const ContentBoxSchema = z.object({
+	type: z.literal('contentBox'),
+	title: z.string().optional(),
+	subtitle: z.string().optional(),
+	content: z.string().optional(),
+	align: z.enum(['left', 'right', 'center', 'start', 'end']).default('start'),
+	className: z.string().optional(),
+})
+
 const ContentColumnSchema = z.object({
-	content: TestimonialSchema.optional(),
+	content: z.union([ContentBoxSchema, TestimonialSchema]).optional(),
 	size: z
 		.enum(['full', 'half', 'oneThird', 'twoThirds', 'oneQuarter', 'twoQuarters', 'threeQuarters'])
 		.default('full'),
@@ -134,10 +144,12 @@ export const BlocksSchema = z.discriminatedUnion('type', [
 	FeatureBoxSchema,
 	FeatureGridSchema,
 	FeatureListSchema,
-	TestimonialSchema,
 	CollapsibleContentSchema,
 	ContactFormSchema,
 	ContentSchema,
+	// TODO: These aren't blocks. Should be extracted to a component schema instead
+	TestimonialSchema,
+	ContentBoxSchema,
 ])
 export type Blocks = z.infer<typeof BlocksSchema>
 

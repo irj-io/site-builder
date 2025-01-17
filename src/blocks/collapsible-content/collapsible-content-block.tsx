@@ -1,5 +1,4 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/24/outline'
 import React from 'react'
 import { omit } from 'remeda'
 
@@ -15,9 +14,9 @@ export function CollapsibleContentBlock(props: BlockProps<CollapsibleContent>) {
 	const sectionClassName = _sectionProps?.className
 
 	return (
-		<Section className={cn('flex flex-col px-8 py-16', sectionClassName)} {...sectionProps}>
-			{title ? <div className="text-4xl text-center mb-12">{title}</div> : null}
-			<div className="container mx-auto">
+		<Section className={cn('flex flex-col px-8 py-20', sectionClassName)} {...sectionProps}>
+			<div className="container mx-auto max-w-4xl">
+				{title ? <div className="text-4xl text-center mb-12">{title}</div> : null}
 				{items.map((item, index) => (
 					<Disclosure
 						key={`item-${index}`}
@@ -27,7 +26,9 @@ export function CollapsibleContentBlock(props: BlockProps<CollapsibleContent>) {
 					>
 						<DisclosureButton className="group flex w-full items-center justify-between">
 							<span className="text-lg/6 font-medium">{item.title}</span>
-							<ChevronDownIcon className="size-5 group-data-[open]:rotate-180" />
+							<div className="material-symbols-rounded text-3xl group-data-[open]:rotate-180">
+								keyboard_arrow_down
+							</div>
 						</DisclosureButton>
 						<DisclosurePanel className="mt-2 text-base/5">{item.content}</DisclosurePanel>
 					</Disclosure>
