@@ -4,7 +4,7 @@ import { Header } from '@/components/headers/header'
 import { HeaderSchema } from '@/components/headers/header-schema'
 import globalData from '@/content/global.yaml'
 
-export default function RootLayout({
+export default function PageLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode
