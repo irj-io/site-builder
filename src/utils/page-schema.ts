@@ -4,6 +4,10 @@ import { z } from 'zod'
 
 const IconSchema = z.string()
 
+const ImageSchema = z.object({
+	src: z.string(),
+})
+
 const MediaSchema = z.object({
 	src: z.string(),
 })
@@ -21,6 +25,7 @@ export const ButtonActionSchema = z.object({
 	label: z.string(),
 	color: z.enum(['primary', 'secondary', 'inherit']).default('inherit'),
 	startIcon: z.string().optional(),
+	size: z.enum(['small', 'medium', 'large']).optional(),
 })
 
 export type LinkAction = z.infer<typeof LinkActionSchema>
@@ -139,6 +144,22 @@ const ContentSchema = z.object({
 	section: SectionSchema.optional(),
 })
 
+export type LogoMarquee = z.infer<typeof LogoMarqueeSchema>
+const LogoMarqueeSchema = z.object({
+	type: z.literal('logoMarquee'),
+	items: z.array(ImageSchema),
+	section: SectionSchema.optional(),
+})
+
+export type CallToAction = z.infer<typeof CallToActionSchema>
+const CallToActionSchema = z.object({
+	type: z.literal('callToAction'),
+	title: z.string().optional(),
+	subtitle: z.string().optional(),
+	button: ButtonActionSchema,
+	section: SectionSchema.optional(),
+})
+
 export const BlocksSchema = z.discriminatedUnion('type', [
 	HeroSchema,
 	FeatureBoxSchema,
@@ -147,6 +168,8 @@ export const BlocksSchema = z.discriminatedUnion('type', [
 	CollapsibleContentSchema,
 	ContactFormSchema,
 	ContentSchema,
+	LogoMarqueeSchema,
+	CallToActionSchema,
 	// TODO: These aren't blocks. Should be extracted to a component schema instead
 	TestimonialSchema,
 	ContentBoxSchema,

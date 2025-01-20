@@ -146,3 +146,32 @@ layout:
           className: max-w-3xl text-white
     section:
       className: bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500
+
+  - type: logoMarquee
+    items:
+      - src: /assets/images/client-logos/m2cli-arcelor-mittal.png
+      - src: /assets/images/client-logos/m2cli-bosch.png
+      - src: /assets/images/client-logos/m2cli-de-beers.png
+      - src: /assets/images/client-logos/m2cli-electrolux.png
+      - src: /assets/images/client-logos/m2cli-engen.png
+      - src: /assets/images/client-logos/m2cli-eveready.png
+      - src: /assets/images/client-logos/m2cli-kansai-plascon.png
+      - src: /assets/images/client-logos/m2cli-kelloggs.png
+      - src: /assets/images/client-logos/m2cli-lg.png
+      - src: /assets/images/client-logos/m2cli-macsteel.png
+      - src: /assets/images/client-logos/m2cli-massmart.png
+      - src: /assets/images/client-logos/m2cli-premier-foods.png
+      - src: /assets/images/client-logos/m2cli-samsung.png
+      - src: /assets/images/client-logos/m2cli-sony.png
+      - src: /assets/images/client-logos/m2cli-whirlpool.png
+
+  - type: callToAction
+    title: The CallToAction block
+    button:
+      type: button
+      variant: filled
+      color: primary
+      label: Sign up today!
+      href: /signup
+    section:
+      className: bg-slate-800 text-white

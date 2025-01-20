@@ -6,12 +6,12 @@ import { ButtonAction } from '@/utils/page-schema'
 export type ButtonProps = ButtonAction
 
 export function Button(props: ButtonProps) {
-	const { color, href, label, startIcon, variant } = props
+	const { color, href, label, size, startIcon, variant } = props
 
 	const stateLayer = 'before:block before:absolute before:-inset-1'
 	let classes = cn(
 		stateLayer,
-		'relative block h-12 leading-[3rem] px-6 font-semibold rounded-full overflow-hidden outline-0 flex items-center'
+		'relative block px-6 font-semibold rounded-full overflow-hidden outline-0 flex items-center'
 	)
 	switch (variant) {
 		default:
@@ -53,6 +53,19 @@ export function Button(props: ButtonProps) {
 			classes = cn(classes, style, colorStyle)
 			break
 		}
+	}
+
+	switch (size) {
+		default:
+		case 'medium':
+			classes = cn(classes, 'h-12 leading-[3rem]')
+			break
+		case 'small':
+			classes = cn(classes, 'h-10 leading-[2.5rem]')
+			break
+		case 'large':
+			classes = cn(classes, 'h-14 leading-[4rem] px-8')
+			break
 	}
 
 	return 'href' in props ? (

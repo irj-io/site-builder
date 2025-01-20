@@ -3,6 +3,7 @@ import { JSX } from 'react'
 import { toCamelCase } from 'remeda'
 
 import { BlockProps } from '@/blocks/block-types'
+import { CallToActionBlock } from '@/blocks/call-to-action/call-to-action-block'
 import { CollapsibleContentBlock } from '@/blocks/collapsible-content/collapsible-content-block'
 import { ContactFormBlock } from '@/blocks/contact-form/contact-form-block'
 import { ContentBlock } from '@/blocks/content/content-block'
@@ -11,6 +12,7 @@ import { FeatureGridBlock } from '@/blocks/feature-grid/feature-grid-block'
 import { FeatureListBlock } from '@/blocks/feature-list/feature-list-block'
 import { HeroHighImpactBlock } from '@/blocks/hero/hero-high-impact-block'
 import { HeroProductScreenshotBlock } from '@/blocks/hero/hero-product-screenshot'
+import { LogoMarqueeBlock } from '@/blocks/marquee/logo-marquee-block'
 import { TestimonialVertical } from '@/blocks/testimonial/testimonial-vertical'
 import { PageSchema } from './page-schema'
 
@@ -26,6 +28,8 @@ const componentMap = {
 	contactForm: ContactFormBlock,
 	collapsibleContent: CollapsibleContentBlock,
 	content: ContentBlock,
+	logoMarquee: LogoMarqueeBlock,
+	callToAction: CallToActionBlock,
 }
 
 export async function parseLayout(yaml: string) {
