@@ -107,24 +107,21 @@ layout:
 
   - type: content
     columns:
-      - size: oneThird
-        content:
+      - content:
           type: testimonial
           media:
             src: https://placehold.co/192x192
           title: Alex Nguyen
           subtitle: Marketing Specialist
           content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.
-      - size: oneThird
-        content:
+      - content:
           type: testimonial
           media:
             src: https://placehold.co/192x192
           title: Alex Nguyen
           subtitle: Marketing Specialist
           content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.
-      - size: oneThird
-        content:
+      - content:
           type: testimonial
           media:
             src: https://placehold.co/192x192
@@ -136,8 +133,7 @@ layout:
 
   - type: content
     columns:
-      - size: full
-        content:
+      - content:
           type: contentBox
           title: Content Box Component
           subtitle: Example of some text

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { omit } from 'remeda'
 
+import { Marquee } from '@/components/marquee/marquee'
 import { Section } from '@/components/section'
 import { cn } from '@/utils/cn'
 import type { LogoMarquee } from '@/utils/page-schema'
@@ -26,6 +27,11 @@ export function LogoMarqueeBlock(props: BlockProps<LogoMarquee>) {
 					/>
 				))}
 			</div>
+			{/* <Marquee>
+				{items.map((item, index) => (
+					<img key={`logo-${index}`} src={item.src} alt="" className="h-[96px]" />
+				))}
+			</Marquee> */}
 		</Section>
 	)
 }

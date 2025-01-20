@@ -133,9 +133,6 @@ const ContentBoxSchema = z.object({
 
 const ContentColumnSchema = z.object({
 	content: z.union([ContentBoxSchema, TestimonialSchema]).optional(),
-	size: z
-		.enum(['full', 'half', 'oneThird', 'twoThirds', 'oneQuarter', 'twoQuarters', 'threeQuarters'])
-		.default('full'),
 })
 export type Content = z.infer<typeof ContentSchema>
 const ContentSchema = z.object({

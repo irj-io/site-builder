@@ -39,27 +39,16 @@ export function ContentBlock(props: BlockProps<Content>) {
 	const sectionProps = _sectionProps ? omit(_sectionProps, ['className']) : null
 	const sectionClassName = _sectionProps?.className
 
-	const colsSpanClasses = {
-		full: '12',
-		half: '6',
-		oneThird: '4',
-		twoThirds: '8',
-		oneQuarter: '3',
-		twoQuarters: '6',
-		threeQuarters: '9',
-	}
+	const colCount = ['grid-cols-1', 'grid-cols-2', 'grid-cols-3']
+	const colClass = colCount[columns.length - 1]
 
 	return (
 		<Section className={cn('py-16', sectionClassName)} {...sectionProps}>
-			<div className={cn('container mx-auto grid gap-y-8 gap-x-16', `grid-cols-${columns.length}`)}>
+			<div className={cn('container mx-auto grid gap-y-8 gap-x-16', colClass)}>
 				{columns && columns.length > 0
 					? columns.map((col, index) => {
-							const { content, size } = col
-							return (
-								<div className={cn(`col-span-${colsSpanClasses[size!]}`)} key={index}>
-									{content ? <Content content={content} /> : null}
-								</div>
-							)
+							const { content } = col
+							return <div key={index}>{content ? <Content content={content} /> : null}</div>
 						})
 					: null}
 			</div>
