@@ -1,7 +1,7 @@
 ---
 title: My Tasks
 description: How to manage yourself into improved productivity.
-author: Justin
+author: Justin Lawrence
 authorEmail: justin@tyto.me
 date: '2021-04-07'
 banner: /assets/images/help-my-tasks-banner.png
@@ -10,61 +10,33 @@ bannerAlt: A screenshot of the My Tasks page, in a lovely white minimalist theme
 
 # Introduction
 
-It's not easy taking all the biggest plans, laid out in Gantt charts, Kanban boards and email threads— and distilling those into what to do today.
+The My Tasks page is where you and your team will spend most of your time.
 
-How do you take the biggest plans and break them down into one small step at a time?
+It is a list of all tasks assigned to you, ready for you to deal with, one task at a time.
 
-Holding those in your brain is a terrible idea. As David Allen puts it, ['Your brain is a brilliant servant, but a terrible master'](https://www.youtube.com/watch?v=3jEbp7z_J2M).
+This list is either viewable from a day by day view, or in one big table.
 
-You need somewhere to trust. Someewhere to deal with all our dreams, one action point at a time.
+## Day by day view
 
-We wanted to create a safe place to achieve big picture goals at a granular level… to focus on just one task at a time, putting one foot in front of another, moving you toward your big picture goals.
+This is divided into a few sections.
 
-This was our vision behind the My Tasks page. This is where we think you and your team will spend most of your time.
+- **Today:** tasks scheduled for today
+- **Next Few Days:** A quick overview of upcoming tasks for the next week.
+- **Pinned:** Any tasks that you want to keep in mind can be pinned and will show here.
+- **Missed:** These are tasks scheduled for days in the past.
+- **Follow-up:** This is a list of tasks you have delegated to other users, which might need following up. It is the only section of the page showing tasks that are not assigned to you.
+- **Future:** These are tasks scheduled for more than 7 days into the future.
+- **Not Scheduled:** These are tasks without a start date.
 
-# Concepts
+## Table view
 
-> By saying yes to everything, you say no to everything.
-> — Source Unknown
-
-Whether you like it or not, we really can only do one thing at a time. We cannot multitask. We must choose.
-
-And the more tasks we add, the less chance we have of doing any.
-
-For this reason, we split your task list either into time-based sections or one long queue.
-
-The time-based sections are, by default, sorted by priority, so your most important tasks appear at the top.
-
-# Sections
-
-We've split your tasks into sections, staying out of the way for tasks you're in control of and stepping up to help curate tasks that are getting away.
-
-The sections start from most organised and most important to the other end of the scale.
-
-## Date-Related Sections
-
-- **Today** Split into 2: now and later today Can be sorted automatically (by priority, date) or manually dragged around.
-  Next few days: A mini glimpse of the next few days. Click on tasks to edit them and reschedule them.
-
-- **Pinned** For tasks that you don't want to forget about, we have the pinned section.
-
-- **Missed in the last week** These are tasks which were scheduled for any time within the last week.
-
-- **Not Scheduled** These are your someday tasks. The ones, you have not yet scheduled.
-
-## Tyto-Curated Sections
-
-Once you get this far down the list, Tyto's assuming you need a bit of help in managing your task list, so steps in to organize your tasks into various groups.
-
-- **Overdue & becoming due** Any tasks due in the next week will appear here, as well as any overdue tasks.
-
-- **Important and urgent** Any tasks marked as highly important or urgent are given special treatment by Tyto.
-
-- **Missed** These are tasks that you had scheduled for more than a week ago.
+For those who prefer a simple list of all tasks, we present the table view.
 
 # Task Actions
 
-- **Pin** Pinning a task keeps it visible on the My Tasks page, until it gets done.
+For any task on your list, you have the following actions you could take.
+
+- **Pin this task** Pinning a task keeps it visible on the My Tasks page, until it gets done.
 
 - **Mark as done** Marks the task as done and moves it off 'TO-DO' section and onto the 'DONE' section. For every task completed, your score will increase. More on the gamification elements of Tyto later. If it's just you on the task, the task will automatically be marked as done. If there are other people on the task, a 'Mark as done' popup will appear, asking you to add a few words describing what was done. Most new users find this unnecessary to start, but soon realise that these few words keep everyone else in the picture, and save unnecessary meetings.
 
@@ -78,7 +50,7 @@ Once you get this far down the list, Tyto's assuming you need a bit of help in m
     - (Only people with permission to the current task you're busy with will see the task title. Everyone else will see 'Private Task')
     - (Don't forget to stop your task when you're done. )
 
-# Bulk actions
+# Bulk task actions
 
 You can perform a number of bulk actions on the My Tasks page (as well as on other pages throughout Tyto). To activate these, hover over the owner of any task and check the select box.
 
