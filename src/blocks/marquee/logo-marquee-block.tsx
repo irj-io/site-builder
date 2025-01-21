@@ -15,23 +15,18 @@ export function LogoMarqueeBlock(props: BlockProps<LogoMarquee>) {
 
 	return (
 		<Section className={cn(sectionClassName)} {...sectionProps}>
-			<div className="flex items-center">
+			<Marquee>
 				{items.map((item, index) => (
 					<Image
 						key={`logo-${index}`}
 						src={item.src}
 						alt=""
-						className="px-4"
+						className="h-[96px] px-4"
 						height={88}
 						width={128}
 					/>
 				))}
-			</div>
-			{/* <Marquee>
-				{items.map((item, index) => (
-					<img key={`logo-${index}`} src={item.src} alt="" className="h-[96px]" />
-				))}
-			</Marquee> */}
+			</Marquee>
 		</Section>
 	)
 }

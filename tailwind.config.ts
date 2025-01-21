@@ -9,4 +9,22 @@ export default {
 		'./src/content/**/*.{yaml,md}',
 	],
 	plugins: [tailwindM3Tokens({ source: '#df2a59' })],
+	theme: {
+		extend: {
+			keyframes: {
+				marquee: {
+					'0%': { transform: 'translateX(0%)' },
+					'100%': { transform: 'translateX(-100%)' },
+				},
+				wiggle: {
+					'0%, 100%': { transform: 'rotate(-3deg)' },
+					'50%': { transform: 'rotate(3deg)' },
+				},
+			},
+			animation: {
+				marquee: 'marquee 60s linear infinite',
+				wiggle: 'wiggle 1s ease-in-out infinite',
+			},
+		},
+	},
 } satisfies Config

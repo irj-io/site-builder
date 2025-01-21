@@ -1,3 +1,5 @@
+theme:
+  header: dark
 layout:
   - type: hero
     variant: highImpact

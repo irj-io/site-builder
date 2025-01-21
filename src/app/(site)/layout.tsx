@@ -15,7 +15,7 @@ export default function PageLayout({
 	return (
 		<div className="grid grid-rows-[0fr_1fr_0fr] min-h-screen">
 			<Header {...headerData} />
-			<main className="row-start-2 items-center sm:items-start">{children}</main>
+			<main className="items-center sm:items-start">{children}</main>
 			<Footer {...footerData} />
 		</div>
 	)

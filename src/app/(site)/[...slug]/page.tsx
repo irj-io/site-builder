@@ -62,6 +62,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
 		return <Post data={postData} Markdown={Markdown} />
 	} else {
 		const { default: yaml } = await import(`@/content/${slug.join('/')}.yaml`)
+		console.log('yaml', yaml)
 		const layoutComponents = await parseLayout(yaml)
 
 		return <>{layoutComponents}</>
