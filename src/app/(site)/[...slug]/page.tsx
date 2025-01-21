@@ -1,12 +1,12 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
-import matter from 'gray-matter'
-import { remark } from 'remark'
-import html from 'remark-html'
+import { ReactNode } from 'react'
 
+import { getIsDirectory } from '@/utils/content-parsing'
 import { parseLayout } from '@/utils/parse-layout'
 import { PostData, PostDataSchema } from '@/utils/post-schema'
 import { Post } from './post'
+import { parseMarkdown } from './utils'
 
 const postsDirectory = path.join(process.cwd(), 'src/content/help/')
 
@@ -31,19 +31,7 @@ export async function generateStaticParams() {
 	})
 }
 
-const getIsDirectory = async (filePath: string) => {
-	try {
-		const stats = await fs.lstat(filePath)
-		// If is directory
-		if (stats.isDirectory()) {
-			return true
-		}
-	} catch {
-		return false
-	}
-}
-
-export async function getPostData(slug: string[]): Promise<PostData> {
+export async function getPostData(slug: string[]): Promise<[PostData, ReactNode]> {
 	let fullPath = path.join(postsDirectory, path.join(...slug))
 	const isDirectory = await getIsDirectory(fullPath)
 	if (isDirectory) {
@@ -51,19 +39,17 @@ export async function getPostData(slug: string[]): Promise<PostData> {
 	}
 	const fileContents = await fs.readFile(`${fullPath}.md`, 'utf8')
 
-	// Use gray-matter to parse the post metadata section
-	const matterResult = matter(fileContents)
-
-	// Use remark to convert markdown into HTML string
-	const processedContent = await remark().use(html).process(matterResult.content)
-	const contentHtml = processedContent.toString()
+	const { file, matter } = await parseMarkdown(fileContents)
 
 	// Combine the data with the id and contentHtml
-	return PostDataSchema.parse({
-		slug: ['help', ...slug],
-		contentHtml,
-		...matterResult.data,
-	})
+	return [
+		PostDataSchema.parse({
+			_contentHtml: file.value,
+			slug: ['help', ...slug],
+			...matter.data,
+		}),
+		file.result,
+	]
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string[] }> }) {
@@ -71,8 +57,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
 
 	if (slug[0] === 'help') {
 		const postPath: string[] = slug.slice(1)
-		const postData = await getPostData(postPath)
-		return <Post data={postData} />
+		const [postData, Markdown] = await getPostData(postPath)
+
+		return <Post data={postData} Markdown={Markdown} />
 	} else {
 		const { default: yaml } = await import(`@/content/${slug.join('/')}.yaml`)
 		const layoutComponents = await parseLayout(yaml)

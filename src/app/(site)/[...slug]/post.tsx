@@ -1,10 +1,12 @@
 import Image from 'next/image'
-import { JSX } from 'react'
+import Link from 'next/link'
+import { JSX, ReactNode } from 'react'
 
 import { PostData } from '@/utils/post-schema'
 
 interface PostProps {
 	data: PostData
+	Markdown: ReactNode
 }
 
 function Breadcrumb({ slug }: { slug: string[] }) {
@@ -12,22 +14,26 @@ function Breadcrumb({ slug }: { slug: string[] }) {
 	// TODO: Add and handle links
 	return (
 		<ol className="flex gap-1 items-center">
-			{slug.reduce((acc, id) => {
+			{slug.reduce((acc, id, index) => {
 				if (acc.length > 0) {
 					acc.push(
-						<li aria-hidden="true" className="material-symbols-rounded">
+						<li aria-hidden="true" className="material-symbols-rounded" key={`separator-${index}`}>
 							chevron_right
 						</li>
 					)
 				}
-				acc.push(<li>{id}</li>)
+				acc.push(
+					<li key={`crumb-${index}`}>
+						<Link href={`/${id}`}>{id}</Link>
+					</li>
+				)
 				return acc
 			}, [] as JSX.Element[])}
 		</ol>
 	)
 }
 
-export function Post({ data }: PostProps) {
+export function Post({ data, Markdown }: PostProps) {
 	return (
 		<>
 			<nav className="mb-4">
@@ -41,7 +47,7 @@ export function Post({ data }: PostProps) {
 				{data.author}
 				{data.date}
 			</div>
-			{data.banner ? (
+			{data.banner && /^\/assets\//.test(data.banner) ? (
 				<Image
 					src={data.banner}
 					alt={data.bannerAlt}
@@ -50,7 +56,7 @@ export function Post({ data }: PostProps) {
 					width={960}
 				/>
 			) : null}
-			<div dangerouslySetInnerHTML={{ __html: data.contentHtml }} />
+			<div className="py-8">{Markdown}</div>
 		</>
 	)
 }

@@ -1,5 +1,3 @@
-import { promises as fs } from 'node:fs'
-import path from 'node:path'
 import type { NextConfig } from 'next'
 
 class YamlWatchPlugin {
@@ -21,6 +19,7 @@ class YamlWatchPlugin {
 }
 
 const nextConfig: NextConfig = {
+	reactStrictMode: true,
 	//experimental: {
 	//	turbo: {
 	//		rules: {
