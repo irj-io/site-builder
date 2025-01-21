@@ -10,7 +10,7 @@ import { RefObject, useEffect, useState } from 'react'
  *
  *	return (
  *		<div
- *			className={`transition-opacity ease-in duration-[800ms] ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+ *			className={`transition-opacity ease-in duration-600 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
  *			ref={ref}
  *		>...</div>
  *	)
