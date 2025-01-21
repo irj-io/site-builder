@@ -4,6 +4,7 @@ export type PostData = z.infer<typeof PostDataSchema>
 export const PostDataSchema = z.object({
 	_contentHtml: z.string(),
 	author: z.string(),
+	authorAvatarUrl: z.string(),
 	banner: z.string(),
 	bannerAlt: z.string(),
 	date: z.string(),

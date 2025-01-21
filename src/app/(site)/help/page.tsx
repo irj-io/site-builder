@@ -44,8 +44,6 @@ const getAllHelpFiles = async () => {
 export default async function Help() {
 	const files = await getAllHelpFiles()
 
-	console.log('items', files)
-
 	return (
 		<Section>
 			<div className="container mx-auto px-6 py-16">

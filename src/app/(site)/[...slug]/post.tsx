@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { ReactNode } from 'react'
 
+import { AuthorHeader } from '@/components/author-header'
 import { Breadcrumb } from '@/components/breadcrumb'
 import { PostData } from '@/utils/post-schema'
 
@@ -20,8 +21,13 @@ export function Post({ data, Markdown }: PostProps) {
 				{data.description ? (
 					<p className="text-2xl font-medium text-on-surface/50 mb-4">{data.description}</p>
 				) : null}
-				{data.author}
-				{data.date}
+				<AuthorHeader
+					author={{
+						avatarUrl: data.authorAvatarUrl,
+						name: data.author,
+					}}
+					date={data.date}
+				/>
 			</div>
 			{data.banner && /^\/assets\//.test(data.banner) ? (
 				<Image

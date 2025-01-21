@@ -3,6 +3,7 @@ import path from 'node:path'
 import { ReactNode } from 'react'
 
 import { getIsDirectory } from '@/utils/content-parsing'
+import { getAvatarImageUrl } from '@/utils/gravatar'
 import { parseLayout } from '@/utils/parse-layout'
 import { PostData, PostDataSchema } from '@/utils/post-schema'
 import { Post } from './post'
@@ -46,6 +47,7 @@ export async function getPostData(slug: string[]): Promise<[PostData, ReactNode]
 		PostDataSchema.parse({
 			_contentHtml: file.value,
 			slug: ['help', ...slug],
+			authorAvatarUrl: getAvatarImageUrl(matter.data.authorEmail),
 			...matter.data,
 		}),
 		file.result,

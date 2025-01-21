@@ -20,6 +20,15 @@ class YamlWatchPlugin {
 
 const nextConfig: NextConfig = {
 	reactStrictMode: true,
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'secure.gravatar.com',
+				pathname: '/avatar/**',
+			},
+		],
+	},
 	//experimental: {
 	//	turbo: {
 	//		rules: {
