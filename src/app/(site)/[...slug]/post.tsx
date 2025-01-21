@@ -1,36 +1,12 @@
 import Image from 'next/image'
-import Link from 'next/link'
-import { JSX, ReactNode } from 'react'
+import { ReactNode } from 'react'
 
+import { Breadcrumb } from '@/components/breadcrumb'
 import { PostData } from '@/utils/post-schema'
 
 interface PostProps {
 	data: PostData
 	Markdown: ReactNode
-}
-
-function Breadcrumb({ slug }: { slug: string[] }) {
-	// TODO: Use sentence case for slug ids
-	// TODO: Add and handle links
-	return (
-		<ol className="flex gap-1 items-center">
-			{slug.reduce((acc, id, index) => {
-				if (acc.length > 0) {
-					acc.push(
-						<li aria-hidden="true" className="material-symbols-rounded" key={`separator-${index}`}>
-							chevron_right
-						</li>
-					)
-				}
-				acc.push(
-					<li key={`crumb-${index}`}>
-						<Link href={`/${id}`}>{id}</Link>
-					</li>
-				)
-				return acc
-			}, [] as JSX.Element[])}
-		</ol>
-	)
 }
 
 export function Post({ data, Markdown }: PostProps) {
