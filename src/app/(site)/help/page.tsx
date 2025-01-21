@@ -48,7 +48,7 @@ export default async function Help() {
 		<Section>
 			<div className="container mx-auto px-6 py-16">
 				<h1 className="text-5xl font-bold mb-8">Help</h1>
-				<div className="grid grid-cols-12 grid-rows-12 gap-4">
+				<div className="grid grid-cols-12 gap-4">
 					{files.map((item, index) => (
 						<div
 							key={`grid-item-${index}`}
