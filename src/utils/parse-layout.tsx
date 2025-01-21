@@ -13,6 +13,7 @@ import { FeatureListBlock } from '@/blocks/feature-list/feature-list-block'
 import { HeroHighImpactBlock } from '@/blocks/hero/hero-high-impact-block'
 import { HeroProductScreenshotBlock } from '@/blocks/hero/hero-product-screenshot'
 import { LogoMarqueeBlock } from '@/blocks/marquee/logo-marquee-block'
+import { StatsBlock } from '@/blocks/stats/stats-block'
 import { TestimonialVertical } from '@/blocks/testimonial/testimonial-vertical'
 import { PageSchema } from './page-schema'
 
@@ -30,6 +31,7 @@ const componentMap = {
 	content: ContentBlock,
 	logoMarquee: LogoMarqueeBlock,
 	callToAction: CallToActionBlock,
+	stats: StatsBlock,
 }
 
 export async function parseLayout(yaml: string) {

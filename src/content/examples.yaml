@@ -171,3 +171,12 @@ layout:
       href: /signup
     section:
       className: bg-slate-800 text-white
+
+  - type: stats
+    items:
+      - value: 14k
+        label: Paying subscribers
+      - value: 103B
+        label: Tracked pageviews
+      - value: 99.99%
+        label: Uptime (Last 90 days)
