@@ -1,3 +1,4 @@
+import path from 'node:path'
 import Image from 'next/image'
 import { ReactNode } from 'react'
 
@@ -10,7 +11,17 @@ interface PostProps {
 	Markdown: ReactNode
 }
 
-export function Post({ data, Markdown }: PostProps) {
+export async function Post({ data, Markdown }: PostProps) {
+	console.log('data', data)
+	const bannerSrc = data.banner
+	if (data.banner && data.banner.startsWith('./images/')) {
+		//bannerSrc = `@/content/${path.join(...data.slug, data.banner)}`
+		//const { default: src } = await import(`@/content/${path.join(...data.slug, data.banner)}`)
+		//bannerSrc = src
+		data.banner = ''
+		console.log('bannerSrc', bannerSrc)
+	}
+
 	return (
 		<>
 			<nav className="mb-4">
@@ -29,9 +40,9 @@ export function Post({ data, Markdown }: PostProps) {
 					date={data.date}
 				/>
 			</div>
-			{data.banner && /^\/assets\//.test(data.banner) ? (
+			{data.banner ? (
 				<Image
-					src={data.banner}
+					src={bannerSrc}
 					alt={data.bannerAlt}
 					className="max-w-full"
 					height={960}

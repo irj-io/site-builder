@@ -1,55 +1,19 @@
-import { promises as fs } from 'node:fs'
-import path from 'node:path'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import { Section } from '@/components/section'
+import { getAllArticles } from '@/utils/articles'
 import { cn } from '@/utils/cn'
-import { parseMarkdown } from '../[...slug]/utils'
-
-const parentPath = path.join(process.cwd(), 'src/content/help/')
-const getAllHelpFiles = async () => {
-	const filePaths = await fs.readdir(parentPath, {
-		recursive: true,
-	})
-
-	const matterData = []
-
-	// Make the 'Getting Started' page show first
-	filePaths.sort((a, b) => {
-		if (a.includes('getting-started')) {
-			return -1
-		}
-		if (b.includes('getting-started')) {
-			return 1
-		}
-		return 0
-	})
-
-	for (const filePath of filePaths) {
-		if (!/\.md$/.test(filePath)) {
-			continue
-		}
-
-		const fileContents = await fs.readFile(`${parentPath}/${filePath}`, 'utf8')
-		const { matter } = await parseMarkdown(fileContents)
-
-		const hrefFragment = filePath.replace(/(\/index)?\.md$/, '')
-		matterData.push({ data: matter.data, href: `/help/${hrefFragment}` })
-	}
-
-	return matterData
-}
 
 export default async function Help() {
-	const files = await getAllHelpFiles()
+	const articles = await getAllArticles('help')
 
 	return (
 		<Section>
 			<div className="container mx-auto px-6 py-16">
 				<h1 className="text-5xl font-bold mb-8">Help</h1>
 				<div className="grid grid-cols-12 gap-4">
-					{files.map((item, index) => (
+					{articles.map((item, index) => (
 						<div
 							key={`grid-item-${index}`}
 							className={cn('aspect-square', {
