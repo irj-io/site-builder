@@ -11,6 +11,7 @@ import { FeatureBoxBlock } from '@/blocks/feature-box/feature-box-block'
 import { FeatureGridBlock } from '@/blocks/feature-grid/feature-grid-block'
 import { FeatureListBlock } from '@/blocks/feature-list/feature-list-block'
 import { HeroHighImpactBlock } from '@/blocks/hero/hero-high-impact-block'
+import { HeroMediumImpactBlock } from '@/blocks/hero/hero-medium-impact-block'
 import { HeroProductScreenshotBlock } from '@/blocks/hero/hero-product-screenshot'
 import { LogoMarqueeBlock } from '@/blocks/marquee/logo-marquee-block'
 import { StatsBlock } from '@/blocks/stats/stats-block'
@@ -20,6 +21,7 @@ import { PageSchema } from './page-schema'
 const componentMap = {
 	hero: {
 		highImpact: HeroHighImpactBlock,
+		mediumImpact: HeroMediumImpactBlock,
 		productScreenshot: HeroProductScreenshotBlock,
 	},
 	featureBox: FeatureBoxBlock,

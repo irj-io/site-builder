@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { omit } from 'remeda'
 
 import logo from '@/assets/tyto-logo.png'
 import { Action } from '../actions/action'

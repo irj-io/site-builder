@@ -40,11 +40,12 @@ export const ActionSchema = z.discriminatedUnion('type', [ButtonActionSchema, Li
 export type Hero = z.infer<typeof HeroSchema>
 const HeroSchema = z.object({
 	type: z.literal('hero'),
-	variant: z.enum(['highImpact', 'productScreenshot']).optional(),
+	variant: z.enum(['highImpact', 'mediumImpact', 'productScreenshot']).optional(),
 	media: MediaSchema.optional(),
 	title: z.string().optional(),
 	subtitle: z.string().optional(),
 	actions: z.array(ActionSchema).optional(),
+	section: SectionSchema.optional(),
 })
 
 export type FeatureBox = z.infer<typeof FeatureBoxSchema>

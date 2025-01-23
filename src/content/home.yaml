@@ -1,11 +1,25 @@
 layout:
   - type: hero
-    variant: productScreenshot
+    variant: mediumImpact
     media:
-      src: /assets/images/tyto-my-tasks-screenshot.png
-    title: Make 2025 the year your small business takes off
-    subtitle: Tyto helps small teams *get more work done*, *drop fewer balls* and *something else here*.
+      #src: /assets/images/tyto-my-tasks-screenshot.png
+      src: /assets/images/hero-tyto.svg
+    #title: Make 2025 the year your small business takes off
+    title: |
+      WORK
+      DONE 
+      FUN!
+    #subtitle: Tyto helps small teams *get more work done*, *drop fewer balls* and *something else here*.
+    subtitle: |
+      The work management
+      tool that's perfect for
+      small businesses.
     actions: []
+    section:
+      className: |
+        relative 
+        before:block before:absolute before:bg-[hsl(5,68%,96%)] before:dark:bg-[hsl(5,68%,26%)] before:-z-10 before:-inset-1
+        [& svg]:fill-blue-500
 
   - type: featureGrid
     title: Designed for small teams
