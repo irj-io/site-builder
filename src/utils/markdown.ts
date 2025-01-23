@@ -1,13 +1,14 @@
 import matter, { GrayMatterFile } from 'gray-matter'
 import { createElement, ReactNode } from 'react'
 import jsxRuntime from 'react/jsx-runtime'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeReact, { Components } from 'rehype-react'
 import rehypeSanitize from 'rehype-sanitize'
-import rehypeStringify from 'rehype-stringify'
+import rehypeSlug from 'rehype-slug'
+import remarkFlexibleToc from 'remark-flexible-toc'
 import remarkGfm from 'remark-gfm'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
-import remarkToc from 'remark-toc'
 import { unified } from 'unified'
 
 import {
@@ -24,10 +25,24 @@ import {
 	MdOl,
 	MdParagraph,
 	MdUl,
-} from '../app/(site)/[...slug]/markdown-components'
+} from '@/components/markdown-components'
+
+interface TocItem {
+	depth: number
+	href: string
+	numbering: [number, number]
+	parent: string
+	value: string
+}
 
 interface ParseMarkdownResult {
-	file: { value: string; result: ReactNode }
+	file: {
+		data: {
+			toc: TocItem[]
+		}
+		value: string
+		result: ReactNode
+	}
 	matter: GrayMatterFile<string>
 }
 
@@ -55,10 +70,11 @@ export const parseMarkdown = async (fileContents: string): Promise<ParseMarkdown
 	const file = await unified()
 		.use(remarkParse, { fragment: true })
 		.use(remarkGfm)
-		.use(remarkToc)
+		.use(remarkFlexibleToc)
 		.use(remarkRehype)
 		.use(rehypeSanitize)
-		.use(rehypeStringify)
+		.use(rehypeSlug)
+		.use(rehypeAutolinkHeadings)
 		.use(rehypeReact, {
 			Fragment: jsxRuntime.Fragment,
 			jsx: jsxRuntime.jsx,

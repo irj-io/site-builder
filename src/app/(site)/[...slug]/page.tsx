@@ -4,10 +4,10 @@ import { ReactNode } from 'react'
 
 import { getIsDirectory } from '@/utils/content-parsing'
 import { getAvatarImageUrl } from '@/utils/gravatar'
+import { parseMarkdown } from '@/utils/markdown'
 import { parseLayout } from '@/utils/parse-layout'
 import { PostData, PostDataSchema } from '@/utils/post-schema'
 import { Post } from './post'
-import { parseMarkdown } from './utils'
 
 const postsDirectory = path.join(process.cwd(), 'src/content/help/')
 

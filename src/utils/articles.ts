@@ -1,7 +1,8 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 
-import { parseMarkdown } from '@/app/(site)/[...slug]/utils'
+import { parseMarkdown } from '@/utils/markdown'
+import { getIsDirectory } from './content-parsing'
 
 const contentDir = path.join(process.cwd(), 'src/content/')
 
@@ -33,16 +34,44 @@ export const getAllArticles = async (collection: string) => {
 			continue
 		}
 
-		const fileContents = await fs.readFile(`${parentPath}/${filePath}`, 'utf8')
-		const { matter } = await parseMarkdown(fileContents)
-
-		const hrefFragment = filePath.replace(/(\/index)?\.md$/, '')
-		matterData.push({
-			data: matter.data,
-			href: `/help/${hrefFragment}`,
-			slug: `help/${hrefFragment}`.split(RegExp(path.sep)),
-		})
+		const data = await readArticle(`${parentPath}/${filePath}`)
+		matterData.push(data)
 	}
 
 	return matterData
+}
+
+const filePathFromSlug = async (slug: string[]) => {
+	let filePath = path.join(contentDir, ...slug)
+	const isDirectory = await getIsDirectory(filePath)
+
+	if (isDirectory) {
+		filePath += '/index'
+	}
+
+	const exists = await fs.access(`${filePath}.md`).then(() => true)
+
+	if (exists) {
+		return `${filePath}.md`
+	} else {
+		return ''
+	}
+}
+
+const readArticle = async (filePath: string) => {
+	const fileContents = await fs.readFile(filePath, 'utf8')
+	const { matter, file } = await parseMarkdown(fileContents)
+
+	const hrefFragment = filePath.replace(contentDir, '').replace(/(\/index)?\.md$/, '')
+	return {
+		data: matter.data,
+		href: `/${hrefFragment}`,
+		slug: `${hrefFragment}`.split(RegExp(path.sep)),
+		toc: file.data.toc,
+	}
+}
+
+export const getArticleData = async (slug: string[]) => {
+	const filePath = await filePathFromSlug(slug)
+	return readArticle(filePath)
 }

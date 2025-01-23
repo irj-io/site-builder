@@ -7,7 +7,8 @@ export async function ArticlesMenu({ slug }: { slug: string[] }) {
 	const articles = await getAllArticles('help')
 
 	return (
-		<div className="flex flex-col gap-2">
+		<div className="flex flex-col gap-2 mb-4">
+			<p className="font-bold">Other articles</p>
 			<ul className="flex flex-col gap-2">
 				{articles.map((article, index) => (
 					<li
