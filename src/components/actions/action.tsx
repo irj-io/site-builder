@@ -1,16 +1,25 @@
+import Link from 'next/link'
+
+import { Button } from '@/components/ui/button'
 import type { Action } from '@/utils/page-schema'
-import { Button } from '../button/button'
-import { Link } from '../link/link'
 
 export type ActionProps = Action
 
 export function Action(props: ActionProps) {
-	const { type } = props
+	const { type, label, href, ...rest } = props
 	switch (type) {
 		case 'link':
-			return <Link {...props} />
+			return (
+				<Link href={href} className="text-foreground hover:underline hover:text-foreground/90">
+					{label}
+				</Link>
+			)
 		default:
 		case 'button':
-			return <Button {...props} />
+			return (
+				<Button {...rest} asChild={'href' in props}>
+					{typeof href === 'string' ? <Link href={href}>{label}</Link> : label}
+				</Button>
+			)
 	}
 }

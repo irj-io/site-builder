@@ -1,21 +1,24 @@
 header:
   navLinks:
     - type: button
-      variant: text
+      variant: ghost
       label: Features
       href: /features
+      size: lg
     - type: button
-      variant: text
+      variant: ghost
       label: Pricing
       href: /pricing
+      size: lg
     - type: button
-      variant: text
+      variant: ghost
       label: Login
       href: https://tyto.me/login
+      size: lg
     - type: button
       label: Try It For Free!
       href: /signup
-      color: primary
+      size: lg
 
 footer:
   columns:

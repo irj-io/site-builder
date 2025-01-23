@@ -20,5 +20,4 @@ layout:
     content: Some content can go here
     action:
       type: button
-      variant: filled
       label: Button

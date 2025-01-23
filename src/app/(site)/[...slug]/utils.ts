@@ -10,6 +10,8 @@ import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
 
 import {
+	MdBlockquote,
+	MdCode,
 	MdH1,
 	MdH2,
 	MdH3,
@@ -18,7 +20,9 @@ import {
 	MdH6,
 	MdImg,
 	MdLink,
+	MdOl,
 	MdParagraph,
+	MdUl,
 } from './markdown-components'
 
 interface ParseMarkdownResult {
@@ -34,6 +38,10 @@ const components: Partial<Components> = {
 	h5: MdH5,
 	h6: MdH6,
 	p: MdParagraph,
+	blockquote: MdBlockquote,
+	ul: MdUl,
+	ol: MdOl,
+	code: MdCode,
 	a: MdLink,
 	img: MdImg,
 }

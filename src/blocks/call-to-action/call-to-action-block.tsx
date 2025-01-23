@@ -1,7 +1,7 @@
 import { omit } from 'remeda'
 
-import { Button } from '@/components/button/button'
 import { Section } from '@/components/section'
+import { Button } from '@/components/ui/button'
 import { cn } from '@/utils/cn'
 import type { CallToAction } from '@/utils/page-schema'
 import type { BlockProps } from '../block-types'
@@ -15,7 +15,7 @@ export function CallToActionBlock(props: BlockProps<CallToAction>) {
 		<Section className={cn('p-16', sectionClassName)} {...sectionProps}>
 			<div className="container mx-auto flex flex-col items-center justify-items-center text-center">
 				{title ? <h3 className="text-4xl font-bold mb-8">{title}</h3> : null}
-				<Button size="large" {...button} />
+				<Button size="lg" {...button} />
 			</div>
 		</Section>
 	)

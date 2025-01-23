@@ -20,12 +20,11 @@ const SectionSchema = z.object({
 export type ButtonAction = z.infer<typeof ButtonActionSchema>
 export const ButtonActionSchema = z.object({
 	type: z.literal('button'),
-	variant: z.enum(['filled', 'outlined', 'text']).optional(),
+	variant: z.enum(['default', 'outline', 'secondary', 'destructive', 'ghost', 'link']).optional(),
 	href: z.string().optional(),
 	label: z.string(),
-	color: z.enum(['primary', 'secondary', 'inherit']).default('inherit'),
 	startIcon: z.string().optional(),
-	size: z.enum(['small', 'medium', 'large']).optional(),
+	size: z.enum(['default', 'sm', 'lg', 'icon']).optional(),
 })
 
 export type LinkAction = z.infer<typeof LinkActionSchema>
