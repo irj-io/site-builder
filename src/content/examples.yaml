@@ -7,12 +7,12 @@ layout:
     subtitle: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
     actions:
       - type: button
-        variant: outlined
-        color: inherit
+        variant: outline
         label: Start Free
+        size: lg
       - type: button
-        color: primary
         label: View Video
+        size: lg
         startIcon: play_arrow
 
   - type: featureGrid
@@ -67,6 +67,7 @@ layout:
       type: button
       color: primary
       label: See It In Action
+      size: lg
     reverse: true
     section:
       className: bg-surface
@@ -80,6 +81,7 @@ layout:
       type: button
       color: primary
       label: See It In Action
+      size: lg
     section:
       className: bg-surface
 
@@ -162,7 +164,6 @@ layout:
     title: The CallToAction block
     button:
       type: button
-      color: primary
       label: Sign up today!
       href: /signup
     section:
