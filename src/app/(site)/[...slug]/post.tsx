@@ -11,15 +11,7 @@ interface PostProps {
 }
 
 export async function Post({ data, Markdown }: PostProps) {
-	console.log('data', data)
 	const bannerSrc = data.banner
-	if (data.banner && data.banner.startsWith('./images/')) {
-		//bannerSrc = `@/content/${path.join(...data.slug, data.banner)}`
-		//const { default: src } = await import(`@/content/${path.join(...data.slug, data.banner)}`)
-		//bannerSrc = src
-		data.banner = ''
-		console.log('bannerSrc', bannerSrc)
-	}
 
 	return (
 		<>
