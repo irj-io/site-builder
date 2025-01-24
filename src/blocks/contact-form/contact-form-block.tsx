@@ -1,19 +1,15 @@
 import { Field, Input, Label, Textarea } from '@headlessui/react'
-import { omit } from 'remeda'
 
-import { Section } from '@/components/section/section'
+import { getSectionProps, Section } from '@/components/section/section'
 import { cn } from '@/utils/cn'
 import { ContactForm } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
 
 export function ContactFormBlock(props: BlockProps<ContactForm>) {
-	const { title, section: _sectionProps } = props
-
-	const sectionProps = _sectionProps ? omit(_sectionProps, ['className']) : null
-	const sectionClassName = _sectionProps?.className
+	const { title, section } = props
 
 	return (
-		<Section className={cn('px-8 py-24', sectionClassName)} {...sectionProps}>
+		<Section {...getSectionProps(section, { className: 'px-8 py-24' })}>
 			<div className="container mx-auto max-w-4xl flex flex-col gap-8">
 				{title ? <div className="text-4xl text-center mb-16">{title}</div> : null}
 				<div className="flex gap-8">

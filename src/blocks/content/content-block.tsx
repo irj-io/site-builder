@@ -1,8 +1,8 @@
 import { JSX } from 'react'
-import { omit, toCamelCase } from 'remeda'
+import { toCamelCase } from 'remeda'
 
 import { ContentBox } from '@/components/content-box'
-import { Section } from '@/components/section/section'
+import { getSectionProps, Section } from '@/components/section/section'
 import { cn } from '@/utils/cn'
 import type { Content, Testimonial } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
@@ -34,16 +34,13 @@ function Content({ content }: { content: Testimonial }) {
 }
 
 export function ContentBlock(props: BlockProps<Content>) {
-	const { columns, section: _sectionProps } = props
-
-	const sectionProps = _sectionProps ? omit(_sectionProps, ['className']) : null
-	const sectionClassName = _sectionProps?.className
+	const { columns, section } = props
 
 	const colCount = ['grid-cols-1', 'grid-cols-2', 'grid-cols-3']
 	const colClass = colCount[columns.length - 1]
 
 	return (
-		<Section className={cn('py-16', sectionClassName)} {...sectionProps}>
+		<Section {...getSectionProps(section, { className: 'py-16' })}>
 			<div className={cn('container mx-auto grid gap-y-8 gap-x-16', colClass)}>
 				{columns && columns.length > 0
 					? columns.map((col, index) => {

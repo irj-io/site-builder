@@ -1,18 +1,12 @@
-import { omit } from 'remeda'
-
-import { Section } from '@/components/section/section'
-import { cn } from '@/utils/cn'
+import { getSectionProps, Section } from '@/components/section/section'
 import { Stats } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
 
 export function StatsBlock(props: BlockProps<Stats>) {
-	const { items, section: _sectionProps } = props
-
-	const sectionProps = _sectionProps ? omit(_sectionProps, ['className']) : null
-	const sectionClassName = _sectionProps?.className
+	const { items, section } = props
 
 	return (
-		<Section className={cn(sectionClassName)} {...sectionProps}>
+		<Section {...getSectionProps(section)}>
 			<div className="container mx-auto px-6 py-12 flex justify-around">
 				{items.map((item, index) => (
 					<div key={`stats-${index}`} className="flex flex-col gap-4 items-center text-center">

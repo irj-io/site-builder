@@ -1,20 +1,15 @@
 import Image from 'next/image'
-import { omit } from 'remeda'
 
 import { Action } from '@/components/actions/action'
-import { Section } from '@/components/section/section'
-import { cn } from '@/utils/cn'
+import { getSectionProps, Section } from '@/components/section/section'
 import { Hero } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
 
 export function HeroMediumImpactBlock(props: BlockProps<Hero>) {
-	const { media, title, subtitle, actions = [], section: _sectionProps } = props
-
-	const sectionProps = _sectionProps ? omit(_sectionProps, ['className']) : null
-	const sectionClassName = _sectionProps?.className
+	const { media, title, subtitle, actions = [], section } = props
 
 	return (
-		<Section className={cn('-mt-20 pt-20', sectionClassName)} {...sectionProps}>
+		<Section {...getSectionProps(section, { className: '-mt-20 pt-20' })}>
 			<div className="container mx-auto grid grid-cols-12 gap-8">
 				<div className="col-span-5 px-6 flex flex-col justify-end">
 					{title ? (

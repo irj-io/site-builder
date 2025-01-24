@@ -1,19 +1,13 @@
-import { omit } from 'remeda'
-
-import { Section } from '@/components/section/section'
-import { cn } from '@/utils/cn'
+import { getSectionProps, Section } from '@/components/section/section'
 import { FeatureGrid } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
 import { FeatureGridItem } from './feature-grid-item'
 
 export function FeatureGridBlock(props: BlockProps<FeatureGrid>) {
-	const { title, subtitle, features = [], section: _sectionProps } = props
-
-	const sectionProps = _sectionProps ? omit(_sectionProps, ['className']) : null
-	const sectionClassName = _sectionProps?.className
+	const { title, subtitle, features = [], section } = props
 
 	return (
-		<Section className={cn('p-16', sectionClassName)} {...sectionProps}>
+		<Section {...getSectionProps(section, { className: 'p-16' })}>
 			{title ? <div className="text-4xl text-center font-bold mb-3">{title}</div> : null}
 			{subtitle ? <div className="text-2xl text-center mb-3">{subtitle}</div> : null}
 			<div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 px-6 py-8">
