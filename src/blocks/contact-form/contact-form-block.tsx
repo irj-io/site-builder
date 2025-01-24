@@ -1,7 +1,7 @@
 import { Field, Input, Label, Textarea } from '@headlessui/react'
 import { omit } from 'remeda'
 
-import { Section } from '@/components/section'
+import { Section } from '@/components/section/section'
 import { cn } from '@/utils/cn'
 import { ContactForm } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'

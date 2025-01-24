@@ -1,7 +1,7 @@
 import { omit } from 'remeda'
 
 import { Action } from '@/components/actions/action'
-import { Section } from '@/components/section'
+import { Section } from '@/components/section/section'
 import { cn } from '@/utils/cn'
 import { FeatureBox } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'

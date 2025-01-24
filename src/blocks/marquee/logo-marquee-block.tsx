@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { omit } from 'remeda'
 
 import { Marquee } from '@/components/marquee/marquee'
-import { Section } from '@/components/section'
+import { Section } from '@/components/section/section'
 import { cn } from '@/utils/cn'
 import type { LogoMarquee } from '@/utils/page-schema'
 import type { BlockProps } from '../block-types'

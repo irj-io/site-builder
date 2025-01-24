@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Section } from '@/components/section'
+import { Section } from '@/components/section/section'
 import { getAllArticles } from '@/utils/articles'
 import { cn } from '@/utils/cn'
 

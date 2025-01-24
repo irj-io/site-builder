@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { omit } from 'remeda'
 
 import { Action } from '@/components/actions/action'
-import { Section } from '@/components/section'
+import { Section } from '@/components/section/section'
 import { cn } from '@/utils/cn'
 import { Hero } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
@@ -44,7 +44,6 @@ export function HeroMediumImpactBlock(props: BlockProps<Hero>) {
 					{media && typeof media === 'object' ? (
 						<Image
 							className="w-full h-full object-contain"
-							objectFit="contain"
 							src={media.src}
 							alt=""
 							quality={90}

@@ -1,6 +1,6 @@
 import { omit } from 'remeda'
 
-import { Section } from '@/components/section'
+import { Section } from '@/components/section/section'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/utils/cn'
 import type { CallToAction } from '@/utils/page-schema'

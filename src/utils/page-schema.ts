@@ -1,5 +1,7 @@
 import { z } from 'zod'
 
+import { SectionSchema } from '@/components/section/section-schema'
+
 // TODO: all data fields can be safely flattened. The discriminated union pattern should handle this fine.
 
 const IconSchema = z.string()
@@ -10,11 +12,6 @@ const ImageSchema = z.object({
 
 const MediaSchema = z.object({
 	src: z.string(),
-})
-
-export type Section = z.infer<typeof SectionSchema>
-const SectionSchema = z.object({
-	className: z.string().optional(),
 })
 
 export type ButtonAction = z.infer<typeof ButtonActionSchema>

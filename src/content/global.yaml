@@ -1,3 +1,18 @@
+announcementBar:
+  announcements:
+    - content: This is the first announcement
+      startDate: 2025-01-24T10:40:00Z
+      endDate: 2025-01-24T10:41:00Z
+    - content: This is the second announcement
+      startDate: 2025-01-24T10:41:10Z
+      endDate: 2025-01-24T10:41:30Z
+    - content: This is the third announcement
+      startDate: 2025-01-24T10:42:00Z
+      endDate: 2025-01-24T10:43:00Z
+    - content: This is the fourth announcement
+      startDate: 2025-01-24T10:44:00Z
+      endDate: 2025-01-24T10:45:00Z
+
 header:
   navLinks:
     - type: button

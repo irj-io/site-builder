@@ -2,7 +2,7 @@ import { JSX } from 'react'
 import { omit, toCamelCase } from 'remeda'
 
 import { ContentBox } from '@/components/content-box'
-import { Section } from '@/components/section'
+import { Section } from '@/components/section/section'
 import { cn } from '@/utils/cn'
 import type { Content, Testimonial } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'

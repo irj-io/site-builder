@@ -19,21 +19,21 @@ import { TestimonialVertical } from '@/blocks/testimonial/testimonial-vertical'
 import { PageSchema } from './page-schema'
 
 const componentMap = {
+	callToAction: CallToActionBlock,
+	collapsibleContent: CollapsibleContentBlock,
+	contactForm: ContactFormBlock,
+	content: ContentBlock,
+	featureBox: FeatureBoxBlock,
+	featureGrid: FeatureGridBlock,
+	featureList: FeatureListBlock,
 	hero: {
 		highImpact: HeroHighImpactBlock,
 		mediumImpact: HeroMediumImpactBlock,
 		productScreenshot: HeroProductScreenshotBlock,
 	},
-	featureBox: FeatureBoxBlock,
-	featureGrid: FeatureGridBlock,
-	featureList: FeatureListBlock,
-	testimonial: TestimonialVertical,
-	contactForm: ContactFormBlock,
-	collapsibleContent: CollapsibleContentBlock,
-	content: ContentBlock,
 	logoMarquee: LogoMarqueeBlock,
-	callToAction: CallToActionBlock,
 	stats: StatsBlock,
+	testimonial: TestimonialVertical,
 }
 
 export async function parseLayout(yaml: string) {

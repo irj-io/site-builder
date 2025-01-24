@@ -18,8 +18,7 @@ layout:
     section:
       className: |
         relative 
-        before:block before:absolute before:bg-[hsl(5,68%,96%)] before:dark:bg-[hsl(5,68%,26%)] before:-z-10 before:-inset-1
-        [& svg]:fill-blue-500
+        before:block before:absolute before:bg-[hsl(5,68%,96%)] before:dark:bg-[hsl(5,68%,26%)] before:-z-10 before:inset-0
 
   - type: featureGrid
     title: Designed for small teams
