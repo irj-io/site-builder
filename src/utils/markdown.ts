@@ -26,6 +26,7 @@ import {
 	MdParagraph,
 	MdUl,
 } from '@/components/markdown-components'
+import { remarkTransformImages } from '@/lib/remark-transform-images'
 
 interface TocItem {
 	depth: number
@@ -62,7 +63,10 @@ const components: Partial<Components> = {
 	img: MdImg,
 }
 
-export const parseMarkdown = async (fileContents: string): Promise<ParseMarkdownResult> => {
+export const parseMarkdown = async (
+	fileContents: string,
+	slug: string[]
+): Promise<ParseMarkdownResult> => {
 	// Use gray-matter to parse the post metadata section
 	const matterResult = matter(fileContents)
 
@@ -71,6 +75,7 @@ export const parseMarkdown = async (fileContents: string): Promise<ParseMarkdown
 		.use(remarkParse, { fragment: true })
 		.use(remarkGfm)
 		.use(remarkFlexibleToc)
+		.use(remarkTransformImages(slug))
 		.use(remarkRehype)
 		.use(rehypeSanitize)
 		.use(rehypeSlug)

@@ -38,9 +38,6 @@ const componentMap = {
 
 export async function parseLayout(yaml: string) {
 	try {
-		//const filePath = path.join(process.cwd(), 'src/content', `${slug.join('/')}.yaml`)
-		//const filePath = `@/content/${slug.join('/')}.json`
-		//const { default: fileContents } = await import(filePath)
 		const fileData = yaml
 
 		const { success, data, error } = PageSchema.safeParse(fileData)

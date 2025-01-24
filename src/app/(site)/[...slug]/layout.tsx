@@ -1,14 +1,14 @@
 import { ArticlesMenu } from '@/components/articles-menu'
 import { TableOfContents } from '@/components/table-of-contents'
 
-export default function PostLayout({
+export default async function PostLayout({
 	children,
 	params,
 }: Readonly<{
 	children: React.ReactNode
-	params: { slug: string[] }
+	params: Promise<{ slug: string[] }>
 }>) {
-	const { slug } = params
+	const { slug } = await params
 
 	return (
 		<div className="container mx-auto px-6 py-8">

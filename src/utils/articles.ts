@@ -59,14 +59,16 @@ const filePathFromSlug = async (slug: string[]) => {
 }
 
 const readArticle = async (filePath: string) => {
-	const fileContents = await fs.readFile(filePath, 'utf8')
-	const { matter, file } = await parseMarkdown(fileContents)
-
 	const hrefFragment = filePath.replace(contentDir, '').replace(/(\/index)?\.md$/, '')
+	const slug = `${hrefFragment}`.split(RegExp(path.sep))
+
+	const fileContents = await fs.readFile(filePath, 'utf8')
+	const { matter, file } = await parseMarkdown(fileContents, slug)
+
 	return {
 		data: matter.data,
 		href: `/${hrefFragment}`,
-		slug: `${hrefFragment}`.split(RegExp(path.sep)),
+		slug,
 		toc: file.data.toc,
 	}
 }

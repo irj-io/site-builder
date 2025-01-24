@@ -103,7 +103,7 @@ export const MdLink = (props: ComponentProps<typeof Link>) => (
 )
 
 export const MdImg = (props: ComponentProps<typeof Image>) =>
-	typeof props.src === 'string' && /^\/assets\//.test(props.src) ? (
+	typeof props.src === 'string' && props.src.startsWith('/assets/') ? (
 		<Image
 			style={{ width: '100%', height: 'auto' }}
 			alt={props.alt || ''}

@@ -40,7 +40,7 @@ export async function getPostData(slug: string[]): Promise<[PostData, ReactNode]
 	}
 	const fileContents = await fs.readFile(`${fullPath}.md`, 'utf8')
 
-	const { file, matter } = await parseMarkdown(fileContents)
+	const { file, matter } = await parseMarkdown(fileContents, ['help', ...slug])
 
 	// Combine the data with the id and contentHtml
 	return [
