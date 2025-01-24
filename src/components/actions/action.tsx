@@ -10,7 +10,7 @@ export function Action(props: ActionProps) {
 		case 'link': {
 			const { label, href } = props
 			return (
-				<Link href={href} className="text-foreground hover:underline hover:text-foreground/90">
+				<Link href={href} className="hover:underline hover:text-foreground/90">
 					{label}
 				</Link>
 			)

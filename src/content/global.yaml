@@ -14,6 +14,8 @@ announcementBar:
       endDate: 2025-01-24T10:45:00Z
 
 header:
+  logo:
+    src: /assets/images/tyto-logo.png
   navLinks:
     - type: button
       variant: ghost
@@ -36,8 +38,9 @@ header:
       size: lg
 
 footer:
+  logo:
+    src: /assets/images/tyto-logo.png
   columns:
-    - content: []
     - title: Tyto
       content:
         - type: link
@@ -63,6 +66,17 @@ footer:
         - type: link
           label: Tyto for Enterprise
           href: /enterprise
+    - title: Legal
+      content:
+        - type: link
+          label: Privacy
+          href: /legal/privacy
+        - type: link
+          label: Terms & Conditions
+          href: /legal/terms
+        - type: link
+          label: Email Disclaimer
+          href: /legal/email-disclaimer
     - content: []
   bottomSection:
     content: © Copyright 2016 Tyto - All Rights Reserved · An IRJ.io site. · Privacy Policy

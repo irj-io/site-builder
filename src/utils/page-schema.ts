@@ -10,7 +10,7 @@ const ImageSchema = z.object({
 	src: z.string(),
 })
 
-const MediaSchema = z.object({
+export const MediaSchema = z.object({
 	src: z.string(),
 })
 

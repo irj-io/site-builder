@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { ActionSchema } from '@/utils/page-schema'
+import { ActionSchema, MediaSchema } from '@/utils/page-schema'
 
 export type FooterColumn = z.infer<typeof FooterColumn>
 const FooterColumn = z.object({
@@ -10,6 +10,7 @@ const FooterColumn = z.object({
 
 export type Footer = z.infer<typeof FooterSchema>
 export const FooterSchema = z.object({
+	logo: MediaSchema.optional(),
 	topSection: z
 		.object({
 			content: z.string().optional(),
