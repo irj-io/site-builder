@@ -1,3 +1,4 @@
+import path from 'node:path'
 import matter, { GrayMatterFile } from 'gray-matter'
 import { createElement, ReactNode } from 'react'
 import jsxRuntime from 'react/jsx-runtime'
@@ -63,19 +64,30 @@ const components: Partial<Components> = {
 	img: MdImg,
 }
 
+const rewriteImagePaths = (matter: GrayMatterFile<string>, slug: string[]) => {
+	for (const key in matter.data) {
+		const value = matter.data[key]
+		if (typeof value === 'string' && value.startsWith('./images/')) {
+			const fileName = path.basename(value)
+			matter.data[key] = `/assets/images/${path.join(...slug)}/${fileName}`
+		}
+	}
+	return matter
+}
+
 export const parseMarkdown = async (
 	fileContents: string,
 	slug: string[]
 ): Promise<ParseMarkdownResult> => {
 	// Use gray-matter to parse the post metadata section
-	const matterResult = matter(fileContents)
+	const matterResult = rewriteImagePaths(matter(fileContents), slug)
 
 	// Use remark to convert markdown into HTML string
 	const file = await unified()
 		.use(remarkParse, { fragment: true })
 		.use(remarkGfm)
 		.use(remarkFlexibleToc)
-		.use(remarkTransformImages(slug))
+		.use(remarkTransformImages({ slug }))
 		.use(remarkRehype)
 		.use(rehypeSanitize)
 		.use(rehypeSlug)

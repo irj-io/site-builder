@@ -2,7 +2,12 @@ import path from 'node:path'
 import type { Node } from 'unist'
 import { visit } from 'unist-util-visit'
 
-export function remarkTransformImages(slug: string[]) {
+interface PluginOptions {
+	slug: string[]
+}
+
+export function remarkTransformImages(options: PluginOptions) {
+	const { slug } = options
 	return () => {
 		return (tree: Node) => {
 			visit(tree, 'image', (node: { url: string }) => {
