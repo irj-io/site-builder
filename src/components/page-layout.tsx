@@ -4,15 +4,22 @@ import { Footer } from '@/components/footers/footer'
 import { FooterSchema } from '@/components/footers/footer-schema'
 import { Header } from '@/components/headers/header'
 import { HeaderSchema } from '@/components/headers/header-schema'
+import type { Header as HeaderType } from '@/components/headers/header-schema'
 import globalData from '@/content/global.yaml'
 
+interface HeaderProps {
+	theme: HeaderType['theme']
+}
+
 export default function PageLayout({
+	headerProps = {},
 	children,
 }: Readonly<{
+	headerProps?: Partial<HeaderProps>
 	children: React.ReactNode
 }>) {
 	const announcementData = AnnouncementBarSchema.parse(globalData.announcementBar || {})
-	const headerData = HeaderSchema.parse(globalData.header || {})
+	const headerData = HeaderSchema.parse({ ...(globalData.header || {}), ...headerProps })
 	const footerData = FooterSchema.parse(globalData.footer || {})
 
 	return (

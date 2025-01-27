@@ -6,12 +6,6 @@ layout:
     title: Features
     actions: []
 
-  - type: content
-    columns:
-      - content: Column 1
-      - content: Column 2
-      - content: Column 3
-
   - type: featureBox
     media:
       src: /assets/images/hero-background.png

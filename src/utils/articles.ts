@@ -49,13 +49,23 @@ const filePathFromSlug = async (slug: string[]) => {
 		filePath += '/index'
 	}
 
-	const exists = await fs.access(`${filePath}.md`).then(() => true)
+	try {
+		const exists = await fs.access(`${filePath}.md`).then(() => true)
 
-	if (exists) {
-		return `${filePath}.md`
-	} else {
-		return ''
-	}
+		if (exists) {
+			return `${filePath}.md`
+		}
+	} catch {}
+
+	try {
+		const exists = await fs.access(`${filePath}.yaml`).then(() => true)
+
+		if (exists) {
+			return `${filePath}.yaml`
+		}
+	} catch {}
+
+	return ''
 }
 
 const readArticle = async (filePath: string) => {
