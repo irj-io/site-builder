@@ -1,5 +1,6 @@
 import { AnnouncementBar } from '@/components/announcement-bar/announcement-bar'
 import { AnnouncementBarSchema } from '@/components/announcement-bar/announcement-bar-schema'
+import type { AnnouncementBar as AnnouncementBarProps } from '@/components/announcement-bar/announcement-bar-schema'
 import { Footer } from '@/components/footers/footer'
 import { FooterSchema } from '@/components/footers/footer-schema'
 import { Header } from '@/components/headers/header'
@@ -12,13 +13,18 @@ interface HeaderProps {
 }
 
 export default function PageLayout({
+	announcementProps = {},
 	headerProps = {},
 	children,
 }: Readonly<{
+	announcementProps?: Partial<AnnouncementBarProps>
 	headerProps?: Partial<HeaderProps>
 	children: React.ReactNode
 }>) {
-	const announcementData = AnnouncementBarSchema.parse(globalData.announcementBar || {})
+	const announcementData = AnnouncementBarSchema.parse({
+		...(globalData.announcementBar || {}),
+		...announcementProps,
+	})
 	const headerData = HeaderSchema.parse({ ...(globalData.header || {}), ...headerProps })
 	const footerData = FooterSchema.parse(globalData.footer || {})
 

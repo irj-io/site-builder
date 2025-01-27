@@ -1,3 +1,8 @@
+announcementBar:
+  announcements:
+    - content: Example announcement bar. Will stick around forever if no dates are specified
+      #startDate: 2025-01-24T00:00:00Z
+      #endDate: 2025-01-25T23:59:59Z
 header:
   theme: dark
 layout:
