@@ -184,3 +184,18 @@ layout:
         label: Tracked pageviews
       - value: 99.99%
         label: Uptime (Last 90 days)
+
+  - type: faq
+    title: The FAQ block
+    subtitle: Displays FAQ items in a 2-column layout
+    items:
+      - title: Item 1
+        content: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      - title: Item 2
+        content: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      - title: Item 3
+        content: Ex id ipsum sed maecenas tempor. Maximus enim massa primis dapibus; diam bibendum blandit sem. Parturient mus convallis donec vestibulum feugiat maecenas.
+      - title: Item 4
+        content: Gravida platea dapibus molestie potenti amet magna. In netus sem habitant in habitant felis per finibus. Proin varius torquent arcu eleifend himenaeos justo. Mollis consectetur erat ac molestie quam. Pulvinar non et volutpat vitae non per ante.
+      - title: Item 5
+        content: Praesent neque ligula conubia quam adipiscing, habitasse bibendum molestie ad. Dictum massa litora malesuada himenaeos risus faucibus pellentesque ex. Vulputate magnis facilisi purus facilisis, hac eros?

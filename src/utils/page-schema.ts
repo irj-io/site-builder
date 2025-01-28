@@ -158,13 +158,25 @@ const StatItemSchema = z.object({
 	label: z.string().optional(),
 	value: z.union([z.number(), z.string()]),
 })
-
 export type Stats = z.infer<typeof StatsSchema>
 const StatsSchema = z.object({
 	type: z.literal('stats'),
 	title: z.string().optional(),
 	subtitle: z.string().optional(),
 	items: z.array(StatItemSchema),
+	section: SectionSchema.optional(),
+})
+
+const FaqItemSchema = z.object({
+	title: z.string(),
+	content: z.string(),
+})
+export type Faq = z.infer<typeof FaqSchema>
+const FaqSchema = z.object({
+	type: z.literal('faq'),
+	title: z.string().optional(),
+	subtitle: z.string().optional(),
+	items: z.array(FaqItemSchema),
 	section: SectionSchema.optional(),
 })
 
@@ -179,6 +191,7 @@ export const BlocksSchema = z.discriminatedUnion('type', [
 	LogoMarqueeSchema,
 	CallToActionSchema,
 	StatsSchema,
+	FaqSchema,
 	// TODO: These aren't blocks. Should be extracted to a component schema instead
 	TestimonialSchema,
 	ContentBoxSchema,
