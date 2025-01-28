@@ -134,3 +134,46 @@ layout:
           title: Gregg Richardson
           subtitle: Early Adopter
           content: The score feature is awesome. Everyone here at our office has really had fun with it so far and each day feels like a race to see who can grind through the most tasks.
+  - type: collapsibleContent
+    title: Bringing everything into one place
+    items:
+      - title: Tyto for iPhone and Android
+        content: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      - title: Tyto for Gmail and Outlook
+        content: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      - title: Tyto for Google Calendar and Outlook
+        content: Ex id ipsum sed maecenas tempor. Maximus enim massa primis dapibus; diam bibendum blandit sem. Parturient mus convallis donec vestibulum feugiat maecenas.
+      - title: Tyto for Google Chrome
+        content: Gravida platea dapibus molestie potenti amet magna. In netus sem habitant in habitant felis per finibus. Proin varius torquent arcu eleifend himenaeos justo. Mollis consectetur erat ac molestie quam. Pulvinar non et volutpat vitae non per ante.
+      - title: Tyto as a desktop app
+        content: Praesent neque ligula conubia quam adipiscing, habitasse bibendum molestie ad. Dictum massa litora malesuada himenaeos risus faucibus pellentesque ex. Vulputate magnis facilisi purus facilisis, hac eros?
+    section:
+      className: bg-tertiary-container/30
+
+  - type: collapsibleContent
+    title: Frequently asked
+    items:
+      - title: What, no contracts?
+        content: Yep, that’s right. We have faith in our product. We love using it and we’re pretty darn sure you will too. If for some peculiar reason you don’t, well, why hold you over a barrel?
+      - title: How much time do I have to trial Tyto?
+        content: Take as much time as you need. Your 30 days will not disappear unless you actually use them by creating, updating, deleting or completing tasks. This means that you won’t miss out on days that you might be on leave. You can say it, because we already know… we’re awesome.
+      - title: Is billing done monthly or annually?
+        content: Thought we’d have to trick you into staying with us for an entire year? Nope, not our style. There are no contracts, so billing takes place on a monthly basis.
+      - title: Can I change plans at any time?
+        content: We appreciate that you may feel a little fickle at times, so feel free to upgrade or downgrade at will! Upgrades will be effective immediately and the difference will be billed in the next month. Downgrades will also be effective immediately and the difference will be credited against your account. (Credits only - no refunds.)
+      - title: Can I deactivate users temporarily?
+        content: Yes, in the event that team members are planning on getting some bionic implants, or taking a boring trip to the coast, you can “pause” their account indefinitely. When they return with their superior arm-strength or a fabulous tan, you can reactivate them… if you want to.
+      - title: Can I cancel at any time?
+        content: Sure. You can cancel… But let’s be honest. We’d be shocked. And then sad. We’ll probably cry a little. Possibly throw something at the intern at the wall. We might even try to win you back. Then cry some more. But eventually we’ll come to accept that you’re leaving. All that we ask is that you give us some time (7 days should do it*) to deal with the loss. After that, we’ll go our separate ways… But our door will always be open, just in case you have a change of heart. Please bear mind that we do not pass refunds, so if you’re really thinking about doing the unthinkable, please send us your cancellation by no later than the 21st of your final month.
+      - title: Can I trial the product for free?
+        content: Somewhere in Vegas, an Elvis impersonator marries couples every day. Some of these couples hardly know one another. Mostly, they have no idea what they’re getting themselves into. We are not Elvis impersonators. We don’t expect that sort of blind commitment. That’s why we’d love for you to trial Tyto for 30 days – for free! Get to know her. See if you’re compatible. And if after 30 days you feel you can live without her, you get to walk away - zero commitment and guilt-free.
+      - title: What happens after the free trial period? Will you automatically start billing me?
+        content: No way! Once your trial is over, we’ll give you the option of signing up. Prior to that, there will be no exchange of billing information or any of that nonsense.
+      - title: What payment options are available?
+        content: We love the idea of rolling around in piles of cash, or flying paper plane checks at a poker-faced cashier. Sadly, we don’t have the time. So we accept the Visa, Mastercard and Amex.
+      - title: Will I have the rights to add and remove users myself?
+        content: In an age of political correctness, we say “down with equal rights!” At least, as far as account administration goes. As admin, you will have the ultimate power to add and remove users as you see fit. Of course, with great power comes great responsibility, but we think you can handle it.
+      - title: How will adding, removing and pausing users affect my billing?
+        content: We bill for the total number of active users in a month. If you add new users, we will prorate and bill in the following month. If you pause or delete users during the month, the difference will be credited against your account. (Again, these are credits only. No refunds. Ever.)
+    section:
+      className: bg-tertiary-container/30
