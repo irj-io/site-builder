@@ -7,7 +7,7 @@ export async function ArticlesMenu({ slug }: { slug: string[] }) {
 	const articles = await getAllArticles('help')
 
 	return (
-		<div className="flex flex-col gap-2 mb-4">
+		<div className="flex flex-col gap-2 mb-6">
 			<p className="font-bold">Other articles</p>
 			<ul className="flex flex-col gap-2">
 				{articles.map((article, index) => (
@@ -17,7 +17,7 @@ export async function ArticlesMenu({ slug }: { slug: string[] }) {
 							['border-l-2 border-blue-600 -ml-[2px]']: article.slug.at(-1) === slug.at(-1),
 						})}
 					>
-						<Link className="text-lg hover:text-blue-600" href={article.href}>
+						<Link className="hover:text-blue-600" href={article.href}>
 							{article.data.title}
 						</Link>
 					</li>

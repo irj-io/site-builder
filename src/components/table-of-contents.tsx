@@ -10,12 +10,12 @@ export async function TableOfContents({ slug }: { slug: string[] }) {
 	}
 
 	return (
-		<div className="flex flex-col gap-2 mb-4">
+		<div className="flex flex-col gap-2 mb-6">
 			<p className="font-bold">On this page</p>
 			<ul className="flex flex-col gap-2">
 				{toc.map((item, index) => (
 					<li key={`toc-${index}`}>
-						<Link className="text-lg hover:text-blue-600" href={item.href}>
+						<Link className="hover:text-blue-600" href={item.href}>
 							{item.value}
 						</Link>
 					</li>

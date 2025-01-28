@@ -71,8 +71,10 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
 							<Post data={postData} Markdown={Markdown} />
 						</div>
 						<div className="col-span-4">
-							<TableOfContents slug={slug} />
-							<ArticlesMenu slug={slug} />
+							<div className="sticky top-2">
+								<TableOfContents slug={slug} />
+								<ArticlesMenu slug={slug} />
+							</div>
 						</div>
 					</div>
 				</div>
