@@ -61,8 +61,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
 	const { slug } = await params
 
 	if (slug[0] === 'help') {
-		const postPath: string[] = slug.slice(1)
-		const [postData, Markdown] = await getPostData(postPath)
+		const [postData, Markdown] = await getPostData(slug)
 
 		return (
 			<PageLayout>
