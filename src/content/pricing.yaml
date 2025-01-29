@@ -8,9 +8,80 @@ layout:
   #     className: |
   #       relative
   #       before:block before:absolute before:bg-[hsl(5,68%,96%)] before:dark:bg-[hsl(5,68%,26%)] before:-z-10 before:inset-0
-  - type: faq
-    title: Simple Pricing. No Contracts. No Hidden Fees.
+
+  - type: pricing
+    title: |
+      Simple Pricing. No Contracts. 
+      No Hidden Fees.
     subtitle: Our pricing is as honest as our promise.
+    plans:
+      - type: Single
+        price:
+          usd: $15
+          eur: €15
+          gbp: £15
+          zar: R100
+        descr: |
+          It's just you.
+          50 tasks per month.
+        features:
+          - label: 2 Year History
+          - label: Guest Access
+        action:
+          type: button
+          label: Pick Me!
+      - type: Pro
+        price:
+          usd: $100
+          eur: €100
+          gbp: £100
+          zar: R750
+        descr: |
+          Unlimited users.
+          500 tasks per month.
+        features:
+          - label: 2 Year History
+          - label: Guest Access
+        action:
+          type: button
+          label: Pick Me!
+      - type: Medium
+        price:
+          usd: $200
+          eur: €200
+          gbp: £200
+          zar: R1500
+        descr: |
+          Unlimited users.
+          1,500 tasks per month.
+        features:
+          - label: 2 Year History
+          - label: Guest Access
+        action:
+          type: button
+          label: Pick Me!
+      - type: Enterprise
+        price:
+          usd: $500+
+          eur: €500+
+          gbp: £500+
+          zar: R2500+
+        descr: |
+          Unlimited users.
+          3,000+ tasks per month.
+        features:
+          - label: 5 Year History
+          - label: Guest Access
+          - label: API Access
+          - label: Enterprise integration
+          - label: Priority support
+        action:
+          type: button
+          label: Pick Me!
+
+  - type: faq
+    # title: Simple Pricing. No Contracts. No Hidden Fees.
+    # subtitle: Our pricing is as honest as our promise.
 
     items:
       - title: What, no contracts?

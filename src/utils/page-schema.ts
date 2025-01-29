@@ -180,6 +180,28 @@ const FaqSchema = z.object({
 	section: SectionSchema.optional(),
 })
 
+const PlanSchema = z.object({
+	type: z.string(),
+	price: z.object({
+		usd: z.string(),
+		eur: z.string(),
+		gbp: z.string(),
+		zar: z.string(),
+	}),
+	descr: z.string().optional(),
+	features: z.array(z.object({ label: z.string() })),
+	action: ActionSchema,
+})
+
+export type Pricing = z.infer<typeof PricingSchema>
+const PricingSchema = z.object({
+	type: z.literal('pricing'),
+	title: z.string().optional(),
+	subtitle: z.string().optional(),
+	plans: z.array(PlanSchema),
+	section: SectionSchema.optional(),
+})
+
 export const BlocksSchema = z.discriminatedUnion('type', [
 	HeroSchema,
 	FeatureBoxSchema,
@@ -192,6 +214,7 @@ export const BlocksSchema = z.discriminatedUnion('type', [
 	CallToActionSchema,
 	StatsSchema,
 	FaqSchema,
+	PricingSchema,
 	// TODO: These aren't blocks. Should be extracted to a component schema instead
 	TestimonialSchema,
 	ContentBoxSchema,

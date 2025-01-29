@@ -15,6 +15,7 @@ import { HeroHighImpactBlock } from '@/blocks/hero/hero-high-impact-block'
 import { HeroMediumImpactBlock } from '@/blocks/hero/hero-medium-impact-block'
 import { HeroProductScreenshotBlock } from '@/blocks/hero/hero-product-screenshot'
 import { LogoMarqueeBlock } from '@/blocks/marquee/logo-marquee-block'
+import { PricingCardsBlock } from '@/blocks/pricing/pricing-cards-block'
 import { StatsBlock } from '@/blocks/stats/stats-block'
 import { TestimonialVertical } from '@/blocks/testimonial/testimonial-vertical'
 import { PageSchema } from './page-schema'
@@ -34,6 +35,7 @@ const componentMap = {
 		productScreenshot: HeroProductScreenshotBlock,
 	},
 	logoMarquee: LogoMarqueeBlock,
+	pricing: PricingCardsBlock,
 	stats: StatsBlock,
 	testimonial: TestimonialVertical,
 }
