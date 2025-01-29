@@ -106,3 +106,10 @@ layout:
         content: In an age of political correctness, we say “down with equal rights!” At least, as far as account administration goes. As admin, you will have the ultimate power to add and remove users as you see fit. Of course, with great power comes great responsibility, but we think you can handle it.
       - title: How will adding, removing and pausing users affect my billing?
         content: We bill for the total number of active users in a month. If you add new users, we will prorate and bill in the following month. If you pause or delete users during the month, the difference will be credited against your account. (Again, these are credits only. No refunds. Ever.)
+  - type: logoMarquee
+    title: Trusted by teams at
+    items:
+      - src: /assets/images/client-logos/ty-liberty.webp
+      - src: /assets/images/client-logos/ty-morrisones.webp
+      - src: /assets/images/client-logos/ty-m2north.webp
+      - src: /assets/images/client-logos/ty-yourcompany.webp
