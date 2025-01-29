@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "schema": "tsx tools/build-schema.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
@@ -59,7 +60,9 @@
     "postcss": "^8",
     "raw-loader": "^4.0.2",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.19.2",
     "typescript": "^5",
-    "yaml-loader": "^0.8.1"
+    "yaml-loader": "^0.8.1",
+    "zod-to-json-schema": "^3.24.1"
   }
 }
