@@ -107,9 +107,12 @@ layout:
       - title: How will adding, removing and pausing users affect my billing?
         content: We bill for the total number of active users in a month. If you add new users, we will prorate and bill in the following month. If you pause or delete users during the month, the difference will be credited against your account. (Again, these are credits only. No refunds. Ever.)
   - type: logoMarquee
-    title: Trusted by teams at
+    title: Trusted by teams at…
     items:
       - src: /assets/images/client-logos/ty-liberty.webp
       - src: /assets/images/client-logos/ty-morrisones.webp
       - src: /assets/images/client-logos/ty-m2north.webp
+      - src: /assets/images/client-logos/ty-mediatomcat.webp
+      - src: /assets/images/client-logos/ty-mit.webp
+      - src: /assets/images/client-logos/ty-domaindedeux.webp
       - src: /assets/images/client-logos/ty-yourcompany.webp
