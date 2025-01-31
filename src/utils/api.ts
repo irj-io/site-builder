@@ -1,7 +1,5 @@
 import config from '../config'
 
-console.log('config', config)
-
 const getPostData = (data: object) => ({
 	headers: {
 		'Content-Type': 'application/json',
