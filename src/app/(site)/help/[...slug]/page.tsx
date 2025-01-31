@@ -2,8 +2,10 @@ import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { ReactNode } from 'react'
 
+import { ArticlesMenu } from '@/components/articles-menu'
 import PageLayout from '@/components/page-layout'
 import { Post } from '@/components/post'
+import { TableOfContents } from '@/components/table-of-contents'
 import { getIsDirectory } from '@/utils/content-parsing'
 import { getFileType } from '@/utils/file-utils'
 import { getAvatarImageUrl } from '@/utils/gravatar'
@@ -11,7 +13,7 @@ import { parseMarkdown } from '@/utils/markdown'
 import { parseLayout } from '@/utils/parse-layout'
 import { PostData, PostDataSchema } from '@/utils/post-schema'
 
-const postsDirectory = path.join(process.cwd(), 'src/content/')
+const postsDirectory = path.join(process.cwd(), 'src/content/help/')
 
 export const dynamicParams = false
 
@@ -71,8 +73,16 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
 		return (
 			<PageLayout>
 				<div className="container mx-auto px-6 py-8">
-					<div className="max-w-3xl mx-auto">
-						<Post data={postData} Markdown={Markdown} />
+					<div className="grid grid-cols-12 gap-6">
+						<div className="col-span-8 px-16">
+							<Post data={postData} Markdown={Markdown} />
+						</div>
+						<div className="col-span-4">
+							<div className="sticky top-2">
+								<TableOfContents slug={['help', ...slug]} />
+								<ArticlesMenu slug={['help', ...slug]} />
+							</div>
+						</div>
 					</div>
 				</div>
 			</PageLayout>
