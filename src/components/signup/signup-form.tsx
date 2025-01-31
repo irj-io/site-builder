@@ -74,7 +74,7 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
 				window.dataLayer.push({ event: 'signup form completed' })
 			}
 
-			router.push('/signup/completed')
+			router.replace('/signup/completed')
 		})
 	}
 
