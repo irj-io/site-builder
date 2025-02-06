@@ -19,7 +19,7 @@ export async function Article({ data, Markdown }: ArticleProps) {
 				<ArticleBreadcrumb slug={data.slug} />
 			</nav>
 			<div className="grid grid-cols-[80px_1fr] gap-6">
-				<div>
+				<div className="min-w-0">
 					<Image
 						src={data.authorAvatarUrl}
 						alt={data.author}
@@ -28,7 +28,7 @@ export async function Article({ data, Markdown }: ArticleProps) {
 						width={80}
 					/>
 				</div>
-				<div>
+				<div className="min-w-0">
 					<div className="pb-8">
 						<TypographyH1>{data.title}</TypographyH1>
 						<p className="text-lg font-bold mb-4">
