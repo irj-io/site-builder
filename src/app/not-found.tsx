@@ -8,7 +8,7 @@ import PageLayout from '@/components/page-layout'
 import { TypographyH1, TypographyLead } from '@/components/typography/typography'
 
 export const metadata: Metadata = {
-	title: 'Page not found',
+	title: 'Tyto | Page not found',
 }
 
 export default function NotFound() {
