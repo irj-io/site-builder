@@ -23,12 +23,12 @@ interface SignUpError {
 }
 
 const SignUpFormBaseSchema = z.object({
-	fullName: z.string(),
-	email: z.string(),
+	fullName: z.string().min(1).trim(),
+	email: z.string().email().min(1).trim(),
 	wantsNewsletter: z.boolean(),
 })
 const SignUpFormWithTeamDataSchema = SignUpFormBaseSchema.extend({
-	teamName: z.string(),
+	teamName: z.string().min(1).trim(),
 	teamSize: z.coerce.number(),
 })
 const SignUpFormWithTokenSchema = SignUpFormBaseSchema.extend({
@@ -37,11 +37,19 @@ const SignUpFormWithTokenSchema = SignUpFormBaseSchema.extend({
 type SignUpForm = z.infer<typeof SignUpFormSchema>
 const SignUpFormSchema = z.union([SignUpFormWithTeamDataSchema, SignUpFormWithTokenSchema])
 
+const mapErrorMessage = (message: string = '') => {
+	if (/failed to fetch/i.test(message)) {
+		return 'Unable to reach the login server. Please try again later. Or contact us at help@tyto.me.'
+	}
+
+	return 'Sorry, something went wrong. We have alerted our engineers. Please try again in 30 minutes.'
+}
+
 export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
 	const router = useRouter()
 	const searchParams = useSearchParams()
 	const { error, run, status } = useAsync<SignUpForm, SignUpError>({ throwErrors: true })
-	const form = useForm<SignUpForm>({
+	const { formState, ...form } = useForm<SignUpForm>({
 		resolver: zodResolver(SignUpFormSchema),
 		defaultValues: {
 			fullName: '',
@@ -54,6 +62,12 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
 
 	const plan = searchParams.get('plan')
 	const inviteToken = searchParams.get('s')
+	const errorMessage =
+		Object.keys(formState.errors).length > 0
+			? 'Please correct the fields marked in red below'
+			: status === 'rejected' && error.type !== 'EMAIL_TAKEN'
+				? mapErrorMessage(error.message)
+				: ''
 
 	const onSubmit = (formData: SignUpForm) => {
 		if (status === 'pending') return
@@ -83,12 +97,8 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
 		<div className={cn('flex flex-col gap-6', className)} {...props}>
 			<Card>
 				<CardHeader className="text-center">
-					{status === 'rejected' && error.type !== 'EMAIL_TAKEN' ? (
-						<p className="text-lg text-center text-red-500 mb-4">
-							{error.message
-								? error.message
-								: 'Sorry, something went wrong. We have alerted our engineers. Please try again in 30 minutes.'}
-						</p>
+					{errorMessage ? (
+						<p className="text-lg text-center text-red-500 mb-4">{errorMessage}</p>
 					) : null}
 					{plan ? (
 						<CardTitle className="text-xl">{changeCase.sentenceCase(plan)} Plan</CardTitle>
