@@ -77,15 +77,15 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
 			<PageLayout>
 				<div className="container mx-auto px-6 py-8">
 					<div className="grid grid-cols-12 gap-6">
-						<div className="col-span-2">
+						<div className="hidden lg:col-span-2 lg:block">
 							<Image src={imageSrc} alt="" className="w-full mb-8" />
 							<ArticlesMenu title={'Help'} slug={fullSlug} />
 						</div>
-						<div className="col-span-8 px-16">
+						<div className="col-span-12 md:col-span-10 lg:col-span-8 sm:px-0 md:pl-0 md:pr-8 lg:px-16">
 							<Article data={postData} Markdown={Markdown} />
 						</div>
-						<div className="col-span-2">
-							<div className="sticky top-2">
+						<div className="hidden md:col-span-2 md:block">
+							<div className="sticky top-2 mt-[260px]">
 								<TableOfContents slug={fullSlug} />
 							</div>
 						</div>

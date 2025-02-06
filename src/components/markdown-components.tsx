@@ -86,7 +86,7 @@ export const MdCode = (props: ComponentProps<'code'>) => (
 	<code
 		className={cn(
 			sharedClasses,
-			'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-base font-semibold'
+			'relative block rounded-xl bg-muted px-[1.5rem] py-[1.5rem] font-mono text-base whitespace-pre-wrap'
 		)}
 		{...props}
 	/>

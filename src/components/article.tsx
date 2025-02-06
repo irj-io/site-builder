@@ -18,12 +18,12 @@ export async function Article({ data, Markdown }: ArticleProps) {
 			<nav className="mb-8">
 				<ArticleBreadcrumb slug={data.slug} />
 			</nav>
-			<div className="grid grid-cols-[80px_1fr] gap-6">
+			<div className="grid md:grid-cols-[72px_1fr] lg:grid-cols-[80px_1fr] gap-6">
 				<div className="min-w-0">
 					<Image
 						src={data.authorAvatarUrl}
 						alt={data.author}
-						className="rounded-full h-20 w-20 object-cover"
+						className="rounded-full md:h-18 md:w-18 lg:h-20 lg:w-20 object-cover"
 						height={80}
 						width={80}
 					/>
