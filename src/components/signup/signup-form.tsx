@@ -1,6 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import * as changeCase from 'change-case'
 import { Loader2 } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
@@ -51,7 +52,7 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
 		},
 	})
 
-	const plan = 'Plan goes here from previous page if any'
+	const plan = searchParams.get('plan')
 	const inviteToken = searchParams.get('s')
 
 	const onSubmit = (formData: SignUpForm) => {
@@ -89,7 +90,9 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
 								: 'Sorry, something went wrong. We have alerted our engineers. Please try again in 30 minutes.'}
 						</p>
 					) : null}
-					{plan ? <CardTitle className="text-xl">{plan}</CardTitle> : null}
+					{plan ? (
+						<CardTitle className="text-xl">{changeCase.sentenceCase(plan)} Plan</CardTitle>
+					) : null}
 				</CardHeader>
 				<CardContent>
 					<Form {...form}>

@@ -30,6 +30,7 @@ layout:
         action:
           type: button
           label: Pick Me!
+          href: /signup?plan=single
       - type: Pro
         price:
           usd: $100
@@ -45,6 +46,7 @@ layout:
         action:
           type: button
           label: Pick Me!
+          href: /signup?plan=pro
       - type: Medium
         price:
           usd: $200
@@ -60,6 +62,7 @@ layout:
         action:
           type: button
           label: Pick Me!
+          href: /signup?plan=medium
       - type: Enterprise
         price:
           usd: $500+
@@ -78,6 +81,7 @@ layout:
         action:
           type: button
           label: Pick Me!
+          href: /signup?plan=enterprise
 
   - type: faq
     # title: Simple Pricing. No Contracts. No Hidden Fees.
