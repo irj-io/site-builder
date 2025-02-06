@@ -124,4 +124,6 @@ If at any time you would like to unsubscribe from receiving future emails, you c
 
 ## Contacting Us
 
-[www.tyto.me](www.tyto.me). 31 Woodcote Close, Kingston Upon Thames, Surrey, London, United Kingdom, KT2 5LZ [help@tyto.me](mailto:help@tyto.me)]
+- Email: [help@tyto.me](mailto:help@tyto.me)
+- Website: [www.tyto.me](www.tyto.me)
+- Address: 31 Woodcote Close, Kingston Upon Thames, Surrey, London, United Kingdom, KT2 5LZ
