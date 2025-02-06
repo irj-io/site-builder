@@ -1,7 +1,9 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
+import Image from 'next/image'
 import { ReactNode } from 'react'
 
+import imageSrc from '@/assets/tyto-logo-help.svg'
 import { Article } from '@/components/article'
 import { ArticlesMenu } from '@/components/articles-menu'
 import PageLayout from '@/components/page-layout'
@@ -65,22 +67,26 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
 		fullPath = path.join(fullPath, 'index')
 	}
 
+	const fullSlug = ['help', ...slug]
 	const fileType = await getFileType(fullPath)
 
 	if (fileType === 'markdown') {
-		const [postData, Markdown] = await getPostData(`${fullPath}.md`, slug)
+		const [postData, Markdown] = await getPostData(`${fullPath}.md`, fullSlug)
 
 		return (
 			<PageLayout>
 				<div className="container mx-auto px-6 py-8">
 					<div className="grid grid-cols-12 gap-6">
+						<div className="col-span-2">
+							<Image src={imageSrc} alt="" className="w-full mb-8" />
+							<ArticlesMenu title={'Help'} slug={fullSlug} />
+						</div>
 						<div className="col-span-8 px-16">
 							<Article data={postData} Markdown={Markdown} />
 						</div>
-						<div className="col-span-4">
+						<div className="col-span-2">
 							<div className="sticky top-2">
-								<TableOfContents slug={['help', ...slug]} />
-								<ArticlesMenu slug={['help', ...slug]} />
+								<TableOfContents slug={fullSlug} />
 							</div>
 						</div>
 					</div>
