@@ -8,7 +8,7 @@ banner: /assets/images/help-my-tasks-banner.png
 bannerAlt: A screenshot of the My Tasks page, in a lovely white minimalist theme
 ---
 
-# Introduction
+## Introduction
 
 Our workflow feature is really good at helping your team get better at tasks they do regularly, allowing you to break these tasks into steps, to add intelligence and information to each of these steps.
 

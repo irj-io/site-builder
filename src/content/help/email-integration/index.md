@@ -10,7 +10,7 @@ bannerAlt: A screenshot of Tyto replying to an email conversation
 
 Tyto integrates directly into any email conversation. This means that you can interact with team members and even outside guests without having them have to be Tyto users (don't worry, we'll convince them later).
 
-# How it works
+## How it works
 
 Just forward any email to Tyto to have it create a task.
 
@@ -24,11 +24,11 @@ Just forward any email to Tyto to have it create a task.
 
 Tyto also looks out for any instructions or task data within the email. Instructions are prefixed with her name, followed by a comma ("Tyto, "), or by using task data keywords (further below).
 
-# Getting started
+## Getting started
 
 Note: Before you can use this feature, you'll need to add any email addresses you want Tyto to recognize into the settings page (Tyto / Settings / Emails).
 
-## Email instructions
+### Email instructions
 
 Here are some of the instructions Tyto understands directly via email.
 
@@ -38,7 +38,7 @@ Here are some of the instructions Tyto understands directly via email.
 - Tyto, set the due date to 12 September.
 - Tyto, move this to Repeat Clients/Client ABC
 
-## Task data
+### Task data
 
 You can also set any task info by specifying it in the email body, by adding any of the following items on a new line within the mail.
 
@@ -57,7 +57,7 @@ Normally, Tyto will use the subject line as the task title and all the text insi
 Title: Get client sign-off
 ```
 
-# Examples
+## Examples
 
 1. Simply forwarding an email to Tyto.
 

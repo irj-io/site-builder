@@ -8,7 +8,7 @@ banner: /assets/images/help-my-tasks-banner.png
 bannerAlt: A screenshot of the My Tasks page, in a lovely white minimalist theme
 ---
 
-# Introduction
+## Introduction
 
 The My Tasks page is where you and your team will spend most of your time.
 
@@ -16,7 +16,7 @@ It is a list of all tasks assigned to you, ready for you to deal with, one task 
 
 This list is either viewable from a day by day view, or in one big table.
 
-## Day by day view
+### Day by day view
 
 This is divided into a few sections.
 
@@ -28,11 +28,11 @@ This is divided into a few sections.
 - **Future:** These are tasks scheduled for more than 7 days into the future.
 - **Not Scheduled:** These are tasks without a start date.
 
-## Table view
+### Table view
 
 For those who prefer a simple list of all tasks, we present the table view.
 
-# Task Actions
+## Task Actions
 
 For any task on your list, you have the following actions you could take.
 
@@ -50,7 +50,7 @@ For any task on your list, you have the following actions you could take.
     - (Only people with permission to the current task you're busy with will see the task title. Everyone else will see 'Private Task')
     - (Don't forget to stop your task when you're done. )
 
-# Bulk task actions
+## Bulk task actions
 
 You can perform a number of bulk actions on the My Tasks page (as well as on other pages throughout Tyto). To activate these, hover over the owner of any task and check the select box.
 
@@ -77,7 +77,7 @@ Here are a list of bulk actions available:
 
 - **Delete** Changes the status of all selected tasks to deleted, drawing a line through them and letting everyone involved know. Careful Obi Wan. Careful.
 
-# Managing other people
+## Managing other people
 
 ![blah](https://media.giphy.com/media/7pHTiZYbAoq40/source.gif 'managing others')
 

@@ -1,11 +1,3 @@
----
-title: Email Disclaimer
-description: The email of the species is more deadly than the male
-author: Justin
-authorEmail: justin@tyto.me
-date: '2022-04-27'
----
-
 # Tyto Email Disclaimer
 
 ## Tyto's Privacy Policy

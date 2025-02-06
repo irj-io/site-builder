@@ -1,11 +1,3 @@
----
-title: Privacy Policy
-description: Privacy, the fine print.
-author: Justin
-authorEmail: justin@tyto.me
-date: '2021-04-13'
----
-
 # Tyto's Privacy Policy
 
 This privacy policy has been compiled to better serve those who are concerned with how their Personally identifiable information (PII) is being used online. PII, as used in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website.
@@ -22,12 +14,12 @@ We collect information from you when you register on our site or enter informati
 
 We may use the information we collect from you when you register, make a purchase, sign up for our newsletter, respond to a survey or marketing communication, surf the website, or use certain other site features in the following ways:
 
--   To personalize user's experience and to allow us to deliver the type of content and product offerings in which you are most interested.
--   To improve our website in order to better serve you.
--   To allow us to better service you in responding to your customer service requests.
--   To administer a contest, promotion, survey or other site feature.
--   To quickly process your transactions.
--   To send periodic emails regarding your order or other products and services.
+- To personalize user's experience and to allow us to deliver the type of content and product offerings in which you are most interested.
+- To improve our website in order to better serve you.
+- To allow us to better service you in responding to your customer service requests.
+- To administer a contest, promotion, survey or other site feature.
+- To quickly process your transactions.
+- To send periodic emails regarding your order or other products and services.
 
 ## How do we protect visitor information?
 
@@ -43,8 +35,8 @@ Yes. Cookies are small files that a site or its service provider transfers to yo
 
 We use cookies to:
 
--   Understand and save user's preferences for future visits.
--   Compile aggregate data about site traffic and site interactions in order to offer better site experiences and tools in the future. We may also use trusted third party services that track this information on our behalf.
+- Understand and save user's preferences for future visits.
+- Compile aggregate data about site traffic and site interactions in order to offer better site experiences and tools in the future. We may also use trusted third party services that track this information on our behalf.
 
 You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies. You do this through your browser (like Internet Explorer) settings. Each browser is a little different, so look at your browser's Help menu to learn the correct way to modify your cookies.
 
@@ -76,11 +68,11 @@ CalOPPA is the first state law in the nation to require commercial websites and 
 
 According to CalOPPA we agree to the following:
 
--   Users can visit our site anonymously
--   Once this privacy policy is created, we will add a link to it on our home page, or as a minimum on the first significant page after entering our website.
--   Our Privacy Policy link includes the word 'Privacy and can be easily be found on the page specified above.
--   Users will be notified of any privacy policy changes on our Privacy Policy Page.
--   Users are able to change their personal information by logging in to their account.
+- Users can visit our site anonymously
+- Once this privacy policy is created, we will add a link to it on our home page, or as a minimum on the first significant page after entering our website.
+- Our Privacy Policy link includes the word 'Privacy and can be easily be found on the page specified above.
+- Users will be notified of any privacy policy changes on our Privacy Policy Page.
+- Users are able to change their personal information by logging in to their account.
 
 ## How does our site handle do not track signals?
 
@@ -112,23 +104,23 @@ The CAN-SPAM Act is a law that sets the rules for commercial email, establishes 
 
 We collect your email address in order to:
 
--   Send information, respond to inquiries, and/or other requests or questions.
--   Process orders and to send information and updates pertaining to orders
--   We may also send you additional information related to your product and/or service.
--   Market to our mailing list or continue to send emails to our clients after the original transaction has occurred.
+- Send information, respond to inquiries, and/or other requests or questions.
+- Process orders and to send information and updates pertaining to orders
+- We may also send you additional information related to your product and/or service.
+- Market to our mailing list or continue to send emails to our clients after the original transaction has occurred.
 
 To be accordance with CANSPAM we agree to the following:
 
--   NOT use false, or misleading subjects or email addresses.
--   Identify the message as an advertisement in some reasonable way.
--   Include the physical address of our business or site headquarters.
--   Monitor third party email marketing services for compliance, if one is used.
--   Honor opt-out/unsubscribe requests quickly.
--   Allow users to unsubscribe by using the link at the bottom of each email.
+- NOT use false, or misleading subjects or email addresses.
+- Identify the message as an advertisement in some reasonable way.
+- Include the physical address of our business or site headquarters.
+- Monitor third party email marketing services for compliance, if one is used.
+- Honor opt-out/unsubscribe requests quickly.
+- Allow users to unsubscribe by using the link at the bottom of each email.
 
 If at any time you would like to unsubscribe from receiving future emails, you can
 
--   Follow the instructions at the bottom of each email.
+- Follow the instructions at the bottom of each email.
 
 ## Contacting Us
 
