@@ -1,0 +1,47 @@
+layout:
+  - type: hero
+    variant: mediumImpact
+    title: Automation for Enterprises
+    subtitle: Running a complex business? No problem! Our Enterprise plan gives you a low-code workflow automation powerhouse, rock-solid security, and always-on support—so you can keep things moving without the hassle. 🚀
+    actions: []
+    section:
+      className: |
+        relative
+        before:block before:absolute before:bg-[hsl(5,68%,96%)] before:dark:bg-[hsl(5,68%,26%)] before:-z-10 before:inset-0
+
+  - type: stats
+    items:
+      - value: 34,000
+        label: Trading partners
+      - value: 2 hour
+        label: SLA
+      - value: 103B
+        label: Tracked pageviews
+      - value: 99.99%
+        label: Uptime (Last 90 days)
+
+  - type: faq
+    title: Frequently asked
+
+    items:
+      - title: Sounds too good to be true. How do you do this?
+        content: Firstly, Tyto has a very powerful task API for all the regular integrations you could imagine. But for the multi-system, multi-client, extra complex workflows, we make use M2North, our sister company— who have been the glue to over 35,000 of the biggest (and smallest) companies for the last 19 years.
+      - title: Sounds expensive. How much does this cost?
+        content: You'd be surprised how affordable these integrations are. Our goal is to provide real-world solutions for companies. We charge a monthly subscription fee for the enterprise integration.
+      - title: Sounds painful. How long does a typical integration take?
+        content: A typical integration takes no more than a few weeks to get up-and-running, with a complete, robust solution taking 1-2 months.
+      - title: Which systems do you integrate with?
+        content: SAP, Baan, JD Edwards, as well as many fully bespoke solutions. We integrate via a long list of methods, including SOAP, API, FTP, SFTP, email, SQL (via staging servers) and even via a fully-configurable on-site custom collector.
+      - title: How do I get started?
+        content: Contact us at help@tyto.me for a no-obligation 1-on-1 chat.
+
+  - type: logoMarquee
+    title: Trusted by teams at…
+    items:
+      - src: /assets/images/client-logos/ty-liberty.webp
+      - src: /assets/images/client-logos/ty-morrisones.webp
+      - src: /assets/images/client-logos/ty-m2north.webp
+      - src: /assets/images/client-logos/ty-mediatomcat.webp
+      - src: /assets/images/client-logos/ty-mit.webp
+      - src: /assets/images/client-logos/ty-domaindedeux.webp
+      - src: /assets/images/client-logos/ty-yourcompany.webp
