@@ -8,7 +8,7 @@ banner: ./images/banner.png
 bannerAlt: A screenshot of the task editor
 ---
 
-# The task editor
+## The task editor
 
 Available in center-view, or docked on the right of the page, the task editor provides team members with everything needed to get the job done.
 
@@ -16,11 +16,11 @@ We've tried not to make this too much info, because, ain't nobody go time for th
 
 First, a quick intro to each section.
 
-### Team
+#### Team
 
 Everyone involved, including owner, assignee and followers.
 
-### Priority
+#### Priority
 
 To make it easy to decide what to do next, Tyto asks you to grade each task out of 10 for urgency and importance.
 
@@ -28,37 +28,37 @@ This gives team members a fighting chance of knowing what to do next, as well as
 
 As Dwight D. Eisenhower put it, “I have two kinds of problems, the urgent and the important. The urgent are not important, and the important are never urgent.”
 
-### Dates
+#### Dates
 
 There are 2 kinds of dates in Tyto, Start dates and Due dates. Start dates are when you next want to think about this task. Due dates are when this task needs to be completed by.
 
 When the day arrives, you will be notified via the Daily Task Summary.
 
-### Files
+#### Files
 
 All files uploaded against the task are visible in mini-thumbnails and in a full-screen view, where you can navigate between them using the mouse or arrow keys.
 
 Files can be renamed, deleted and downloaded, all by hovering over the thumbnails.
 
-### Subtasks
+#### Subtasks
 
 Subtasks are the steps involved in getting the main task done and are assumed to be needed to be completed before the parent task can be considered truly done.
 
-### Activity
+#### Activity
 
 Here you can read about task activity, from the most recent things that happened to a task, all the way back in time to when the task was created.
 
-## Task actions
+### Task actions
 
-### Start timer
+#### Start timer
 
 Starting and stopping the task timer has so many benefits to task hygiene.
 
--   Gives visibility to your team. Transparent teams are happy teams.
--   It reduces interruptions
--   Encourages focus
+- Gives visibility to your team. Transparent teams are happy teams.
+- It reduces interruptions
+- Encourages focus
 
-### Reschedule
+#### Reschedule
 
 Sometimes, the best thing to do is nothing. You might decide to reschedule the task for sometime in the future, more appropriate or just leave it as an issue for your future self. You do this by rescheduling the task for a date, day, someday or even never.
 
@@ -70,11 +70,11 @@ Any tasks scheduled for a specific day will trigger the Daily Task Summary email
 
 Lastly, if you add a time to any date, Tyto assumes you'll want a reminder of that time and sends a notification to your phone, the web app, or if you're not around on those, by email.
 
-### Mark as done
+#### Mark as done
 
 This marks the task as done, as well as gives you an opportunity to provide comments about what was done, which we find to be a crucial part of making sure everybody is happy.
 
-### The Task Description
+#### The Task Description
 
 This is where you provide details of what needs to be done, or make notes for yourself. We've created a special section for this, because a lot of cool things are possible. Here's a picture, so you know what we're talking about.
 

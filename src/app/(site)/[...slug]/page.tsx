@@ -2,14 +2,14 @@ import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { ReactNode } from 'react'
 
+import { MarkdownContent } from '@/components/markdown-content'
 import PageLayout from '@/components/page-layout'
-import { Post } from '@/components/post'
 import { getIsDirectory } from '@/utils/content-parsing'
 import { getFileType } from '@/utils/file-utils'
 import { getAvatarImageUrl } from '@/utils/gravatar'
 import { parseMarkdown } from '@/utils/markdown'
 import { parseLayout } from '@/utils/parse-layout'
-import { PostData, PostDataSchema } from '@/utils/post-schema'
+import { MarkdownData, MarkdownDataSchema } from '@/utils/post-schema'
 
 const postsDirectory = path.join(process.cwd(), 'src/content/')
 
@@ -37,14 +37,14 @@ export async function generateStaticParams() {
 export async function getPostData(
 	filePath: string,
 	slug: string[]
-): Promise<[PostData, ReactNode]> {
+): Promise<[MarkdownData, ReactNode]> {
 	const fileContents = await fs.readFile(filePath, 'utf8')
 
 	const { file, matter } = await parseMarkdown(fileContents, slug)
 
 	// Combine the data with the id and contentHtml
 	return [
-		PostDataSchema.parse({
+		MarkdownDataSchema.parse({
 			_contentHtml: file.value,
 			slug,
 			authorAvatarUrl: getAvatarImageUrl(matter.data.authorEmail),
@@ -72,7 +72,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
 			<PageLayout>
 				<div className="container mx-auto px-6 py-8">
 					<div className="max-w-3xl mx-auto">
-						<Post data={postData} Markdown={Markdown} />
+						<MarkdownContent data={postData} Markdown={Markdown} />
 					</div>
 				</div>
 			</PageLayout>
