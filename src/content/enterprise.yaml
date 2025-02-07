@@ -45,3 +45,5 @@ layout:
       - src: /assets/images/client-logos/ty-mit.webp
       - src: /assets/images/client-logos/ty-domaindedeux.webp
       - src: /assets/images/client-logos/ty-yourcompany.webp
+    section:
+      className: bg-white

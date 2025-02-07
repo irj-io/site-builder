@@ -135,7 +135,7 @@ layout:
           subtitle: Marketing Specialist
           content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.
     section:
-      className: bg-slate-50
+      className: bg-slate-50 dark:bg-slate-900
 
   - type: content
     columns:
@@ -166,6 +166,8 @@ layout:
       - src: /assets/images/client-logos/m2cli-samsung.png
       - src: /assets/images/client-logos/m2cli-sony.png
       - src: /assets/images/client-logos/m2cli-whirlpool.png
+    section:
+      className: bg-white
 
   - type: callToAction
     title: The CallToAction block

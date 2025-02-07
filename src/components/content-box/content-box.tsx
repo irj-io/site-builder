@@ -1,11 +1,5 @@
-import React from 'react'
-
 import { cn } from '@/utils/cn'
-import type { ContentBox } from '@/utils/page-schema'
-
-export interface ContentBoxProps extends ContentBox {
-	className?: string
-}
+import type { ContentBoxProps } from './config'
 
 export function ContentBox(props: ContentBoxProps) {
 	const { align, className, content, title, subtitle } = props

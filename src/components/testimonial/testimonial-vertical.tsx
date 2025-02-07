@@ -1,7 +1,6 @@
-import { Testimonial } from '@/utils/page-schema'
-import { BlockProps } from '../block-types'
+import type { TestimonialProps } from './config'
 
-export function TestimonialVertical(props: BlockProps<Testimonial>) {
+export function TestimonialVertical(props: TestimonialProps) {
 	const { media, title, subtitle, content } = props
 
 	return (

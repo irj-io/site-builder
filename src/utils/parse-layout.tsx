@@ -17,7 +17,6 @@ import { HeroProductScreenshotBlock } from '@/blocks/hero/hero-product-screensho
 import { LogoMarqueeBlock } from '@/blocks/marquee/logo-marquee-block'
 import { PricingCardsBlock } from '@/blocks/pricing/pricing-cards-block'
 import { StatsBlock } from '@/blocks/stats/stats-block'
-import { TestimonialVertical } from '@/blocks/testimonial/testimonial-vertical'
 import { PageSchema } from './page-schema'
 
 const componentMap = {
@@ -37,7 +36,6 @@ const componentMap = {
 	logoMarquee: LogoMarqueeBlock,
 	pricing: PricingCardsBlock,
 	stats: StatsBlock,
-	testimonial: TestimonialVertical,
 }
 
 export async function parseLayout(yaml: string) {
