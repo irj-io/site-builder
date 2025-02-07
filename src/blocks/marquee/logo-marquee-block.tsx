@@ -16,9 +16,9 @@ export function LogoMarqueeBlock(props: BlockProps<LogoMarquee>) {
 						key={`logo-${index}`}
 						src={item.src}
 						alt=""
-						className="h-[96px] px-4 object-contain"
-						height={88}
-						width={128}
+						className="h-[128px] px-4 object-contain"
+						height={128}
+						width={156}
 					/>
 				))}
 			</Marquee>
