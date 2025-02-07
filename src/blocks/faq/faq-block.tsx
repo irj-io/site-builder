@@ -9,8 +9,8 @@ function FaqItem(props: Faq['items'][0]) {
 
 	return (
 		<div className="mb-10">
-			<div className="text-lg font-bold mb-2">{title}</div>
-			<div className="text-foreground/60 whitespace-pre-wrap">{content}</div>
+			<div className="text-xl font-bold mb-2">{title}</div>
+			<div className="text-lg text-foreground/60 whitespace-pre-wrap">{content}</div>
 		</div>
 	)
 }

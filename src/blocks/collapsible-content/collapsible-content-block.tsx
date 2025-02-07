@@ -21,8 +21,8 @@ export function CollapsibleContentBlock(props: BlockProps<CollapsibleContent>) {
 				<Accordion type="single" collapsible>
 					{items.map((item, index) => (
 						<AccordionItem key={`item-${index}`} value={`item-${index}`}>
-							<AccordionTrigger>{item.title}</AccordionTrigger>
-							<AccordionContent>{item.content}</AccordionContent>
+							<AccordionTrigger className="text-xl">{item.title}</AccordionTrigger>
+							<AccordionContent className="text-lg">{item.content}</AccordionContent>
 						</AccordionItem>
 					))}
 				</Accordion>
