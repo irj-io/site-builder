@@ -1,8 +1,6 @@
 import { notFound } from 'next/navigation'
-import { JSX } from 'react'
-import { toCamelCase } from 'remeda'
 
-import { BlockProps } from '@/blocks/block-types'
+import { Blocks } from '@/blocks/block-schema'
 import { CallToActionBlock } from '@/blocks/call-to-action/call-to-action-block'
 import { CollapsibleContentBlock } from '@/blocks/collapsible-content/collapsible-content-block'
 import { ContactFormBlock } from '@/blocks/contact-form/contact-form-block'
@@ -19,57 +17,62 @@ import { PricingCardsBlock } from '@/blocks/pricing/pricing-cards-block'
 import { StatsBlock } from '@/blocks/stats/stats-block'
 import { PageSchema } from './page-schema'
 
-const componentMap = {
-	callToAction: CallToActionBlock,
-	collapsibleContent: CollapsibleContentBlock,
-	contactForm: ContactFormBlock,
-	content: ContentBlock,
-	faq: FaqBlock,
-	featureBox: FeatureBoxBlock,
-	featureGrid: FeatureGridBlock,
-	featureList: FeatureListBlock,
-	hero: {
-		highImpact: HeroHighImpactBlock,
-		mediumImpact: HeroMediumImpactBlock,
-		productScreenshot: HeroProductScreenshotBlock,
-	},
-	logoMarquee: LogoMarqueeBlock,
-	pricing: PricingCardsBlock,
-	stats: StatsBlock,
-}
-
 export async function parseLayout(yaml: string) {
 	try {
 		const fileData = yaml
 
-		const { success, data, error } = PageSchema.safeParse(fileData)
+		const result = PageSchema.safeParse(fileData)
 
-		if (!success) {
-			console.error('Page validation error', error)
+		if (!result.success) {
+			console.error('Page validation error', result.error)
 			return
 		}
 
-		return data.layout.map(
-			(item: { type: keyof typeof componentMap; variant?: string }, index: number) => {
-				let Component:
-					| Record<string, (props: BlockProps<any>) => JSX.Element>
-					| ((props: BlockProps<any>) => JSX.Element) = componentMap[toCamelCase(item.type)]
+		const data = result.data
 
-				if (typeof Component !== 'function' && item.variant) {
-					Component = Component[toCamelCase(item.variant)]
-				}
-
-				if (!Component) {
-					let componentName = item.type
-					if (item.variant) {
-						componentName += ` with variant ${item.variant}`
+		return data.layout.map((item: Blocks, index: number) => {
+			const key = `${item.type}-${index}`
+			const type = item.type
+			switch (item.type) {
+				case 'callToAction':
+					return <CallToActionBlock key={key} {...item} />
+				case 'collapsibleContent':
+					return <CollapsibleContentBlock key={key} {...item} />
+				case 'contactForm':
+					return <ContactFormBlock key={key} {...item} />
+				case 'content':
+					return <ContentBlock key={key} {...item} />
+				case 'faq':
+					return <FaqBlock key={key} {...item} />
+				case 'featureBox':
+					return <FeatureBoxBlock key={key} {...item} />
+				case 'featureGrid':
+					return <FeatureGridBlock key={key} {...item} />
+				case 'featureList':
+					return <FeatureListBlock key={key} {...item} />
+				case 'hero':
+					switch (item.variant) {
+						case 'highImpact':
+							return <HeroHighImpactBlock key={key} {...item} />
+						case 'mediumImpact':
+							return <HeroMediumImpactBlock key={key} {...item} />
+						case 'productScreenshot':
+							return <HeroProductScreenshotBlock key={key} {...item} />
+						default:
+							console.warn(`Unknown hero variant: ${item.variant}`)
+							return null
 					}
-					console.warn(`Component ${componentName} not found`)
+				case 'logoMarquee':
+					return <LogoMarqueeBlock key={key} {...item} />
+				case 'pricing':
+					return <PricingCardsBlock key={key} {...item} />
+				case 'stats':
+					return <StatsBlock key={key} {...item} />
+				default:
+					console.warn(`Unknown component type: ${type}`)
 					return null
-				}
-				return <Component key={`${item.type}-${index}`} {...item} />
 			}
-		)
+		})
 	} catch (error) {
 		if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
 			return notFound()

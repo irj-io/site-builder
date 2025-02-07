@@ -11,15 +11,29 @@ import { SectionSchema } from '@/components/section/section-schema'
 import { ContentPropsSchema } from './content/config'
 
 export type Hero = z.infer<typeof HeroSchema>
-const HeroSchema = z.object({
+const HeroBaseSchema = z.object({
 	type: z.literal('hero'),
-	variant: z.enum(['highImpact', 'mediumImpact', 'productScreenshot']).optional(),
+	variant: z.enum(['highImpact', 'mediumImpact', 'productScreenshot']),
 	media: MediaSchema.optional(),
 	title: z.string().optional(),
 	subtitle: z.string().optional(),
 	actions: z.array(ActionSchema).optional(),
 	section: SectionSchema.optional(),
 })
+const HeroHighImpactSchema = HeroBaseSchema.extend({
+	variant: z.literal('highImpact'),
+})
+const HeroMediumImpactSchema = HeroBaseSchema.extend({
+	variant: z.literal('mediumImpact'),
+})
+const HeroProductScreenshotSchema = HeroBaseSchema.extend({
+	variant: z.literal('productScreenshot'),
+})
+export const HeroSchema = z.discriminatedUnion('variant', [
+	HeroHighImpactSchema,
+	HeroMediumImpactSchema,
+	HeroProductScreenshotSchema,
+])
 
 export type FeatureBox = z.infer<typeof FeatureBoxSchema>
 const FeatureBoxSchema = z.object({
@@ -148,8 +162,9 @@ const PricingSchema = z.object({
 	section: SectionSchema.optional(),
 })
 
+export type Blocks = z.infer<typeof BlocksSchema>
 export const BlocksSchema = z.discriminatedUnion('type', [
-	HeroSchema,
+	HeroBaseSchema,
 	FeatureBoxSchema,
 	FeatureGridSchema,
 	FeatureListSchema,
@@ -162,4 +177,3 @@ export const BlocksSchema = z.discriminatedUnion('type', [
 	FaqSchema,
 	PricingSchema,
 ])
-export type Blocks = z.infer<typeof BlocksSchema>
