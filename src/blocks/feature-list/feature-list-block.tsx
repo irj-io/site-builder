@@ -1,9 +1,9 @@
 import { getSectionProps, Section } from '@/components/section/section'
-import { FeatureList } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
+import { FeatureListProps } from './config'
 import { FeatureListItem } from './feature-list-item'
 
-export function FeatureListBlock(props: BlockProps<FeatureList>) {
+export function FeatureListBlock(props: BlockProps<FeatureListProps>) {
 	const { title, subtitle, features, section } = props
 
 	return (

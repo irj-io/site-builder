@@ -1,6 +1,6 @@
-import type { FeatureGridItem } from '@/utils/page-schema'
+import { FeatureGridItemProps } from './config'
 
-export function FeatureGridItem(props: FeatureGridItem) {
+export function FeatureGridItem(props: FeatureGridItemProps) {
 	const { icon, title, content } = props
 
 	return (

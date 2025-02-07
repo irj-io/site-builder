@@ -1,4 +1,4 @@
-import { promises as fs } from 'node:fs'
+import { promises as fs } from 'fs'
 
 export type FileType = 'yaml' | 'markdown' | 'unknown'
 

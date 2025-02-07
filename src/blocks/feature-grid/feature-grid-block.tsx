@@ -1,9 +1,9 @@
 import { getSectionProps, Section } from '@/components/section/section'
-import { FeatureGrid } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
+import { FeatureGridProps } from './config'
 import { FeatureGridItem } from './feature-grid-item'
 
-export function FeatureGridBlock(props: BlockProps<FeatureGrid>) {
+export function FeatureGridBlock(props: BlockProps<FeatureGridProps>) {
 	const { title, subtitle, features = [], section } = props
 
 	return (

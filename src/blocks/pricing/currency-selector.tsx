@@ -1,7 +1,5 @@
 'use client'
 
-import React from 'react'
-
 import { setCurrency } from '@/app/(actions)/currency'
 import {
 	Select,

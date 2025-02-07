@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { SectionSchema } from '../section/section-schema'
+import { SectionPropsSchema } from '../section/config'
 
 const AnnouncementItemSchema = z.object({
 	content: z.string(),
@@ -11,5 +11,5 @@ const AnnouncementItemSchema = z.object({
 export type AnnouncementBar = z.infer<typeof AnnouncementBarSchema>
 export const AnnouncementBarSchema = z.object({
 	announcements: z.array(AnnouncementItemSchema).optional(),
-	section: SectionSchema.optional(),
+	section: SectionPropsSchema.optional(),
 })

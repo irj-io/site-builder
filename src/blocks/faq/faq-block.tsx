@@ -1,10 +1,10 @@
 import React from 'react'
 
 import { getSectionProps, Section } from '@/components/section/section'
-import { Faq } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
+import { FaqProps } from './config'
 
-function FaqItem(props: Faq['items'][0]) {
+function FaqItem(props: FaqProps['items'][0]) {
 	const { title, content } = props
 
 	return (
@@ -15,7 +15,7 @@ function FaqItem(props: Faq['items'][0]) {
 	)
 }
 
-export function FaqBlock(props: BlockProps<Faq>) {
+export function FaqBlock(props: BlockProps<FaqProps>) {
 	const { title, subtitle, items = [], section } = props
 
 	return (

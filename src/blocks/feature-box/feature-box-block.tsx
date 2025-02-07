@@ -2,10 +2,10 @@ import { Action } from '@/components/actions/action'
 import { MdContent } from '@/components/md-content'
 import { getSectionProps, Section } from '@/components/section/section'
 import { cn } from '@/utils/cn'
-import { FeatureBox } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
+import { FeatureBoxProps } from './config'
 
-export function FeatureBoxBlock(props: BlockProps<FeatureBox>) {
+export function FeatureBoxBlock(props: BlockProps<FeatureBoxProps>) {
 	const { media, title, overline, content, action, reverse, section } = props
 
 	const direction = reverse ? 'flex-row-reverse' : 'flex-row'

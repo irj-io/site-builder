@@ -158,7 +158,7 @@ export function useAsync<T = unknown, E = string>({
 		case 'resolved':
 			return {
 				...methods,
-				status: 'pending',
+				status: 'resolved',
 				error: null,
 				data,
 			}

@@ -1,12 +1,12 @@
 import Image from 'next/image'
 
 import { ActionProps } from '@/components/actions/action'
-import { Hero } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
+import { HeroProps } from './config'
 
 const Action = (props: ActionProps) => <div>{props.label}</div>
 
-export function HeroProductScreenshotBlock(props: BlockProps<Hero>) {
+export function HeroProductScreenshotBlock(props: BlockProps<HeroProps>) {
 	const { media, title, subtitle, actions = [] } = props
 
 	return (

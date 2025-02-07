@@ -3,7 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Loader2 } from 'lucide-react'
 import { useCallback, useState } from 'react'
-import { FieldErrors, Form, useForm, useFormContext } from 'react-hook-form'
+import { FieldErrors, FormProvider, useForm, useFormContext } from 'react-hook-form'
 import { z } from 'zod'
 
 import PageLayout from '@/components/page-layout'
@@ -19,7 +19,9 @@ const AccountDeletionFormSchema = z.object({
 	code: z.string().trim(),
 })
 
-const EmailCaptureForm = ({ isPending }: { isPending: boolean }) => {
+type Step = 'email' | 'code'
+
+const EmailCaptureForm = ({ isLoading }: { isLoading: boolean }) => {
 	const form = useFormContext()
 
 	return (
@@ -56,15 +58,15 @@ const EmailCaptureForm = ({ isPending }: { isPending: boolean }) => {
 				deletion process.
 			</p>
 
-			<Button type={'submit'} disabled={isPending} variant={'outline'}>
-				{isPending ? <Loader2 className="animate-spin" /> : null}
+			<Button type={'submit'} disabled={isLoading} variant={'outline'}>
+				{isLoading ? <Loader2 className="animate-spin" /> : null}
 				Delete my account
 			</Button>
 		</div>
 	)
 }
 
-const ConfirmationCodeForm = ({ isPending }: { isPending: boolean }) => {
+const ConfirmationCodeForm = ({ isLoading }: { isLoading: boolean }) => {
 	const form = useFormContext()
 
 	return (
@@ -82,53 +84,43 @@ const ConfirmationCodeForm = ({ isPending }: { isPending: boolean }) => {
 					</FormItem>
 				)}
 			/>
-			<Button type={'submit'} disabled={isPending} variant={'outline'}>
-				{isPending ? <Loader2 className="animate-spin" /> : null}
+			<Button type={'submit'} disabled={isLoading} variant={'outline'}>
+				{isLoading ? <Loader2 className="animate-spin" /> : null}
 				Send confirmation email
 			</Button>
 		</>
 	)
 }
 
-export default function SwitchTeamPage() {
-	const [status, setStatus] = useState('idle')
+export default function AccountDeletionPage() {
+	const [step, setStep] = useState<Step>('email')
+	const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'failed'>('idle')
 	const [error, setError] = useState('')
-	const [isPending, setIsPending] = useState(false)
+
 	const form = useForm<AccountDeletionForm>({ resolver: zodResolver(AccountDeletionFormSchema) })
 
-	const onSubmit = useCallback((data: AccountDeletionForm) => {
-		if (data.code) {
-			setIsPending(true)
-			api
-				.confirmAccountDeletion(data)
-				.then(() => {
+	const onSubmit = useCallback(
+		async (data: AccountDeletionForm) => {
+			setStatus('loading')
+			try {
+				await api.confirmAccountDeletion(data)
+				if (step === 'email') {
+					await api.requestAccountDeletion({ email: data.email })
+					setStep('code')
+				} else if (step === 'code') {
+					await api.confirmAccountDeletion(data)
 					setStatus('success')
-				})
-				.catch((err) => {
-					console.error(err)
-					setStatus('failed')
-					setError('Sending account deletion request failed')
-				})
-				.finally(() => {
-					setIsPending(false)
-				})
-		} else if (data.email) {
-			setStatus('pending')
-			api
-				.requestAccountDeletion({ email: data.email })
-				.then(() => {
-					setStatus('awaitingCode')
-				})
-				.catch((err) => {
-					console.error(err)
-					setStatus('failed')
-					setError('Validating confirmation code failed')
-				})
-				.finally(() => {
-					setIsPending(false)
-				})
-		}
-	}, [])
+				}
+			} catch (err) {
+				console.error(err)
+				setStatus('failed')
+				setError(
+					step === 'email' ? 'Validating email failed' : 'Sending account deletion request failed'
+				)
+			}
+		},
+		[step]
+	)
 
 	const onErrors = useCallback((errors: FieldErrors<AccountDeletionForm>) => {
 		console.error(errors)
@@ -137,7 +129,7 @@ export default function SwitchTeamPage() {
 	return (
 		<PageLayout>
 			<div className="container mx-auto flex items-center justify-center h-full py-16">
-				<Form {...form}>
+				<FormProvider {...form}>
 					<form onSubmit={form.handleSubmit(onSubmit, onErrors)}>
 						<div className="flex flex-col gap-6">
 							<TypographyH4>Account Deletion</TypographyH4>
@@ -149,14 +141,14 @@ export default function SwitchTeamPage() {
 								</p>
 							) : status === 'failed' ? (
 								<p className="text-center">{error}</p>
-							) : status === 'awaitingCode' ? (
-								<ConfirmationCodeForm isPending={isPending} />
+							) : step === 'code' ? (
+								<ConfirmationCodeForm isLoading={status === 'loading'} />
 							) : (
-								<EmailCaptureForm isPending={isPending} />
+								<EmailCaptureForm isLoading={status === 'loading'} />
 							)}
 						</div>
 					</form>
-				</Form>
+				</FormProvider>
 			</div>
 		</PageLayout>
 	)

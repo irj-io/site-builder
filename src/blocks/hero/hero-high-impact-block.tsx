@@ -2,10 +2,10 @@ import Image from 'next/image'
 
 import { Action } from '@/components/actions/action'
 import { parseMarkdownContent } from '@/utils/markdown'
-import { Hero } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
+import { HeroProps } from './config'
 
-export async function HeroHighImpactBlock(props: BlockProps<Hero>) {
+export async function HeroHighImpactBlock(props: BlockProps<HeroProps>) {
 	const { media, title, subtitle, actions = [] } = props
 
 	return (

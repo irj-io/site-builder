@@ -2,10 +2,10 @@ import Image from 'next/image'
 
 import { Action } from '@/components/actions/action'
 import { getSectionProps, Section } from '@/components/section/section'
-import { Hero } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
+import { HeroProps } from './config'
 
-export function HeroMediumImpactBlock(props: BlockProps<Hero>) {
+export function HeroMediumImpactBlock(props: BlockProps<HeroProps>) {
 	const { media, title, subtitle, actions = [], section } = props
 
 	return (

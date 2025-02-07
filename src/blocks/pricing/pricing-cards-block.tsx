@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { getCurrency } from '@/app/(actions)/currency'
 import { Action } from '@/components/actions/action'
 import { getSectionProps, Section } from '@/components/section/section'
@@ -12,11 +10,11 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card'
-import { Pricing } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
+import { PricingProps } from './config'
 import { CurrencySelector } from './currency-selector'
 
-export async function PricingCardsBlock(props: BlockProps<Pricing>) {
+export async function PricingCardsBlock(props: BlockProps<PricingProps>) {
 	const currency = await getCurrency()
 
 	const { title, subtitle, plans, section } = props

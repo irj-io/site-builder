@@ -49,7 +49,7 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
 	const router = useRouter()
 	const searchParams = useSearchParams()
 	const { error, run, status } = useAsync<SignUpForm, SignUpError>({ throwErrors: true })
-	const { formState, ...form } = useForm<SignUpForm>({
+	const form = useForm<SignUpForm>({
 		resolver: zodResolver(SignUpFormSchema),
 		defaultValues: {
 			fullName: '',
@@ -60,6 +60,7 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
 		},
 	})
 
+	const { formState } = form
 	const plan = searchParams.get('plan')
 	const inviteToken = searchParams.get('s')
 	const errorMessage =

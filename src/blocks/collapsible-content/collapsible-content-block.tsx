@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { getSectionProps, Section } from '@/components/section/section'
 import {
 	Accordion,
@@ -7,10 +5,10 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from '@/components/ui/accordion'
-import { CollapsibleContent } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
+import { CollapsibleContentProps } from './config'
 
-export function CollapsibleContentBlock(props: BlockProps<CollapsibleContent>) {
+export function CollapsibleContentBlock(props: BlockProps<CollapsibleContentProps>) {
 	const { title, items = [], section } = props
 
 	return (

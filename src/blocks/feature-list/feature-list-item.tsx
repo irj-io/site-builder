@@ -1,6 +1,6 @@
-import type { FeatureListItem } from '@/utils/page-schema'
+import { FeatureListItemProps } from './config'
 
-export function FeatureListItem(props: FeatureListItem) {
+export function FeatureListItem(props: FeatureListItemProps) {
 	const { icon, content } = props
 
 	return (

@@ -2,13 +2,12 @@ import React from 'react'
 import { omit } from 'remeda'
 
 import { cn } from '@/utils/cn'
-import type { Section } from './section-schema'
+import type { SectionProps } from './config'
 
-export interface SectionProps extends Section {
-	className?: string
-}
-
-export const getSectionProps = (sectionProps: Section = {}, overrides?: Partial<SectionProps>) => {
+export const getSectionProps = (
+	sectionProps: SectionProps = {},
+	overrides?: Partial<SectionProps>
+) => {
 	const newSectionProps = sectionProps ? omit(sectionProps, ['className']) : null
 	const sectionClassName = sectionProps?.className
 

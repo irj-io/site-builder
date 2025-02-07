@@ -1,4 +1,4 @@
-import path from 'node:path'
+import path from 'path'
 import matter, { GrayMatterFile } from 'gray-matter'
 import { createElement, ReactNode } from 'react'
 import jsxRuntime from 'react/jsx-runtime'

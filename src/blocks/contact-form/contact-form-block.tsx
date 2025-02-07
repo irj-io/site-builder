@@ -2,10 +2,10 @@ import { Field, Input, Label, Textarea } from '@headlessui/react'
 
 import { getSectionProps, Section } from '@/components/section/section'
 import { cn } from '@/utils/cn'
-import { ContactForm } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
+import { ContactFormProps } from './config'
 
-export function ContactFormBlock(props: BlockProps<ContactForm>) {
+export function ContactFormBlock(props: BlockProps<ContactFormProps>) {
 	const { title, section } = props
 
 	return (

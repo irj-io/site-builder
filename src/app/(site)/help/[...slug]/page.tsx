@@ -1,5 +1,5 @@
-import { promises as fs } from 'node:fs'
-import path from 'node:path'
+import { promises as fs } from 'fs'
+import path from 'path'
 import Image from 'next/image'
 import { ReactNode } from 'react'
 
@@ -38,10 +38,7 @@ export async function generateStaticParams() {
 	})
 }
 
-export async function getPostData(
-	filePath: string,
-	slug: string[]
-): Promise<[ArticleData, ReactNode]> {
+async function getPostData(filePath: string, slug: string[]): Promise<[ArticleData, ReactNode]> {
 	const fileContents = await fs.readFile(filePath, 'utf8')
 
 	const { file, matter } = await parseMarkdownPage(fileContents, slug)

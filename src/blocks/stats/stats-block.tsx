@@ -1,8 +1,8 @@
 import { getSectionProps, Section } from '@/components/section/section'
-import { Stats } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
+import { StatsProps } from './config'
 
-export function StatsBlock(props: BlockProps<Stats>) {
+export function StatsBlock(props: BlockProps<StatsProps>) {
 	const { items, section } = props
 
 	return (
