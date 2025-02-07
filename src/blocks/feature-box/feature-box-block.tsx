@@ -1,4 +1,5 @@
 import { Action } from '@/components/actions/action'
+import { MdContent } from '@/components/md-content'
 import { getSectionProps, Section } from '@/components/section/section'
 import { cn } from '@/utils/cn'
 import { FeatureBox } from '@/utils/page-schema'
@@ -26,7 +27,11 @@ export function FeatureBoxBlock(props: BlockProps<FeatureBox>) {
 			<div className="grow w-3/6 p-8 sm:p-20 md:p-32">
 				{overline ? <div className="text-sm mb-2">{overline}</div> : null}
 				<div className="text-4xl font-semibold">{title}</div>
-				{content ? <div className="text-lg mt-6 mb-2">{content}</div> : null}
+				{content ? (
+					<div className="mt-6 mb-2">
+						<MdContent className="text-lg" markdown={content} />
+					</div>
+				) : null}
 				{action ? <Action {...action} /> : null}
 			</div>
 		</Section>

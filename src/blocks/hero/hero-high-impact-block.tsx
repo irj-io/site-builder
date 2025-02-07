@@ -1,10 +1,11 @@
 import Image from 'next/image'
 
 import { Action } from '@/components/actions/action'
+import { parseMarkdownContent } from '@/utils/markdown'
 import { Hero } from '@/utils/page-schema'
 import { BlockProps } from '../block-types'
 
-export function HeroHighImpactBlock(props: BlockProps<Hero>) {
+export async function HeroHighImpactBlock(props: BlockProps<Hero>) {
 	const { media, title, subtitle, actions = [] } = props
 
 	return (
@@ -18,7 +19,7 @@ export function HeroHighImpactBlock(props: BlockProps<Hero>) {
 					) : null}
 					{subtitle ? (
 						<div className="mb-16 max-w-none mx-auto">
-							<h2 className="text-xl">{subtitle}</h2>
+							<h2 className="text-xl">{await parseMarkdownContent(subtitle)}</h2>
 						</div>
 					) : null}
 					{Array.isArray(actions) && actions.length > 0 ? (

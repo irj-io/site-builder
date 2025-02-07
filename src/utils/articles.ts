@@ -1,7 +1,7 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 
-import { parseMarkdown } from '@/utils/markdown'
+import { parseMarkdownPage } from '@/utils/markdown'
 import { getIsDirectory } from './content-parsing'
 
 const contentDir = path.join(process.cwd(), 'src/content/')
@@ -73,7 +73,7 @@ const readArticle = async (filePath: string) => {
 	const slug = `${hrefFragment}`.split(RegExp(path.sep))
 
 	const fileContents = await fs.readFile(filePath, 'utf8')
-	const { matter, file } = await parseMarkdown(fileContents, slug)
+	const { matter, file } = await parseMarkdownPage(fileContents, slug)
 
 	return {
 		data: matter.data,

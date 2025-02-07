@@ -7,7 +7,7 @@ import PageLayout from '@/components/page-layout'
 import { getIsDirectory } from '@/utils/content-parsing'
 import { getFileType } from '@/utils/file-utils'
 import { getAvatarImageUrl } from '@/utils/gravatar'
-import { parseMarkdown } from '@/utils/markdown'
+import { parseMarkdownPage } from '@/utils/markdown'
 import { parseLayout } from '@/utils/parse-layout'
 import { MarkdownData, MarkdownDataSchema } from '@/utils/post-schema'
 
@@ -40,7 +40,7 @@ export async function getPostData(
 ): Promise<[MarkdownData, ReactNode]> {
 	const fileContents = await fs.readFile(filePath, 'utf8')
 
-	const { file, matter } = await parseMarkdown(fileContents, slug)
+	const { file, matter } = await parseMarkdownPage(fileContents, slug)
 
 	// Combine the data with the id and contentHtml
 	return [

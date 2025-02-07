@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { cn } from '@/utils/cn'
 import { Action } from '../actions/action'
+import { MdContent } from '../md-content'
 import type { Footer, FooterColumn } from './footer-schema'
 
 export function FooterColumn(props: FooterColumn) {
@@ -42,8 +43,10 @@ export function Footer(props: Footer) {
 		<footer className="pt-16 pb-6 bg-muted text-muted-foreground">
 			<div className="px-14">
 				<div className="container mx-auto px-16">
-					{topSection ? (
-						<div className="text-sm text-center mb-12">{topSection.content}</div>
+					{topSection?.content ? (
+						<div className="text-center mb-12">
+							<MdContent className="text-sm" markdown={topSection.content} />
+						</div>
 					) : null}
 
 					<div
@@ -65,8 +68,10 @@ export function Footer(props: Footer) {
 							<FooterColumn key={`column-${index}`} {...column} />
 						))}
 					</div>
-					{bottomSection ? (
-						<div className="text-sm text-center mt-12">{bottomSection.content}</div>
+					{bottomSection?.content ? (
+						<div className="text-center mt-12">
+							<MdContent className="text-sm" markdown={bottomSection.content} />
+						</div>
 					) : null}
 				</div>
 			</div>

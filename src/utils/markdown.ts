@@ -48,7 +48,7 @@ interface ParseMarkdownResult {
 	matter: GrayMatterFile<string>
 }
 
-const components: Partial<Components> = {
+const pageComponents: Partial<Components> = {
 	h1: MdH1,
 	h2: MdH2,
 	h3: MdH3,
@@ -64,6 +64,8 @@ const components: Partial<Components> = {
 	img: MdImg,
 }
 
+const contentComponents: Partial<Components> = {}
+
 const rewriteImagePaths = (matter: GrayMatterFile<string>, slug: string[]) => {
 	for (const key in matter.data) {
 		const value = matter.data[key]
@@ -75,14 +77,32 @@ const rewriteImagePaths = (matter: GrayMatterFile<string>, slug: string[]) => {
 	return matter
 }
 
-export const parseMarkdown = async (
+export const parseMarkdownContent = async (content: string): Promise<ReactNode> => {
+	const file = await unified()
+		.use(remarkParse, { fragment: true })
+		.use(remarkGfm)
+		.use(remarkRehype)
+		.use(rehypeSanitize)
+		.use(rehypeAutolinkHeadings)
+		.use(rehypeReact, {
+			Fragment: jsxRuntime.Fragment,
+			jsx: jsxRuntime.jsx,
+			jsxs: jsxRuntime.jsxs,
+			createElement,
+			components: contentComponents,
+		})
+		.process(content)
+
+	return file.result
+}
+
+export const parseMarkdownPage = async (
 	fileContents: string,
 	slug: string[]
 ): Promise<ParseMarkdownResult> => {
 	// Use gray-matter to parse the post metadata section
 	const matterResult = rewriteImagePaths(matter(fileContents), slug)
 
-	// Use remark to convert markdown into HTML string
 	const file = await unified()
 		.use(remarkParse, { fragment: true })
 		.use(remarkGfm)
@@ -97,7 +117,7 @@ export const parseMarkdown = async (
 			jsx: jsxRuntime.jsx,
 			jsxs: jsxRuntime.jsxs,
 			createElement,
-			components,
+			components: pageComponents,
 		})
 		.process(matterResult.content)
 
