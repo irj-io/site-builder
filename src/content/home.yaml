@@ -2,14 +2,11 @@ layout:
   - type: hero
     variant: mediumImpact
     media:
-      #src: /assets/images/tyto-my-tasks-screenshot.png
       src: /assets/images/hero-tyto.svg
-    #title: Make 2025 the year your small business takes off
     title: |
       WORK
       DONE 
       FUN!
-    #subtitle: Tyto helps small teams *get more work done*, *drop fewer balls* and *something else here*.
     subtitle: |
       The work management
       tool that's perfect for
@@ -63,8 +60,8 @@ layout:
 
   - type: featureBox
     media:
-      src: /assets/images/home-feature-box-image-1.png
-    title: Collaborate more than ever before
+      src: placeholder
+    title: What do I work on next?
     content: Working from home doesn't have to mean an end to collaboration. We believe collaboration thrives through transparency. That's why we baked it in from the start, allowing teams to be anywhere, yet feel more connected than ever.
     action:
       type: button
@@ -75,7 +72,53 @@ layout:
 
   - type: featureBox
     media:
-      src: /assets/images/home-feature-box-image-2.png
+      src: placeholder
+    title: What is my team busy with?
+    content: Working from home doesn't have to mean an end to collaboration. We believe collaboration thrives through transparency. That's why we baked it in from the start, allowing teams to be anywhere, yet feel more connected than ever.
+    action:
+      type: button
+      color: primary
+      label: See It In Action
+      size: lg
+
+  - type: featureBox
+    media:
+      src: placeholder
+    title: Where is my team spending their time?
+    content: Working from home doesn't have to mean an end to collaboration. We believe collaboration thrives through transparency. That's why we baked it in from the start, allowing teams to be anywhere, yet feel more connected than ever.
+    action:
+      type: button
+      color: primary
+      label: See It In Action
+      size: lg
+    reverse: true
+
+  - type: featureBox
+    media:
+      src: placeholder
+    title: Am I interrupting?
+    content: Working from home doesn't have to mean an end to collaboration. We believe collaboration thrives through transparency. That's why we baked it in from the start, allowing teams to be anywhere, yet feel more connected than ever.
+    action:
+      type: button
+      color: primary
+      label: See It In Action
+      size: lg
+
+  - type: featureBox
+    media:
+      src: placeholder
+    title: How far is Bob with his task?
+    content: Working from home doesn't have to mean an end to collaboration. We believe collaboration thrives through transparency. That's why we baked it in from the start, allowing teams to be anywhere, yet feel more connected than ever.
+    action:
+      type: button
+      color: primary
+      label: See It In Action
+      size: lg
+    reverse: true
+
+  - type: featureBox
+    media:
+      src: placeholder
     title: Set clear priorities
     content: Set your team up for success by setting organized, weekly, clear objectives— then leaving your team to get on with it, instead of pacing around the office, annoying everyone— like some kind of wild animal.
     action:
@@ -86,7 +129,7 @@ layout:
 
   - type: featureBox
     media:
-      src: /assets/images/home-feature-box-image-3.png
+      src: placeholder
     title: Let your team fly
     content: With Tyto, your team will be working more efficiently than ever before. Get through tasks, capture ideas and deploy them in an organized, fun and efficient manner.
     action:
@@ -101,21 +144,21 @@ layout:
       - content:
           type: testimonial
           media:
-            src: https://placehold.co/192x192
+            src: placeholder
           title: Pavel Popovichenko
           subtitle: Early Adopter
           content: I've been through a ton of productivity apps for my team, never getting the results I was looking for. After just 2 days with Tyto, I find myself eager to start my workday.
       - content:
           type: testimonial
           media:
-            src: https://placehold.co/192x192
+            src: placeholder
           title: Gregg Richardson
           subtitle: Early Adopter
           content: The score feature is awesome. Everyone here at our office has really had fun with it so far and each day feels like a race to see who can grind through the most tasks.
       - content:
           type: testimonial
           media:
-            src: https://placehold.co/192x192
+            src: placeholder
           title: Adré Micha Hassen
           subtitle: Liberty Life
           content: With Tyto, we never drop the ball.
