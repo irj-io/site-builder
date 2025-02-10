@@ -3,12 +3,18 @@ import Link from 'next/link'
 import { getAllArticles } from '@/utils/articles'
 import { cn } from '@/utils/cn'
 
-export async function ArticlesMenu({ title, slug }: { title: string; slug: string[] }) {
+export async function ArticlesMenu({
+	title = '',
+	slug = ['help'],
+}: {
+	title?: string
+	slug?: string[]
+}) {
 	const articles = await getAllArticles('help')
 
 	return (
 		<div className="flex flex-col gap-2 mb-6">
-			<p className="text-4xl font-bold mb-4">{title}</p>
+			{title ? <p className="text-4xl font-bold mb-4">{title}</p> : null}
 			<ul className="flex flex-col gap-2">
 				{articles.map((article, index) => (
 					<li
