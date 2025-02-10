@@ -28,7 +28,7 @@ export function FeatureBoxBlock(props: BlockProps<FeatureBoxProps>) {
 				{overline ? <div className="text-sm mb-2">{overline}</div> : null}
 				<div className="text-4xl font-semibold">{title}</div>
 				{content ? (
-					<div className="mt-6 mb-2">
+					<div className="my-6">
 						<MdContent className="text-lg" markdown={content} />
 					</div>
 				) : null}

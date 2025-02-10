@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import { isPlainObject } from 'remeda'
 
 import { Blocks } from '@/blocks/block-schema'
 import { CallToActionBlock } from '@/blocks/call-to-action/call-to-action-block'
@@ -15,7 +16,56 @@ import { HeroProductScreenshotBlock } from '@/blocks/hero/hero-product-screensho
 import { LogoMarqueeBlock } from '@/blocks/marquee/logo-marquee-block'
 import { PricingCardsBlock } from '@/blocks/pricing/pricing-cards-block'
 import { StatsBlock } from '@/blocks/stats/stats-block'
-import { PageSchema } from './page-schema'
+import { Media } from '@/components/component-schema'
+import { Page, PageSchema } from './page-schema'
+
+const PLACEHOLDER_ARGS = /^placeholder:?(.*)?$/
+
+const setPlaceholderUrl = (media: Media) => {
+	const match = media.src.match(PLACEHOLDER_ARGS)
+	if (match) {
+		const args = match[1] ? match[1] : '100x100'
+		media.src = `https://placehold.co/${args}`
+	}
+	return media
+}
+
+/**
+ * Iterate through an object and convert all media types that have the keyword,
+ * `placeholder` to load a placeholder image instead.
+ * This function is mutable.
+ */
+const mapPlaceholderMedia = (data: Page): Page => {
+	const stack: object[] = [data]
+
+	while (stack.length > 0) {
+		const obj = stack.pop()
+
+		if (Array.isArray(obj)) {
+			// Add array items to stack to be reprocessed
+			obj.forEach((item) => {
+				if (item && typeof item === 'object') {
+					stack.push(item)
+				}
+			})
+		} else if (isPlainObject(obj)) {
+			// Check for media key
+			if ('media' in obj) {
+				setPlaceholderUrl(obj.media as Media)
+			}
+
+			// Add object properties to stack to be reprocessed
+			for (const key in obj) {
+				const value = obj[key]
+				if (value && typeof value === 'object') {
+					stack.push(value)
+				}
+			}
+		}
+	}
+
+	return data
+}
 
 export async function parseLayout(yaml: string) {
 	try {
@@ -28,7 +78,7 @@ export async function parseLayout(yaml: string) {
 			return
 		}
 
-		const data = result.data
+		const data = mapPlaceholderMedia(result.data)
 
 		return data.layout.map((item: Blocks, index: number) => {
 			const key = `${item.type}-${index}`

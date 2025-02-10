@@ -6,6 +6,7 @@ export const ImageSchema = z.object({
 	src: z.string(),
 })
 
+export type Media = z.infer<typeof MediaSchema>
 export const MediaSchema = z.object({
 	src: z.string(),
 })
