@@ -29,7 +29,7 @@ const nextConfig: NextConfig = {
 			use: 'yaml-loader',
 		})
 
-		config.plugins.push(
+		config.plugins.unshift(
 			new CopyPlugin({
 				patterns: [
 					{

@@ -20,9 +20,11 @@ const postsDirectory = path.join(process.cwd(), 'src/content/help/')
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-	const filePaths = await fs.readdir(postsDirectory, { recursive: true })
-
+	let filePaths = await fs.readdir(postsDirectory, { recursive: true })
 	const files = []
+
+	filePaths = filePaths.filter((filePath) => !/\/images\/?/.test(filePath))
+
 	for (const filePath of filePaths) {
 		const stats = await fs.lstat(path.join(postsDirectory, filePath))
 		if (!stats.isDirectory()) {

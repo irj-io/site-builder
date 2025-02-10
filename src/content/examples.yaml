@@ -92,6 +92,20 @@ layout:
     section:
       className: bg-surface
 
+  - type: featureBox
+    media:
+      src: placeholder
+    title: Example of using placeholder media
+    content: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    action:
+      type: button
+      color: primary
+      label: See It In Action
+      size: lg
+    reverse: true
+    section:
+      className: bg-surface
+
   - type: contactForm
     title: The ContactForm block
 
@@ -116,21 +130,21 @@ layout:
       - content:
           type: testimonial
           media:
-            src: https://placehold.co/192x192
+            src: placeholder:192x192
           title: Alex Nguyen
           subtitle: Marketing Specialist
           content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.
       - content:
           type: testimonial
           media:
-            src: https://placehold.co/192x192
+            src: placeholder:192x192
           title: Alex Nguyen
           subtitle: Marketing Specialist
           content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.
       - content:
           type: testimonial
           media:
-            src: https://placehold.co/192x192
+            src: placeholder:192x192
           title: Alex Nguyen
           subtitle: Marketing Specialist
           content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.
