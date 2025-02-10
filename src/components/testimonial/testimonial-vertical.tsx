@@ -1,3 +1,4 @@
+import { MdContent } from '../md-content'
 import type { TestimonialProps } from './config'
 
 export function TestimonialVertical(props: TestimonialProps) {
@@ -16,7 +17,7 @@ export function TestimonialVertical(props: TestimonialProps) {
 			<div>
 				{title ? <div className="text-4xl">{title}</div> : null}
 				{subtitle ? <div className="text-2xl mb-4">{subtitle}</div> : null}
-				{content ? <div className="">{content}</div> : null}
+				{content ? <MdContent markdown={content} /> : null}
 			</div>
 		</div>
 	)

@@ -157,7 +157,7 @@ layout:
           type: contentBox
           title: Content Box Component
           subtitle: Example of some text
-          content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.
+          content: Lorem ipsum dolor sit amet, **consectetur adipiscing elit**. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.
           align: center
           className: max-w-3xl text-white
     section:

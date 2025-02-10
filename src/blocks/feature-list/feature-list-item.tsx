@@ -1,3 +1,4 @@
+import { MdContent } from '@/components/md-content'
 import { FeatureListItemProps } from './config'
 
 export function FeatureListItem(props: FeatureListItemProps) {
@@ -8,7 +9,7 @@ export function FeatureListItem(props: FeatureListItemProps) {
 			{icon ? (
 				<span className="material-symbols-rounded icon-fill text-xl text-primary">{icon}</span>
 			) : null}
-			{content ? <div className="text-xl">{content}</div> : null}
+			{content ? <MdContent className="text-xl" markdown={content} /> : null}
 		</div>
 	)
 }
