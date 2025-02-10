@@ -4,11 +4,19 @@ import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
 	reactStrictMode: true,
 	images: {
+		dangerouslyAllowSVG: true,
+		contentDispositionType: 'attachment', // recommended to be used alongside dangerouslyAllowSVG
+		contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;", // recommended to be used alongside dangerouslyAllowSVG
+
 		remotePatterns: [
 			{
 				protocol: 'https',
 				hostname: 'secure.gravatar.com',
 				pathname: '/avatar/**',
+			},
+			{
+				protocol: 'https',
+				hostname: 'placehold.co',
 			},
 		],
 	},

@@ -4,8 +4,9 @@ description: Here's how to get started.
 author: Justin
 authorEmail: justin@tyto.me
 date: '2021-04-06'
-banner: /assets/images/help-getting-started-banner.png
-bannerAlt: A scary image of a person jumping into a LOT of water
+media:
+  src: /assets/images/help-getting-started-banner.png
+  alt: A scary image of a person jumping into a LOT of water
 ---
 
 Just in case you're not sure of where to start, we have a few suggestions.

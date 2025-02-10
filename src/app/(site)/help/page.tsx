@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { ArticlesMenu } from '@/components/articles-menu'
+import { Media } from '@/components/media/media'
 import PageLayout from '@/components/page-layout'
 import { Section } from '@/components/section/section'
 import { getAllArticles } from '@/utils/articles'
@@ -34,7 +35,15 @@ export default async function Help() {
 											href={item.href}
 										>
 											<div className="flex-auto min-h-0">
-												{item.data.banner && /^\/assets\//.test(item.data.banner) ? (
+												{item.data.media ? (
+													<Media
+														media={item.data.media}
+														className={'w-full h-full'}
+														imageClassName={'w-full h-full object-cover object-center'}
+														width={800}
+														height={800}
+													/>
+												) : item.data.banner ? ( // Deprecated, use media
 													<Image
 														src={item.data.banner}
 														alt={item.data.bannerAlt}

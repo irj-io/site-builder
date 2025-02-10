@@ -5,6 +5,7 @@ import { ReactNode } from 'react'
 
 import { ArticleBreadcrumb } from '@/components/article-breadcrumb'
 import { ArticleData } from '@/utils/post-schema'
+import { Media } from './media/media'
 import { TypographyH1, TypographyLead } from './typography/typography'
 
 interface ArticleProps {
@@ -36,7 +37,9 @@ export async function Article({ data, Markdown }: ArticleProps) {
 						</p>
 						{data.description ? <TypographyLead>{data.description}</TypographyLead> : null}
 					</div>
-					{data.banner ? (
+					{data.media ? (
+						<Media media={data.media} imageClassName="max-w-full" height={960} width={960} />
+					) : data.banner ? ( // Deprecated, use media
 						<Image
 							src={data.banner}
 							alt={data.bannerAlt || ''}

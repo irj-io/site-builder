@@ -6,9 +6,11 @@ export const ImageSchema = z.object({
 	src: z.string(),
 })
 
-export type Media = z.infer<typeof MediaSchema>
-export const MediaSchema = z.object({
+export type MediaProps = z.infer<typeof MediaPropsSchema>
+export const MediaPropsSchema = z.object({
 	src: z.string(),
+	alt: z.string().default(''),
+	style: z.enum(['screenshot']).optional(),
 })
 
 export type ButtonAction = z.infer<typeof ButtonActionSchema>

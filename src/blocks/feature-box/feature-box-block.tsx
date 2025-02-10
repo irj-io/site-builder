@@ -1,5 +1,6 @@
 import { Action } from '@/components/actions/action'
 import { MdContent } from '@/components/md-content'
+import { Media } from '@/components/media/media'
 import { getSectionProps, Section } from '@/components/section/section'
 import { cn } from '@/utils/cn'
 import { BlockProps } from '../block-types'
@@ -16,11 +17,12 @@ export function FeatureBoxBlock(props: BlockProps<FeatureBoxProps>) {
 		>
 			<div className="grow w-3/6">
 				{media && typeof media === 'object' ? (
-					<div
-						className="size-full bg-cover bg-center"
-						style={{
-							backgroundImage: `url('${media.src}')`,
-						}}
+					<Media
+						media={media}
+						className="w-full h-full"
+						imageClassName="size-full object-cover object-center w-full h-full"
+						height={400}
+						width={600}
 					/>
 				) : null}
 			</div>

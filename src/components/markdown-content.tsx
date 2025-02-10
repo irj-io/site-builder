@@ -4,6 +4,7 @@ import { ReactNode } from 'react'
 import { ArticleBreadcrumb } from '@/components/article-breadcrumb'
 import { AuthorHeader } from '@/components/author-header'
 import { MarkdownData } from '@/utils/post-schema'
+import { Media } from './media/media'
 
 interface MarkdownContentProps {
 	data: MarkdownData
@@ -35,7 +36,9 @@ export async function MarkdownContent({ data, Markdown }: MarkdownContentProps) 
 				</div>
 			) : null}
 
-			{data.banner ? (
+			{data.media ? (
+				<Media media={data.media} imageClassName="max-w-full" height={960} width={960} />
+			) : data.banner ? ( // Deprecated, use media
 				<Image
 					src={data.banner}
 					alt={data.bannerAlt || ''}
