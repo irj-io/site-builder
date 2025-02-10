@@ -24,7 +24,7 @@ const PLACEHOLDER_ARGS = /^placeholder:?(.*)?$/
 const setPlaceholderUrl = (media: Media) => {
 	const match = media.src.match(PLACEHOLDER_ARGS)
 	if (match) {
-		const args = match[1] ? match[1] : '100x100'
+		const args = match[1] ? match[1] : '100?text=placeholder'
 		media.src = `https://placehold.co/${args}`
 	}
 	return media

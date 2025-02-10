@@ -101,21 +101,21 @@ layout:
       - content:
           type: testimonial
           media:
-            src: https://placehold.co/192x192
+            src: placeholder:192x192
           title: Pavel Popovichenko
           subtitle: Early Adopter
           content: I've been through a ton of productivity apps for my team, never getting the results I was looking for. After just 2 days with Tyto, I find myself eager to start my workday.
       - content:
           type: testimonial
           media:
-            src: https://placehold.co/192x192
+            src: placeholder:192x192
           title: Gregg Richardson
           subtitle: Early Adopter
           content: The score feature is awesome. Everyone here at our office has really had fun with it so far and each day feels like a race to see who can grind through the most tasks.
       - content:
           type: testimonial
           media:
-            src: https://placehold.co/192x192
+            src: placeholder:192x192
           title: Adré Micha Hassen
           subtitle: Liberty Life
           content: With Tyto, we never drop the ball.
