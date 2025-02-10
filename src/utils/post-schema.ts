@@ -10,6 +10,7 @@ export const MarkdownDataSchema = z.object({
 	date: z.string().optional(),
 	description: z.string().optional(),
 	media: MediaPropsSchema.optional(),
+	order: z.number(),
 	slug: z.array(z.string()),
 	title: z.string().optional(),
 	// Deprecated, use media
@@ -25,6 +26,7 @@ export const ArticleDataSchema = z.object({
 	date: z.string(),
 	description: z.string().optional(),
 	media: MediaPropsSchema.optional(),
+	order: z.number(),
 	slug: z.array(z.string()),
 	title: z.string(),
 	// Deprecated, use media

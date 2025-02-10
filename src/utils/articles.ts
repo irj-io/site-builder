@@ -17,26 +17,26 @@ export const getAllArticles = async (collection: string) => {
 
 	const matterData = []
 
-	// Make the 'Getting Started' page show first
-	// TODO: move this out of here
-	filePaths.sort((a, b) => {
-		if (a.includes('getting-started')) {
-			return -1
-		}
-		if (b.includes('getting-started')) {
-			return 1
-		}
-		return 0
-	})
-
 	for (const filePath of filePaths) {
 		if (!/\.md$/.test(filePath)) {
 			continue
 		}
 
-		const data = await readArticle(`${parentPath}/${filePath}`)
-		matterData.push(data)
+		const article = await readArticle(`${parentPath}/${filePath}`)
+		matterData.push(article)
 	}
+
+	matterData.sort((a, b) => {
+		let aOrder = 1000
+		let bOrder = 1000
+		if ('order' in a.data && !isNaN(Number(a.data.order))) {
+			aOrder = Number(a.data.order)
+		}
+		if ('order' in b.data && !isNaN(Number(b.data.order))) {
+			bOrder = Number(b.data.order)
+		}
+		return aOrder - bOrder
+	})
 
 	return matterData
 }
