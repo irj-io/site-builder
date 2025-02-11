@@ -44,7 +44,6 @@ layout:
 
   - type: featureGrid
     title: If these are questions you're constantly asking then Tyto is right for you.
-    subtitle: .
     features:
       - icon: groups_2
         title: What is my team busy with?
@@ -59,7 +58,7 @@ layout:
       - icon: sentiment_worried
         title: When is task 345 scheduled?
     section:
-      className: bg-background
+      className: bg-slate-50 dark:bg-slate-900
 
   - type: featureList
     title: Bring your team closer
@@ -77,7 +76,7 @@ layout:
       - icon: check_circle
         content: Any 3rd party app integration & much more
     section:
-      className: bg-slate-50 dark:bg-slate-900
+      className: bg-background
 
   - type: featureBox
     media:
