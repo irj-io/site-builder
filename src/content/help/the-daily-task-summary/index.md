@@ -3,10 +3,11 @@ title: The Daily Task Summary
 description: A quick view of what your day holds.
 author: Justin
 authorEmail: justin@tyto.me
-date: '2021-04-06'
-banner: ./images/banner.webp
-bannerAlt: A screenshot of a daily task summary email, which will adorn your inbox from time to time.
-bannerStyle: screenshot
+date: '2025-02-11'
+media:
+  src: ./images/banner.webp
+  alt: A screenshot of a daily task summary email, which will adorn your inbox from time to time.
+  style: screenshot
 ---
 
 ## Why did you create this?
