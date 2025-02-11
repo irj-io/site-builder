@@ -16,12 +16,12 @@ import { HeroProductScreenshotBlock } from '@/blocks/hero/hero-product-screensho
 import { LogoMarqueeBlock } from '@/blocks/marquee/logo-marquee-block'
 import { PricingCardsBlock } from '@/blocks/pricing/pricing-cards-block'
 import { StatsBlock } from '@/blocks/stats/stats-block'
-import { Media } from '@/components/component-schema'
+import { MediaProps } from '@/components/component-schema'
 import { Page, PageSchema } from './page-schema'
 
 const PLACEHOLDER_ARGS = /^placeholder:?(.*)?$/
 
-const setPlaceholderUrl = (media: Media) => {
+const setPlaceholderUrl = (media: MediaProps) => {
 	const match = media.src.match(PLACEHOLDER_ARGS)
 	if (match) {
 		const args = match[1] ? match[1] : '100?text=placeholder'
@@ -51,7 +51,7 @@ const mapPlaceholderMedia = (data: Page): Page => {
 		} else if (isPlainObject(obj)) {
 			// Check for media key
 			if ('media' in obj) {
-				setPlaceholderUrl(obj.media as Media)
+				setPlaceholderUrl(obj.media as MediaProps)
 			}
 
 			// Add object properties to stack to be reprocessed

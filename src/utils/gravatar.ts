@@ -1,7 +1,7 @@
 import crypto from 'crypto'
 
 const GRAVATAR_URL = 'https://secure.gravatar.com/avatar/'
-const emailToHash = (email: string) => crypto.hash('sha256', email)
+const emailToHash = (email: string) => crypto.createHash('sha256').update(email).digest('hex')
 
 export const getAvatarImageUrl = (input?: string) => {
 	if (!input) return ''
