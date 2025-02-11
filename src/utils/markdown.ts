@@ -72,6 +72,9 @@ const rewriteImagePaths = (matter: GrayMatterFile<string>, slug: string[]) => {
 		if (typeof value === 'string' && value.startsWith('./images/')) {
 			const fileName = path.basename(value)
 			matter.data[key] = `/assets/images/${path.join(...slug)}/${fileName}`
+		} else if (typeof value === 'object' && 'src' in value && value.src.startsWith('./images/')) {
+			const fileName = path.basename(value.src)
+			matter.data[key].src = `/assets/images/${path.join(...slug)}/${fileName}`
 		}
 	}
 	return matter
