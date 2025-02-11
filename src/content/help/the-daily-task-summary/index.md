@@ -4,8 +4,9 @@ description: A quick view of what your day holds.
 author: Justin
 authorEmail: justin@tyto.me
 date: '2021-04-06'
-banner: ./images/banner.png
+banner: ./images/banner.webp
 bannerAlt: A screenshot of a daily task summary email, which will adorn your inbox from time to time.
+bannerStyle: screenshot
 ---
 
 ## Why did you create this?

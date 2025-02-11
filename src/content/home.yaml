@@ -42,6 +42,25 @@ layout:
     section:
       className: bg-background
 
+  - type: featureGrid
+    title: If these are questions you're constantly asking then Tyto is right for you.
+    subtitle: .
+    features:
+      - icon: groups_2
+        title: What is my team busy with?
+      - icon: sentiment_stressed
+        title: What do I work on next?
+      - icon: sentiment_frustrated
+        title: What's happening with job 123?
+      - icon: signpost
+        title: What does the team work on next?
+      - icon: headset_off
+        title: Do you have a moment to chat?
+      - icon: sentiment_worried
+        title: When is task 345 scheduled?
+    section:
+      className: bg-background
+
   - type: featureList
     title: Bring your team closer
     features:
@@ -57,12 +76,14 @@ layout:
         content: Video conferencing & screen sharing
       - icon: check_circle
         content: Any 3rd party app integration & much more
+    section:
+      className: bg-slate-50 dark:bg-slate-900
 
   - type: featureBox
     media:
       src: placeholder
-    title: What do I work on next?
-    content: Working from home doesn't have to mean an end to collaboration. We believe collaboration thrives through transparency. That's why we baked it in from the start, allowing teams to be anywhere, yet feel more connected than ever.
+    title: Real-time progress updates
+    content: Delegate and prioritize the work of your team members, all in real-time.
     action:
       type: button
       color: primary
@@ -73,7 +94,7 @@ layout:
   - type: featureBox
     media:
       src: placeholder
-    title: What is my team busy with?
+    title: Chat to team members
     content: Working from home doesn't have to mean an end to collaboration. We believe collaboration thrives through transparency. That's why we baked it in from the start, allowing teams to be anywhere, yet feel more connected than ever.
     action:
       type: button
@@ -163,7 +184,7 @@ layout:
           subtitle: Liberty Life
           content: With Tyto, we never drop the ball.
     section:
-      className: bg-slate-10
+      className: bg-slate-50 dark:bg-slate-900
 
   - type: collapsibleContent
     title: Bringing everything into one place
@@ -180,6 +201,42 @@ layout:
         content: Praesent neque ligula conubia quam adipiscing, habitasse bibendum molestie ad. Dictum massa litora malesuada himenaeos risus faucibus pellentesque ex. Vulputate magnis facilisi purus facilisis, hac eros?
     section:
       className: bg-tertiary-container/30
+
+  - type: content
+    columns:
+      - content:
+          type: contentBox
+          title: Meet Tyto
+          subtitle: |
+
+            But first, meet Bob.
+
+            Bob's company is a mess. Emails everywhere. Spreadsheets everywhere. Meetings about meetings. Video calls. Whatsapp chats.
+
+            Bob has no idea of what his team is doing each day.  As the company grows, it's becoming harder and harder to keep true to Bob's original goals for the company. Some days it just feels easier for Bob to do the work, rather than delegate it.
+
+            Meet Janice. She works for Bob.
+
+            Nothing would make her happier than to do what Bob needs. But she has no idea of what that is. Sure, there are endless meetings, mails, texts, sheets—but what should she do next?
+
+            And there's a whole team of people like Janice.
+
+            Growing and scaling the team feels impossible.
+
+            They've tried a bunch of systems and methods, but nobody wants yet one more thing to do. Before long, people start emailing, meeting, interrupting, texting.
+
+            This is why we built Tyto.
+
+            Our goal: create the smallest system possible to allow maximum transparency, and maximum autonomy to every team member.
+
+            After 10 years of building, measuring and testing, we are ready to share our system. 
+
+            Meet Tyto.
+
+          align: center
+          className: max-w-3xl text-white
+    section:
+      className: bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500
 
   - type: collapsibleContent
     title: Frequently asked

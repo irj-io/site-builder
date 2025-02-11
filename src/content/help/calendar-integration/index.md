@@ -4,7 +4,7 @@ description: See your tasks in Gmail or Outlook, including 2-way calendar integr
 author: Justin
 authorEmail: justin@tyto.me
 date: '2021-04-06'
-banner: ./images/banner-calendar-integration.png
+banner: ./images/calendar-integration.webp
 bannerAlt: A screenshot of a calendar powered up with Tyto goodness
 ---
 
@@ -27,7 +27,7 @@ All of these changes will update back into Tyto in real time.
 
 To enable this, go into Settings > Calendars on the left side bar (near the bottom).
 
-![a screenshot of the calendar section of the settings page](./images/settings.png 'enabling calendar access')
+![a screenshot of the calendar section of the settings page](./images/calendar-settings.webp 'enabling calendar access')
 
 Enable either Outlook calendar or Google calendar (or both, if you're some kind of productivity narcissist).
 

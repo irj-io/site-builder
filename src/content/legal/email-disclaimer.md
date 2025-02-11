@@ -1,7 +1,5 @@
 # Tyto Email Disclaimer
 
-## Tyto's Privacy Policy
-
 Company: IRJ Software, trading as Tyto
 Physical address: Unit 4, 8 Osborn Lane, Bedfordview, 2008, Gauteng, South Africa
 Postal address: Postnet Suite 423, Private Bag X19, Gardenview, 2047, South Africa
