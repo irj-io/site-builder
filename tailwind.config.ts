@@ -13,6 +13,14 @@ export default {
 	theme: {
 		extend: {
 			keyframes: {
+				blink: {
+					'0%, 100%': {
+						opacity: '1',
+					},
+					'50%': {
+						opacity: '0',
+					},
+				},
 				marquee: {
 					'0%': {
 						transform: 'translateX(0%)',
@@ -47,6 +55,7 @@ export default {
 				},
 			},
 			animation: {
+				blink: 'blink 1s step-start infinite',
 				marquee: 'marquee 60s linear infinite',
 				wiggle: 'wiggle 1s ease-in-out infinite',
 				'accordion-down': 'accordion-down 0.2s ease-out',

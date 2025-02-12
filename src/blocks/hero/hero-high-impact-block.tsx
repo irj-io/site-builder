@@ -1,7 +1,8 @@
 import Image from 'next/image'
 
 import { Action } from '@/components/actions/action'
-import { parseMarkdownContent } from '@/utils/markdown'
+import { MdContent } from '@/components/md-content'
+import { parseComponents } from '@/utils/parse-components'
 import { BlockProps } from '../block-types'
 import { HeroProps } from './config'
 
@@ -14,12 +15,16 @@ export async function HeroHighImpactBlock(props: BlockProps<HeroProps>) {
 				<div className="max-w-[60vw] pb-16">
 					{title ? (
 						<div className="mb-8 max-w-none mx-auto">
-							<h1 className="text-8xl leading-tight font-extrabold">{title}</h1>
+							<h1 className="text-8xl leading-tight font-extrabold">
+								{parseComponents(title, {})}
+							</h1>
 						</div>
 					) : null}
 					{subtitle ? (
 						<div className="mb-16 max-w-none mx-auto">
-							<h2 className="text-xl">{await parseMarkdownContent(subtitle)}</h2>
+							<h2 className="text-xl">
+								<MdContent markdown={subtitle} />
+							</h2>
 						</div>
 					) : null}
 					{Array.isArray(actions) && actions.length > 0 ? (
