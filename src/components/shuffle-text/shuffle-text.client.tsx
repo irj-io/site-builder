@@ -65,7 +65,7 @@ export function ShuffleTextClient({ initial, list }: ShuffleTextProps) {
 			<span className="absolute top-0 left-0">
 				{displayedText}
 				{/* The blinking cursor */}
-				<span className="absolute w-2 bg-white ml-1 h-[80%] animate-blink top-1/2 -translate-y-1/2"></span>
+				<span className="absolute w-2 bg-white ml-2 h-[80%] animate-blink top-1/2 -translate-y-1/2"></span>
 			</span>
 		</span>
 	)

@@ -159,9 +159,9 @@ layout:
           subtitle: Example of some text
           content: Lorem ipsum dolor sit amet, **consectetur adipiscing elit**. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.
           align: center
-          className: max-w-3xl text-white
+          className: max-w-3xl dark:text-white
     section:
-      className: gradient-default
+      className: gradient-default dark
 
   - type: logoMarquee
     items:
