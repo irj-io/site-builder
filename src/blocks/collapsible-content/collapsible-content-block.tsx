@@ -1,4 +1,5 @@
 import { getSectionProps, Section } from '@/components/section/section'
+import { SectionHeader } from '@/components/section/section-header'
 import {
 	Accordion,
 	AccordionContent,
@@ -14,7 +15,7 @@ export function CollapsibleContentBlock(props: BlockProps<CollapsibleContentProp
 	return (
 		<Section {...getSectionProps(section, { className: 'flex flex-col px-8 py-20' })}>
 			<div className="container mx-auto max-w-4xl">
-				{title ? <div className="text-4xl text-center mb-12">{title}</div> : null}
+				<SectionHeader titleClassName="mb-12" title={title} />
 
 				<Accordion type="single" collapsible>
 					{items.map((item, index) => (

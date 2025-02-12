@@ -1,6 +1,7 @@
 import { Field, Input, Label, Textarea } from '@headlessui/react'
 
 import { getSectionProps, Section } from '@/components/section/section'
+import { SectionHeader } from '@/components/section/section-header'
 import { cn } from '@/utils/cn'
 import { BlockProps } from '../block-types'
 import { ContactFormProps } from './config'
@@ -11,7 +12,8 @@ export function ContactFormBlock(props: BlockProps<ContactFormProps>) {
 	return (
 		<Section {...getSectionProps(section, { className: 'px-8 py-24' })}>
 			<div className="container mx-auto max-w-4xl flex flex-col gap-8">
-				{title ? <div className="text-4xl text-center mb-16">{title}</div> : null}
+				<SectionHeader titleClassName="mb-16" title={title} />
+
 				<div className="flex gap-8">
 					<div className="grow">
 						<Field>

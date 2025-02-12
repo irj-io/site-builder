@@ -23,7 +23,7 @@ layout:
         startIcon: play_arrow
 
   - type: featureGrid
-    title: The FeatureGrid block
+    title: The {{ render(GradientText, 'FeatureGrid') }} block
     subtitle: Displays features in a grid layout
     features:
       - icon: home

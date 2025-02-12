@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { getSectionProps, Section } from '@/components/section/section'
+import { SectionHeader } from '@/components/section/section-header'
 import { BlockProps } from '../block-types'
 import { FaqProps } from './config'
 
@@ -21,8 +22,7 @@ export function FaqBlock(props: BlockProps<FaqProps>) {
 	return (
 		<Section {...getSectionProps(section, { className: 'flex flex-col px-8 py-20' })}>
 			<div className="container mx-auto max-w-4xl">
-				{title ? <div className="text-4xl text-center font-bold mb-3">{title}</div> : null}
-				{subtitle ? <div className="text-2xl text-center mb-12">{subtitle}</div> : null}
+				<SectionHeader title={title} subtitle={subtitle} />
 
 				<div className="grid grid-cols-2 gap-12">
 					<div>

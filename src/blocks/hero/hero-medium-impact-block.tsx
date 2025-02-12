@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import { Action } from '@/components/actions/action'
 import { getSectionProps, Section } from '@/components/section/section'
+import { parseComponents } from '@/utils/parse-components'
 import { BlockProps } from '../block-types'
 import { HeroProps } from './config'
 
@@ -14,7 +15,9 @@ export function HeroMediumImpactBlock(props: BlockProps<HeroProps>) {
 				<div className="col-span-5 px-6 flex flex-col justify-end">
 					{title ? (
 						<div className="mb-8">
-							<h1 className="text-8xl leading-none font-extrabold whitespace-pre-wrap">{title}</h1>
+							<h1 className="text-8xl leading-none font-extrabold whitespace-pre-wrap">
+								{parseComponents(title)}
+							</h1>
 						</div>
 					) : null}
 					{subtitle ? (

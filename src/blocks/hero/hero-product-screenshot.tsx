@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import { ActionProps } from '@/components/actions/action'
+import { parseComponents } from '@/utils/parse-components'
 import { BlockProps } from '../block-types'
 import { HeroProps } from './config'
 
@@ -15,12 +16,12 @@ export function HeroProductScreenshotBlock(props: BlockProps<HeroProps>) {
 				<div className="text-center">
 					{title ? (
 						<div className="mb-6 max-w-none mx-auto">
-							<h1 className="text-5xl font-bold">{title}</h1>
+							<h1 className="text-5xl font-bold">{parseComponents(title)}</h1>
 						</div>
 					) : null}
 					{subtitle ? (
 						<div className="mb-2 max-w-none mx-auto">
-							<h2 className="text-2xl font-bold">{subtitle}</h2>
+							<h2 className="text-2xl font-bold">{parseComponents(subtitle)}</h2>
 						</div>
 					) : null}
 					{Array.isArray(actions) && actions.length > 0 ? (

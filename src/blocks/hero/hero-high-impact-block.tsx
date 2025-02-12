@@ -15,9 +15,7 @@ export async function HeroHighImpactBlock(props: BlockProps<HeroProps>) {
 				<div className="max-w-[60vw] pb-16">
 					{title ? (
 						<div className="mb-8 max-w-none mx-auto">
-							<h1 className="text-8xl leading-tight font-extrabold">
-								{parseComponents(title, {})}
-							</h1>
+							<h1 className="text-8xl leading-tight font-extrabold">{parseComponents(title)}</h1>
 						</div>
 					) : null}
 					{subtitle ? (

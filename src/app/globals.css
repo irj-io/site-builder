@@ -83,6 +83,9 @@
 	.gradient-primary {
 		@apply bg-gradient-to-br from-primary/80 to-primary;
 	}
+	.gradient-text {
+		@apply bg-gradient-to-br from-cyan-500 to-purple-600 bg-clip-text text-transparent;
+	}
 
 	/* Media styles*/
 	.media-style-screenshot {
