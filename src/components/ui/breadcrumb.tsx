@@ -68,7 +68,7 @@ const BreadcrumbSeparator = ({ children, className, ...props }: React.ComponentP
 	<li
 		role="presentation"
 		aria-hidden="true"
-		className={cn('[&>svg]:w-3.5 [&>svg]:h-3.5', 'material-symbols-rounded text-xl', className)}
+		className={cn('[&>svg]:w-3.5 [&>svg]:h-3.5', 'icon-symbols text-xl', className)}
 		{...props}
 	>
 		{children ?? 'chevron_right'}
@@ -83,7 +83,7 @@ const BreadcrumbEllipsis = ({ className, ...props }: React.ComponentProps<'span'
 		className={cn('flex h-9 w-9 items-center justify-center', className)}
 		{...props}
 	>
-		<span className="material-symbols-rounded text-lg">more_horiz</span>
+		<span className="icon-symbols text-lg">more_horiz</span>
 		<span className="sr-only">More</span>
 	</span>
 )

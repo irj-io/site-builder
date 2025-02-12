@@ -15,12 +15,14 @@ export function SectionHeader(props: SectionHeaderProps) {
 	return (
 		<>
 			{title ? (
-				<TypographyH2 className={cn('whitespace-pre-wrap text-center mb-3', titleClassName)}>
+				<TypographyH2
+					className={cn('max-w-4xl mx-auto whitespace-pre-wrap text-center mb-3', titleClassName)}
+				>
 					{parseComponents(title)}
 				</TypographyH2>
 			) : null}
 			{subtitle ? (
-				<TypographyLead className={cn('text-center mb-3', subtitleClassName)}>
+				<TypographyLead className={cn('max-w-4xl mx-auto text-center mb-3', subtitleClassName)}>
 					{subtitle}
 				</TypographyLead>
 			) : null}

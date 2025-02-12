@@ -6,9 +6,7 @@ export function FeatureListItem(props: FeatureListItemProps) {
 
 	return (
 		<div className="flex items-start gap-3 px-4 py-1">
-			{icon ? (
-				<span className="material-symbols-rounded icon-fill text-xl text-primary">{icon}</span>
-			) : null}
+			{icon ? <span className="icon-symbols icon-fill text-xl text-primary">{icon}</span> : null}
 			{content ? <MdContent className="text-xl" markdown={content} /> : null}
 		</div>
 	)

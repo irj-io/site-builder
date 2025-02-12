@@ -18,15 +18,9 @@ export function ThemeModeToggle() {
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Button variant="ghost" size="icon">
-					{theme === 'dark' ? (
-						<span className="h-[1.5rem] w-[1.5rem] material-symbols-rounded text-[1.25rem]">
-							dark_mode
-						</span>
-					) : (
-						<span className="h-[1.5rem] w-[1.5rem] material-symbols-rounded text-[1.25rem]">
-							light_mode
-						</span>
-					)}
+					<span className="h-[1.25rem] w-[1.25rem] icon-symbols text-[1.25rem]">
+						{theme === 'dark' ? 'dark_mode' : 'light_mode'}
+					</span>
 					<span className="sr-only">Toggle theme</span>
 				</Button>
 			</DropdownMenuTrigger>

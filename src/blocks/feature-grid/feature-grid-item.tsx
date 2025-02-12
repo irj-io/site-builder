@@ -6,7 +6,7 @@ export function FeatureGridItem(props: FeatureGridItemProps) {
 
 	return (
 		<div className="flex flex-col items-center px-12 py-16">
-			{icon ? <span className="material-symbols-rounded text-5xl">{icon}</span> : null}
+			{icon ? <span className="icon-symbols text-5xl">{icon}</span> : null}
 			{title ? <div className="text-center text-2xl mt-5">{title}</div> : null}
 			{content ? (
 				<div className="text-center mt-2">

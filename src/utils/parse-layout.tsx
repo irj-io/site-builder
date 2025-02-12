@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation'
-import { createContext } from 'react'
 import { isPlainObject } from 'remeda'
 
 import { Blocks } from '@/blocks/block-schema'

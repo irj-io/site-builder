@@ -22,7 +22,7 @@ export function Action(props: ActionProps) {
 
 			const content = startIcon ? (
 				<>
-					<span className="material-symbols-rounded">{startIcon}</span> {label}
+					<span className="icon-symbols">{startIcon}</span> {label}
 				</>
 			) : (
 				label
