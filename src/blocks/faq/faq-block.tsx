@@ -2,6 +2,7 @@ import React from 'react'
 
 import { getSectionProps, Section } from '@/components/section/section'
 import { SectionHeader } from '@/components/section/section-header'
+import { cn } from '@/utils/cn'
 import { BlockProps } from '../block-types'
 import { FaqProps } from './config'
 
@@ -19,12 +20,14 @@ function FaqItem(props: FaqProps['items'][0]) {
 export function FaqBlock(props: BlockProps<FaqProps>) {
 	const { title, subtitle, items = [], section } = props
 
+	const hasHeader = Boolean(title) || Boolean(subtitle)
+
 	return (
 		<Section {...getSectionProps(section, { className: 'flex flex-col px-8 py-20' })}>
 			<div className="container mx-auto max-w-4xl">
 				<SectionHeader title={title} subtitle={subtitle} />
 
-				<div className="grid grid-cols-2 gap-12">
+				<div className={cn('grid grid-cols-2 gap-12', { 'mt-12': hasHeader })}>
 					<div>
 						{items
 							.filter((_, index) => index % 2 === 0)

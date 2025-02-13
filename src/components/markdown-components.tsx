@@ -12,7 +12,7 @@ export const MdH1 = (props: ComponentProps<'h1'>) => (
 		className={cn(
 			sharedClasses,
 			'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',
-			'my-[10px]'
+			'my-[10px] [&:not(:first-child)]:mt-6'
 		)}
 		{...props}
 	/>
@@ -22,8 +22,8 @@ export const MdH2 = (props: ComponentProps<'h2'>) => (
 	<h2
 		className={cn(
 			sharedClasses,
-			'scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0',
-			'my-[10px]'
+			'scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0',
+			'my-[10px] [&:not(:first-child)]:mt-6'
 		)}
 		{...props}
 	/>
@@ -31,35 +31,51 @@ export const MdH2 = (props: ComponentProps<'h2'>) => (
 
 export const MdH3 = (props: ComponentProps<'h3'>) => (
 	<h3
-		className={cn(sharedClasses, 'scroll-m-20 text-2xl font-semibold tracking-tight', 'my-[10px]')}
+		className={cn(
+			sharedClasses,
+			'scroll-m-20 text-2xl font-semibold tracking-tight',
+			'my-[10px] [&:not(:first-child)]:mt-6'
+		)}
 		{...props}
 	/>
 )
 
 export const MdH4 = (props: ComponentProps<'h4'>) => (
 	<h4
-		className={cn(sharedClasses, 'scroll-m-20 text-xl font-semibold tracking-tight', 'my-[10px]')}
+		className={cn(
+			sharedClasses,
+			'scroll-m-20 text-xl font-semibold tracking-tight',
+			'my-[10px] [&:not(:first-child)]:mt-6'
+		)}
 		{...props}
 	/>
 )
 
 export const MdH5 = (props: ComponentProps<'h5'>) => (
 	<h5
-		className={cn(sharedClasses, 'scroll-m-20 text-xl font-semibold tracking-tight', 'my-[10px]')}
+		className={cn(
+			sharedClasses,
+			'scroll-m-20 text-xl font-semibold tracking-tight',
+			'my-[10px] [&:not(:first-child)]:mt-6'
+		)}
 		{...props}
 	/>
 )
 
 export const MdH6 = (props: ComponentProps<'h6'>) => (
 	<h6
-		className={cn(sharedClasses, 'scroll-m-20 text-xl font-semibold tracking-tight', 'my-[10px]')}
+		className={cn(
+			sharedClasses,
+			'scroll-m-20 text-xl font-semibold tracking-tight',
+			'my-[10px] [&:not(:first-child)]:mt-6'
+		)}
 		{...props}
 	/>
 )
 
 export const MdParagraph = (props: ComponentProps<'p'>) => (
 	<p
-		className={cn(sharedClasses, 'leading-7 [&:not(:first-child)]:mt-6', 'text-xl font-light mb-5')}
+		className={cn(sharedClasses, 'leading-7 [&:not(:first-child)]:mt-5', 'text-xl font-light mb-6')}
 		{...props}
 	/>
 )
