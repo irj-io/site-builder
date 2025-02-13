@@ -1,8 +1,12 @@
-import { ComponentProps } from 'react'
+import { HTMLAttributes } from 'react'
 
 import { parseMarkdownContent } from '@/utils/markdown'
 
-interface MdContentProps extends ComponentProps<'p'> {
+interface DataAttributes {
+	[key: `data-${string}`]: string | number | boolean | undefined
+}
+
+interface MdContentProps extends HTMLAttributes<HTMLSpanElement>, DataAttributes {
 	markdown: string
 }
 

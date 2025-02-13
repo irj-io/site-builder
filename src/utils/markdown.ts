@@ -3,6 +3,7 @@ import matter, { GrayMatterFile } from 'gray-matter'
 import { createElement, ReactNode } from 'react'
 import jsxRuntime from 'react/jsx-runtime'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeRaw from 'rehype-raw'
 import rehypeReact, { Components } from 'rehype-react'
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeSlug from 'rehype-slug'
@@ -84,8 +85,10 @@ export const parseMarkdownContent = async (content: string): Promise<ReactNode> 
 	const file = await unified()
 		.use(remarkParse, { fragment: true })
 		.use(remarkGfm)
-		.use(remarkRehype)
+		.use(remarkRehype, { allowDangerousHtml: true })
+		.use(rehypeRaw)
 		.use(rehypeSanitize)
+		.use(rehypeSlug)
 		.use(rehypeAutolinkHeadings)
 		.use(rehypeReact, {
 			Fragment: jsxRuntime.Fragment,
@@ -111,7 +114,8 @@ export const parseMarkdownPage = async (
 		.use(remarkGfm)
 		.use(remarkFlexibleToc)
 		.use(remarkTransformImages({ slug }))
-		.use(remarkRehype)
+		.use(remarkRehype, { allowDangerousHtml: true })
+		.use(rehypeRaw)
 		.use(rehypeSanitize)
 		.use(rehypeSlug)
 		.use(rehypeAutolinkHeadings)
