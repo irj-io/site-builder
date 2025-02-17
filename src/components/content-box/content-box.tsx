@@ -10,7 +10,7 @@ export function ContentBox(props: ContentBoxProps) {
 		<div className={cn('container mx-auto flex flex-col px-6 py-4', `text-${align}`, className)}>
 			<SectionHeader title={title} subtitle={subtitle} />
 
-			{content ? <MdContent className={'text-lg'} markdown={content} /> : null}
+			{content ? <MdContent className={'mt-6'} markdown={content} /> : null}
 		</div>
 	)
 }

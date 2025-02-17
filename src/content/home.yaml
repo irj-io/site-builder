@@ -206,8 +206,7 @@ layout:
       - content:
           type: contentBox
           title: Meet Tyto
-          subtitle: |
-
+          content: |
             But first, meet Bob.
 
             Bob's company is a mess. Emails everywhere. Spreadsheets everywhere. Meetings about meetings. Video calls. Whatsapp chats.
@@ -231,11 +230,10 @@ layout:
             After 10 years of building, measuring and testing, we are ready to share our system. 
 
             Meet Tyto.
-
           align: center
-          className: max-w-3xl text-white
+          className: max-w-3xl text-foreground text-xl font-light text-balance
     section:
-      className: bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500
+      className: bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 dark
 
   - type: collapsibleContent
     title: Frequently asked

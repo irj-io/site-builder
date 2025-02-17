@@ -5,7 +5,7 @@ import { omit } from 'remeda'
 
 import { cn } from '@/utils/cn'
 
-const sharedClasses = 'text-on-surface'
+const sharedClasses = ''
 
 export const MdH1 = (props: ComponentProps<'h1'>) => (
 	<h1
@@ -74,28 +74,19 @@ export const MdH6 = (props: ComponentProps<'h6'>) => (
 )
 
 export const MdParagraph = (props: ComponentProps<'p'>) => (
-	<p
-		className={cn(sharedClasses, 'leading-7 [&:not(:first-child)]:mt-5', 'text-xl font-light mb-6')}
-		{...props}
-	/>
+	<p className={cn(sharedClasses, 'leading-7 [&:not(:first-child)]:mt-5', 'mb-6')} {...props} />
 )
 
 export const MdBlockquote = (props: ComponentProps<'blockquote'>) => (
-	<blockquote
-		className={cn(sharedClasses, 'mt-6 border-l-2 pl-6 italic', 'text-xl font-light')}
-		{...props}
-	/>
+	<blockquote className={cn(sharedClasses, 'mt-6 border-l-2 pl-6 italic')} {...props} />
 )
 
 export const MdUl = (props: ComponentProps<'ul'>) => (
-	<ul
-		className={cn(sharedClasses, 'my-6 ml-6 list-disc [&>li]:mt-2', 'text-xl font-light')}
-		{...props}
-	/>
+	<ul className={cn(sharedClasses, 'my-6 ml-6 list-disc [&>li]:mt-2')} {...props} />
 )
 
 export const MdOl = (props: ComponentProps<'ol'>) => (
-	<ol className={cn(sharedClasses, 'my-6 ml-6 [&>li]:mt-2', 'text-xl font-light')} {...props} />
+	<ol className={cn(sharedClasses, 'my-6 ml-6 [&>li]:mt-2')} {...props} />
 )
 
 export const MdCode = (props: ComponentProps<'code'>) => (
@@ -112,7 +103,7 @@ export const MdLink = (props: ComponentProps<typeof Link>) => (
 	<Link
 		className={cn(
 			sharedClasses,
-			'text-xl text-blue-500 hover:text-blue-600 hover:underline font-light leading-[30px] mb-5'
+			'text-blue-500 hover:text-blue-600 hover:underline leading-[30px]'
 		)}
 		{...props}
 	/>

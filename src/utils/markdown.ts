@@ -65,7 +65,21 @@ const pageComponents: Partial<Components> = {
 	img: MdImg,
 }
 
-const contentComponents: Partial<Components> = {}
+const contentComponents: Partial<Components> = {
+	h1: MdH1,
+	h2: MdH2,
+	h3: MdH3,
+	h4: MdH4,
+	h5: MdH5,
+	h6: MdH6,
+	p: MdParagraph,
+	blockquote: MdBlockquote,
+	ul: MdUl,
+	ol: MdOl,
+	code: MdCode,
+	a: MdLink,
+	img: MdImg,
+}
 
 const rewriteImagePaths = (matter: GrayMatterFile<string>, slug: string[]) => {
 	for (const key in matter.data) {

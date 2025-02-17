@@ -11,5 +11,5 @@ interface MdContentProps extends HTMLAttributes<HTMLSpanElement>, DataAttributes
 }
 
 export async function MdContent({ markdown, ...props }: MdContentProps) {
-	return <span {...props}>{await parseMarkdownContent(markdown)}</span>
+	return <div {...props}>{await parseMarkdownContent(markdown)}</div>
 }

@@ -48,7 +48,7 @@ export async function Article({ data, Markdown }: ArticleProps) {
 							width={960}
 						/>
 					) : null}
-					<div className="py-8">{Markdown}</div>
+					<div className="py-8 text-xl font-light">{Markdown}</div>
 				</div>
 			</div>
 		</>
