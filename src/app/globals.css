@@ -191,7 +191,7 @@ a {
 
 	/* Gradient styles*/
 	.gradient-default {
-		@apply bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500;
+		@apply bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-800 dark:via-purple-800 dark:to-pink-800;
 	}
 	.gradient-primary {
 		@apply bg-gradient-to-br from-primary/80 to-primary;

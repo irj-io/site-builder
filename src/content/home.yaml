@@ -1,3 +1,5 @@
+header:
+  theme: light
 layout:
   - type: hero
     variant: mediumImpact
@@ -15,7 +17,7 @@ layout:
     section:
       className: |
         relative 
-        before:block before:absolute before:bg-[hsl(5,68%,96%)] before:dark:bg-[hsl(5,68%,26%)] before:-z-10 before:inset-0
+        before:block before:absolute before:bg-[hsl(5,68%,96%)] dark:before:bg-[hsl(5,68%,26%)] before:-z-10 before:inset-0
 
   - type: featureGrid
     title: Designed for small teams
@@ -233,7 +235,7 @@ layout:
           align: center
           className: max-w-3xl text-foreground text-xl font-light text-balance
     section:
-      className: bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 dark
+      className: gradient-default dark
 
   - type: collapsibleContent
     title: Frequently asked
