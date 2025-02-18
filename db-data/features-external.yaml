@@ -1,0 +1,17 @@
+layout:
+  - type: hero
+    variant: highImpact
+    media:
+      src: /assets/images/hero-background.png
+    title: Features
+    actions: []
+
+  - type: featureBox
+    media:
+      src: /assets/images/hero-background.png
+    title: Title
+    overline: Overline
+    content: Some content can go here
+    action:
+      type: button
+      label: Button

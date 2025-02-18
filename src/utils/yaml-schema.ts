@@ -11,6 +11,7 @@ export const YamlGlobalSchema = z.object({
 	footer: FooterSchema.optional().describe('Footer properties'),
 })
 
+export type YamlPage = z.infer<typeof YamlPageSchema>
 export const YamlPageSchema = z.object({
 	announcementBar: AnnouncementBarSchema.optional().describe('Override announcementBar properties'),
 	header: HeaderSchema.pick({ theme: true }).optional().describe('Override header properties'),
