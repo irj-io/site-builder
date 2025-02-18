@@ -4,7 +4,7 @@ announcementBar:
       #startDate: 2025-01-24T00:00:00Z
       #endDate: 2025-01-25T23:59:59Z
 header:
-  theme: light
+  theme: dark
 layout:
   - type: hero
     variant: highImpact
@@ -215,3 +215,8 @@ layout:
         content: Gravida platea dapibus molestie potenti amet magna. In netus sem habitant in habitant felis per finibus. Proin varius torquent arcu eleifend himenaeos justo. Mollis consectetur erat ac molestie quam. Pulvinar non et volutpat vitae non per ante.
       - title: Item 5
         content: Praesent neque ligula conubia quam adipiscing, habitasse bibendum molestie ad. Dictum massa litora malesuada himenaeos risus faucibus pellentesque ex. Vulputate magnis facilisi purus facilisis, hac eros?
+
+  - type: collectionStack
+    title: The CollectionStack block
+    subtitle: Displays a collection in a grid layout
+    collectionId: testCollection

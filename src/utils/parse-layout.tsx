@@ -4,6 +4,7 @@ import { isPlainObject } from 'remeda'
 import { Blocks } from '@/blocks/block-schema'
 import { CallToActionBlock } from '@/blocks/call-to-action/call-to-action-block'
 import { CollapsibleContentBlock } from '@/blocks/collapsible-content/collapsible-content-block'
+import { CollectionStackBlock } from '@/blocks/collection-stack/collection-stack-block'
 import { ContactFormBlock } from '@/blocks/contact-form/contact-form-block'
 import { ContentBlock } from '@/blocks/content/content-block'
 import { FaqBlock } from '@/blocks/faq/faq-block'
@@ -88,6 +89,8 @@ export async function parseLayout(yaml: string) {
 					return <CallToActionBlock key={key} {...item} />
 				case 'collapsibleContent':
 					return <CollapsibleContentBlock key={key} {...item} />
+				case 'collectionStack':
+					return <CollectionStackBlock key={key} {...item} />
 				case 'contactForm':
 					return <ContactFormBlock key={key} {...item} />
 				case 'content':

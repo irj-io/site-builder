@@ -2,6 +2,7 @@ import { z } from 'zod'
 
 import { CallToActionPropsSchema } from './call-to-action/config'
 import { CollapsibleContentPropsSchema } from './collapsible-content/config'
+import { CollectionStackPropsSchema } from './collection-stack/config'
 import { ContactFormPropsSchema } from './contact-form/config'
 import { ContentPropsSchema } from './content/config'
 import { FaqPropsSchema } from './faq/config'
@@ -27,4 +28,5 @@ export const BlocksSchema = z.discriminatedUnion('type', [
 	StatsPropsSchema,
 	FaqPropsSchema,
 	PricingPropsSchema,
+	CollectionStackPropsSchema,
 ])
