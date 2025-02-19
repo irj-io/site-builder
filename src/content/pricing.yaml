@@ -113,12 +113,19 @@ layout:
   - type: logoMarquee
     title: Trusted by teams at…
     items:
-      - src: /assets/images/client-logos/ty-liberty.webp
-      - src: /assets/images/client-logos/ty-morrisones.webp
-      - src: /assets/images/client-logos/ty-m2north.webp
-      - src: /assets/images/client-logos/ty-mediatomcat.webp
-      - src: /assets/images/client-logos/ty-mit.webp
-      - src: /assets/images/client-logos/ty-domaindedeux.webp
-      - src: /assets/images/client-logos/ty-yourcompany.webp
+      - type: image
+        src: /assets/images/client-logos/ty-liberty.webp
+      - type: image
+        src: /assets/images/client-logos/ty-morrisones.webp
+      - type: image
+        src: /assets/images/client-logos/ty-m2north.webp
+      - type: image
+        src: /assets/images/client-logos/ty-mediatomcat.webp
+      - type: image
+        src: /assets/images/client-logos/ty-mit.webp
+      - type: image
+        src: /assets/images/client-logos/ty-domaindedeux.webp
+      - type: image
+        src: /assets/images/client-logos/ty-yourcompany.webp
     section:
       className: bg-white

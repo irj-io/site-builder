@@ -31,7 +31,6 @@ export async function generateStaticParams() {
 		}
 	}
 
-	console.log(files)
 	return files.map((filePath) => {
 		const segments = filePath.split(path.sep).filter((segment) => segment !== 'index')
 		return {

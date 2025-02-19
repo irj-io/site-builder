@@ -102,7 +102,10 @@ test('renders a markdown image correctly', async () => {
 	render(element)
 
 	const image = screen.getByRole('img', { name: /Sample Image/i })
-	expect(image).toHaveAttribute('src', 'https://example.com/sample.png')
+	expect(image).toHaveAttribute(
+		'src',
+		`/_next/image?url=${encodeURIComponent('https://example.com/sample.png')}&w=3840&q=75`
+	)
 })
 
 test('renders a markdown blockquote correctly', async () => {
