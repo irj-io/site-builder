@@ -18,7 +18,7 @@ import {
 	MarkdownDataSchema,
 } from '@/utils/post-schema'
 import { YamlPage } from '@/utils/yaml-schema'
-import { EnvVarError } from './db-errors'
+import { EnvVarError, UnsupportedFileError } from './db-errors'
 
 type ResultOrError<T, U = Error> = [T, null] | [null, U]
 
@@ -178,7 +178,7 @@ export const loadFile = async (filePath: string): Promise<ResultOrError<string>>
 
 	const ext = await getExtension(filePath)
 	if (!ext) {
-		return [null, new Error(`Invalid or unsupported content type - ${filePath}`)]
+		return [null, new UnsupportedFileError(filePath)]
 	}
 
 	try {
@@ -200,7 +200,7 @@ export const saveFile = async (
 
 	const ext = await getExtension(path.join(process.cwd(), dbPath, filePath))
 	if (!ext) {
-		return [null, new Error(`Invalid or unsupported file type - ${filePath}`)]
+		return [null, new UnsupportedFileError(filePath)]
 	}
 
 	try {
@@ -241,6 +241,6 @@ export const parseFile = async (
 				return [null, error]
 			}
 		default:
-			return [null, new Error(`Invalid or unsupported file type - ${ext}`)]
+			return [null, new UnsupportedFileError(filePath)]
 	}
 }

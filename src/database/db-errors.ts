@@ -6,3 +6,10 @@ export class EnvVarError extends Error {
 		super(message, options)
 	}
 }
+
+export class UnsupportedFileError extends Error {
+	constructor(filePath: string, options?: ErrorOptions) {
+		const message = `Invalid or unsupported file type: ${filePath}`
+		super(message, options)
+	}
+}
