@@ -1,5 +1,7 @@
 import { ContentBoxProps } from '@/components/content-box/config'
 import { ContentBox } from '@/components/content-box/content-box'
+import { ImageProps } from '@/components/media/config'
+import { Media } from '@/components/media/media'
 import { getSectionProps, Section } from '@/components/section/section'
 import { TestimonialProps } from '@/components/testimonial/config'
 import { TestimonialVertical } from '@/components/testimonial/testimonial-vertical'
@@ -7,15 +9,18 @@ import { cn } from '@/utils/cn'
 import { BlockProps } from '../block-types'
 import { ContentProps } from './config'
 
-type ContentBlockProps = ContentBoxProps | TestimonialProps
+type ContentBlockProps = ContentBoxProps | TestimonialProps | ImageProps
 
-function Content({ content }: { content: ContentBlockProps }) {
+export function Content({ content }: { content: ContentBlockProps }) {
 	switch (content.type) {
 		case 'contentBox': {
 			return <ContentBox {...content} />
 		}
 		case 'testimonial': {
 			return <TestimonialVertical {...content} />
+		}
+		case 'image': {
+			return <Media media={content} />
 		}
 		default:
 			console.error('Unknown content type:', content)

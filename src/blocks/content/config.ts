@@ -1,11 +1,10 @@
 import { z } from 'zod'
 
-import { ContentBoxPropsSchema } from '@/components/content-box/config'
 import { SectionPropsSchema } from '@/components/section/config'
-import { TestimonialPropsSchema } from '@/components/testimonial/config'
+import { ContentSchema } from '../content-schema'
 
 const ContentColumnSchema = z.object({
-	content: z.union([ContentBoxPropsSchema, TestimonialPropsSchema]).optional(),
+	content: ContentSchema.optional(),
 })
 
 export type ContentProps = z.infer<typeof ContentPropsSchema>

@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import { ReactNode } from 'react'
 import { isPlainObject } from 'remeda'
 
 import { Blocks } from '@/blocks/block-schema'
@@ -18,7 +19,16 @@ import { LogoMarqueeBlock } from '@/blocks/marquee/logo-marquee-block'
 import { PricingCardsBlock } from '@/blocks/pricing/pricing-cards-block'
 import { StatsBlock } from '@/blocks/stats/stats-block'
 import { MediaProps } from '@/components/component-schema'
-import { Page, PageSchema } from './page-schema'
+import { captureError } from './error'
+import {
+	isYamlPage,
+	YamlCollection,
+	YamlCollectionSchema,
+	YamlGlobal,
+	YamlGlobalSchema,
+	YamlPage,
+	YamlPageSchema,
+} from './yaml-schema'
 
 const PLACEHOLDER_ARGS = /^placeholder:?(.*)?$/
 
@@ -36,7 +46,7 @@ const setPlaceholderUrl = (media: MediaProps) => {
  * `placeholder` to load a placeholder image instead.
  * This function is mutable.
  */
-const mapPlaceholderMedia = (data: Page): Page => {
+const mapPlaceholderMedia = (data: YamlPage): YamlPage => {
 	const stack: object[] = [data]
 
 	while (stack.length > 0) {
@@ -68,18 +78,46 @@ const mapPlaceholderMedia = (data: Page): Page => {
 	return data
 }
 
-export async function parseLayout(yaml: string) {
+type SchemaOutput = YamlPage | YamlCollection | YamlGlobal
+
+const schemas = [YamlPageSchema, YamlCollectionSchema, YamlGlobalSchema]
+const trySchemas = (data: unknown): SchemaOutput => {
+	const errors = []
+	for (const schema of schemas) {
+		const result = schema.safeParse(data)
+		if (result.success) {
+			// First match wins
+			return result.data
+		} else {
+			errors.push(result.error)
+		}
+	}
+
+	console.groupCollapsed('schema debugging')
+	console.debug(data)
+	errors.forEach(console.debug)
+	console.groupEnd()
+
+	throw new Error('No schema matched.')
+}
+
+export async function parseLayout(yaml: string): Promise<ReactNode> {
 	try {
 		const fileData = yaml
 
-		const result = PageSchema.safeParse(fileData)
-
-		if (!result.success) {
-			console.error('Page validation error', result.error)
+		let result: SchemaOutput | null = null
+		try {
+			result = trySchemas(fileData)
+		} catch (err) {
+			captureError(err, { label: 'parseLayout' })
 			return
 		}
 
-		const data = mapPlaceholderMedia(result.data)
+		if (!isYamlPage(result)) {
+			return null
+		}
+
+		const data = mapPlaceholderMedia(result)
 
 		return data.layout.map((item: Blocks, index: number) => {
 			const key = `${item.type}-${index}`

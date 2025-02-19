@@ -2,10 +2,7 @@ import { z } from 'zod'
 
 export const IconSchema = z.string()
 
-export const ImageSchema = z.object({
-	src: z.string(),
-})
-
+// Deprecated - use MediaProps from components/media/config.ts
 export type MediaProps = z.infer<typeof MediaPropsSchema>
 export const MediaPropsSchema = z.object({
 	src: z.string(),

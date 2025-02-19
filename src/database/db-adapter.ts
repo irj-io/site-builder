@@ -40,7 +40,11 @@ interface YamlFileData {
 
 type FileData = MarkdownFileData | YamlFileData
 
-const dbPath = process.env.DB_PATH
+const IMAGE_DIR = /\/images\/?/
+const GLOBAL_YAML = /global\.ya?ml$/
+const COLLECTION_YAML = /\.collection\.ya?ml$/
+
+const dbPath = process.env.DB_PATH || 'src/content'
 
 const parseMarkdown = async (
 	content: string,
@@ -71,7 +75,7 @@ const parseMarkdown = async (
 }
 
 const parseYaml = async (content: string): Promise<YamlFileData['data']> => {
-	const yaml = parse(content)
+	const yaml = parse(content, { merge: true })
 	const layoutComponents = await parseLayout(yaml)
 	return {
 		content: yaml,
@@ -114,7 +118,30 @@ export const loadPage = async (slug: string[]): Promise<ResultOrError<FileData>>
 	return parseFile(fullPath, content)
 }
 
-export const listFiles = async (): Promise<ResultOrError<string[]>> => {
+export const listCollections = async (): Promise<ResultOrError<string[]>> => {
+	if (!dbPath) {
+		return [null, new EnvVarError('DB_PATH')]
+	}
+
+	try {
+		const files = []
+		let fileList = await fs.readdir(dbPath, { recursive: true })
+		fileList = fileList.filter((filePath) => COLLECTION_YAML.test(filePath))
+
+		for (const filePath of fileList) {
+			const stats = await fs.lstat(path.join(dbPath, filePath))
+			if (!stats.isDirectory()) {
+				files.push(path.join(process.cwd(), dbPath, filePath))
+			}
+		}
+		return [files, null]
+	} catch (err) {
+		const error = createError(err)
+		return [null, error]
+	}
+}
+
+export const listPages = async (): Promise<ResultOrError<string[]>> => {
 	if (!dbPath) {
 		return [null, new EnvVarError('DB_PATH')]
 	}
@@ -123,8 +150,9 @@ export const listFiles = async (): Promise<ResultOrError<string[]>> => {
 		const files = []
 		let fileList = await fs.readdir(dbPath, { recursive: true })
 		fileList = fileList
-			.filter((filePath) => !/\/images\/?/.test(filePath))
-			.filter((filePath) => !/global.ya?ml$/.test(filePath))
+			.filter((filePath) => !IMAGE_DIR.test(filePath))
+			.filter((filePath) => !GLOBAL_YAML.test(filePath))
+			.filter((filePath) => !COLLECTION_YAML.test(filePath))
 
 		for (const filePath of fileList) {
 			const stats = await fs.lstat(path.join(dbPath, filePath))

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-import { listFiles, loadFile, saveFile } from '@/database/db-adapter'
+import { listPages, loadFile, saveFile } from '@/database/db-adapter'
 import { captureError } from '@/utils/error'
 import { Editor } from './editor'
 
@@ -31,7 +31,7 @@ export function EditorPageClient() {
 
 	useEffect(() => {
 		let ignore = false
-		listFiles().then(([fileList, error]) => {
+		listPages().then(([fileList, error]) => {
 			if (error) {
 				captureError(error)
 				setError(error.message)

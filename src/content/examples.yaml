@@ -165,21 +165,36 @@ layout:
 
   - type: logoMarquee
     items:
-      - src: /assets/images/client-logos/m2cli-arcelor-mittal.png
-      - src: /assets/images/client-logos/m2cli-bosch.png
-      - src: /assets/images/client-logos/m2cli-de-beers.png
-      - src: /assets/images/client-logos/m2cli-electrolux.png
-      - src: /assets/images/client-logos/m2cli-engen.png
-      - src: /assets/images/client-logos/m2cli-eveready.png
-      - src: /assets/images/client-logos/m2cli-kansai-plascon.png
-      - src: /assets/images/client-logos/m2cli-kelloggs.png
-      - src: /assets/images/client-logos/m2cli-lg.png
-      - src: /assets/images/client-logos/m2cli-macsteel.png
-      - src: /assets/images/client-logos/m2cli-massmart.png
-      - src: /assets/images/client-logos/m2cli-premier-foods.png
-      - src: /assets/images/client-logos/m2cli-samsung.png
-      - src: /assets/images/client-logos/m2cli-sony.png
-      - src: /assets/images/client-logos/m2cli-whirlpool.png
+      - type: image
+        src: /assets/images/client-logos/m2cli-arcelor-mittal.png
+      - type: image
+        src: /assets/images/client-logos/m2cli-bosch.png
+      - type: image
+        src: /assets/images/client-logos/m2cli-de-beers.png
+      - type: image
+        src: /assets/images/client-logos/m2cli-electrolux.png
+      - type: image
+        src: /assets/images/client-logos/m2cli-engen.png
+      - type: image
+        src: /assets/images/client-logos/m2cli-eveready.png
+      - type: image
+        src: /assets/images/client-logos/m2cli-kansai-plascon.png
+      - type: image
+        src: /assets/images/client-logos/m2cli-kelloggs.png
+      - type: image
+        src: /assets/images/client-logos/m2cli-lg.png
+      - type: image
+        src: /assets/images/client-logos/m2cli-macsteel.png
+      - type: image
+        src: /assets/images/client-logos/m2cli-massmart.png
+      - type: image
+        src: /assets/images/client-logos/m2cli-premier-foods.png
+      - type: image
+        src: /assets/images/client-logos/m2cli-samsung.png
+      - type: image
+        src: /assets/images/client-logos/m2cli-sony.png
+      - type: image
+        src: /assets/images/client-logos/m2cli-whirlpool.png
     section:
       className: bg-white
 
@@ -219,4 +234,4 @@ layout:
   - type: collectionStack
     title: The CollectionStack block
     subtitle: Displays a collection in a grid layout
-    collectionId: testCollection
+    collectionId: tytoLogos

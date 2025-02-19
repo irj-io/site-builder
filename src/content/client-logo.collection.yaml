@@ -1,0 +1,99 @@
+imageProps: &imageProps
+  type: image
+  width: 200
+  height: 200
+
+collections:
+  tytoLogos:
+    items:
+      - id: 1
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/ty-domaindedeux.webp
+      - id: 2
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/ty-liberty.webp
+      - id: 3
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/ty-m2north.webp
+      - id: 4
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/ty-mediatomcat.webp
+      - id: 5
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/ty-mit.webp
+      - id: 6
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/ty-morrisones.webp
+      - id: 7
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/ty-yourcompany.webp
+
+  m2northLogos:
+    items:
+      - id: 1
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/m2cli-arcelor-mittal.png
+      - id: 2
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/m2cli-bosch.png
+      - id: 3
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/m2cli-electrolux.png
+      - id: 4
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/m2cli-de-beers.png
+      - id: 5
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/m2cli-engen.png
+      - id: 6
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/m2cli-eveready.png
+      - id: 7
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/m2cli-kansai-plascon.png
+      - id: 8
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/m2cli-kelloggs.png
+      - id: 9
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/m2cli-lg.png
+      - id: 10
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/m2cli-macsteel.png
+      - id: 11
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/m2cli-massmart.png
+      - id: 12
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/m2cli-premier-foods.png
+      - id: 13
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/m2cli-samsung.png
+      - id: 14
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/m2cli-sony.png
+      - id: 15
+        content:
+          <<: *imageProps
+          src: /assets/images/client-logos/m2cli-whirlpool.png
