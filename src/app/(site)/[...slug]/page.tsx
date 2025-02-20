@@ -1,38 +1,38 @@
-import { promises as fs } from 'fs'
-import path from 'path'
 import { notFound } from 'next/navigation'
 
 import { MarkdownContent } from '@/components/markdown-content'
 import PageLayout from '@/components/page-layout'
-import { loadPage } from '@/database/db-adapter'
+import { listPages, loadPage } from '@/database/db-adapter'
+import { env } from '@/utils/env'
 import { captureError } from '@/utils/error'
-
-const dbPath = process.env.DB_PATH || 'src/content/'
-const dbDirectory = path.join(process.cwd(), dbPath)
+import { getSlugFromFilePath } from '@/utils/file-utils'
 
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-	let filePaths = await fs.readdir(dbDirectory, { recursive: true })
+	const dbPath = env('DB_PATH')
 	const files = []
+	const [pages, listPagesError] = await listPages()
 
-	filePaths = filePaths
-		.filter((filePath) => !/\/images\/?/.test(filePath))
-		.filter((filePath) => !/global.ya?ml$/.test(filePath))
-
-	for (const filePath of filePaths) {
-		const stats = await fs.lstat(path.join(dbDirectory, filePath))
-		if (!stats.isDirectory()) {
-			files.push(filePath.replace(/\.mdx?$/, '').replace(/\.ya?ml$/, ''))
-		}
+	if (listPagesError) {
+		captureError(listPagesError, { label: '[...slug]/page:generateStaticParams' })
+		return
 	}
 
-	return files.map((filePath) => {
-		const segments = filePath.split(path.sep).filter((segment) => segment !== 'index')
-		return {
-			slug: [...segments],
-		}
-	})
+	for (const filePath of pages) {
+		files.push(
+			filePath
+				.replace(dbPath, '')
+				.replace(/\.mdx?$/, '')
+				.replace(/\.ya?ml$/, '')
+		)
+	}
+
+	return files
+		.filter((filePath) => !filePath.includes('help')) // FIXME
+		.map((filePath) => ({
+			slug: getSlugFromFilePath(filePath),
+		}))
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string[] }> }) {

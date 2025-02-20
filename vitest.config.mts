@@ -15,7 +15,24 @@ export default defineConfig({
 				lines: 80,
 			},
 		},
-		environment: 'jsdom',
+		workspace: [
+			// Use jsdom for component tests
+			{
+				extends: true,
+				test: {
+					environment: 'jsdom',
+					include: ['**/*.{test,spec}.{tsx,jsx}'],
+				},
+			},
+			// Use node for server-side/utility tests
+			{
+				extends: true,
+				test: {
+					environment: 'node',
+					include: ['**/*.{test,spec}.{ts,js}'],
+				},
+			},
+		],
 		setupFiles: ['./tests/setup.ts'],
 	},
 })

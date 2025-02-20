@@ -1,5 +1,3 @@
-import { promises as fs } from 'fs'
-import path from 'path'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
@@ -8,50 +6,62 @@ import { Article } from '@/components/article'
 import { ArticlesMenu } from '@/components/articles-menu'
 import PageLayout from '@/components/page-layout'
 import { TableOfContents } from '@/components/table-of-contents'
-import { loadPage } from '@/database/db-adapter'
+import { listPages, loadPage } from '@/database/db-adapter'
+import { env } from '@/utils/env'
 import { captureError } from '@/utils/error'
-
-const dbPath = process.env.DB_PATH || 'src/content/'
-const dbDirectory = path.join(process.cwd(), dbPath, 'help')
+import { getSlugFromFilePath } from '@/utils/file-utils'
+import { ArticleDataSchema } from '@/utils/post-schema'
 
 export const dynamicParams = false
 
+const category = 'help'
+
 export async function generateStaticParams() {
-	let filePaths = await fs.readdir(dbDirectory, { recursive: true })
+	const dbPath = env('DB_PATH')
 	const files = []
+	const [pages, listPagesError] = await listPages(category)
 
-	filePaths = filePaths
-		.filter((filePath) => !/\/images\/?/.test(filePath))
-		.filter((filePath) => !/global.ya?ml$/.test(filePath))
-
-	for (const filePath of filePaths) {
-		const stats = await fs.lstat(path.join(dbDirectory, filePath))
-		if (!stats.isDirectory()) {
-			files.push(filePath.replace(/\.mdx?$/, '').replace(/\.ya?ml$/, ''))
-		}
+	if (listPagesError) {
+		captureError(listPagesError, { label: `${category}/[...slug]/page:generateStaticParams` })
+		return
 	}
 
-	return files.map((filePath) => {
-		const segments = filePath.split(path.sep).filter((segment) => segment !== 'index')
-		return {
-			slug: [...segments],
-		}
-	})
+	for (const filePath of pages) {
+		files.push(
+			filePath
+				.replace(dbPath, '')
+				.replace(/\.mdx?$/, '')
+				.replace(/\.ya?ml$/, '')
+		)
+	}
+
+	return files.map((filePath) => ({
+		slug: getSlugFromFilePath(filePath).slice(1),
+	}))
 }
 
-export default async function Page({ params }: { params: Promise<{ slug: string[] }> }) {
+export default async function HelpPage({ params }: { params: Promise<{ slug: string[] }> }) {
 	const { slug } = await params
 
-	const fullSlug = ['help', ...slug]
+	const fullSlug = [category, ...slug]
+
 	const [fileData, error] = await loadPage(fullSlug)
 
 	if (error) {
-		captureError(error, { label: 'help/[...slug]/page', slug })
+		captureError(error, { label: `${category}/[...slug]/page`, fullSlug })
 		return notFound()
 	}
 
 	switch (fileData.type) {
 		case 'md':
+			const result = ArticleDataSchema.safeParse(fileData.data.frontMatter)
+			if (!result.success) {
+				captureError(result.error, { label: `${category}/[...slug]/page`, fullSlug })
+				return notFound()
+			}
+
+			const frontMatter = result.data
+
 			return (
 				<PageLayout>
 					<div className="container mx-auto px-6 py-8">
@@ -61,7 +71,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
 								<ArticlesMenu title={'Help'} slug={fullSlug} />
 							</div>
 							<div className="col-span-12 md:col-span-10 lg:col-span-8 sm:px-0 md:pl-0 md:pr-8 lg:px-16">
-								<Article data={fileData.data.frontMatter} Markdown={fileData.data.nodes} />
+								<Article data={frontMatter} Markdown={fileData.data.nodes} />
 							</div>
 							<div className="hidden md:col-span-2 md:block">
 								<div className="sticky top-2 mt-[260px]">

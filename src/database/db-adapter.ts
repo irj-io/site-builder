@@ -6,6 +6,7 @@ import { ReactNode } from 'react'
 import { parse } from 'yaml'
 
 import { getIsDirectory } from '@/utils/content-parsing'
+import { env } from '@/utils/env'
 import { createError } from '@/utils/error'
 import { getExtension, getSlugFromFilePath } from '@/utils/file-utils'
 import { getAvatarImageUrl } from '@/utils/gravatar'
@@ -40,11 +41,9 @@ interface YamlFileData {
 
 type FileData = MarkdownFileData | YamlFileData
 
-const IMAGE_DIR = /\/images\/?/
+const IMAGE_DIR = /images(\/.+)?$/
 const GLOBAL_YAML = /global\.ya?ml$/
 const COLLECTION_YAML = /\.collection\.ya?ml$/
-
-const dbPath = process.env.DB_PATH || 'src/content'
 
 const parseMarkdown = async (
 	content: string,
@@ -94,11 +93,12 @@ const createYamlData = (data: YamlFileData['data']): YamlFileData => ({
 })
 
 export const loadPage = async (slug: string[]): Promise<ResultOrError<FileData>> => {
+	const dbPath = env('DB_PATH')
 	if (!dbPath) {
 		return [null, new EnvVarError('DB_PATH')]
 	}
 
-	const filePath = path.join(process.cwd(), dbPath, ...slug)
+	const filePath = path.join(dbPath, ...slug)
 	let fullPath = filePath
 
 	const isDirectory = await getIsDirectory(filePath)
@@ -119,6 +119,7 @@ export const loadPage = async (slug: string[]): Promise<ResultOrError<FileData>>
 }
 
 export const listCollections = async (): Promise<ResultOrError<string[]>> => {
+	const dbPath = env('DB_PATH')
 	if (!dbPath) {
 		return [null, new EnvVarError('DB_PATH')]
 	}
@@ -131,7 +132,7 @@ export const listCollections = async (): Promise<ResultOrError<string[]>> => {
 		for (const filePath of fileList) {
 			const stats = await fs.lstat(path.join(dbPath, filePath))
 			if (!stats.isDirectory()) {
-				files.push(path.join(process.cwd(), dbPath, filePath))
+				files.push(path.join(dbPath, filePath))
 			}
 		}
 		return [files, null]
@@ -141,23 +142,25 @@ export const listCollections = async (): Promise<ResultOrError<string[]>> => {
 	}
 }
 
-export const listPages = async (): Promise<ResultOrError<string[]>> => {
+export const listPages = async (directory?: string): Promise<ResultOrError<string[]>> => {
+	const dbPath = env('DB_PATH')
 	if (!dbPath) {
 		return [null, new EnvVarError('DB_PATH')]
 	}
 
 	try {
 		const files = []
-		let fileList = await fs.readdir(dbPath, { recursive: true })
+		const dirPath = directory ? path.join(dbPath, directory) : dbPath
+		let fileList = await fs.readdir(dirPath, { recursive: true })
 		fileList = fileList
 			.filter((filePath) => !IMAGE_DIR.test(filePath))
 			.filter((filePath) => !GLOBAL_YAML.test(filePath))
 			.filter((filePath) => !COLLECTION_YAML.test(filePath))
 
 		for (const filePath of fileList) {
-			const stats = await fs.lstat(path.join(dbPath, filePath))
+			const stats = await fs.lstat(path.join(dirPath, filePath))
 			if (!stats.isDirectory()) {
-				files.push(path.join(process.cwd(), dbPath, filePath))
+				files.push(path.join(dirPath, filePath))
 			}
 		}
 		return [files, null]
@@ -168,6 +171,7 @@ export const listPages = async (): Promise<ResultOrError<string[]>> => {
 }
 
 export const loadFile = async (filePath: string): Promise<ResultOrError<string>> => {
+	const dbPath = env('DB_PATH')
 	if (!dbPath) {
 		return [null, new EnvVarError('DB_PATH')]
 	}
@@ -194,11 +198,12 @@ export const saveFile = async (
 	filePath: string,
 	contents: string
 ): Promise<ResultOrError<boolean>> => {
+	const dbPath = env('DB_PATH')
 	if (!dbPath) {
 		return [null, new EnvVarError('DB_PATH')]
 	}
 
-	const ext = await getExtension(path.join(process.cwd(), dbPath, filePath))
+	const ext = await getExtension(path.join(dbPath, filePath))
 	if (!ext) {
 		return [null, new UnsupportedFileError(filePath)]
 	}
@@ -216,6 +221,7 @@ export const parseFile = async (
 	filePath: string,
 	contents: string
 ): Promise<ResultOrError<FileData>> => {
+	const dbPath = env('DB_PATH')
 	if (!dbPath) {
 		return [null, new EnvVarError('DB_PATH')]
 	}
@@ -223,8 +229,7 @@ export const parseFile = async (
 	switch (ext) {
 		case 'md':
 			try {
-				const basePath = path.join(process.cwd(), dbPath)
-				const relativeFilePath = filePath.substring(basePath.length)
+				const relativeFilePath = filePath.substring(dbPath.length)
 				const markdown = await parseMarkdown(contents, getSlugFromFilePath(relativeFilePath))
 				return [createMarkdownData(markdown), null]
 			} catch (err) {

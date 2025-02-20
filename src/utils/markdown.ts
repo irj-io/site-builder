@@ -38,14 +38,16 @@ interface TocItem {
 	value: string
 }
 
-interface ParseMarkdownResult {
-	file: {
-		data: {
-			toc: TocItem[]
-		}
-		value: string
-		result: ReactNode
+export interface MarkdownFile {
+	data: {
+		toc: TocItem[]
 	}
+	value: string
+	result: ReactNode
+}
+
+interface ParseMarkdownResult {
+	file: MarkdownFile
 	matter: GrayMatterFile<string>
 }
 

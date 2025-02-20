@@ -1,28 +1,31 @@
 import { promises as fs } from 'fs'
 import path from 'path'
 
+import { listPages } from '@/database/db-adapter'
 import { parseMarkdownPage } from '@/utils/markdown'
 import { getIsDirectory } from './content-parsing'
-
-const contentDir = path.join(process.cwd(), 'src/content/')
+import { env } from './env'
+import { captureError } from './error'
 
 /**
  * Get all markdown files in a subdirectory of `content/`
  */
 export const getAllArticles = async (collection: string) => {
-	const parentPath = path.join(contentDir, collection)
-	const filePaths = await fs.readdir(parentPath, {
-		recursive: true,
-	})
-
 	const matterData = []
 
-	for (const filePath of filePaths) {
+	const [pages, listPagesError] = await listPages(collection)
+
+	if (listPagesError) {
+		captureError(listPagesError)
+		return []
+	}
+
+	for (const filePath of pages) {
 		if (!/\.md$/.test(filePath)) {
 			continue
 		}
 
-		const article = await readArticle(`${parentPath}/${filePath}`)
+		const article = await readArticle(filePath)
 		matterData.push(article)
 	}
 
@@ -42,7 +45,8 @@ export const getAllArticles = async (collection: string) => {
 }
 
 const filePathFromSlug = async (slug: string[]) => {
-	let filePath = path.join(contentDir, ...slug)
+	const dbPath = env('DB_PATH')
+	let filePath = path.join(dbPath, ...slug)
 	const isDirectory = await getIsDirectory(filePath)
 
 	if (isDirectory) {
@@ -69,7 +73,8 @@ const filePathFromSlug = async (slug: string[]) => {
 }
 
 const readArticle = async (filePath: string) => {
-	const hrefFragment = filePath.replace(contentDir, '').replace(/(\/index)?\.md$/, '')
+	const dbPath = env('DB_PATH')
+	const hrefFragment = filePath.replace(dbPath, '').replace(/(\/index)?\.md$/, '')
 	const slug = `${hrefFragment}`.split(RegExp(path.sep))
 
 	const fileContents = await fs.readFile(filePath, 'utf8')

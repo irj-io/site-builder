@@ -1,4 +1,4 @@
-type EnvironmentVariables = 'DB_PATH'
+import { EnvironmentVariables } from '@/utils/env'
 
 export class EnvVarError extends Error {
 	constructor(envVar: EnvironmentVariables, options?: ErrorOptions) {
