@@ -12,19 +12,6 @@ const fileExists = async (filepath: string): Promise<boolean> => {
 	}
 }
 
-export const getFileType = async (basePath: string): Promise<FileType> => {
-	try {
-		if (await fileExists(`${basePath}.yaml`)) return 'yaml'
-		if (await fileExists(`${basePath}.yml`)) return 'yaml'
-
-		if (await fileExists(`${basePath}.md`)) return 'markdown'
-
-		return 'unknown'
-	} catch {
-		return 'unknown'
-	}
-}
-
 export const getExtension = async (basePath: string): Promise<string> => {
 	try {
 		if (await fileExists(`${basePath}.yaml`)) return 'yaml'
