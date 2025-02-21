@@ -15,6 +15,7 @@ announcementBar:
 
 header:
   logo:
+    type: image
     src: /assets/images/tyto-logo.png
   navLinks:
     - type: button
@@ -39,6 +40,7 @@ header:
 
 footer:
   logo:
+    type: image
     src: /assets/images/tyto-logo.png
   columns:
     - title: Tyto

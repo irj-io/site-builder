@@ -2,12 +2,14 @@ layout:
   - type: hero
     variant: highImpact
     media:
+      type: image
       src: /assets/images/hero-background.png
     title: Features
     actions: []
 
   - type: featureBox
     media:
+      type: image
       src: /assets/images/hero-background.png
     title: Title
     overline: Overline

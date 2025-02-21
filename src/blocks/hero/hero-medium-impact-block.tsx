@@ -1,6 +1,5 @@
-import Image from 'next/image'
-
 import { Action } from '@/components/actions/action'
+import { Media } from '@/components/media/media'
 import { getSectionProps, Section } from '@/components/section/section'
 import { parseComponents } from '@/utils/parse-components'
 import { BlockProps } from '../block-types'
@@ -39,16 +38,11 @@ export function HeroMediumImpactBlock(props: BlockProps<HeroProps>) {
 					) : null}
 				</div>
 				<div className="col-span-7 min-h-[600px] max-h-[800px] py-16">
-					{media && typeof media === 'object' ? (
-						<Image
-							className="w-full h-full object-contain"
-							src={media.src}
-							alt=""
-							quality={90}
-							priority
-							height={600}
-							width={1280}
-						/>
+					{media ? (
+						<>
+							<Media media={media} imageClassName="-z-10 object-cover" fill quality={90} priority />
+							<div className="absolute pointer-events-none left-0 bottom-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent" />
+						</>
 					) : null}
 				</div>
 			</div>

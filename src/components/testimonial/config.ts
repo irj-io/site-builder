@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { MediaPropsSchema } from '../component-schema'
+import { MediaPropsSchema } from '../media/config'
 
 export type TestimonialProps = z.infer<typeof TestimonialPropsSchema>
 export const TestimonialPropsSchema = z.object({

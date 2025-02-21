@@ -5,6 +5,7 @@ author: Justin
 authorEmail: justin@tyto.me
 date: '2025-02-11'
 media:
+  type: image
   src: ./images/banner.webp
   alt: A screenshot of a daily task summary email, which will adorn your inbox from time to time.
   style: screenshot

@@ -1,6 +1,7 @@
 import { z } from 'zod'
 
-import { ActionSchema, MediaPropsSchema } from '../component-schema'
+import { ActionSchema } from '../component-schema'
+import { MediaPropsSchema } from '../media/config'
 
 export type Header = z.infer<typeof HeaderSchema>
 export const HeaderSchema = z.object({

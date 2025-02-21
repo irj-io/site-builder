@@ -2,14 +2,6 @@ import { z } from 'zod'
 
 export const IconSchema = z.string()
 
-// Deprecated - use MediaProps from components/media/config.ts
-export type MediaProps = z.infer<typeof MediaPropsSchema>
-export const MediaPropsSchema = z.object({
-	src: z.string(),
-	alt: z.string().default(''),
-	style: z.enum(['screenshot']).optional(),
-})
-
 export type ButtonAction = z.infer<typeof ButtonActionSchema>
 export const ButtonActionSchema = z.object({
 	type: z.literal('button'),

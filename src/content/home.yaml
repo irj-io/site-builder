@@ -4,7 +4,8 @@ layout:
   - type: hero
     variant: mediumImpact
     media:
-      src: /assets/images/hero-tyto.svg
+      type: customSvg
+      id: heroSvg
     title: |
       WORK
       DONE 
@@ -82,6 +83,7 @@ layout:
 
   - type: featureBox
     media:
+      type: image
       src: placeholder
     title: Real-time progress updates
     content: Delegate and prioritize the work of your team members, all in real-time.
@@ -94,6 +96,7 @@ layout:
 
   - type: featureBox
     media:
+      type: image
       src: placeholder
     title: Chat to team members
     content: Working from home doesn't have to mean an end to collaboration. We believe collaboration thrives through transparency. That's why we baked it in from the start, allowing teams to be anywhere, yet feel more connected than ever.
@@ -105,6 +108,7 @@ layout:
 
   - type: featureBox
     media:
+      type: image
       src: placeholder
     title: Where is my team spending their time?
     content: Working from home doesn't have to mean an end to collaboration. We believe collaboration thrives through transparency. That's why we baked it in from the start, allowing teams to be anywhere, yet feel more connected than ever.
@@ -117,6 +121,7 @@ layout:
 
   - type: featureBox
     media:
+      type: image
       src: placeholder
     title: Am I interrupting?
     content: Working from home doesn't have to mean an end to collaboration. We believe collaboration thrives through transparency. That's why we baked it in from the start, allowing teams to be anywhere, yet feel more connected than ever.
@@ -128,6 +133,7 @@ layout:
 
   - type: featureBox
     media:
+      type: image
       src: placeholder
     title: How far is Bob with his task?
     content: Working from home doesn't have to mean an end to collaboration. We believe collaboration thrives through transparency. That's why we baked it in from the start, allowing teams to be anywhere, yet feel more connected than ever.
@@ -140,6 +146,7 @@ layout:
 
   - type: featureBox
     media:
+      type: image
       src: placeholder
     title: Set clear priorities
     content: Set your team up for success by setting organized, weekly, clear objectives— then leaving your team to get on with it, instead of pacing around the office, annoying everyone— like some kind of wild animal.
@@ -151,6 +158,7 @@ layout:
 
   - type: featureBox
     media:
+      type: image
       src: placeholder
     title: Let your team fly
     content: With Tyto, your team will be working more efficiently than ever before. Get through tasks, capture ideas and deploy them in an organized, fun and efficient manner.
@@ -166,6 +174,7 @@ layout:
       - content:
           type: testimonial
           media:
+            type: image
             src: placeholder
           title: Pavel Popovichenko
           subtitle: Early Adopter
@@ -173,6 +182,7 @@ layout:
       - content:
           type: testimonial
           media:
+            type: image
             src: placeholder
           title: Gregg Richardson
           subtitle: Early Adopter
@@ -180,6 +190,7 @@ layout:
       - content:
           type: testimonial
           media:
+            type: image
             src: placeholder
           title: Adré Micha Hassen
           subtitle: Liberty Life

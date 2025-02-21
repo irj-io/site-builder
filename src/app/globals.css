@@ -105,12 +105,23 @@
 	--primary-foreground: hsl(0 0% 100%);
 }
 
+@layer utilities {
+	.animate-fade {
+		scale: 0.7;
+		opacity: 0;
+		animation-timeline: view();
+		animation-range-start: cover;
+		animation-range-end: 500px;
+	}
+}
+
 @theme {
 	--animate-blink: blink 1s step-start infinite;
 	--animate-marquee: marquee 60s linear infinite;
 	--animate-wiggle: wiggle 1s ease-in-out infinite;
 	--animate-accordion-down: accordion-down 0.2s ease-out;
 	--animate-accordion-up: accordion-up 0.2s ease-out;
+	--animate-fade: fade linear forwards;
 
 	@keyframes blink {
 		0%,
@@ -152,6 +163,12 @@
 		}
 		to {
 			height: 0;
+		}
+	}
+	@keyframes fade {
+		to {
+			scale: 1;
+			opacity: 1;
 		}
 	}
 }

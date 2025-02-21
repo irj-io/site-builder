@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { MediaPropsSchema } from '@/components/component-schema'
+import { MediaPropsSchema } from '@/components/media/config'
 
 export type MarkdownData = z.infer<typeof MarkdownDataSchema>
 export const MarkdownDataSchema = z.object({

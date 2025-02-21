@@ -6,6 +6,7 @@ authorEmail: justin@tyto.me
 date: '2021-04-06'
 order: 0
 media:
+  type: image
   src: /assets/images/help-getting-started-banner.png
   alt: A scary image of a person jumping into a LOT of water
 ---

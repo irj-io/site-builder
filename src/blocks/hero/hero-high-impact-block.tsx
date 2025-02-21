@@ -1,7 +1,6 @@
-import Image from 'next/image'
-
 import { Action } from '@/components/actions/action'
 import { MdContent } from '@/components/md-content'
+import { Media } from '@/components/media/media'
 import { parseComponents } from '@/utils/parse-components'
 import { BlockProps } from '../block-types'
 import { HeroProps } from './config'
@@ -39,16 +38,9 @@ export async function HeroHighImpactBlock(props: BlockProps<HeroProps>) {
 				</div>
 			</div>
 			<div className="min-h-[80vh] select-none">
-				{media && typeof media === 'object' ? (
+				{media ? (
 					<>
-						<Image
-							className="-z-10 object-cover"
-							fill
-							src={media.src}
-							alt=""
-							quality={90}
-							priority
-						/>
+						<Media media={media} imageClassName="-z-10 object-cover" fill quality={90} priority />
 						<div className="absolute pointer-events-none left-0 bottom-0 w-full h-1/2 bg-gradient-to-t from-inverse-surface to-transparent" />
 					</>
 				) : null}

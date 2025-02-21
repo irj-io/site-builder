@@ -18,7 +18,7 @@ import { HeroProductScreenshotBlock } from '@/blocks/hero/hero-product-screensho
 import { LogoMarqueeBlock } from '@/blocks/marquee/logo-marquee-block'
 import { PricingCardsBlock } from '@/blocks/pricing/pricing-cards-block'
 import { StatsBlock } from '@/blocks/stats/stats-block'
-import { MediaProps } from '@/components/component-schema'
+import { MediaProps } from '@/components/media/config'
 import { captureError } from './error'
 import {
 	isYamlPage,
@@ -33,10 +33,12 @@ import {
 const PLACEHOLDER_ARGS = /^placeholder:?(.*)?$/
 
 const setPlaceholderUrl = (media: MediaProps) => {
-	const match = media.src.match(PLACEHOLDER_ARGS)
-	if (match) {
-		const args = match[1] ? match[1] : '100?text=placeholder'
-		media.src = `https://placehold.co/${args}`
+	if (media.type === 'image') {
+		const match = media.src.match(PLACEHOLDER_ARGS)
+		if (match) {
+			const args = match[1] ? match[1] : '100?text=placeholder'
+			media.src = `https://placehold.co/${args}`
+		}
 	}
 	return media
 }

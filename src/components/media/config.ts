@@ -1,5 +1,11 @@
 import { z } from 'zod'
 
+export type CustomSvgProps = z.infer<typeof ImagePropsSchema>
+export const CustomSvgPropsSchema = z.object({
+	type: z.literal('customSvg'),
+	id: z.string(),
+})
+
 export type ImageProps = z.infer<typeof ImagePropsSchema>
 export const ImagePropsSchema = z.object({
 	type: z.literal('image'),
@@ -11,4 +17,7 @@ export const ImagePropsSchema = z.object({
 })
 
 export type MediaProps = z.infer<typeof MediaPropsSchema>
-export const MediaPropsSchema = z.discriminatedUnion('type', [ImagePropsSchema])
+export const MediaPropsSchema = z.discriminatedUnion('type', [
+	ImagePropsSchema,
+	CustomSvgPropsSchema,
+])
