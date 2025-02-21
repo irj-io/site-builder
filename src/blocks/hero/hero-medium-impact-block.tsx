@@ -37,7 +37,7 @@ export function HeroMediumImpactBlock(props: BlockProps<HeroProps>) {
 						</ul>
 					) : null}
 				</div>
-				<div className="col-span-7 min-h-[600px] max-h-[800px] py-16">
+				<div className="col-span-7 min-h-[600px] max-h-[800px]">
 					{media ? (
 						<>
 							<Media media={media} imageClassName="-z-10 object-cover" fill quality={90} priority />
