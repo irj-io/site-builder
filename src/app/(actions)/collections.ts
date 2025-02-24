@@ -28,12 +28,12 @@ export async function getCollection(collectionId: string): Promise<YamlCollectio
 		}
 
 		if (result.type === 'yaml') {
-			if (isYamlCollection(result.data.content)) {
-				const collections = result.data.content.collections
+			const parseResult = YamlCollectionSchema.safeParse(result.data.content)
+			if (parseResult.success) {
+				const collections = parseResult.data.collections
 				return collections[collectionId]
 			} else {
-				const schemaResult = YamlCollectionSchema.safeParse(result.data.content)
-				validationErrors.push(schemaResult.error)
+				validationErrors.push(parseResult.error)
 			}
 		}
 	}

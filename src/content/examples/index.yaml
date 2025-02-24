@@ -9,6 +9,7 @@ layout:
   - type: hero
     variant: highImpact
     media:
+      type: image
       src: /assets/images/hero-background.png
     title: Example {{ render(ShuffleText, ['Components', 'Blocks', 'Layouts', 'Styles']) }}
     subtitle: Lorem Ipsum is simply dummy text of the _printing and typesetting industry_. **Lorem Ipsum** has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -67,6 +68,7 @@ layout:
 
   - type: featureBox
     media:
+      type: image
       src: /assets/images/home-feature-box-image-1.png
     title: Collaborate more than ever before
     content: Working from home doesn't have to mean an end to collaboration. We believe collaboration thrives through transparency. That's why we baked it in from the start, allowing teams to be anywhere, yet feel more connected than ever.
@@ -81,6 +83,7 @@ layout:
 
   - type: featureBox
     media:
+      type: image
       src: /assets/images/home-feature-box-image-2.png
     title: Set clear priorities
     content: Set your team up for success by setting organized, weekly, clear objectives— then leaving your team to get on with it, instead of pacing around the office, annoying everyone— like some kind of wild animal.
@@ -94,6 +97,7 @@ layout:
 
   - type: featureBox
     media:
+      type: image
       src: placeholder
     title: Example of using placeholder media
     content: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -130,21 +134,30 @@ layout:
       - content:
           type: testimonial
           media:
+            type: image
             src: placeholder:192x192
+            width: 192
+            height: 192
           title: Alex Nguyen
           subtitle: Marketing Specialist
           content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.
       - content:
           type: testimonial
           media:
+            type: image
             src: placeholder:192x192
+            width: 192
+            height: 192
           title: Alex Nguyen
           subtitle: Marketing Specialist
           content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.
       - content:
           type: testimonial
           media:
+            type: image
             src: placeholder:192x192
+            width: 192
+            height: 192
           title: Alex Nguyen
           subtitle: Marketing Specialist
           content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor quis tortor blandit feugiat ut vitae turpis.

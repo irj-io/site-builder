@@ -1,4 +1,5 @@
 import { MdContent } from '../md-content'
+import { Media } from '../media/media'
 import type { TestimonialProps } from './config'
 
 export function TestimonialVertical(props: TestimonialProps) {
@@ -9,10 +10,12 @@ export function TestimonialVertical(props: TestimonialProps) {
 			{media && typeof media === 'object' ? (
 				<div
 					className="size-48 rounded-full rounded-bl-[20rem] bg-cover bg-center mb-4"
-					style={{
-						backgroundImage: `url('${media.src}')`,
-					}}
-				/>
+					//style={{
+					//	backgroundImage: `url('${media.src}')`,
+					//}}
+				>
+					<Media media={media} />
+				</div>
 			) : null}
 			<div>
 				{title ? <div className="text-4xl">{title}</div> : null}

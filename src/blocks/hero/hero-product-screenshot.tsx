@@ -1,6 +1,5 @@
-import Image from 'next/image'
-
 import { ActionProps } from '@/components/actions/action'
+import { Media } from '@/components/media/media'
 import { parseComponents } from '@/utils/parse-components'
 import { BlockProps } from '../block-types'
 import { HeroProps } from './config'
@@ -38,10 +37,9 @@ export function HeroProductScreenshotBlock(props: BlockProps<HeroProps>) {
 				</div>
 				{media && typeof media === 'object' ? (
 					<div className="flex items-center justify-center mt-16">
-						<Image
+						<Media
 							className="rounded-lg shadow-2xl"
-							src={media.src}
-							alt=""
+							media={media}
 							quality={90}
 							sizes={'100vw'}
 							width={40}

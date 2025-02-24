@@ -1,8 +1,8 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 import { cn } from '@/utils/cn'
 import { Action } from '../actions/action'
+import { Media } from '../media/media'
 import { ThemeModeToggle } from '../theme-mode-toggle'
 import type { Header } from './header-schema'
 
@@ -17,13 +17,7 @@ export function Header(props: Header) {
 			)}
 		>
 			<Link className="flex items-center" href="/">
-				<Image
-					className="inline-block mr-4"
-					src={logo.src}
-					alt="product logo"
-					width="48"
-					height="48"
-				/>
+				<Media className="inline-block mr-4" media={logo} width="48" height="48" />
 				<span className="text-2xl font-medium">tyto</span>
 			</Link>
 			<nav className="text-end">

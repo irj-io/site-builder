@@ -1,9 +1,9 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 import { cn } from '@/utils/cn'
 import { Action } from '../actions/action'
 import { MdContent } from '../md-content'
+import { Media } from '../media/media'
 import type { Footer, FooterColumn } from './footer-schema'
 
 export function FooterColumn(props: FooterColumn) {
@@ -58,7 +58,7 @@ export function Footer(props: Footer) {
 						{logo ? (
 							<div className="w-16 h-16 transition duration-300 grayscale opacity-80 invert-[.2] hover:grayscale-[.2] hover:opacity-90 hover:invert-0">
 								<Link href="/">
-									<Image src={logo.src} alt="" width="64" height="64" />
+									<Media media={logo} width="64" height="64" />
 								</Link>
 							</div>
 						) : (

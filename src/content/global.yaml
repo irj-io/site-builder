@@ -17,6 +17,7 @@ header:
   logo:
     type: image
     src: /assets/images/tyto-logo.png
+    alt: product logo
   navLinks:
     - type: button
       variant: ghost
