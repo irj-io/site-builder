@@ -25,6 +25,9 @@ export function useIsVisible(ref: RefObject<HTMLElement | null>) {
 		}
 
 		const observer = new IntersectionObserver(([entry]) => {
+			if (!entry) {
+				return
+			}
 			setIntersecting(entry.isIntersecting)
 		})
 

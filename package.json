@@ -1,5 +1,5 @@
 {
-  "name": "tyto-next",
+  "name": "site-builder",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,10 +7,22 @@
     "coverage": "vitest run --coverage",
     "dev": "next dev",
     "lint": "next lint",
+    "format": "prettier --write .",
+    "check-format": "prettier --check .",
+    "ci": "pnpm check-format && pnpm dist && pnpm check-exports",
+    "copy-css": "npx copyfiles -u 1 \"src/index.css\" dist",
+    "check-exports": "attw --pack .",
     "schema": "tsx tools/build-schema.ts",
     "start": "next start",
-    "test": "vitest"
+    "test": "vitest",
+    "dist": "npx tsc -p ./tsconfig.dist.json && npx tsc-alias -p ./tsconfig.dist.json && pnpm dist:css",
+    "dist:css": "npx postcss-cli ./src/index.css -o ./dist/index.css --env production"
   },
+  "type": "module",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",

@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation'
+
 import { AnnouncementBar } from '@/components/announcement-bar/announcement-bar'
 import { AnnouncementBarSchema } from '@/components/announcement-bar/announcement-bar-schema'
 import type { AnnouncementBar as AnnouncementBarProps } from '@/components/announcement-bar/announcement-bar-schema'
@@ -6,13 +8,14 @@ import { FooterSchema } from '@/components/footers/footer-schema'
 import { Header } from '@/components/headers/header'
 import { HeaderSchema } from '@/components/headers/header-schema'
 import type { Header as HeaderType } from '@/components/headers/header-schema'
-import globalData from '@/content/global.yaml'
+import { loadGlobalData } from '@/database/db-adapter'
+import { captureError } from '@/utils/error'
 
 interface HeaderProps {
 	theme: HeaderType['theme']
 }
 
-export default function PageLayout({
+export default async function PageLayout({
 	announcementProps = {},
 	headerProps = {},
 	children,
@@ -21,6 +24,12 @@ export default function PageLayout({
 	headerProps?: Partial<HeaderProps>
 	children: React.ReactNode
 }>) {
+	const [globalData, error] = await loadGlobalData()
+	if (error) {
+		captureError(error)
+		return notFound()
+	}
+
 	const announcementData = AnnouncementBarSchema.parse({
 		...(globalData.announcementBar || {}),
 		...announcementProps,

@@ -13,11 +13,11 @@ function ErrorMessage({ message }: { message: string }) {
 const formatFile = (file: string) => {
 	const match = file.match(/(?:([^/]+)\/)?([^/]+)(\.[A-Za-z0-9]+)$/)
 	let name = file
-	if (match) {
+	if (match && typeof match[1] === 'string' && typeof match[2] === 'string') {
 		if (match[2] === 'index') {
-			name = match[1] + match[3]
+			name = match[1] + (match[3] || '')
 		} else {
-			name = match[2] + match[3]
+			name = match[2] + (match[3] || '')
 		}
 	}
 	return name

@@ -51,8 +51,11 @@ export function ShuffleTextClient({ initial, list }: ShuffleTextProps) {
 		}
 		// When finished deleting, pick a new text
 		else if (isDeleting && displayedText === '') {
-			setCurrentText(getNextText())
-			setIsDeleting(false)
+			const nextText = getNextText()
+			if (nextText) {
+				setCurrentText(nextText)
+				setIsDeleting(false)
+			}
 		}
 
 		return () => clearTimeout(timer)

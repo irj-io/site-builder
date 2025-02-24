@@ -38,6 +38,8 @@ const setPlaceholderUrl = (media: MediaProps) => {
 		if (match) {
 			const args = match[1] ? match[1] : '100?text=placeholder'
 			media.src = `https://placehold.co/${args}`
+			media.height = 100
+			media.width = 100
 		}
 	}
 	return media

@@ -2,40 +2,10 @@ import { notFound } from 'next/navigation'
 
 import { MarkdownContent } from '@/components/markdown-content'
 import PageLayout from '@/components/page-layout'
-import { listPages, loadPage } from '@/database/db-adapter'
-import { env } from '@/utils/env'
+import { loadPage } from '@/database/db-adapter'
 import { captureError } from '@/utils/error'
-import { getSlugFromFilePath } from '@/utils/file-utils'
 
-export const dynamicParams = false
-
-export async function generateStaticParams() {
-	const dbPath = env('DB_PATH')
-	const files = []
-	const [pages, listPagesError] = await listPages()
-
-	if (listPagesError) {
-		captureError(listPagesError, { label: '[...slug]/page:generateStaticParams' })
-		return
-	}
-
-	for (const filePath of pages) {
-		files.push(
-			filePath
-				.replace(dbPath, '')
-				.replace(/\.mdx?$/, '')
-				.replace(/\.ya?ml$/, '')
-		)
-	}
-
-	return files
-		.filter((filePath) => !filePath.includes('help')) // FIXME
-		.map((filePath) => ({
-			slug: getSlugFromFilePath(filePath),
-		}))
-}
-
-export default async function Page({ params }: { params: Promise<{ slug: string[] }> }) {
+export async function DefaultPage({ params }: { params: Promise<{ slug: string[] }> }) {
 	const { slug } = await params
 
 	const [fileData, error] = await loadPage(slug)

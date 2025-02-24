@@ -18,7 +18,7 @@ import {
 	MarkdownData,
 	MarkdownDataSchema,
 } from '@/utils/post-schema'
-import { YamlPage } from '@/utils/yaml-schema'
+import { YamlGlobal, YamlGlobalSchema, YamlPage } from '@/utils/yaml-schema'
 import { EnvVarError, UnsupportedFileError } from './db-errors'
 
 type ResultOrError<T, U = Error> = [T, null] | [null, U]
@@ -92,13 +92,40 @@ const createYamlData = (data: YamlFileData['data']): YamlFileData => ({
 	data,
 })
 
-export const loadPage = async (slug: string[]): Promise<ResultOrError<FileData>> => {
+export const loadGlobalData = async (): Promise<ResultOrError<YamlGlobal>> => {
 	const dbPath = env('DB_PATH')
 	if (!dbPath) {
 		return [null, new EnvVarError('DB_PATH')]
 	}
 
-	const filePath = path.join(dbPath, ...slug)
+	const filePath = path.join(dbPath, 'global.yaml')
+
+	const [content, loadError] = await loadFile(filePath)
+	if (loadError) {
+		throw loadError
+	}
+
+	try {
+		const yaml = parse(content, { merge: true })
+		const result = YamlGlobalSchema.safeParse(yaml)
+		if (result.success) {
+			return [result.data, null]
+		} else {
+			return [null, result.error]
+		}
+	} catch (err) {
+		const error = createError(err)
+		return [null, error]
+	}
+}
+
+export const loadPage = async (slug: string[] | undefined): Promise<ResultOrError<FileData>> => {
+	const dbPath = env('DB_PATH')
+	if (!dbPath) {
+		return [null, new EnvVarError('DB_PATH')]
+	}
+
+	const filePath = slug ? path.join(dbPath, ...slug) : path.join(dbPath, 'index')
 	let fullPath = filePath
 
 	const isDirectory = await getIsDirectory(filePath)

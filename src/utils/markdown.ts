@@ -30,7 +30,7 @@ import {
 } from '@/components/markdown-components'
 import { remarkTransformImages } from '@/lib/remark-transform-images'
 
-interface TocItem {
+export interface TocItem {
 	depth: number
 	href: string
 	numbering: [number, number]

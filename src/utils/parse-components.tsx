@@ -12,8 +12,12 @@ const handleRender = (template: string): ReactNode => {
 		return template
 	}
 
+	if (!match[1]) {
+		return
+	}
+
 	const index = match[1].indexOf(',')
-	const args = [match[1].substring(0, index), match[1].substring(index + 1)]
+	const args = [match[1].substring(0, index), match[1].substring(index + 1)] as const
 
 	switch (args[0]) {
 		case 'ShuffleText':

@@ -1,6 +1,6 @@
 import { listCollections, loadFile, parseFile } from '@/database/db-adapter'
 import { captureError } from '@/utils/error'
-import { isYamlCollection, YamlCollectionDetail, YamlCollectionSchema } from '@/utils/yaml-schema'
+import { YamlCollectionDetail, YamlCollectionSchema } from '@/utils/yaml-schema'
 
 export async function getCollection(collectionId: string): Promise<YamlCollectionDetail | null> {
 	const [files, listError] = await listCollections()
@@ -31,7 +31,9 @@ export async function getCollection(collectionId: string): Promise<YamlCollectio
 			const parseResult = YamlCollectionSchema.safeParse(result.data.content)
 			if (parseResult.success) {
 				const collections = parseResult.data.collections
-				return collections[collectionId]
+				if (collections[collectionId]) {
+					return collections[collectionId]
+				}
 			} else {
 				validationErrors.push(parseResult.error)
 			}
