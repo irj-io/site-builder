@@ -1,4 +1,4 @@
-import path from 'path'
+import {basename, join} from 'node:path'
 import type { Node } from 'unist'
 import { visit } from 'unist-util-visit'
 
@@ -14,8 +14,8 @@ export function remarkTransformImages(options: PluginOptions) {
 				const url: string = node.url
 				// If URL starts with "./images/", rewrite it
 				if (url.startsWith('./images/')) {
-					const fileName = path.basename(url)
-					node.url = `/assets/images/${path.join(...slug)}/${fileName}`
+					const fileName = basename(url)
+					node.url = `/assets/images/${join(...slug)}/${fileName}`
 				}
 			})
 		}
