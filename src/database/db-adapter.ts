@@ -177,7 +177,7 @@ export const listPages = async (directory?: string): Promise<ResultOrError<strin
 
 	try {
 		const files = []
-		const dirPath = directory ? path.join(dbPath, directory) : dbPath
+		const dirPath = directory ? path.resolve(dbPath, directory) : dbPath
 		let fileList = await fs.readdir(dirPath, { recursive: true })
 		fileList = fileList
 			.filter((filePath) => !IMAGE_DIR.test(filePath))

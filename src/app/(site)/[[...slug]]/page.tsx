@@ -1,8 +1,10 @@
 import { DefaultPage } from '@/components/default-page'
-import { bindGenerateStaticParams } from '@/utils/bind-generate-static-params'
+import { getStaticParamsFromFiles } from '@/utils/get-static-params-from-files'
 
 export const dynamicParams = false
 
-export const generateStaticParams = bindGenerateStaticParams()
+export async function generateStaticParams() {
+	return getStaticParamsFromFiles()
+}
 
 export default DefaultPage

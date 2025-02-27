@@ -5,7 +5,7 @@ import PageLayout from '@/components/page-layout'
 import { loadPage } from '@/database/db-adapter'
 import { captureError } from '@/utils/error'
 
-export async function DefaultPage({ params }: { params: Promise<{ slug: string[] }> }) {
+export async function DefaultPage({ params }: { params: Promise<{ slug?: string[] }> }) {
 	const { slug } = await params
 
 	const [fileData, error] = await loadPage(slug)

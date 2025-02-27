@@ -1,4 +1,3 @@
 export { ThemeProvider } from './components/theme-provider'
 
-export { bindGenerateStaticParams } from './utils/bind-generate-static-params'
-export { DefaultPage } from './components/default-page'
+export { getStaticParamsFromFiles } from './utils/get-static-params-from-files'

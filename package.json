@@ -16,7 +16,8 @@
     "start": "next start",
     "test": "vitest",
     "dist": "npx tsc -p ./tsconfig.dist.json && npx tsc-alias -p ./tsconfig.dist.json && pnpm dist:css",
-    "dist:css": "npx postcss-cli ./src/index.css -o ./dist/index.css --env production"
+    "dist:css": "npx postcss-cli ./src/index.css -o ./dist/index.css --env production",
+    "prepare": "pnpm dist"
   },
   "type": "module",
   "main": "dist/index.js",
