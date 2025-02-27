@@ -15,7 +15,7 @@
     "schema": "tsx tools/build-schema.ts",
     "start": "next start",
     "test": "vitest",
-    "dist": "tsc -p ./tsconfig.dist.json && tsc-alias -p ./tsconfig.dist.json && pnpm dist:css && pnpm schema",
+    "dist": "tsc-alias -p ./tsconfig.dist.json && tsc -p ./tsconfig.dist.json && pnpm dist:css && pnpm schema",
     "dist:css": "postcss ./src/index.css -o ./dist/index.css --env production",
     "prepare": "pnpm dist"
   },
