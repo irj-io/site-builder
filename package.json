@@ -15,7 +15,7 @@
     "schema": "tsx tools/build-schema.ts",
     "start": "next start",
     "test": "vitest",
-    "dist": "npx tsc -p ./tsconfig.dist.json && npx tsc-alias -p ./tsconfig.dist.json && pnpm dist:css",
+    "dist": "pnpm exec tsc -p ./tsconfig.dist.json && pnpm exec tsc-alias -p ./tsconfig.dist.json && pnpm dist:css && pnpm schema",
     "dist:css": "npx postcss-cli ./src/index.css -o ./dist/index.css --env production",
     "prepare": "pnpm dist"
   },
@@ -62,6 +62,8 @@
     "remeda": "^2.20.1",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
+    "tsc": "^2.0.4",
+    "tsc-alias": "^1.8.11",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0",
     "yaml": "^2.7.0",
