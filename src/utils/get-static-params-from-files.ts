@@ -10,7 +10,7 @@ export async function getStaticParamsFromFiles() {
 
 	if (listPagesError) {
 		captureError(listPagesError, { label: '[...slug]/page:generateStaticParams' })
-		return
+		return []
 	}
 
 	for (const filePath of pages) {
