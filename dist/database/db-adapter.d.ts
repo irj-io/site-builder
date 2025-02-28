@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import { ArticleData, MarkdownData } from '@/utils/post-schema';
-import { YamlGlobal, YamlPage } from '@/utils/yaml-schema';
+import { ArticleData, MarkdownData } from '../utils/post-schema';
+import { YamlGlobal, YamlPage } from '../utils/yaml-schema';
 type ResultOrError<T, U = Error> = [T, null] | [null, U];
 interface MarkdownFileData {
     type: 'md';

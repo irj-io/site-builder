@@ -1,6 +1,6 @@
-import { listCollections, loadFile, parseFile } from '@/database/db-adapter';
-import { captureError } from '@/utils/error';
-import { YamlCollectionSchema } from '@/utils/yaml-schema';
+import { listCollections, loadFile, parseFile } from '../../database/db-adapter';
+import { captureError } from '../../utils/error';
+import { YamlCollectionSchema } from '../../utils/yaml-schema';
 export async function getCollection(collectionId) {
     const [files, listError] = await listCollections();
     // TODO: handle this better than throwing

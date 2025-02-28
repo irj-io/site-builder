@@ -1,12 +1,12 @@
 import { notFound } from 'next/navigation';
-import { AnnouncementBar } from '@/components/announcement-bar/announcement-bar';
-import { AnnouncementBarSchema } from '@/components/announcement-bar/announcement-bar-schema';
-import { Footer } from '@/components/footers/footer';
-import { FooterSchema } from '@/components/footers/footer-schema';
-import { Header } from '@/components/headers/header';
-import { HeaderSchema } from '@/components/headers/header-schema';
-import { loadGlobalData } from '@/database/db-adapter';
-import { captureError } from '@/utils/error';
+import { AnnouncementBar } from '../components/announcement-bar/announcement-bar';
+import { AnnouncementBarSchema } from '../components/announcement-bar/announcement-bar-schema';
+import { Footer } from '../components/footers/footer';
+import { FooterSchema } from '../components/footers/footer-schema';
+import { Header } from '../components/headers/header';
+import { HeaderSchema } from '../components/headers/header-schema';
+import { loadGlobalData } from '../database/db-adapter';
+import { captureError } from '../utils/error';
 export default async function PageLayout({ announcementProps = {}, headerProps = {}, children, }) {
     const [globalData, error] = await loadGlobalData();
     if (error) {

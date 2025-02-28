@@ -1,7 +1,7 @@
 import * as motion from 'motion/react-client';
 import React from 'react';
 import { omit } from 'remeda';
-import { cn } from '@/utils/cn';
+import { cn } from '../../utils/cn';
 export const getSectionProps = (sectionProps = {}, overrides) => {
     const newSectionProps = sectionProps ? omit(sectionProps, ['className']) : null;
     const sectionClassName = sectionProps === null || sectionProps === void 0 ? void 0 : sectionProps.className;

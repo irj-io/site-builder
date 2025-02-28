@@ -1,5 +1,5 @@
 import * as changeCase from 'change-case';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, } from '@/components/ui/breadcrumb';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, } from '../components/ui/breadcrumb';
 const getHref = (slug, position) => {
     return `/${slug.slice(0, position + 1).join('/')}`;
 };

@@ -1,15 +1,15 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import imageSrc from '@/assets/tyto-logo-help.svg';
-import { Article } from '@/components/article';
-import { ArticlesMenu } from '@/components/articles-menu';
-import PageLayout from '@/components/page-layout';
-import { TableOfContents } from '@/components/table-of-contents';
-import { listPages, loadPage } from '@/database/db-adapter';
-import { env } from '@/utils/env';
-import { captureError } from '@/utils/error';
-import { getSlugFromFilePath } from '@/utils/file-utils';
-import { ArticleDataSchema } from '@/utils/post-schema';
+import { Article } from '../../../../components/article';
+import { ArticlesMenu } from '../../../../components/articles-menu';
+import PageLayout from '../../../../components/page-layout';
+import { TableOfContents } from '../../../../components/table-of-contents';
+import { listPages, loadPage } from '../../../../database/db-adapter';
+import { env } from '../../../../utils/env';
+import { captureError } from '../../../../utils/error';
+import { getSlugFromFilePath } from '../../../../utils/file-utils';
+import { ArticleDataSchema } from '../../../../utils/post-schema';
 export const dynamicParams = false;
 const category = 'help';
 export async function generateStaticParams() {

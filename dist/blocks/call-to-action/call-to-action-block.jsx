@@ -1,5 +1,5 @@
-import { Action } from '@/components/actions/action';
-import { getSectionProps, Section } from '@/components/section/section';
+import { Action } from '../../components/actions/action';
+import { getSectionProps, Section } from '../../components/section/section';
 export function CallToActionBlock(props) {
     const { button, title, section } = props;
     return (<Section {...getSectionProps(section, { className: 'p-16' })}>

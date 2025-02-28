@@ -2,8 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import imageSrc from '@/assets/owl-be-back-no-text.png';
-import PageLayout from '@/components/page-layout';
-import { TypographyH1, TypographyLead } from '@/components/typography/typography';
+import PageLayout from '../components/page-layout';
+import { TypographyH1, TypographyLead } from '../components/typography/typography';
 export const metadata = {
     title: 'Tyto | Page not found',
 };

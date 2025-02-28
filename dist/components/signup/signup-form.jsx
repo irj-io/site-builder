@@ -17,13 +17,13 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { Button } from '@/components/ui/button';
-import { CardTitle } from '@/components/ui/card';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { api } from '@/utils/api';
-import { useAsync } from '@/utils/use-async';
+import { Button } from '../../components/ui/button';
+import { CardTitle } from '../../components/ui/card';
+import { Checkbox } from '../../components/ui/checkbox';
+import { Form, FormControl, FormField, FormItem, FormLabel } from '../../components/ui/form';
+import { Input } from '../../components/ui/input';
+import { api } from '../../utils/api';
+import { useAsync } from '../../utils/use-async';
 const SignUpFormBaseSchema = z.object({
     fullName: z.string().min(1).trim(),
     email: z.string().email().min(1).trim(),

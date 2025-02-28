@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { SectionPropsSchema } from '@/components/section/config';
+import { SectionPropsSchema } from '../../components/section/config';
 const StatItemPropsSchema = z.object({
     label: z.string().optional(),
     value: z.union([z.number(), z.string()]),

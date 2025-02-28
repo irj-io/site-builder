@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { getAllArticles } from '@/utils/articles';
-import { cn } from '@/utils/cn';
+import { getAllArticles } from '../utils/articles';
+import { cn } from '../utils/cn';
 export async function ArticlesMenu({ title = '', slug = ['help'], }) {
     const articles = await getAllArticles('help');
     return (<div className="flex flex-col gap-2 mb-6">

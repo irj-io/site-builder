@@ -12,8 +12,8 @@ import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import { unified } from 'unified';
-import { MdBlockquote, MdCode, MdH1, MdH2, MdH3, MdH4, MdH5, MdH6, MdImg, MdLink, MdOl, MdParagraph, MdUl, } from '@/components/markdown-components';
-import { remarkTransformImages } from '@/lib/remark-transform-images';
+import { MdBlockquote, MdCode, MdH1, MdH2, MdH3, MdH4, MdH5, MdH6, MdImg, MdLink, MdOl, MdParagraph, MdUl, } from '../components/markdown-components';
+import { remarkTransformImages } from '../lib/remark-transform-images';
 const pageComponents = {
     h1: MdH1,
     h2: MdH2,

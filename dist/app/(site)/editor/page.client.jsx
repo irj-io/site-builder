@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { listPages, loadFile, saveFile } from '@/database/db-adapter';
-import { captureError } from '@/utils/error';
+import { listPages, loadFile, saveFile } from '../../../database/db-adapter';
+import { captureError } from '../../../utils/error';
 import { Editor } from './editor';
 function ErrorMessage({ message }) {
     return <p className="text-destructive">{message}</p>;

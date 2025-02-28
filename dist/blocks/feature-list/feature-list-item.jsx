@@ -1,4 +1,4 @@
-import { MdContent } from '@/components/md-content';
+import { MdContent } from '../../components/md-content';
 export function FeatureListItem(props) {
     const { icon, content } = props;
     return (<div className="flex items-start gap-3 px-4 py-1">

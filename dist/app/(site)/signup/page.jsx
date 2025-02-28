@@ -1,8 +1,8 @@
 //import Image from 'next/image'
 import { Suspense } from 'react';
-import { SignUpForm } from '@/components/signup/signup-form';
-import { TypographyH2 } from '@/components/typography/typography';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { SignUpForm } from '../../../components/signup/signup-form';
+import { TypographyH2 } from '../../../components/typography/typography';
+import { Card, CardContent, CardHeader } from '../../../components/ui/card';
 export default async function SignUpPage() {
     return (<Suspense fallback={<div className="h-full w-full flex align-center justify-center">Loading...</div>}>
 			<Card className="overflow-hidden w-full max-w-6xl">

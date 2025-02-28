@@ -10,7 +10,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import * as React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 const Table = React.forwardRef((_a, ref) => {
     var { className } = _a, props = __rest(_a, ["className"]);
     return (<div className="relative w-full overflow-auto">

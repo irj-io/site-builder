@@ -1,4 +1,4 @@
-import { getSectionProps, Section } from '@/components/section/section';
+import { getSectionProps, Section } from '../../components/section/section';
 export function StatsBlock(props) {
     const { items, section } = props;
     return (<Section {...getSectionProps(section)}>

@@ -2,9 +2,9 @@
 import { Loader2 } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
-import PageLayout from '@/components/page-layout';
-import { api } from '@/utils/api';
-import { useAsync } from '@/utils/use-async';
+import PageLayout from '../../../../components/page-layout';
+import { api } from '../../../../utils/api';
+import { useAsync } from '../../../../utils/use-async';
 export default function SwitchTeamPage() {
     const searchParams = useSearchParams();
     const { run, status } = useAsync();

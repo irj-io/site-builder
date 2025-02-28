@@ -1,4 +1,4 @@
-import { cn } from '@/utils/cn';
+import { cn } from '../../utils/cn';
 import { MdContent } from '../md-content';
 import { SectionHeader } from '../section/section-header';
 export function ContentBox(props) {

@@ -1,4 +1,4 @@
-import { TypographyH2 } from '@/components/typography/typography';
+import { TypographyH2 } from '../../../components/typography/typography';
 import { EditorPageClient } from './page.client';
 export default async function EditorPage() {
     return (<div className="h-[80vh]">

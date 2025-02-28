@@ -1,7 +1,7 @@
 import React from 'react';
-import { getSectionProps, Section } from '@/components/section/section';
-import { SectionHeader } from '@/components/section/section-header';
-import { cn } from '@/utils/cn';
+import { getSectionProps, Section } from '../../components/section/section';
+import { SectionHeader } from '../../components/section/section-header';
+import { cn } from '../../utils/cn';
 function FaqItem(props) {
     const { title, content } = props;
     return (<div className="mb-10">

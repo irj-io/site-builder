@@ -1,6 +1,6 @@
-import { getSectionProps, Section } from '@/components/section/section';
-import { SectionHeader } from '@/components/section/section-header';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, } from '@/components/ui/accordion';
+import { getSectionProps, Section } from '../../components/section/section';
+import { SectionHeader } from '../../components/section/section-header';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, } from '../../components/ui/accordion';
 export function CollapsibleContentBlock(props) {
     const { title, items = [], section } = props;
     return (<Section {...getSectionProps(section, { className: 'flex flex-col px-8 py-20' })}>

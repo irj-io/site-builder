@@ -1,7 +1,7 @@
 import { z } from 'zod';
-import { ActionSchema } from '@/components/component-schema';
-import { MediaPropsSchema } from '@/components/media/config';
-import { SectionPropsSchema } from '@/components/section/config';
+import { ActionSchema } from '../../components/component-schema';
+import { MediaPropsSchema } from '../../components/media/config';
+import { SectionPropsSchema } from '../../components/section/config';
 export const HeroBasePropsSchema = z.object({
     type: z.literal('hero'),
     variant: z.enum(['highImpact', 'mediumImpact', 'productScreenshot']),

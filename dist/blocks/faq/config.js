@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { SectionPropsSchema } from '@/components/section/config';
+import { SectionPropsSchema } from '../../components/section/config';
 const FaqItemPropsSchema = z.object({
     title: z.string(),
     content: z.string(),

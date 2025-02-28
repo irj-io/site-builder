@@ -1,5 +1,5 @@
-import { getSectionProps, Section } from '@/components/section/section';
-import { SectionHeader } from '@/components/section/section-header';
+import { getSectionProps, Section } from '../../components/section/section';
+import { SectionHeader } from '../../components/section/section-header';
 import { FeatureListItem } from './feature-list-item';
 export function FeatureListBlock(props) {
     const { title, subtitle, features, section } = props;

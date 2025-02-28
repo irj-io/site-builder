@@ -1,7 +1,7 @@
-import { Action } from '@/components/actions/action';
-import { MdContent } from '@/components/md-content';
-import { Media } from '@/components/media/media';
-import { parseComponents } from '@/utils/parse-components';
+import { Action } from '../../components/actions/action';
+import { MdContent } from '../../components/md-content';
+import { Media } from '../../components/media/media';
+import { parseComponents } from '../../utils/parse-components';
 export async function HeroHighImpactBlock(props) {
     const { media, title, subtitle, actions = [] } = props;
     return (<div className="relative -mt-20 flex items-end text-white">

@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
-import { listPages } from '@/database/db-adapter';
-import { parseMarkdownPage } from '@/utils/markdown';
+import { listPages } from '../database/db-adapter';
+import { parseMarkdownPage } from '../utils/markdown';
 import { getIsDirectory } from './content-parsing';
 import { env } from './env';
 import { captureError } from './error';

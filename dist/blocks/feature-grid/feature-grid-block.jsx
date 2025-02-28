@@ -1,5 +1,5 @@
-import { getSectionProps, Section } from '@/components/section/section';
-import { SectionHeader } from '@/components/section/section-header';
+import { getSectionProps, Section } from '../../components/section/section';
+import { SectionHeader } from '../../components/section/section-header';
 import { FeatureGridItem } from './feature-grid-item';
 export function FeatureGridBlock(props) {
     const { title, subtitle, features = [], section } = props;

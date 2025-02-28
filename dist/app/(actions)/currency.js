@@ -1,6 +1,6 @@
 'use server';
 import { cookies } from 'next/headers';
-import { defaultCurrency } from '@/utils/currency';
+import { defaultCurrency } from '../../utils/currency';
 export async function getCurrency() {
     var _a;
     const cookieStore = await cookies();

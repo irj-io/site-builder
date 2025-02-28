@@ -1,7 +1,7 @@
 'use client';
-import { setCurrency } from '@/app/(actions)/currency';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from '@/components/ui/select';
-import { currencies, defaultCurrency } from '@/utils/currency';
+import { setCurrency } from '../../app/(actions)/currency';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from '../../components/ui/select';
+import { currencies, defaultCurrency } from '../../utils/currency';
 export function CurrencySelector({ selectedCurrency = defaultCurrency, }) {
     const handleCurrencyChange = async (newCurrency) => {
         await setCurrency(newCurrency);

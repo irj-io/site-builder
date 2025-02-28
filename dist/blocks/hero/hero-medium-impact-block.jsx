@@ -1,7 +1,7 @@
-import { Action } from '@/components/actions/action';
-import { Media } from '@/components/media/media';
-import { getSectionProps, Section } from '@/components/section/section';
-import { parseComponents } from '@/utils/parse-components';
+import { Action } from '../../components/actions/action';
+import { Media } from '../../components/media/media';
+import { getSectionProps, Section } from '../../components/section/section';
+import { parseComponents } from '../../utils/parse-components';
 export function HeroMediumImpactBlock(props) {
     const { media, title, subtitle, actions = [], section } = props;
     return (<Section {...getSectionProps(section, { className: '-mt-20 pt-20' })}>

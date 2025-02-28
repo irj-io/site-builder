@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArticlesMenu } from '@/components/articles-menu';
-import { Media } from '@/components/media/media';
-import PageLayout from '@/components/page-layout';
-import { Section } from '@/components/section/section';
-import { getAllArticles } from '@/utils/articles';
-import { cn } from '@/utils/cn';
+import { ArticlesMenu } from '../../../components/articles-menu';
+import { Media } from '../../../components/media/media';
+import PageLayout from '../../../components/page-layout';
+import { Section } from '../../../components/section/section';
+import { getAllArticles } from '../../../utils/articles';
+import { cn } from '../../../utils/cn';
 export default async function Help() {
     const articles = await getAllArticles('help');
     return (<PageLayout>

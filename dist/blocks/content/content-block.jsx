@@ -1,8 +1,8 @@
-import { ContentBox } from '@/components/content-box/content-box';
-import { Media } from '@/components/media/media';
-import { getSectionProps, Section } from '@/components/section/section';
-import { TestimonialVertical } from '@/components/testimonial/testimonial-vertical';
-import { cn } from '@/utils/cn';
+import { ContentBox } from '../../components/content-box/content-box';
+import { Media } from '../../components/media/media';
+import { getSectionProps, Section } from '../../components/section/section';
+import { TestimonialVertical } from '../../components/testimonial/testimonial-vertical';
+import { cn } from '../../utils/cn';
 export function Content({ content }) {
     switch (content.type) {
         case 'contentBox': {

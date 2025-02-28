@@ -9,7 +9,7 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import { parseMarkdownContent } from '@/utils/markdown';
+import { parseMarkdownContent } from '../utils/markdown';
 export async function MdContent(_a) {
     var { markdown } = _a, props = __rest(_a, ["markdown"]);
     return <div {...props}>{await parseMarkdownContent(markdown)}</div>;

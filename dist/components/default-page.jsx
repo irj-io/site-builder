@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
-import { MarkdownContent } from '@/components/markdown-content';
-import PageLayout from '@/components/page-layout';
-import { loadPage } from '@/database/db-adapter';
-import { captureError } from '@/utils/error';
+import { MarkdownContent } from '../components/markdown-content';
+import PageLayout from '../components/page-layout';
+import { loadPage } from '../database/db-adapter';
+import { captureError } from '../utils/error';
 export async function DefaultPage({ params }) {
     const { slug } = await params;
     const [fileData, error] = await loadPage(slug);

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { BlocksSchema } from '@/blocks/block-schema';
+import { BlocksSchema } from '../blocks/block-schema';
 export const PageSchema = z.object({
     layout: z.array(BlocksSchema),
 });

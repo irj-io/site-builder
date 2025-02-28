@@ -1,4 +1,4 @@
-import { MdContent } from '@/components/md-content';
+import { MdContent } from '../../components/md-content';
 export function FeatureGridItem(props) {
     const { icon, title, content } = props;
     return (<div className="flex flex-col items-center px-12 py-16">

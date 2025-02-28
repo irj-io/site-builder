@@ -1,6 +1,6 @@
-import { ContentBoxProps } from '@/components/content-box/config';
-import { ImageProps } from '@/components/media/config';
-import { TestimonialProps } from '@/components/testimonial/config';
+import { ContentBoxProps } from '../../components/content-box/config';
+import { ImageProps } from '../../components/media/config';
+import { TestimonialProps } from '../../components/testimonial/config';
 import { BlockProps } from '../block-types';
 import { ContentProps } from './config';
 type ContentBlockProps = ContentBoxProps | TestimonialProps | ImageProps;

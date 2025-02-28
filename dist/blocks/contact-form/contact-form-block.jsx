@@ -1,7 +1,7 @@
 import { Field, Input, Label, Textarea } from '@headlessui/react';
-import { getSectionProps, Section } from '@/components/section/section';
-import { SectionHeader } from '@/components/section/section-header';
-import { cn } from '@/utils/cn';
+import { getSectionProps, Section } from '../../components/section/section';
+import { SectionHeader } from '../../components/section/section-header';
+import { cn } from '../../utils/cn';
 export function ContactFormBlock(props) {
     const { title, section } = props;
     return (<Section {...getSectionProps(section, { className: 'px-8 py-24' })}>

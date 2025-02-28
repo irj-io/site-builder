@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import { ArticleBreadcrumb } from '@/components/article-breadcrumb';
-import { AuthorHeader } from '@/components/author-header';
+import { ArticleBreadcrumb } from '../components/article-breadcrumb';
+import { AuthorHeader } from '../components/author-header';
 import { Media } from './media/media';
 export async function MarkdownContent({ data, Markdown }) {
     return (<>

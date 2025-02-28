@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { MarkdownData } from '@/utils/post-schema';
+import { MarkdownData } from '../utils/post-schema';
 interface MarkdownContentProps {
     data: MarkdownData;
     Markdown: ReactNode;

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { cn } from '@/utils/cn';
+import { cn } from '../../utils/cn';
 import { Action } from '../actions/action';
 import { MdContent } from '../md-content';
 import { Media } from '../media/media';

@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
-import { GradientText } from '@/components/gradient-text';
-import { ShuffleText } from '@/components/shuffle-text/shuffle-text';
+import { GradientText } from '../components/gradient-text';
+import { ShuffleText } from '../components/shuffle-text/shuffle-text';
 const TEMPLATE = /({{.*?}})/g;
 const RENDER = /render\(([^)]*)\)/;
 const handleRender = (template) => {

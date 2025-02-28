@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getArticleData } from '@/utils/articles';
+import { getArticleData } from '../utils/articles';
 export async function TableOfContents({ slug }) {
     const { toc } = await getArticleData(slug);
     if (toc.length === 0) {

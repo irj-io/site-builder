@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { omit } from 'remeda';
-import { cn } from '@/utils/cn';
+import { cn } from '../utils/cn';
 const sharedClasses = '';
 export const MdH1 = (props) => (<h1 className={cn(sharedClasses, 'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl', 'my-[10px] [&:not(:first-child)]:mt-6')} {...props}/>);
 export const MdH2 = (props) => (<h2 className={cn(sharedClasses, 'scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0', 'my-[10px] [&:not(:first-child)]:mt-6')} {...props}/>);

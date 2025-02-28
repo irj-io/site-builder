@@ -1,7 +1,7 @@
 import { format, parseISO } from 'date-fns';
 import { enGB } from 'date-fns/locale/en-GB';
 import Image from 'next/image';
-import { ArticleBreadcrumb } from '@/components/article-breadcrumb';
+import { ArticleBreadcrumb } from '../components/article-breadcrumb';
 import { Media } from './media/media';
 import { TypographyH1, TypographyLead } from './typography/typography';
 export async function Article({ data, Markdown }) {

@@ -1,5 +1,5 @@
-import { cn } from '@/utils/cn';
-import { parseComponents } from '@/utils/parse-components';
+import { cn } from '../../utils/cn';
+import { parseComponents } from '../../utils/parse-components';
 import { TypographyH2, TypographyLead } from '../typography/typography';
 export function SectionHeader(props) {
     const { title, subtitle, titleClassName, subtitleClassName } = props;

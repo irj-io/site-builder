@@ -1,7 +1,7 @@
-import { listPages } from '@/database/db-adapter';
-import { env } from '@/utils/env';
-import { captureError } from '@/utils/error';
-import { getSlugFromFilePath } from '@/utils/file-utils';
+import { listPages } from '../database/db-adapter';
+import { env } from '../utils/env';
+import { captureError } from '../utils/error';
+import { getSlugFromFilePath } from '../utils/file-utils';
 export async function getStaticParamsFromFiles() {
     const dbPath = env('DB_PATH');
     const files = [];

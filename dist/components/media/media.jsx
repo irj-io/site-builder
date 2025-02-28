@@ -11,7 +11,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import Image from 'next/image';
 import { omit } from 'remeda';
-import { cn } from '@/utils/cn';
+import { cn } from '../../utils/cn';
 import { HeroSvg } from '../hero-svg';
 export function Media(props) {
     const { className, media, imageClassName } = props, imageProps = __rest(props, ["className", "media", "imageClassName"]);

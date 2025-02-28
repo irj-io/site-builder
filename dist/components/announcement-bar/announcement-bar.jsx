@@ -1,4 +1,4 @@
-import { getSectionProps, Section } from '@/components/section/section';
+import { getSectionProps, Section } from '../../components/section/section';
 export function AnnouncementBar(props) {
     const { announcements = [], section } = props;
     const now = new Date();

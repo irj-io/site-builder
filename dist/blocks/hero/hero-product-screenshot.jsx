@@ -1,5 +1,5 @@
-import { Media } from '@/components/media/media';
-import { parseComponents } from '@/utils/parse-components';
+import { Media } from '../../components/media/media';
+import { parseComponents } from '../../utils/parse-components';
 const Action = (props) => <div>{props.label}</div>;
 export function HeroProductScreenshotBlock(props) {
     const { media, title, subtitle, actions = [] } = props;

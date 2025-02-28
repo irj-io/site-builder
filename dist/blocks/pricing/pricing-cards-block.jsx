@@ -1,8 +1,8 @@
-import { getCurrency } from '@/app/(actions)/currency';
-import { Action } from '@/components/actions/action';
-import { getSectionProps, Section } from '@/components/section/section';
-import { SectionHeader } from '@/components/section/section-header';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from '@/components/ui/card';
+import { getCurrency } from '../../app/(actions)/currency';
+import { Action } from '../../components/actions/action';
+import { getSectionProps, Section } from '../../components/section/section';
+import { SectionHeader } from '../../components/section/section-header';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from '../../components/ui/card';
 import { CurrencySelector } from './currency-selector';
 export async function PricingCardsBlock(props) {
     const currency = await getCurrency();

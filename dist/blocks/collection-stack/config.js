@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { SectionPropsSchema } from '@/components/section/config';
+import { SectionPropsSchema } from '../../components/section/config';
 export const CollectionStackPropsSchema = z.object({
     type: z.literal('collectionStack'),
     title: z.string().optional(),

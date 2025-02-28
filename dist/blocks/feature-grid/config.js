@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import { IconSchema } from '@/components/component-schema';
-import { SectionPropsSchema } from '@/components/section/config';
+import { IconSchema } from '../../components/component-schema';
+import { SectionPropsSchema } from '../../components/section/config';
 const FeatureGridItemPropsSchema = z.object({
     icon: IconSchema.optional(),
     title: z.string().optional(),

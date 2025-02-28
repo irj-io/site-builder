@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { MediaPropsSchema } from '@/components/media/config';
+import { MediaPropsSchema } from '../components/media/config';
 export const MarkdownDataSchema = z.object({
     _contentHtml: z.string(),
     author: z.string().optional(),

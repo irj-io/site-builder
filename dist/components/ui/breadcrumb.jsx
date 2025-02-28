@@ -11,7 +11,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import { Slot } from '@radix-ui/react-slot';
 import * as React from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '../../lib/utils';
 const Breadcrumb = React.forwardRef((_a, ref) => {
     var props = __rest(_a, []);
     return <nav ref={ref} aria-label="breadcrumb" {...props}/>;

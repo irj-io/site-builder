@@ -1,4 +1,4 @@
-import { cn } from '@/utils/cn';
+import { cn } from '../../utils/cn';
 export function TypographyH1({ className, children }) {
     return (<h1 className={cn('scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-6xl', className)}>
 			{children}

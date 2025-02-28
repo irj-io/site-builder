@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import { ActionSchema } from '@/components/component-schema';
-import { SectionPropsSchema } from '@/components/section/config';
+import { ActionSchema } from '../../components/component-schema';
+import { SectionPropsSchema } from '../../components/section/config';
 const PlanPropsSchema = z.object({
     type: z.string(),
     price: z.object({

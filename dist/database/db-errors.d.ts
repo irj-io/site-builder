@@ -1,4 +1,4 @@
-import { EnvironmentVariables } from '@/utils/env';
+import { EnvironmentVariables } from '../utils/env';
 export declare class EnvVarError extends Error {
     constructor(envVar: EnvironmentVariables, options?: ErrorOptions);
 }

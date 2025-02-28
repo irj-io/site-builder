@@ -7,7 +7,7 @@ export declare const getAllArticles: (collection: string) => Promise<{
     };
     href: string;
     slug: string[];
-    toc: import("@/utils/markdown").TocItem[];
+    toc: import("../utils/markdown").TocItem[];
 }[]>;
 export declare const getArticleData: (slug: string[]) => Promise<{
     data: {
@@ -15,5 +15,5 @@ export declare const getArticleData: (slug: string[]) => Promise<{
     };
     href: string;
     slug: string[];
-    toc: import("@/utils/markdown").TocItem[];
+    toc: import("../utils/markdown").TocItem[];
 }>;

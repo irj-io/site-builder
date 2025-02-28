@@ -1,5 +1,5 @@
-import PageLayout from '@/components/page-layout';
-import { Section } from '@/components/section/section';
+import PageLayout from '../../../components/page-layout';
+import { Section } from '../../../components/section/section';
 export default async function EditorLayout({ children }) {
     return (<PageLayout>
 			<Section>

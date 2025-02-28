@@ -1,8 +1,8 @@
-import { Action } from '@/components/actions/action';
-import { MdContent } from '@/components/md-content';
-import { Media } from '@/components/media/media';
-import { getSectionProps, Section } from '@/components/section/section';
-import { cn } from '@/utils/cn';
+import { Action } from '../../components/actions/action';
+import { MdContent } from '../../components/md-content';
+import { Media } from '../../components/media/media';
+import { getSectionProps, Section } from '../../components/section/section';
+import { cn } from '../../utils/cn';
 export function FeatureBoxBlock(props) {
     const { media, title, overline, content, action, reverse, section } = props;
     const direction = reverse ? 'flex-row-reverse' : 'flex-row';

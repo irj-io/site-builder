@@ -4,12 +4,12 @@ import { Loader2 } from 'lucide-react';
 import { useCallback, useState } from 'react';
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 import { z } from 'zod';
-import PageLayout from '@/components/page-layout';
-import { TypographyH4 } from '@/components/typography/typography';
-import { Button } from '@/components/ui/button';
-import { FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { api } from '@/utils/api';
+import PageLayout from '../../../../components/page-layout';
+import { TypographyH4 } from '../../../../components/typography/typography';
+import { Button } from '../../../../components/ui/button';
+import { FormControl, FormField, FormItem, FormLabel } from '../../../../components/ui/form';
+import { Input } from '../../../../components/ui/input';
+import { api } from '../../../../utils/api';
 const AccountDeletionFormSchema = z.object({
     email: z.string().trim().email('Must be a valid email address'),
     code: z.string().trim(),

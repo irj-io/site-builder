@@ -1,6 +1,6 @@
-import { getCollection } from '@/app/(actions)/collections';
-import { getSectionProps, Section } from '@/components/section/section';
-import { SectionHeader } from '@/components/section/section-header';
+import { getCollection } from '../../app/(actions)/collections';
+import { getSectionProps, Section } from '../../components/section/section';
+import { SectionHeader } from '../../components/section/section-header';
 import { Content } from '../content/content-block';
 export async function CollectionStackBlock(props) {
     const { title, subtitle, collectionId, section } = props;
