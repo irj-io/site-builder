@@ -16,7 +16,7 @@
     "test": "vitest",
     "dist": "tsc -p ./tsconfig.dist.json && tsc-alias -p ./tsconfig.dist.json && pnpm dist:css && pnpm schema",
     "dist:css": "postcss ./src/index.css -o ./dist/index.css --env production",
-    "//prepare": "pnpm dist"
+    "prepare": "pnpm dist"
   },
   "type": "module",
   "main": "dist/index.js",
