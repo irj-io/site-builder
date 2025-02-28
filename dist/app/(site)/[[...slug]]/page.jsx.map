@@ -1,0 +1,1 @@
+{"version":3,"file":"page.jsx","sourceRoot":"","sources":["../../../../src/app/(site)/[[...slug]]/page.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAE,WAAW,EAAE,MAAM,2BAA2B,CAAA;AACvD,OAAO,EAAE,wBAAwB,EAAE,MAAM,sCAAsC,CAAA;AAE/E,MAAM,CAAC,MAAM,aAAa,GAAG,KAAK,CAAA;AAElC,MAAM,CAAC,KAAK,UAAU,oBAAoB;IACzC,OAAO,wBAAwB,EAAE,CAAA;AAClC,CAAC;AAED,eAAe,WAAW,CAAA"}
