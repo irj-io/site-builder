@@ -1,6 +1,6 @@
 {
   "name": "site-builder",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "scripts": {
     "build": "next build",
     "coverage": "vitest run --coverage",
