@@ -102,7 +102,7 @@ export const loadGlobalData = async (): Promise<ResultOrError<YamlGlobal>> => {
 
 	const [content, loadError] = await loadFile(filePath)
 	if (loadError) {
-		throw loadError
+		return [null, loadError]
 	}
 
 	try {
@@ -129,17 +129,22 @@ export const loadPage = async (slug: string[] | undefined): Promise<ResultOrErro
 	let fullPath = filePath
 
 	const isDirectory = await getIsDirectory(filePath)
+	let ext: string
 	if (isDirectory) {
-		const ext = await getExtension(path.join(filePath, 'index'))
+		ext = await getExtension(path.join(filePath, 'index'))
 		fullPath = path.join(filePath, `index.${ext}`)
 	} else {
-		const ext = await getExtension(filePath)
+		ext = await getExtension(filePath)
 		fullPath = `${filePath}.${ext}`
+	}
+
+	if (ext === 'unknown') {
+		return [null, new UnsupportedFileError(fullPath)]
 	}
 
 	const [content, loadError] = await loadFile(fullPath)
 	if (loadError) {
-		throw loadError
+		return [null, loadError]
 	}
 
 	return parseFile(fullPath, content)
@@ -205,11 +210,6 @@ export const loadFile = async (filePath: string): Promise<ResultOrError<string>>
 
 	if (!filePath) {
 		return [null, new Error(`An empty filePath was provided`)]
-	}
-
-	const ext = await getExtension(filePath)
-	if (!ext) {
-		return [null, new UnsupportedFileError(filePath)]
 	}
 
 	try {
