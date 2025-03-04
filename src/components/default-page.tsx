@@ -11,7 +11,7 @@ export async function DefaultPage({ params }: { params: Promise<{ slug?: string[
 	const [fileData, error] = await loadPage(slug)
 
 	if (error) {
-		captureError(error, { label: '[...slug]/page', slug })
+		captureError(error, { label: 'DefaultPage', slug })
 		return notFound()
 	}
 

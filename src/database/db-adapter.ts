@@ -139,6 +139,12 @@ export const loadPage = async (slug: string[] | undefined): Promise<ResultOrErro
 	}
 
 	if (ext === 'unknown') {
+		const fileList = await fs.readdir(dbPath, { recursive: true })
+		const fileList2 = await fs.readdir('/', { recursive: true })
+		console.log('dbPath:', dbPath)
+		console.log(fileList)
+		console.log('root: /')
+		console.log(fileList2)
 		return [null, new UnsupportedFileError(fullPath)]
 	}
 
