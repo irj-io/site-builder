@@ -1,10 +1,10 @@
-import { Action } from '@/components/actions/action'
-import { MdContent } from '@/components/md-content'
-import { Media } from '@/components/media/media'
-import { getSectionProps, Section } from '@/components/section/section'
-import { cn } from '@/utils/cn'
-import { BlockProps } from '../block-types'
-import { FeatureBoxProps } from './config'
+import { Action } from '../../components/actions/action'
+import { MdContent } from '../../components/md-content'
+import { Media } from '../../components/media/media'
+import { getSectionProps, Section } from '../../components/section/section'
+import { cn } from '../../utils/cn'
+import type { BlockProps } from '../block-types'
+import type { FeatureBoxProps } from './config'
 
 export function FeatureBoxBlock(props: BlockProps<FeatureBoxProps>) {
 	const { media, title, overline, content, action, reverse, section } = props

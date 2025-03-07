@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
-import { ImagePropsSchema } from '@/components/media/config'
-import { SectionPropsSchema } from '@/components/section/config'
+import { ImagePropsSchema } from '../../components/media/config'
+import { SectionPropsSchema } from '../../components/section/config'
 
 export type LogoMarqueeProps = z.infer<typeof LogoMarqueePropsSchema>
 export const LogoMarqueePropsSchema = z.object({

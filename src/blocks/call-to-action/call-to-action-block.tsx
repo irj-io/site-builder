@@ -1,7 +1,7 @@
-import { Action } from '@/components/actions/action'
-import { getSectionProps, Section } from '@/components/section/section'
+import { Action } from '../../components/actions/action'
+import { getSectionProps, Section } from '../../components/section/section'
 import type { BlockProps } from '../block-types'
-import { CallToActionProps } from './config'
+import type { CallToActionProps } from './config'
 
 export function CallToActionBlock(props: BlockProps<CallToActionProps>) {
 	const { button, title, section } = props

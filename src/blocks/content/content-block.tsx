@@ -1,13 +1,13 @@
-import { ContentBoxProps } from '@/components/content-box/config'
-import { ContentBox } from '@/components/content-box/content-box'
-import { ImageProps } from '@/components/media/config'
-import { Media } from '@/components/media/media'
-import { getSectionProps, Section } from '@/components/section/section'
-import { TestimonialProps } from '@/components/testimonial/config'
-import { TestimonialVertical } from '@/components/testimonial/testimonial-vertical'
-import { cn } from '@/utils/cn'
-import { BlockProps } from '../block-types'
-import { ContentProps } from './config'
+import type { ContentBoxProps } from '../../components/content-box/config'
+import { ContentBox } from '../../components/content-box/content-box'
+import { type ImageProps } from '../../components/media/config'
+import { Media } from '../../components/media/media'
+import { getSectionProps, Section } from '../../components/section/section'
+import { type TestimonialProps } from '../../components/testimonial/config'
+import { TestimonialVertical } from '../../components/testimonial/testimonial-vertical'
+import { cn } from '../../utils/cn'
+import { type BlockProps } from '../block-types'
+import { type ContentProps } from './config'
 
 type ContentBlockProps = ContentBoxProps | TestimonialProps | ImageProps
 

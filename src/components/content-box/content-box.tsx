@@ -1,4 +1,4 @@
-import { cn } from '@/utils/cn'
+import { cn } from '../../utils/cn'
 import { MdContent } from '../md-content'
 import { SectionHeader } from '../section/section-header'
 import type { ContentBoxProps } from './config'

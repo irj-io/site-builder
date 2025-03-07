@@ -1,10 +1,10 @@
 import { z } from 'zod'
 
-import { BlocksSchema } from '@/blocks/block-schema'
-import { ContentSchema } from '@/blocks/content-schema'
-import { AnnouncementBarSchema } from '@/components/announcement-bar/announcement-bar-schema'
-import { FooterSchema } from '@/components/footers/footer-schema'
-import { HeaderSchema } from '@/components/headers/header-schema'
+import { BlocksSchema } from '../blocks/block-schema'
+import { ContentSchema } from '../blocks/content-schema'
+import { AnnouncementBarSchema } from '../components/announcement-bar/announcement-bar-schema'
+import { FooterSchema } from '../components/footers/footer-schema'
+import { HeaderSchema } from '../components/headers/header-schema'
 
 export type YamlGlobal = z.infer<typeof YamlGlobalSchema>
 export const YamlGlobalSchema = z.object({

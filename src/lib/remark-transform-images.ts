@@ -1,4 +1,4 @@
-import {basename, join} from 'node:path'
+import { basename, join } from 'node:path'
 import type { Node } from 'unist'
 import { visit } from 'unist-util-visit'
 

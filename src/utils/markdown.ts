@@ -1,10 +1,12 @@
-import path from 'path'
-import matter, { GrayMatterFile } from 'gray-matter'
-import { createElement, ReactNode } from 'react'
+'use server'
+
+import path from 'node:path'
+import matter, { type GrayMatterFile } from 'gray-matter'
+import { createElement, type ReactNode } from 'react'
 import jsxRuntime from 'react/jsx-runtime'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeRaw from 'rehype-raw'
-import rehypeReact, { Components } from 'rehype-react'
+import rehypeReact, { type Components } from 'rehype-react'
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeSlug from 'rehype-slug'
 import remarkFlexibleToc from 'remark-flexible-toc'
@@ -27,8 +29,8 @@ import {
 	MdOl,
 	MdParagraph,
 	MdUl,
-} from '@/components/markdown-components'
-import { remarkTransformImages } from '@/lib/remark-transform-images'
+} from '../components/markdown-components'
+import { remarkTransformImages } from '../lib/remark-transform-images'
 
 export interface TocItem {
 	depth: number

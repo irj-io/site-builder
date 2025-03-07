@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { SectionPropsSchema } from '@/components/section/config'
+import { SectionPropsSchema } from '../../components/section/config'
 import { ContentSchema } from '../content-schema'
 
 const ContentColumnSchema = z.object({

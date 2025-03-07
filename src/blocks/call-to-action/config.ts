@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
-import { ButtonActionSchema } from '@/components/component-schema'
-import { SectionPropsSchema } from '@/components/section/config'
+import { ButtonActionSchema } from '../../components/component-schema'
+import { SectionPropsSchema } from '../../components/section/config'
 
 export type CallToActionProps = z.infer<typeof CallToActionPropsSchema>
 export const CallToActionPropsSchema = z.object({

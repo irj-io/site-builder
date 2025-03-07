@@ -1,6 +1,6 @@
-import { HTMLAttributes } from 'react'
+import type { HTMLAttributes } from 'react'
 
-import { parseMarkdownContent } from '@/utils/markdown'
+import { parseMarkdownContent } from '../utils/markdown'
 
 interface DataAttributes {
 	[key: `data-${string}`]: string | number | boolean | undefined

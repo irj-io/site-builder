@@ -1,32 +1,31 @@
 # site-builder
 
-yaml-based website generator
+A yaml-based website generator and CMS
 
-## Getting Started
+## Installation
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```sh
+npm i site-builder
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Add site-builder to `transpilePackages` in `next.config.js`
+**next.config.js**
 
-## Learn More
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+	transpilePackages: ['site-builder'],
+}
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+module.exports = nextConfig
+```
 
 ## Deployment
 
 The path at $DB_PATH needs to be copied to the build files during deployment
+
+## Development
+
+```sh
+pnpm dev
+```

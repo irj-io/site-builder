@@ -1,4 +1,4 @@
-import crypto from 'crypto'
+import crypto from 'node:crypto'
 
 const GRAVATAR_URL = 'https://secure.gravatar.com/avatar/'
 const emailToHash = (email: string) => crypto.createHash('sha256').update(email).digest('hex')

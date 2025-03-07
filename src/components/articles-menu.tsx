@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-import { getAllArticles } from '@/utils/articles'
-import { cn } from '@/utils/cn'
+import { getAllArticles } from '../utils/articles'
+import { cn } from '../utils/cn'
 
 export async function ArticlesMenu({
 	title = '',

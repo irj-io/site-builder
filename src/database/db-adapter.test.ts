@@ -1,11 +1,11 @@
-import { promises as fs } from 'fs'
-import os from 'os'
-import path from 'path'
+import { promises as fs } from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest'
 
 import { listCollections, listPages, loadFile, loadPage, parseFile, saveFile } from './db-adapter'
 
-vi.mock('@/utils/markdown', () => ({
+vi.mock('../utils/markdown', () => ({
 	parseMarkdownPage: async (
 		content: string
 	): Promise<{
@@ -47,8 +47,10 @@ describe('loadPage', () => {
 		expect(result).not.toBeNull()
 		if (result) {
 			expect(result.type).toBe('md')
-			// Our markdown mock prefixes content with "parsed: "
-			expect(result.data.frontMatter._contentHtml).toBe(`parsed: ${content}`)
+			if (result.type === 'md') {
+				// Our markdown mock prefixes content with "parsed: "
+				expect(result.data.frontMatter._contentHtml).toBe(`parsed: ${content}`)
+			}
 		}
 	})
 
@@ -65,7 +67,9 @@ describe('loadPage', () => {
 		expect(result).not.toBeNull()
 		if (result) {
 			expect(result.type).toBe('md')
-			expect(result.data.frontMatter._contentHtml).toBe(`parsed: ${content}`)
+			if (result.type === 'md') {
+				expect(result.data.frontMatter._contentHtml).toBe(`parsed: ${content}`)
+			}
 		}
 	})
 
@@ -167,7 +171,9 @@ describe('parseFile', () => {
 		expect(result).not.toBeNull()
 		if (result) {
 			expect(result.type).toBe('md')
-			expect(result.data.frontMatter._contentHtml).toBe(`parsed: ${content}`)
+			if (result.type === 'md') {
+				expect(result.data.frontMatter._contentHtml).toBe(`parsed: ${content}`)
+			}
 		}
 	})
 

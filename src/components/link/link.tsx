@@ -1,4 +1,4 @@
-import { LinkAction } from '@/components/component-schema'
+import type { LinkAction } from '../component-schema'
 
 export function Link(props: Pick<LinkAction, 'href' | 'label'>) {
 	const { href, label } = props

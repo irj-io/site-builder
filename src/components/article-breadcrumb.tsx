@@ -1,5 +1,5 @@
 import * as changeCase from 'change-case'
-import { JSX } from 'react'
+import type { JSX } from 'react'
 
 import {
 	Breadcrumb,
@@ -8,7 +8,7 @@ import {
 	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb'
+} from './ui/breadcrumb'
 
 const getHref = (slug: string[], position: number) => {
 	return `/${slug.slice(0, position + 1).join('/')}`

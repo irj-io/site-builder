@@ -1,7 +1,7 @@
-import { getSectionProps, Section } from '@/components/section/section'
-import { SectionHeader } from '@/components/section/section-header'
-import { BlockProps } from '../block-types'
-import { FeatureGridProps } from './config'
+import { getSectionProps, Section } from '../../components/section/section'
+import { SectionHeader } from '../../components/section/section-header'
+import type { BlockProps } from '../block-types'
+import type { FeatureGridProps } from './config'
 import { FeatureGridItem } from './feature-grid-item'
 
 export function FeatureGridBlock(props: BlockProps<FeatureGridProps>) {

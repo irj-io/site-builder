@@ -1,24 +1,24 @@
 'use server'
 
-import { promises as fs } from 'fs'
-import path from 'path'
-import { ReactNode } from 'react'
+import { promises as fs } from 'node:fs'
+import path from 'node:path'
+import type { ReactNode } from 'react'
 import { parse } from 'yaml'
 
-import { getIsDirectory } from '@/utils/content-parsing'
-import { env } from '@/utils/env'
-import { createError } from '@/utils/error'
-import { getExtension, getSlugFromFilePath } from '@/utils/file-utils'
-import { getAvatarImageUrl } from '@/utils/gravatar'
-import { parseMarkdownPage } from '@/utils/markdown'
-import { parseLayout } from '@/utils/parse-layout'
+import { getIsDirectory } from '../utils/content-parsing'
+import { env } from '../utils/env'
+import { createError } from '../utils/error'
+import { getExtension, getSlugFromFilePath } from '../utils/file-utils'
+import { getAvatarImageUrl } from '../utils/gravatar'
+import { parseMarkdownPage } from '../utils/markdown'
+import { parseLayout } from '../utils/parse-layout'
 import {
-	ArticleData,
 	ArticleDataSchema,
-	MarkdownData,
 	MarkdownDataSchema,
-} from '@/utils/post-schema'
-import { YamlGlobal, YamlGlobalSchema, YamlPage } from '@/utils/yaml-schema'
+	type ArticleData,
+	type MarkdownData,
+} from '../utils/post-schema'
+import { YamlGlobalSchema, type YamlGlobal, type YamlPage } from '../utils/yaml-schema'
 import { EnvVarError, UnsupportedFileError } from './db-errors'
 
 type ResultOrError<T, U = Error> = [T, null] | [null, U]
@@ -145,10 +145,6 @@ export const loadPage = async (slug: string[] | undefined): Promise<ResultOrErro
 		console.log('__dirname:', __dirname)
 		const fileList = await fs.readdir('.next/', { recursive: true })
 		console.log(fileList)
-		if (process.env.PROJECT_ROOT) {
-			const fileList2 = await fs.readdir(process.env.PROJECT_ROOT, { recursive: true })
-			console.log(fileList2)
-		}
 		return [null, new UnsupportedFileError(fullPath)]
 	}
 
@@ -189,6 +185,13 @@ export const listPages = async (directory?: string): Promise<ResultOrError<strin
 	if (!dbPath) {
 		return [null, new EnvVarError('DB_PATH')]
 	}
+
+	console.log('dbPath:', dbPath)
+	console.log('cwd:', process.cwd())
+	console.log('PROJECT_ROOT:', process.env.PROJECT_ROOT)
+	console.log('__dirname:', __dirname)
+	//const fileList = await fs.readdir('.next/', { recursive: true })
+	//console.log(fileList)
 
 	try {
 		const files = []

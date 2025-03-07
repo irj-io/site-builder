@@ -1,9 +1,9 @@
-import { getCollection } from '@/app/(actions)/collections'
-import { getSectionProps, Section } from '@/components/section/section'
-import { SectionHeader } from '@/components/section/section-header'
-import { BlockProps } from '../block-types'
+import { getSectionProps, Section } from '../../components/section/section'
+import { SectionHeader } from '../../components/section/section-header'
+import { getCollection } from '../../utils/collections'
+import type { BlockProps } from '../block-types'
 import { Content } from '../content/content-block'
-import { CollectionStackProps } from './config'
+import type { CollectionStackProps } from './config'
 
 export async function CollectionStackBlock(props: BlockProps<CollectionStackProps>) {
 	const { title, subtitle, collectionId, section } = props

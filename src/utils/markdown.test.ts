@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 
-import { parseMarkdownPage } from '@/utils/markdown'
+import { parseMarkdownPage } from './markdown'
 
 test('rewrites image paths in frontmatter correctly', async () => {
 	const fileContents = `---

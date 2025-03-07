@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-import type { Action } from '@/components/component-schema'
-import { Button } from '@/components/ui/button'
+import type { Action } from '../component-schema'
+import { Button } from '../ui/button'
 
 export type ActionProps = Action
 

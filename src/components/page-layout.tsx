@@ -1,15 +1,15 @@
 import { notFound } from 'next/navigation'
 
-import { AnnouncementBar } from '@/components/announcement-bar/announcement-bar'
-import { AnnouncementBarSchema } from '@/components/announcement-bar/announcement-bar-schema'
-import type { AnnouncementBar as AnnouncementBarProps } from '@/components/announcement-bar/announcement-bar-schema'
-import { Footer } from '@/components/footers/footer'
-import { FooterSchema } from '@/components/footers/footer-schema'
-import { Header } from '@/components/headers/header'
-import { HeaderSchema } from '@/components/headers/header-schema'
-import type { Header as HeaderType } from '@/components/headers/header-schema'
-import { loadGlobalData } from '@/database/db-adapter'
-import { captureError } from '@/utils/error'
+import { loadGlobalData } from '../database/db-adapter'
+import { captureError } from '../utils/error'
+import { AnnouncementBar } from './announcement-bar/announcement-bar'
+import { AnnouncementBarSchema } from './announcement-bar/announcement-bar-schema'
+import type { AnnouncementBar as AnnouncementBarProps } from './announcement-bar/announcement-bar-schema'
+import { Footer } from './footers/footer'
+import { FooterSchema } from './footers/footer-schema'
+import { Header } from './headers/header'
+import { HeaderSchema } from './headers/header-schema'
+import type { Header as HeaderType } from './headers/header-schema'
 
 interface HeaderProps {
 	theme: HeaderType['theme']

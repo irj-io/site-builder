@@ -1,7 +1,9 @@
-import { listPages } from '@/database/db-adapter'
-import { env } from '@/utils/env'
-import { captureError } from '@/utils/error'
-import { getSlugFromFilePath } from '@/utils/file-utils'
+'use server'
+
+import { listPages } from '../database/db-adapter'
+import { env } from './env'
+import { captureError } from './error'
+import { mapFilePathsToSlugs } from './file-utils'
 
 export async function getStaticParamsFromFiles() {
 	const dbPath = env('DB_PATH')
@@ -22,7 +24,8 @@ export async function getStaticParamsFromFiles() {
 		)
 	}
 
-	return files.map((filePath) => ({
-		slug: getSlugFromFilePath(filePath),
+	const slugs = await mapFilePathsToSlugs(files)
+	return slugs.map((slug) => ({
+		slug: slug.slice(1),
 	}))
 }

@@ -4,22 +4,27 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import * as changeCase from 'change-case'
 import { Loader2 } from 'lucide-react'
 import Link from 'next/link'
-import { useRouter, useSearchParams } from 'next/navigation'
+import type { ComponentProps } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import { Button } from '@/components/ui/button'
-import { CardTitle } from '@/components/ui/card'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { api } from '@/utils/api'
-import { useAsync } from '@/utils/use-async'
+import { type AsyncState } from '../../hooks/use-async'
+import { Button } from '../ui/button'
+import { CardTitle } from '../ui/card'
+import { Checkbox } from '../ui/checkbox'
+import { Form, FormControl, FormField, FormItem, FormLabel } from '../ui/form'
+import { Input } from '../ui/input'
 
-interface SignUpError {
+export interface SignUpError {
 	type: 'EMAIL_TAKEN'
 	message: 'string'
 }
+
+type SignUpFormProps = Omit<ComponentProps<'div'>, 'onSubmit'> & {
+	inviteToken: string
+	onSubmit: (formData: SignUpFormFields) => void
+	plan: string
+} & AsyncState<null, SignUpError>
 
 const SignUpFormBaseSchema = z.object({
 	fullName: z.string().min(1).trim(),
@@ -33,8 +38,8 @@ const SignUpFormWithTeamDataSchema = SignUpFormBaseSchema.extend({
 const SignUpFormWithTokenSchema = SignUpFormBaseSchema.extend({
 	token: z.string(),
 })
-type SignUpForm = z.infer<typeof SignUpFormSchema>
-const SignUpFormSchema = z.union([SignUpFormWithTeamDataSchema, SignUpFormWithTokenSchema])
+export type SignUpFormFields = z.infer<typeof SignUpFormFieldsSchema>
+const SignUpFormFieldsSchema = z.union([SignUpFormWithTeamDataSchema, SignUpFormWithTokenSchema])
 
 const mapErrorMessage = (message: string = '') => {
 	if (/failed to fetch/i.test(message)) {
@@ -44,12 +49,17 @@ const mapErrorMessage = (message: string = '') => {
 	return 'Sorry, something went wrong. We have alerted our engineers. Please try again in 30 minutes.'
 }
 
-export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
-	const router = useRouter()
-	const searchParams = useSearchParams()
-	const { error, run, status } = useAsync<SignUpForm, SignUpError>({ throwErrors: true })
-	const form = useForm<SignUpForm>({
-		resolver: zodResolver(SignUpFormSchema),
+export function SignUpForm({
+	className,
+	error,
+	onSubmit,
+	inviteToken,
+	plan,
+	status,
+	...props
+}: SignUpFormProps) {
+	const form = useForm<SignUpFormFields>({
+		resolver: zodResolver(SignUpFormFieldsSchema),
 		defaultValues: {
 			fullName: '',
 			email: '',
@@ -60,38 +70,12 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
 	})
 
 	const { formState } = form
-	const plan = searchParams.get('plan')
-	const inviteToken = searchParams.get('s')
 	const errorMessage =
 		Object.keys(formState.errors).length > 0
 			? 'Please correct the fields marked in red below'
 			: status === 'rejected' && error.type !== 'EMAIL_TAKEN'
 				? mapErrorMessage(error.message)
 				: ''
-
-	const onSubmit = (formData: SignUpForm) => {
-		if (status === 'pending') return
-
-		const signUpData = inviteToken
-			? {
-					source: 'website',
-					fullName: formData.fullName,
-					email: formData.email,
-					token: inviteToken,
-				}
-			: { source: 'website', ...formData }
-
-		run(api.signUp(signUpData)).then(() => {
-			// Trigger google tag manager event
-			// @ts-expect-error Property 'dataLayer' does not exist on type 'Window & typeof globalThis'
-			if (window.dataLayer) {
-				// @ts-expect-error Property 'dataLayer' does not exist on type 'Window & typeof globalThis'
-				window.dataLayer.push({ event: 'signup form completed' })
-			}
-
-			router.replace('/signup/completed')
-		})
-	}
 
 	return (
 		<div className={className} {...props}>

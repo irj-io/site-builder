@@ -2,7 +2,7 @@ import * as motion from 'motion/react-client'
 import React from 'react'
 import { omit } from 'remeda'
 
-import { cn } from '@/utils/cn'
+import { cn } from '../../utils/cn'
 import type { SectionProps } from './config'
 
 export const getSectionProps = (

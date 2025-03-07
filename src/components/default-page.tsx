@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation'
 
-import { MarkdownContent } from '@/components/markdown-content'
-import PageLayout from '@/components/page-layout'
-import { loadPage } from '@/database/db-adapter'
-import { captureError } from '@/utils/error'
+import { loadPage } from '../database/db-adapter'
+import { captureError } from '../utils/error'
+import { MarkdownContent } from './markdown-content'
+import PageLayout from './page-layout'
 
 export async function DefaultPage({ params }: { params: Promise<{ slug?: string[] }> }) {
 	const { slug } = await params

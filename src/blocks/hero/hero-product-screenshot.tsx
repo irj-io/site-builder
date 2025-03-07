@@ -1,8 +1,8 @@
-import { ActionProps } from '@/components/actions/action'
-import { Media } from '@/components/media/media'
-import { parseComponents } from '@/utils/parse-components'
-import { BlockProps } from '../block-types'
-import { HeroProps } from './config'
+import type { ActionProps } from '../../components/actions/action'
+import { Media } from '../../components/media/media'
+import { parseComponents } from '../../utils/parse-components'
+import type { BlockProps } from '../block-types'
+import type { HeroProps } from './config'
 
 const Action = (props: ActionProps) => <div>{props.label}</div>
 

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { getArticleData } from '@/utils/articles'
+import { getArticleData } from '../utils/articles'
 
 export async function TableOfContents({ slug }: { slug: string[] }) {
 	const { toc } = await getArticleData(slug)

@@ -1,9 +1,9 @@
 import Image from 'next/image'
 
-import { Marquee } from '@/components/marquee/marquee'
-import { getSectionProps, Section } from '@/components/section/section'
+import { Marquee } from '../../components/marquee/marquee'
+import { getSectionProps, Section } from '../../components/section/section'
 import type { BlockProps } from '../block-types'
-import { LogoMarqueeProps } from './config'
+import type { LogoMarqueeProps } from './config'
 
 export function LogoMarqueeBlock(props: BlockProps<LogoMarqueeProps>) {
 	const { items, section } = props

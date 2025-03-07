@@ -1,4 +1,4 @@
-import { getSectionProps, Section } from '@/components/section/section'
+import { getSectionProps, Section } from '../../components/section/section'
 import type { AnnouncementBar } from './announcement-bar-schema'
 
 export function AnnouncementBar(props: AnnouncementBar) {

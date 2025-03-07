@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { cn } from '@/utils/cn'
+import { cn } from '../../utils/cn'
 import { Action } from '../actions/action'
 import { Media } from '../media/media'
 import { ThemeModeToggle } from '../theme-mode-toggle'

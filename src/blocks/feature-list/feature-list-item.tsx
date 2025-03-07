@@ -1,5 +1,5 @@
-import { MdContent } from '@/components/md-content'
-import { FeatureListItemProps } from './config'
+import { MdContent } from '../../components/md-content'
+import type { FeatureListItemProps } from './config'
 
 export function FeatureListItem(props: FeatureListItemProps) {
 	const { icon, content } = props

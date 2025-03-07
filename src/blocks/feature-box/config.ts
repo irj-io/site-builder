@@ -1,8 +1,8 @@
 import { z } from 'zod'
 
-import { ActionSchema } from '@/components/component-schema'
-import { MediaPropsSchema } from '@/components/media/config'
-import { SectionPropsSchema } from '@/components/section/config'
+import { ActionSchema } from '../../components/component-schema'
+import { MediaPropsSchema } from '../../components/media/config'
+import { SectionPropsSchema } from '../../components/section/config'
 
 export type FeatureBoxProps = z.infer<typeof FeatureBoxPropsSchema>
 export const FeatureBoxPropsSchema = z.object({

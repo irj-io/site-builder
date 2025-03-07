@@ -1,10 +1,10 @@
 import { format, parseISO } from 'date-fns'
 import { enGB } from 'date-fns/locale/en-GB'
 import Image from 'next/image'
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
-import { ArticleBreadcrumb } from '@/components/article-breadcrumb'
-import { ArticleData } from '@/utils/post-schema'
+import type { ArticleData } from '../utils/post-schema'
+import { ArticleBreadcrumb } from './article-breadcrumb'
 import { Media } from './media/media'
 import { TypographyH1, TypographyLead } from './typography/typography'
 

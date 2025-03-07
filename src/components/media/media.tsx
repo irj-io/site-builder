@@ -1,9 +1,9 @@
-import Image, { ImageProps } from 'next/image'
+import Image, { type ImageProps } from 'next/image'
 import { omit } from 'remeda'
 
-import { cn } from '@/utils/cn'
+import { cn } from '../../utils/cn'
 import { HeroSvg } from '../hero-svg'
-import { MediaProps } from './config'
+import { type MediaProps } from './config'
 
 interface MediaWithImageProps extends Omit<ImageProps, 'src' | 'alt'> {
 	media: MediaProps
@@ -14,12 +14,13 @@ export function Media(props: MediaWithImageProps) {
 	const { className, media, imageClassName, ...imageProps } = props
 
 	switch (media.type) {
-		case 'customSvg':
+		case 'customSvg': {
 			const customSvgs = {
 				heroSvg: <HeroSvg {...imageProps} />,
 			} as const
 			return customSvgs[media.id as 'heroSvg']
-		case 'image':
+		}
+		case 'image': {
 			const mediaProps = omit(media, ['style', 'src', 'alt', 'type'])
 			switch (media.style) {
 				case 'screenshot':
@@ -47,5 +48,6 @@ export function Media(props: MediaWithImageProps) {
 						</div>
 					)
 			}
+		}
 	}
 }

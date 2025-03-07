@@ -1,33 +1,33 @@
 import { notFound } from 'next/navigation'
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { isPlainObject } from 'remeda'
 
-import { Blocks } from '@/blocks/block-schema'
-import { CallToActionBlock } from '@/blocks/call-to-action/call-to-action-block'
-import { CollapsibleContentBlock } from '@/blocks/collapsible-content/collapsible-content-block'
-import { CollectionStackBlock } from '@/blocks/collection-stack/collection-stack-block'
-import { ContactFormBlock } from '@/blocks/contact-form/contact-form-block'
-import { ContentBlock } from '@/blocks/content/content-block'
-import { FaqBlock } from '@/blocks/faq/faq-block'
-import { FeatureBoxBlock } from '@/blocks/feature-box/feature-box-block'
-import { FeatureGridBlock } from '@/blocks/feature-grid/feature-grid-block'
-import { FeatureListBlock } from '@/blocks/feature-list/feature-list-block'
-import { HeroHighImpactBlock } from '@/blocks/hero/hero-high-impact-block'
-import { HeroMediumImpactBlock } from '@/blocks/hero/hero-medium-impact-block'
-import { HeroProductScreenshotBlock } from '@/blocks/hero/hero-product-screenshot'
-import { LogoMarqueeBlock } from '@/blocks/marquee/logo-marquee-block'
-import { PricingCardsBlock } from '@/blocks/pricing/pricing-cards-block'
-import { StatsBlock } from '@/blocks/stats/stats-block'
-import { MediaProps } from '@/components/media/config'
+import type { Blocks } from '../blocks/block-schema'
+import { CallToActionBlock } from '../blocks/call-to-action/call-to-action-block'
+import { CollapsibleContentBlock } from '../blocks/collapsible-content/collapsible-content-block'
+import { CollectionStackBlock } from '../blocks/collection-stack/collection-stack-block'
+import { ContactFormBlock } from '../blocks/contact-form/contact-form-block'
+import { ContentBlock } from '../blocks/content/content-block'
+import { FaqBlock } from '../blocks/faq/faq-block'
+import { FeatureBoxBlock } from '../blocks/feature-box/feature-box-block'
+import { FeatureGridBlock } from '../blocks/feature-grid/feature-grid-block'
+import { FeatureListBlock } from '../blocks/feature-list/feature-list-block'
+import { HeroHighImpactBlock } from '../blocks/hero/hero-high-impact-block'
+import { HeroMediumImpactBlock } from '../blocks/hero/hero-medium-impact-block'
+import { HeroProductScreenshotBlock } from '../blocks/hero/hero-product-screenshot'
+import { LogoMarqueeBlock } from '../blocks/marquee/logo-marquee-block'
+import { PricingCardsBlock } from '../blocks/pricing/pricing-cards-block'
+import { StatsBlock } from '../blocks/stats/stats-block'
+import type { MediaProps } from '../components/media/config'
 import { captureError } from './error'
 import {
 	isYamlPage,
-	YamlCollection,
 	YamlCollectionSchema,
-	YamlGlobal,
 	YamlGlobalSchema,
-	YamlPage,
 	YamlPageSchema,
+	type YamlCollection,
+	type YamlGlobal,
+	type YamlPage,
 } from './yaml-schema'
 
 const PLACEHOLDER_ARGS = /^placeholder:?(.*)?$/

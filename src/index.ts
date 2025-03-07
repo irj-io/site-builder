@@ -1,3 +1,5 @@
-export { ThemeProvider } from './components/theme-provider'
-
-export { getStaticParamsFromFiles } from './utils/get-static-params-from-files'
+export * from './blocks'
+export * from './components'
+export * from './database'
+export * from './hooks'
+export * from './utils'

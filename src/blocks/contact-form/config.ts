@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { SectionPropsSchema } from '@/components/section/config'
+import { SectionPropsSchema } from '../../components/section/config'
 
 export type ContactFormProps = z.infer<typeof ContactFormPropsSchema>
 export const ContactFormPropsSchema = z.object({

@@ -1,9 +1,9 @@
-import { Action } from '@/components/actions/action'
-import { Media } from '@/components/media/media'
-import { getSectionProps, Section } from '@/components/section/section'
-import { parseComponents } from '@/utils/parse-components'
-import { BlockProps } from '../block-types'
-import { HeroProps } from './config'
+import { Action } from '../../components/actions/action'
+import { Media } from '../../components/media/media'
+import { getSectionProps, Section } from '../../components/section/section'
+import { parseComponents } from '../../utils/parse-components'
+import type { BlockProps } from '../block-types'
+import type { HeroProps } from './config'
 
 export function HeroMediumImpactBlock(props: BlockProps<HeroProps>) {
 	const { media, title, subtitle, actions = [], section } = props

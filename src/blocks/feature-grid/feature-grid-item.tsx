@@ -1,5 +1,5 @@
-import { MdContent } from '@/components/md-content'
-import { FeatureGridItemProps } from './config'
+import { MdContent } from '../../components/md-content'
+import type { FeatureGridItemProps } from './config'
 
 export function FeatureGridItem(props: FeatureGridItemProps) {
 	const { icon, title, content } = props

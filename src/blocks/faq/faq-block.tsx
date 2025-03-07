@@ -1,10 +1,8 @@
-import React from 'react'
-
-import { getSectionProps, Section } from '@/components/section/section'
-import { SectionHeader } from '@/components/section/section-header'
-import { cn } from '@/utils/cn'
-import { BlockProps } from '../block-types'
-import { FaqProps } from './config'
+import { getSectionProps, Section } from '../../components/section/section'
+import { SectionHeader } from '../../components/section/section-header'
+import { cn } from '../../utils/cn'
+import type { BlockProps } from '../block-types'
+import type { FaqProps } from './config'
 
 function FaqItem(props: FaqProps['items'][0]) {
 	const { title, content } = props

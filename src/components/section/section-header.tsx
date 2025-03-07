@@ -1,5 +1,5 @@
-import { cn } from '@/utils/cn'
-import { parseComponents } from '@/utils/parse-components'
+import { cn } from '../../utils/cn'
+import { parseComponents } from '../../utils/parse-components'
 import { TypographyH2, TypographyLead } from '../typography/typography'
 
 interface SectionHeaderProps {

@@ -1,5 +1,5 @@
-import { promises as fs } from 'fs'
-import path from 'path'
+import { promises as fs } from 'node:fs'
+import path from 'node:path'
 
 export type FileType = 'yaml' | 'markdown' | 'unknown'
 
@@ -30,4 +30,8 @@ export const getSlugFromFilePath = (filePath: string) => {
 		.replace(/\.[A-Za-z0-9]+?$/, '')
 		.split(path.sep)
 		.filter((segment) => segment !== 'index')
+}
+
+export const mapFilePathsToSlugs = async (files: string[]) => {
+	return files.map((filePath) => getSlugFromFilePath(filePath))
 }

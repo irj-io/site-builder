@@ -1,7 +1,7 @@
-import { getSectionProps, Section } from '@/components/section/section'
-import { SectionHeader } from '@/components/section/section-header'
-import { BlockProps } from '../block-types'
-import { FeatureListProps } from './config'
+import { getSectionProps, Section } from '../../components/section/section'
+import { SectionHeader } from '../../components/section/section-header'
+import type { BlockProps } from '../block-types'
+import type { FeatureListProps } from './config'
 import { FeatureListItem } from './feature-list-item'
 
 export function FeatureListBlock(props: BlockProps<FeatureListProps>) {

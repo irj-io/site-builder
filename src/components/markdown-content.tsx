@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
-import { ArticleBreadcrumb } from '@/components/article-breadcrumb'
-import { AuthorHeader } from '@/components/author-header'
-import { MarkdownData } from '@/utils/post-schema'
+import type { MarkdownData } from '../utils/post-schema'
+import { ArticleBreadcrumb } from './article-breadcrumb'
+import { AuthorHeader } from './author-header'
 import { Media } from './media/media'
 
 interface MarkdownContentProps {

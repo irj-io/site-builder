@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
-import { IconSchema } from '@/components/component-schema'
-import { SectionPropsSchema } from '@/components/section/config'
+import { IconSchema } from '../../components/component-schema'
+import { SectionPropsSchema } from '../../components/section/config'
 
 export type FeatureGridItemProps = z.infer<typeof FeatureGridItemPropsSchema>
 const FeatureGridItemPropsSchema = z.object({

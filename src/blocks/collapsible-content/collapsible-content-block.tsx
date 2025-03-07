@@ -1,13 +1,13 @@
-import { getSectionProps, Section } from '@/components/section/section'
-import { SectionHeader } from '@/components/section/section-header'
+import { getSectionProps, Section } from '../../components/section/section'
+import { SectionHeader } from '../../components/section/section-header'
 import {
 	Accordion,
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
-} from '@/components/ui/accordion'
-import { BlockProps } from '../block-types'
-import { CollapsibleContentProps } from './config'
+} from '../../components/ui/accordion'
+import type { BlockProps } from '../block-types'
+import type { CollapsibleContentProps } from './config'
 
 export function CollapsibleContentBlock(props: BlockProps<CollapsibleContentProps>) {
 	const { title, items = [], section } = props

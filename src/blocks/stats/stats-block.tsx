@@ -1,6 +1,6 @@
-import { getSectionProps, Section } from '@/components/section/section'
-import { BlockProps } from '../block-types'
-import { StatsProps } from './config'
+import { getSectionProps, Section } from '../../components/section/section'
+import type { BlockProps } from '../block-types'
+import type { StatsProps } from './config'
 
 export function StatsBlock(props: BlockProps<StatsProps>) {
 	const { items, section } = props

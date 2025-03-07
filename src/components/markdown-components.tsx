@@ -1,9 +1,9 @@
-import Image, { ImageProps } from 'next/image'
+import Image, { type ImageProps } from 'next/image'
 import Link from 'next/link'
-import { ComponentProps } from 'react'
+import type { ComponentProps } from 'react'
 import { omit } from 'remeda'
 
-import { cn } from '@/utils/cn'
+import { cn } from '../utils/cn'
 
 const sharedClasses = ''
 

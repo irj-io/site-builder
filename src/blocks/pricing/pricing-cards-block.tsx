@@ -1,7 +1,6 @@
-import { getCurrency } from '@/app/(actions)/currency'
-import { Action } from '@/components/actions/action'
-import { getSectionProps, Section } from '@/components/section/section'
-import { SectionHeader } from '@/components/section/section-header'
+import { Action } from '../../components/actions/action'
+import { getSectionProps, Section } from '../../components/section/section'
+import { SectionHeader } from '../../components/section/section-header'
 import {
 	Card,
 	CardContent,
@@ -9,12 +8,14 @@ import {
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from '@/components/ui/card'
-import { BlockProps } from '../block-types'
-import { PricingProps } from './config'
+} from '../../components/ui/card'
+import type { BlockProps } from '../block-types'
+import type { PricingProps } from './config'
 import { CurrencySelector } from './currency-selector'
+import { usePricingContext } from './pricing-context'
 
 export async function PricingCardsBlock(props: BlockProps<PricingProps>) {
+	const { getCurrency } = usePricingContext()
 	const currency = await getCurrency()
 
 	const { title, subtitle, plans, section } = props

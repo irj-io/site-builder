@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { SectionPropsSchema } from '@/components/section/config'
+import { SectionPropsSchema } from '../../components/section/config'
 
 export type CollapsibleContentPropsItem = z.infer<typeof CollapsibleContentItemPropsSchema>
 const CollapsibleContentItemPropsSchema = z.object({

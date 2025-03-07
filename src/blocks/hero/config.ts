@@ -1,8 +1,8 @@
 import { z } from 'zod'
 
-import { ActionSchema } from '@/components/component-schema'
-import { MediaPropsSchema } from '@/components/media/config'
-import { SectionPropsSchema } from '@/components/section/config'
+import { ActionSchema } from '../../components/component-schema'
+import { MediaPropsSchema } from '../../components/media/config'
+import { SectionPropsSchema } from '../../components/section/config'
 
 export type HeroProps = z.infer<typeof HeroBasePropsSchema>
 export const HeroBasePropsSchema = z.object({
