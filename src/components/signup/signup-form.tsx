@@ -24,7 +24,7 @@ type SignUpFormProps = Omit<ComponentProps<'div'>, 'onSubmit'> & {
 	inviteToken: string | null
 	onSubmit: (formData: SignUpFormFields) => void
 	plan: string | null
-} & AsyncState<null, SignUpError>
+} & Omit<AsyncState<null, SignUpError>, 'data'>
 
 const SignUpFormBaseSchema = z.object({
 	fullName: z.string().min(1).trim(),
