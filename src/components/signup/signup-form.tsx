@@ -21,9 +21,9 @@ export interface SignUpError {
 }
 
 type SignUpFormProps = Omit<ComponentProps<'div'>, 'onSubmit'> & {
-	inviteToken: string
+	inviteToken: string | null
 	onSubmit: (formData: SignUpFormFields) => void
-	plan: string
+	plan: string | null
 } & AsyncState<null, SignUpError>
 
 const SignUpFormBaseSchema = z.object({
