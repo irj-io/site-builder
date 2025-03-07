@@ -143,8 +143,8 @@ export const loadPage = async (slug: string[] | undefined): Promise<ResultOrErro
 		console.log('cwd:', process.cwd())
 		console.log('PROJECT_ROOT:', process.env.PROJECT_ROOT)
 		console.log('__dirname:', __dirname)
-		const fileList = await fs.readdir('.next/', { recursive: true })
-		console.log(fileList)
+		//const fileList = await fs.readdir('./', { recursive: true })
+		//console.log(fileList)
 		return [null, new UnsupportedFileError(fullPath)]
 	}
 
