@@ -61,8 +61,8 @@
       "import": "./dist/components/index.js"
     },
     "./database": {
-      "types": "./dist/utils/index.d.ts",
-      "import": "./dist/utils/index.js"
+      "types": "./dist/database/index.d.ts",
+      "import": "./dist/database/index.js"
     },
     "./hooks": {
       "types": "./dist/hooks/index.d.ts",
