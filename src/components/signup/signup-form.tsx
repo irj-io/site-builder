@@ -73,8 +73,8 @@ export function SignUpForm({
 	const errorMessage =
 		Object.keys(formState.errors).length > 0
 			? 'Please correct the fields marked in red below'
-			: status === 'rejected' && error.type !== 'EMAIL_TAKEN'
-				? mapErrorMessage(error.message)
+			: status === 'rejected' && error?.type !== 'EMAIL_TAKEN'
+				? mapErrorMessage(error?.message)
 				: ''
 
 	return (
@@ -120,7 +120,7 @@ export function SignUpForm({
 										</FormItem>
 									)}
 								/>
-								{status === 'rejected' && error.type === 'EMAIL_TAKEN' ? (
+								{status === 'rejected' && error?.type === 'EMAIL_TAKEN' ? (
 									<div className="flex gap-2 p-2">
 										<span>Your email already exists!</span>
 										<Link href={'https://tyto.me/login?forgot=1'}>Reset password</Link>
