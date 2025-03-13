@@ -21,6 +21,7 @@
   "files": [
     "dist"
   ],
+  "sideEffects": false,
   "license": "MIT",
   "scripts": {
     "//build": "next build",
@@ -42,9 +43,9 @@
     "dev:css": "postcss src/index.css -o ./dist/index.css --watch",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "copy-css": "copyfiles -u 1 \"src/index.css\" dist",
+    "//copy-css": "copyfiles -u 1 \"src/index.css\" dist",
     "schema": "tsx tools/build-schema.ts",
-    "start": "next start",
+    "//start": "next start",
     "//dist": "npm run schema & node scripts/esbuild.js & npm run dist:css",
     "//dist:css": "postcss ./src/index.css -o ./dist/index.css --env production",
     "prepare": "npm run build",
@@ -60,6 +61,8 @@
       "types": "./dist/components/index.d.ts",
       "import": "./dist/components/index.js"
     },
+    "./components/ArticlesMenu": "./dist/components/articles-menu.js",
+    "./components/TableOfContents": "./dist/components/table-of-contents.js",
     "./database": {
       "types": "./dist/database/index.d.ts",
       "import": "./dist/database/index.js"

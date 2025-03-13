@@ -5,7 +5,7 @@ import { env } from './env'
 import { captureError } from './error'
 import { mapFilePathsToSlugs } from './file-utils'
 
-export async function getStaticParamsFromFiles(category = '') {
+export async function getSlugsFromFiles(category = ''): Promise<string[][]> {
 	const dbPath = env('DB_PATH')
 	const files = []
 	const [pages, listPagesError] = await listPages(category)
@@ -27,8 +27,7 @@ export async function getStaticParamsFromFiles(category = '') {
 	}
 
 	try {
-		const slugs = await mapFilePathsToSlugs(files)
-		return slugs
+		return mapFilePathsToSlugs(files)
 	} catch {
 		return []
 	}

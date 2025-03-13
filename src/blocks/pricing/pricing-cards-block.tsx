@@ -1,3 +1,7 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+
 import { Action } from '../../components/actions/action'
 import { getSectionProps, Section } from '../../components/section/section'
 import { SectionHeader } from '../../components/section/section-header'
@@ -11,14 +15,19 @@ import {
 } from '../../components/ui/card'
 import type { BlockProps } from '../block-types'
 import type { PricingProps } from './config'
+import { defaultCurrency, type Currency } from './currency'
 import { CurrencySelector } from './currency-selector'
 import { usePricingContext } from './pricing-context'
 
-export async function PricingCardsBlock(props: BlockProps<PricingProps>) {
+export function PricingCardsBlock(props: BlockProps<PricingProps>) {
 	const { getCurrency } = usePricingContext()
-	const currency = await getCurrency()
+	const [currency, setCurrency] = useState<Currency>(defaultCurrency)
 
 	const { title, subtitle, plans, section } = props
+
+	useEffect(() => {
+		getCurrency().then(setCurrency)
+	}, [])
 
 	return (
 		<Section {...getSectionProps(section, { className: 'py-20 lg:py-24' })}>

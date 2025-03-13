@@ -7,8 +7,6 @@ export { SectionHeader } from './section/section-header'
 export { default as PageLayout } from './page-layout'
 export { ThemeProvider } from './theme-provider'
 export { Article } from './article'
-export { ArticlesMenu } from './articles-menu'
 export { Media } from './media/media'
-export { TableOfContents } from './table-of-contents'
 
 export { type SignUpError, type SignUpFormFields, SignUpForm } from './signup/signup-form'

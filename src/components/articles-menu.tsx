@@ -5,12 +5,14 @@ import { cn } from '../utils/cn'
 
 export async function ArticlesMenu({
 	title = '',
-	slug = ['help'],
+	category = 'articles',
+	slug = ['articles'],
 }: {
 	title?: string
+	category?: string
 	slug?: string[]
 }) {
-	const articles = await getAllArticles('help')
+	const articles = await getAllArticles(category)
 
 	return (
 		<div className="flex flex-col gap-2 mb-6">

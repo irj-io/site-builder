@@ -8,9 +8,10 @@ import { env } from './env.js'
 import { captureError } from './error.js'
 
 /**
- * Get all markdown files in a subdirectory of `content/`
+ * Get all markdown files in a subdirectory of `{collection}/`
  */
 export const getAllArticles = async (collection: string) => {
+	'use server'
 	const matterData = []
 
 	const [pages, listPagesError] = await listPages(collection)
@@ -59,7 +60,9 @@ const filePathFromSlug = async (slug: string[]) => {
 		if (exists) {
 			return `${filePath}.md`
 		}
-	} catch {}
+	} catch {
+		// Do nothing
+	}
 
 	try {
 		const exists = await fs.access(`${filePath}.yaml`).then(() => true)
@@ -67,7 +70,9 @@ const filePathFromSlug = async (slug: string[]) => {
 		if (exists) {
 			return `${filePath}.yaml`
 		}
-	} catch {}
+	} catch {
+		// Do nothing
+	}
 
 	return ''
 }
@@ -89,6 +94,7 @@ const readArticle = async (filePath: string) => {
 }
 
 export const getArticleData = async (slug: string[]) => {
+	'use server'
 	const filePath = await filePathFromSlug(slug)
 	return readArticle(filePath)
 }

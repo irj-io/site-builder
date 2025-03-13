@@ -70,8 +70,8 @@ export function ContactFormBlock(props: BlockProps<ContactFormProps>) {
 													)}
 													{...field}
 												/>
-												<FormMessage />
 											</FormControl>
+											<FormMessage />
 										</FormItem>
 									)}
 								/>
@@ -83,13 +83,15 @@ export function ContactFormBlock(props: BlockProps<ContactFormProps>) {
 									render={({ field }) => (
 										<FormItem>
 											<FormLabel className="text-sm/6 font-medium">Your Email</FormLabel>
-											<Input
-												className={cn(
-													'border mt-3 block w-full rounded-lg py-1.5 px-3 text-sm/6',
-													'data-[focus]:outline-2 data-[focus]:-outline-offset-2'
-												)}
-												{...field}
-											/>
+											<FormControl>
+												<Input
+													className={cn(
+														'border mt-3 block w-full rounded-lg py-1.5 px-3 text-sm/6',
+														'data-[focus]:outline-2 data-[focus]:-outline-offset-2'
+													)}
+													{...field}
+												/>
+											</FormControl>
 											<FormMessage />
 										</FormItem>
 									)}

@@ -1,4 +1,4 @@
-export { getStaticParamsFromFiles } from './get-static-params-from-files'
+export { getSlugsFromFiles } from './get-slugs-from-files'
 export { mapFilePathsToSlugs } from './file-utils'
 export { ArticleDataSchema, MarkdownDataSchema } from './post-schema'
 export { cn } from './cn'
