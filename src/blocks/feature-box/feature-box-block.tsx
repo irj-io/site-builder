@@ -13,8 +13,13 @@ export function FeatureBoxBlock(props: BlockProps<FeatureBoxProps>) {
 
 	return (
 		<Section {...getSectionProps(section)}>
-			<div className={cn('container mx-auto flex min-h-64', direction)}>
-				<div className="grow w-3/6">
+			<div
+				className={cn(
+					'xl:container mx-auto lg:flex sm:min-h-20 md:min-h-48 lg:min-h-64',
+					direction
+				)}
+			>
+				<div className="grow lg:w-1/2">
 					{media && typeof media === 'object' ? (
 						<Media
 							media={media}
@@ -25,7 +30,7 @@ export function FeatureBoxBlock(props: BlockProps<FeatureBoxProps>) {
 						/>
 					) : null}
 				</div>
-				<div className="grow w-3/6 p-8 sm:p-20 md:p-32">
+				<div className="grow lg:w-1/2 p-12 sm:p-20 lg:p-28 xl:p-32">
 					{overline ? <div className="text-sm mb-2">{overline}</div> : null}
 					<div className="text-4xl font-semibold">{title}</div>
 					{content ? (
