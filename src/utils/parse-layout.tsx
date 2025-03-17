@@ -105,7 +105,7 @@ const trySchemas = (data: unknown): SchemaOutput => {
 	throw new Error('No schema matched.')
 }
 
-export async function parseLayout(yaml: string): Promise<ReactNode> {
+export async function parseLayout(yaml: Record<string | number, unknown>): Promise<ReactNode> {
 	try {
 		const fileData = yaml
 

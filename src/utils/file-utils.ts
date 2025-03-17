@@ -28,6 +28,7 @@ export const getExtension = async (basePath: string): Promise<string> => {
 export const getSlugFromFilePath = (filePath: string) => {
 	return filePath
 		.replace(/\.[A-Za-z0-9]+?$/, '')
+		.replace(/^\//, '')
 		.split(path.sep)
 		.filter((segment) => segment !== 'index')
 }

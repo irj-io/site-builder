@@ -73,6 +73,12 @@ const parseMarkdown = async (
 	}
 }
 
+const rewriteImagePaths = (yaml: string, slug: string[]) => {
+	const replacement =
+		slug.length > 0 ? `$1/assets/images/${path.join(...slug)}/` : `$1/assets/images/`
+	return yaml.replace(/(src:\s)\.\/images\//, replacement)
+}
+
 const parseYaml = async (content: string): Promise<YamlFileData['data']> => {
 	const yaml = parse(content, { merge: true })
 	const layoutComponents = await parseLayout(yaml)
@@ -253,10 +259,10 @@ export const parseFile = async (
 		return [null, new EnvVarError('DB_PATH')]
 	}
 	const ext = await getExtension(filePath)
+	const relativeFilePath = filePath.substring(dbPath.length)
 	switch (ext) {
 		case 'md':
 			try {
-				const relativeFilePath = filePath.substring(dbPath.length)
 				const markdown = await parseMarkdown(contents, getSlugFromFilePath(relativeFilePath))
 				return [createMarkdownData(markdown), null]
 			} catch (err) {
@@ -266,7 +272,9 @@ export const parseFile = async (
 		case 'yaml':
 		case 'yml':
 			try {
-				const yaml = await parseYaml(contents)
+				const yaml = await parseYaml(
+					rewriteImagePaths(contents, getSlugFromFilePath(relativeFilePath))
+				)
 				return [createYamlData(yaml), null]
 			} catch (err) {
 				const error = createError(err)
