@@ -21,6 +21,7 @@ export async function getSlugsFromFiles(category = ''): Promise<string[][]> {
 		files.push(
 			filePath
 				.replace(dbPath, '')
+				.replace(/^\//, '') // Remove starting `/`
 				.replace(/\.mdx?$/, '')
 				.replace(/\.ya?ml$/, '')
 		)
