@@ -1,6 +1,6 @@
 {
   "name": "site-builder",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "A yaml-based website generator and CMS",
   "type": "module",
   "keywords": [
