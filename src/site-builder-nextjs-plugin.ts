@@ -3,11 +3,10 @@ import { type NextConfig } from 'next'
 
 import { env } from './utils/env.js'
 
-type NextConfigFn = (config: NextConfig) => NextConfig
-
-export const withSiteBuilder = ({ context }: { context: string }): NextConfigFn =>
+export const withSiteBuilder = ({ context }: { context: string }) =>
 	function (userNextConfig: NextConfig = {}): NextConfig {
 		return {
+			...userNextConfig,
 			transpilePackages: [...(userNextConfig.transpilePackages || []), 'site-builder'],
 
 			reactStrictMode: true,
@@ -25,8 +24,6 @@ export const withSiteBuilder = ({ context }: { context: string }): NextConfigFn 
 					},
 				],
 			},
-
-			...userNextConfig,
 
 			async rewrites() {
 				// Get user rewrites (could be a function or a plain object)

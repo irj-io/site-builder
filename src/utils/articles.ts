@@ -6,12 +6,12 @@ import { parseMarkdownPage } from '../utils/markdown.js'
 import { getIsDirectory } from './content-parsing.js'
 import { env } from './env.js'
 import { captureError } from './error.js'
+import { getSlugFromFilePath } from './file-utils.js'
 
 /**
  * Get all markdown files in a subdirectory of `{collection}/`
  */
 export const getAllArticles = async (collection: string) => {
-	'use server'
 	const matterData = []
 
 	const [pages, listPagesError] = await listPages(collection)
@@ -79,22 +79,20 @@ const filePathFromSlug = async (slug: string[]) => {
 
 const readArticle = async (filePath: string) => {
 	const dbPath = env('DB_PATH')
-	const hrefFragment = filePath.replace(dbPath, '').replace(/(\/index)?\.md$/, '')
-	const slug = `${hrefFragment}`.split(RegExp(path.sep))
+	const slug = getSlugFromFilePath(filePath.replace(dbPath, ''))
 
 	const fileContents = await fs.readFile(filePath, 'utf8')
 	const { matter, file } = await parseMarkdownPage(fileContents, slug)
 
 	return {
 		data: matter.data,
-		href: `/${hrefFragment}`,
+		href: `/${slug.join('/')}`,
 		slug,
 		toc: file.data.toc,
 	}
 }
 
 export const getArticleData = async (slug: string[]) => {
-	'use server'
 	const filePath = await filePathFromSlug(slug)
 	return readArticle(filePath)
 }

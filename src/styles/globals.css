@@ -89,20 +89,7 @@
 	--radius-lg: var(--radius);
 	--radius-xl: calc(var(--radius) + 4px);
 	--radius-button: 9999px;
-}
-
-/* Tyto Overrides */
-:root {
-	--primary: hsl(344 74% 52%);
-	--primary-foreground: hsl(0 0% 100%);
-
-	/* Non-default-theme values */
-	--rounded-full: 9999px;
-}
-
-.dark {
-	--primary: hsl(344 74% 52%);
-	--primary-foreground: hsl(0 0% 100%);
+	--radius-full: 9999px;
 }
 
 @layer utilities {

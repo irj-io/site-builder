@@ -23,17 +23,6 @@ export function HeroProductScreenshotBlock(props: BlockProps<HeroProps>) {
 							<h2 className="text-2xl font-bold">{parseComponents(subtitle)}</h2>
 						</div>
 					) : null}
-					{Array.isArray(actions) && actions.length > 0 ? (
-						<ul className="flex gap-4">
-							{actions.map((action, i) => {
-								return (
-									<li key={i}>
-										<Action {...action} />
-									</li>
-								)
-							})}
-						</ul>
-					) : null}
 				</div>
 				{media && typeof media === 'object' ? (
 					<div className="flex items-center justify-center mt-16">
@@ -50,6 +39,17 @@ export function HeroProductScreenshotBlock(props: BlockProps<HeroProps>) {
 							}}
 						/>
 					</div>
+				) : null}
+				{Array.isArray(actions) && actions.length > 0 ? (
+					<ul className="flex gap-4">
+						{actions.map((action, i) => {
+							return (
+								<li key={i}>
+									<Action {...action} />
+								</li>
+							)
+						})}
+					</ul>
 				) : null}
 			</div>
 		</div>
