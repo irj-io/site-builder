@@ -38,7 +38,7 @@ export function HeroProductScreenshotBlock(props: BlockProps<HeroProps>) {
 				{media && typeof media === 'object' ? (
 					<div className="flex items-center justify-center mt-16">
 						<Media
-							className="rounded-lg shadow-2xl"
+							className="rounded-lg shadow-2xl overflow-hidden"
 							media={media}
 							quality={90}
 							sizes={'100vw'}
