@@ -32,7 +32,11 @@ export function Content({ content }: { content: ContentBlockProps }) {
 export function ContentBlock(props: BlockProps<ContentProps>) {
 	const { columns, title, subtitle, section } = props
 
-	const colCount = ['grid-cols-1', 'grid-cols-2', 'grid-cols-3']
+	const colCount = [
+		'grid-cols-1',
+		'grid-cols-1 md:grid-cols-2',
+		'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+	]
 	const colClass = colCount[columns.length - 1]
 
 	return (

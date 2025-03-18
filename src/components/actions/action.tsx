@@ -8,9 +8,9 @@ export type ActionProps = Action
 export function Action(props: ActionProps) {
 	switch (props.type) {
 		case 'link': {
-			const { label, href } = props
+			const { label, href, ...rest } = props
 			return (
-				<Link href={href} className="hover:underline hover:text-foreground/90">
+				<Link href={href} className="hover:underline hover:text-foreground/90" {...rest}>
 					{label}
 				</Link>
 			)
