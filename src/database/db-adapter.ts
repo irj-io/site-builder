@@ -76,7 +76,7 @@ const parseMarkdown = async (
 const rewriteImagePaths = (yaml: string, slug: string[]) => {
 	const replacement =
 		slug.length > 0 ? `$1/assets/images/${path.join(...slug)}/` : `$1/assets/images/`
-	return yaml.replace(/(src:\s)\.\/images\//, replacement)
+	return yaml.replace(/(src:\s)\.\/images\//g, replacement)
 }
 
 const parseYaml = async (content: string): Promise<YamlFileData['data']> => {
