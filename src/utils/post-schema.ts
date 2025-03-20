@@ -11,6 +11,7 @@ export const MarkdownDataSchema = z.object({
 	description: z.string().optional(),
 	media: MediaPropsSchema.optional(),
 	order: z.number().optional(),
+	published: z.boolean().optional(),
 	slug: z.array(z.string()),
 	title: z.string().optional(),
 	// Deprecated, use media
@@ -27,6 +28,7 @@ export const ArticleDataSchema = z.object({
 	description: z.string().optional(),
 	media: MediaPropsSchema.optional(),
 	order: z.number().optional(),
+	published: z.boolean().optional(),
 	slug: z.array(z.string()),
 	title: z.string(),
 	// Deprecated, use media

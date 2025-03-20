@@ -114,9 +114,9 @@ describe('listPages', () => {
 		expect(files).not.toBeNull()
 
 		if (files) {
-			expect(files).toContain(pageFilePath)
-			expect(files).not.toContain(globalFilePath)
-			expect(files.some((file) => file.includes('images'))).toBe(false)
+			expect(files).toContain(expect.objectContaining({ filePath: pageFilePath }))
+			expect(files).not.toContain(expect.objectContaining({ filePath: globalFilePath }))
+			expect(files.some((file) => file.filePath.includes('images'))).toBe(false)
 		}
 	})
 })

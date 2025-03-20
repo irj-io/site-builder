@@ -25,6 +25,19 @@ export const getExtension = async (basePath: string): Promise<string> => {
 	}
 }
 
+export const getFileType = async (basePath: string): Promise<FileType> => {
+	const ext = await getExtension(basePath)
+	switch (ext) {
+		case 'yaml':
+		case 'yml':
+			return 'yaml'
+		case 'md':
+			return 'markdown'
+		default:
+			return 'unknown'
+	}
+}
+
 export const getSlugFromFilePath = (filePath: string) => {
 	return filePath
 		.replace(/\.[A-Za-z0-9]+?$/, '')

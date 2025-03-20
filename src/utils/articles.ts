@@ -21,12 +21,12 @@ export const getAllArticles = async (collection: string) => {
 		return []
 	}
 
-	for (const filePath of pages) {
-		if (!/\.md$/.test(filePath)) {
+	for (const page of pages) {
+		if (!/\.md$/.test(page.filePath)) {
 			continue
 		}
 
-		const article = await readArticle(filePath)
+		const article = await readArticle(page.filePath)
 		matterData.push(article)
 	}
 

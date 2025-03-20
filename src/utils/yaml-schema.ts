@@ -17,6 +17,7 @@ export type YamlPage = z.infer<typeof YamlPageSchema>
 export const YamlPageSchema = z.object({
 	announcementBar: AnnouncementBarSchema.optional().describe('Override announcementBar properties'),
 	header: HeaderSchema.pick({ theme: true }).optional().describe('Override header properties'),
+	published: z.boolean().optional(),
 	layout: z.array(BlocksSchema).describe('A list of page blocks to add to the page'),
 })
 

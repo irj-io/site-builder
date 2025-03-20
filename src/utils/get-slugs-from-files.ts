@@ -17,9 +17,14 @@ export async function getSlugsFromFiles(category = ''): Promise<string[][]> {
 		return []
 	}
 
-	for (const filePath of pages) {
+	for (const page of pages) {
+		// Filter out pages that have published set to false
+		if (!page.published) {
+			continue
+		}
+
 		files.push(
-			filePath
+			page.filePath
 				.replace(dbPath, '')
 				.replace(/^\//, '') // Remove starting `/`
 				.replace(/\.mdx?$/, '')

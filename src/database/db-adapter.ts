@@ -2,13 +2,15 @@
 
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
+import matter from 'gray-matter'
 import type { ReactNode } from 'react'
 import { parse } from 'yaml'
 
+import { isJsonComposite, type Json } from '../json-type'
 import { getIsDirectory } from '../utils/content-parsing'
 import { env } from '../utils/env'
-import { createError } from '../utils/error'
-import { getExtension, getSlugFromFilePath } from '../utils/file-utils'
+import { captureError, createError } from '../utils/error'
+import { getExtension, getFileType, getSlugFromFilePath } from '../utils/file-utils'
 import { getAvatarImageUrl } from '../utils/gravatar'
 import { parseMarkdownPage } from '../utils/markdown'
 import { parseLayout } from '../utils/parse-layout'
@@ -22,6 +24,12 @@ import { YamlGlobalSchema, type YamlGlobal, type YamlPage } from '../utils/yaml-
 import { EnvVarError, UnsupportedFileError } from './db-errors'
 
 type ResultOrError<T, U = Error> = [T, null] | [null, U]
+
+export interface PageDetails {
+	filePath: string
+	slug: string[]
+	published: boolean
+}
 
 interface MarkdownFileData {
 	type: 'md'
@@ -44,6 +52,43 @@ type FileData = MarkdownFileData | YamlFileData
 const IMAGE_DIR = /images(\/.+)?$/
 const GLOBAL_YAML = /global\.ya?ml$/
 const COLLECTION_YAML = /\.collection\.ya?ml$/
+
+const getPageDetails = async (filePath: string): Promise<ResultOrError<PageDetails>> => {
+	const [content, loadError] = await loadFile(filePath)
+	if (loadError) {
+		return [null, loadError]
+	}
+
+	const pageDetails: PageDetails = {
+		filePath,
+		slug: getSlugFromFilePath(filePath),
+		published: true,
+	}
+
+	const fileType = await getFileType(filePath)
+
+	let result: object = {}
+	switch (fileType) {
+		case 'markdown': {
+			const { data } = matter(content)
+			result = data
+			break
+		}
+
+		case 'yaml': {
+			const yaml: Json = parse(content, { merge: true })
+			if (isJsonComposite(yaml)) {
+				result = yaml
+			}
+			break
+		}
+	}
+
+	if ('published' in result && result.published === false) {
+		pageDetails.published = false
+	}
+	return [pageDetails, null]
+}
 
 const parseMarkdown = async (
 	content: string,
@@ -173,6 +218,7 @@ export const listCollections = async (): Promise<ResultOrError<string[]>> => {
 				files.push(path.join(dbPath, filePath))
 			}
 		}
+
 		return [files, null]
 	} catch (err) {
 		const error = createError(err)
@@ -180,7 +226,7 @@ export const listCollections = async (): Promise<ResultOrError<string[]>> => {
 	}
 }
 
-export const listPages = async (directory?: string): Promise<ResultOrError<string[]>> => {
+export const listPages = async (directory?: string): Promise<ResultOrError<PageDetails[]>> => {
 	const dbPath = env('DB_PATH')
 	if (!dbPath) {
 		return [null, new EnvVarError('DB_PATH')]
@@ -197,10 +243,20 @@ export const listPages = async (directory?: string): Promise<ResultOrError<strin
 
 		for (const filePath of fileList) {
 			const stats = await fs.lstat(path.join(dirPath, filePath))
-			if (!stats.isDirectory()) {
-				files.push(path.join(dirPath, filePath))
+			if (stats.isDirectory()) {
+				continue
 			}
+
+			const fullPath = path.join(dirPath, filePath)
+			const [file, loadError] = await getPageDetails(fullPath)
+			if (loadError) {
+				captureError(loadError)
+				continue
+			}
+
+			files.push(file)
 		}
+
 		return [files, null]
 	} catch (err) {
 		const error = createError(err)

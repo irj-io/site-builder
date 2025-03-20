@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-import { listPages, loadFile, saveFile } from '../database/db-adapter'
+import { listPages, loadFile, saveFile, type PageDetails } from '../database/db-adapter'
 import { captureError } from '../utils/error'
 import { Editor } from './editor'
 
@@ -10,9 +10,9 @@ function ErrorMessage({ message }: { message: string }) {
 	return <p className="text-destructive">{message}</p>
 }
 
-const formatFile = (file: string) => {
-	const match = file.match(/(?:([^/]+)\/)?([^/]+)(\.[A-Za-z0-9]+)$/)
-	let name = file
+const formatFile = (file: PageDetails) => {
+	const match = file.filePath.match(/(?:([^/]+)\/)?([^/]+)(\.[A-Za-z0-9]+)$/)
+	let name = file.filePath
 	if (match && typeof match[1] === 'string' && typeof match[2] === 'string') {
 		if (match[2] === 'index') {
 			name = match[1] + (match[3] || '')
@@ -25,8 +25,8 @@ const formatFile = (file: string) => {
 
 export function EditorPageClient() {
 	const [error, setError] = useState('')
-	const [fileList, setFileList] = useState<string[]>([])
-	const [file, setFile] = useState('')
+	const [fileList, setFileList] = useState<PageDetails[]>([])
+	const [file, setFile] = useState<PageDetails | null>(null)
 	const [fileContents, setFileContents] = useState('')
 
 	useEffect(() => {
@@ -52,7 +52,7 @@ export function EditorPageClient() {
 		}
 
 		let ignore = false
-		loadFile(file).then(([contents, error]) => {
+		loadFile(file.filePath).then(([contents, error]) => {
 			if (error) {
 				captureError(error)
 				setError(error.message)
@@ -67,12 +67,16 @@ export function EditorPageClient() {
 		}
 	}, [file])
 
-	const handleSelectFile = (file: string) => () => {
+	const handleSelectFile = (file: PageDetails) => () => {
 		setFile(file)
 	}
 
 	const handleSave = async (value: string) => {
-		saveFile(file, value)
+		if (!file) {
+			setError('No file selected')
+			return
+		}
+		saveFile(file.filePath, value)
 	}
 
 	return (
@@ -82,7 +86,7 @@ export function EditorPageClient() {
 				<div className="col-span-3 h-full">
 					<ul>
 						{fileList.map((file) => (
-							<li key={file} onClick={handleSelectFile(file)}>
+							<li key={file.filePath} onClick={handleSelectFile(file)}>
 								{formatFile(file)}
 							</li>
 						))}
