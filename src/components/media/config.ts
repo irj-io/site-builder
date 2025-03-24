@@ -14,6 +14,7 @@ export const ImagePropsSchema = z.object({
 	style: z.enum(['screenshot']).optional(),
 	width: z.number().optional(),
 	height: z.number().optional(),
+	className: z.string().optional(),
 })
 
 export type MediaProps = z.infer<typeof MediaPropsSchema>

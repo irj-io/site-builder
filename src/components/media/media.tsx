@@ -27,7 +27,7 @@ export function Media(props: MediaWithImageProps) {
 					return (
 						<div className={cn('media-style-screenshot', className)}>
 							<Image
-								className={imageClassName}
+								className={cn(imageClassName, mediaProps.className)}
 								src={media.src}
 								alt={media.alt}
 								{...imageProps}
@@ -39,7 +39,7 @@ export function Media(props: MediaWithImageProps) {
 					return (
 						<div className={className}>
 							<Image
-								className={imageClassName}
+								className={cn(imageClassName, mediaProps.className)}
 								src={media.src}
 								alt={media.alt}
 								{...imageProps}

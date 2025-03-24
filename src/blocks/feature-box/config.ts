@@ -14,4 +14,7 @@ export const FeatureBoxPropsSchema = z.object({
 	action: ActionSchema.optional(),
 	reverse: z.boolean().default(false),
 	section: SectionPropsSchema.optional(),
+	innerClassName: z.string().optional(),
+	imageContainerClassName: z.string().optional(),
+	contentContainerClassName: z.string().optional(),
 })

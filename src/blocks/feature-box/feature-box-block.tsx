@@ -7,8 +7,18 @@ import type { BlockProps } from '../block-types'
 import type { FeatureBoxProps } from './config'
 
 export function FeatureBoxBlock(props: BlockProps<FeatureBoxProps>) {
-	const { media, title, overline, content, action, reverse, section } = props
-
+	const {
+		media,
+		title,
+		overline,
+		content,
+		action,
+		reverse,
+		section,
+		innerClassName,
+		imageContainerClassName,
+		contentContainerClassName,
+	} = props
 	const direction = reverse ? 'flex-row-reverse' : 'flex-row'
 
 	return (
@@ -16,29 +26,35 @@ export function FeatureBoxBlock(props: BlockProps<FeatureBoxProps>) {
 			<div
 				className={cn(
 					'xl:container mx-auto lg:flex sm:min-h-20 md:min-h-48 lg:min-h-64',
-					direction
+					direction,
+					innerClassName
 				)}
 			>
-				<div className="grow lg:w-1/2">
+				<div className={cn('grow lg:w-1/2', imageContainerClassName)}>
 					{media && typeof media === 'object' ? (
 						<Media
 							media={media}
-							className="w-full h-full"
 							imageClassName="size-full object-cover object-center w-full h-full"
-							height={400}
-							width={600}
+							height={600}
+							width={800}
 						/>
 					) : null}
 				</div>
-				<div className="grow lg:w-1/2 p-12 sm:p-20 lg:p-28 xl:p-32">
-					{overline ? <div className="text-sm mb-2">{overline}</div> : null}
+				<div
+					className={cn('grow lg:w-1/2 p-12 sm:p-20 lg:p-28 xl:p-32', contentContainerClassName)}
+				>
+					{overline ? <div className="mb-1 text-primary">{overline}</div> : null}
 					<div className="text-4xl font-semibold">{title}</div>
 					{content ? (
-						<div className="my-6">
-							<MdContent className="text-lg" markdown={content} />
+						<div className="mt-4">
+							<MdContent className="" markdown={content} />
 						</div>
 					) : null}
-					{action ? <Action {...action} /> : null}
+					{action ? (
+						<div className="mt-4">
+							<Action {...action} />
+						</div>
+					) : null}
 				</div>
 			</div>
 		</Section>

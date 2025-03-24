@@ -12,17 +12,17 @@ interface SectionHeaderProps {
 export function SectionHeader(props: SectionHeaderProps) {
 	const { title, subtitle, titleClassName, subtitleClassName } = props
 
+	const sharedClasses = 'max-w-4xl mx-auto px-6 text-center text-balance'
+
 	return (
 		<>
 			{title ? (
-				<TypographyH2
-					className={cn('max-w-4xl mx-auto whitespace-pre-wrap text-center mb-3', titleClassName)}
-				>
+				<TypographyH2 className={cn(sharedClasses, 'whitespace-pre-wrap mb-3', titleClassName)}>
 					{parseComponents(title)}
 				</TypographyH2>
 			) : null}
 			{subtitle ? (
-				<TypographyLead className={cn('max-w-4xl mx-auto text-center mb-3', subtitleClassName)}>
+				<TypographyLead className={cn(sharedClasses, 'mb-3', subtitleClassName)}>
 					{subtitle}
 				</TypographyLead>
 			) : null}
