@@ -5,7 +5,7 @@ import { Media } from '../../components/media/media'
 import { getSectionProps, Section } from '../../components/section/section'
 import { SectionHeader } from '../../components/section/section-header'
 import { type TestimonialProps } from '../../components/testimonial/config'
-import { TestimonialVertical } from '../../components/testimonial/testimonial-vertical'
+import { Testimonial } from '../../components/testimonial/testimonial'
 import { cn } from '../../utils/cn'
 import { type BlockProps } from '../block-types'
 import { type ContentProps } from './config'
@@ -18,7 +18,7 @@ export function Content({ content }: { content: ContentBlockProps }) {
 			return <ContentBox {...content} />
 		}
 		case 'testimonial': {
-			return <TestimonialVertical {...content} />
+			return <Testimonial {...content} />
 		}
 		case 'image': {
 			return <Media media={content} />
