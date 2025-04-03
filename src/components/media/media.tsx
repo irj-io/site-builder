@@ -1,5 +1,5 @@
 import Image, { type ImageProps } from 'next/image'
-import { omit } from 'remeda'
+import { omit, pick } from 'remeda'
 
 import { cn } from '../../utils/cn'
 import { HeroSvg } from '../hero-svg'
@@ -48,6 +48,32 @@ export function Media(props: MediaWithImageProps) {
 						</div>
 					)
 			}
+		}
+
+		case 'video': {
+			const attributes: React.VideoHTMLAttributes<HTMLVideoElement> = pick(media, [
+				'autoPlay',
+				'controls',
+				'loop',
+				'muted',
+			])
+
+			// Enables inline playback on iOS devices, often necessary for autoplay to work on iOS Safari.
+			if (attributes.autoPlay) {
+				attributes.playsInline = true
+			}
+
+			return (
+				<div className={className}>
+					<video
+						className={media.className}
+						src={media.src}
+						height={500}
+						width={500}
+						{...attributes}
+					/>
+				</div>
+			)
 		}
 	}
 }

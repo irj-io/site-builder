@@ -17,8 +17,20 @@ export const ImagePropsSchema = z.object({
 	className: z.string().optional(),
 })
 
+export type VideoProps = z.infer<typeof VideoPropsSchema>
+export const VideoPropsSchema = z.object({
+	type: z.literal('video'),
+	src: z.string(),
+	autoPlay: z.boolean().optional(),
+	loop: z.boolean().optional(),
+	controls: z.boolean().optional(),
+	muted: z.boolean().optional(),
+	className: z.string().optional(),
+})
+
 export type MediaProps = z.infer<typeof MediaPropsSchema>
 export const MediaPropsSchema = z.discriminatedUnion('type', [
 	ImagePropsSchema,
 	CustomSvgPropsSchema,
+	VideoPropsSchema,
 ])
