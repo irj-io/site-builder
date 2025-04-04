@@ -24,9 +24,9 @@ export const getSectionProps = (
 	}
 }
 
-export function Section({ className, children }: SectionProps & { children: React.ReactNode }) {
+export function Section({ children, ...props }: SectionProps & { children: React.ReactNode }) {
 	return (
-		<section className={className}>
+		<section {...props}>
 			<motion.div
 				initial={{ opacity: 0, y: 60 }}
 				whileInView={{
