@@ -47,7 +47,11 @@ export function ContentBlock(props: BlockProps<ContentProps>) {
 				{columns && columns.length > 0
 					? columns.map((col, index) => {
 							const { content } = col
-							return <div key={index}>{content ? <Content content={content} /> : null}</div>
+							return (
+								<div key={index} className="flex flex-col">
+									{content ? <Content content={content} /> : null}
+								</div>
+							)
 						})
 					: null}
 			</div>
